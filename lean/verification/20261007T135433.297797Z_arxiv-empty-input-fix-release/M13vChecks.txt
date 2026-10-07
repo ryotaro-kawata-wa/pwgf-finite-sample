@@ -1,0 +1,697 @@
+PaperFormalization.Manuscript.varianceCosineCurvatureScale (beta : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineCurvatureScale' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCosineDrift (b z : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineCosineDrift' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCosineDen (b z t : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineCosineDen' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCosineSolution (b z t : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineCosineSolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCurvatureScale_pos {beta : ℝ} (hb : 0 < beta) :
+  0 < varianceCosineCurvatureScale beta
+'PaperFormalization.Manuscript.varianceCosineCurvatureScale_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCosineDen_pos (b z t : ℝ) (hz : -1 ≤ z) (hz1 : z < 1) :
+  0 < varianceCosineCosineDen b z t
+'PaperFormalization.Manuscript.varianceCosineCosineDen_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCosineSolution_start (b z : ℝ) : varianceCosineCosineSolution b z 0 = z
+'PaperFormalization.Manuscript.varianceCosineCosineSolution_start' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCosineSolution_odd_equilibrium (b t : ℝ) :
+  varianceCosineCosineSolution b (-1) t = -1
+'PaperFormalization.Manuscript.varianceCosineCosineSolution_odd_equilibrium' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCosineSolution_continuous (b z : ℝ) (hz : -1 ≤ z) (hz1 : z < 1) :
+  Continuous (varianceCosineCosineSolution b z)
+'PaperFormalization.Manuscript.varianceCosineCosineSolution_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCosineSolution_mem (b z t : ℝ) (hz : -1 ≤ z) (hz1 : z < 1) :
+  varianceCosineCosineSolution b z t ∈ Icc (-1) 1
+'PaperFormalization.Manuscript.varianceCosineCosineSolution_mem' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCosineSolution_hasDerivAt (b z t : ℝ) (hz : -1 ≤ z) (hz1 : z < 1) :
+  HasDerivAt (varianceCosineCosineSolution b z) (varianceCosineCosineDrift b (varianceCosineCosineSolution b z t)) t
+'PaperFormalization.Manuscript.varianceCosineCosineSolution_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_cos_of_mean_hasDerivAt (beta : ℝ) (m : ℝ → ℝ) (t : ℝ)
+  (hm : HasDerivAt m (varianceCosineMeanDrift beta (m t)) t) :
+  HasDerivAt (fun s => Real.cos (Real.pi * m s))
+    (varianceCosineCosineDrift (varianceCosineCurvatureScale beta) (Real.cos (Real.pi * m t))) t
+'PaperFormalization.Manuscript.varianceCosine_cos_of_mean_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanFlow_cosine (beta T x : ℝ) (hb : 0 ≤ beta) (hT : 0 ≤ T)
+  (hx : Real.cos (Real.pi * x) < 1) :
+  EqOn (fun t => Real.cos (Real.pi * varianceCosineMeanFlow beta T x t))
+    (varianceCosineCosineSolution (varianceCosineCurvatureScale beta) (Real.cos (Real.pi * x))) (Icc 0 T)
+'PaperFormalization.Manuscript.varianceCosineMeanFlow_cosine' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRecoveryDelay (b rho : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineRecoveryDelay' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRecoveryDelay_nonneg (b rho : ℝ) (hb : 0 < b) (hr : 0 < rho)
+  (hr1 : rho ≤ 1) : 0 ≤ varianceCosineRecoveryDelay b rho
+'PaperFormalization.Manuscript.varianceCosineRecoveryDelay_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRecoveryDelay_exp (b rho t : ℝ) (hb : 0 < b) (hr : 0 < rho)
+  (ht : varianceCosineRecoveryDelay b rho ≤ t) : 2 / rho ≤ Real.exp (b * t)
+'PaperFormalization.Manuscript.varianceCosineRecoveryDelay_exp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCosineSolution_recovered (b z rho t : ℝ) (hb : 0 < b) (hz : -1 ≤ z)
+  (hz1 : z < 1) (hr : 0 < rho) (hgap : 2 * rho ^ 2 ≤ 1 - z) (ht : varianceCosineRecoveryDelay b rho ≤ t) :
+  varianceCosineCosineSolution b z t ≤ -(1 / 2)
+'PaperFormalization.Manuscript.varianceCosineCosineSolution_recovered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanFlow_cosine_recovered (beta T x rho t : ℝ) (hb : 0 < beta)
+  (hr : 0 < rho) (hgap : 2 * rho ^ 2 ≤ 1 - Real.cos (Real.pi * x)) (ht : t ∈ Icc 0 T)
+  (hwait : varianceCosineRecoveryDelay (varianceCosineCurvatureScale beta) rho ≤ t) :
+  Real.cos (Real.pi * varianceCosineMeanFlow beta T x t) ≤ -(1 / 2)
+'PaperFormalization.Manuscript.varianceCosineMeanFlow_cosine_recovered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeLanding (rho x : ℝ) : Prop
+'PaperFormalization.Manuscript.varianceCosineEscapeLanding' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEvenDistance (x : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineEvenDistance' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEvenDistances_nonempty (x : ℝ) : (range fun k => |x - 2 * ↑k|).Nonempty
+'PaperFormalization.Manuscript.varianceCosineEvenDistances_nonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEvenDistances_bddBelow (x : ℝ) : BddBelow (range fun k => |x - 2 * ↑k|)
+'PaperFormalization.Manuscript.varianceCosineEvenDistances_bddBelow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeLanding_iff_distance (rho x : ℝ) :
+  varianceCosineEscapeLanding rho x ↔ rho ≤ varianceCosineEvenDistance x
+'PaperFormalization.Manuscript.varianceCosineEscapeLanding_iff_distance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeLanding_measurable (rho : ℝ) :
+  MeasurableSet {x | varianceCosineEscapeLanding rho x}
+'PaperFormalization.Manuscript.varianceCosineEscapeLanding_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeLanding_bad_eq (rho : ℝ) :
+  {x | ¬varianceCosineEscapeLanding rho x} = ⋃ k, Ioo (2 * ↑k - rho) (2 * ↑k + rho)
+'PaperFormalization.Manuscript.varianceCosineEscapeLanding_bad_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_nearest_even (x : ℝ) : ∃ k, |x - 2 * ↑k| ≤ 1
+'PaperFormalization.Manuscript.varianceCosine_nearest_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEvenDistance_mem (x : ℝ) : varianceCosineEvenDistance x ∈ Icc 0 1
+'PaperFormalization.Manuscript.varianceCosineEvenDistance_mem' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeLanding_gap (rho x : ℝ) (hr : 0 ≤ rho)
+  (hx : varianceCosineEscapeLanding rho x) : 2 * rho ^ 2 ≤ 1 - Real.cos (Real.pi * x)
+'PaperFormalization.Manuscript.varianceCosineEscapeLanding_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanFlow_recovered_of_landing (beta T x rho t : ℝ) (hb : 0 < beta)
+  (hr : 0 < rho) (hx : varianceCosineEscapeLanding rho x) (ht : t ∈ Icc 0 T)
+  (hwait : varianceCosineRecoveryDelay (varianceCosineCurvatureScale beta) rho ≤ t) :
+  Real.cos (Real.pi * varianceCosineMeanFlow beta T x t) ≤ -(1 / 2)
+'PaperFormalization.Manuscript.varianceCosineMeanFlow_recovered_of_landing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeLanding_odd (rho : ℝ) (hr : rho ≤ 1) (k : ℤ) :
+  varianceCosineEscapeLanding rho (2 * ↑k + 1)
+'PaperFormalization.Manuscript.varianceCosineEscapeLanding_odd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeLanding_not_even (rho : ℝ) (hr : 0 < rho) (k : ℤ) :
+  ¬varianceCosineEscapeLanding rho (2 * ↑k)
+'PaperFormalization.Manuscript.varianceCosineEscapeLanding_not_even' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineHessian (N : ℕ) (a c : ℝ) :
+  SourceFiniteConfiguration N 1 →L[ℝ] SourceFiniteConfiguration N 1
+'PaperFormalization.Manuscript.varianceCosineHessian' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_source_sampled_hessian (N : ℕ) (a beta : ℝ) (z : ↥VarianceCosineHilbert)
+  (Y : SourceFiniteConfiguration N 1) :
+  sampledMomentHessian varianceCosineEncodedFeature (varianceCosineObjective a beta) z Y =
+    varianceCosineHessian N a (varianceCosineKernel a beta ((varianceCosineDecode 0) z))
+'PaperFormalization.Manuscript.varianceCosine_source_sampled_hessian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineHessian_scalar_apply {N : ℕ} (a c : ℝ) (v : SourceFiniteConfiguration N 1)
+  (i : Fin N) :
+  varianceCosineScalar (((varianceCosineHessian N a c) v).ofLp i) =
+    a * varianceCosineScalar (v.ofLp i) + c * varianceCosineEmpiricalMean v
+'PaperFormalization.Manuscript.varianceCosineHessian_scalar_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_configuration_norm_sq {N : ℕ} (v : SourceFiniteConfiguration N 1) :
+  ‖v‖ ^ 2 = ∑ i, varianceCosineScalar (v.ofLp i) ^ 2
+'PaperFormalization.Manuscript.varianceCosine_configuration_norm_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineHessian_quadratic {N : ℕ} (a c : ℝ) (v : SourceFiniteConfiguration N 1) :
+  inner ℝ v ((varianceCosineHessian N a c) v) = a * ‖v‖ ^ 2 + c * (↑N)⁻¹ * (∑ i, varianceCosineScalar (v.ofLp i)) ^ 2
+'PaperFormalization.Manuscript.varianceCosineHessian_quadratic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_mean_direction_energy {N : ℕ} (hN : 0 < N)
+  (v : SourceFiniteConfiguration N 1) :
+  0 ≤ (↑N)⁻¹ * (∑ i, varianceCosineScalar (v.ofLp i)) ^ 2 ∧
+    (↑N)⁻¹ * (∑ i, varianceCosineScalar (v.ofLp i)) ^ 2 ≤ ‖v‖ ^ 2
+'PaperFormalization.Manuscript.varianceCosine_mean_direction_energy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineHessian_quadratic_lower {N : ℕ} (hN : 0 < N) (a c : ℝ)
+  (v : SourceFiniteConfiguration N 1) : min a (a + c) * ‖v‖ ^ 2 ≤ inner ℝ v ((varianceCosineHessian N a c) v)
+'PaperFormalization.Manuscript.varianceCosineHessian_quadratic_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineHessian_rayleigh_le_parallel {N : ℕ} (hN : 0 < N) (a c : ℝ) :
+  rayleighInf (varianceCosineHessian N a c) ≤ a + c
+'PaperFormalization.Manuscript.varianceCosineHessian_rayleigh_le_parallel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_centered_direction {N : ℕ} (hN : 2 ≤ N) :
+  ∃ v, ‖v‖ ^ 2 = 2 ∧ ∑ i, varianceCosineScalar (v.ofLp i) = 0
+'PaperFormalization.Manuscript.varianceCosine_centered_direction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineHessian_rayleigh_le_centered {N : ℕ} (hN : 2 ≤ N) (a c : ℝ) :
+  rayleighInf (varianceCosineHessian N a c) ≤ a
+'PaperFormalization.Manuscript.varianceCosineHessian_rayleigh_le_centered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineHessian_rayleigh {N : ℕ} (hN : 2 ≤ N) (a c : ℝ) :
+  rayleighInf (varianceCosineHessian N a c) = min a (a + c)
+'PaperFormalization.Manuscript.varianceCosineHessian_rayleigh' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineHessian_rayleigh_one (a c : ℝ) :
+  rayleighInf (varianceCosineHessian 1 a c) = a + c
+'PaperFormalization.Manuscript.varianceCosineHessian_rayleigh_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCurvature (a beta m : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineCurvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRecoveryRate (a beta : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineRecoveryRate' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRecoveryRate_pos {a beta : ℝ} (ha : 0 < a) (hb : 0 < beta) :
+  0 < varianceCosineRecoveryRate a beta
+'PaperFormalization.Manuscript.varianceCosineRecoveryRate_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_source_sampled_curvature {N : ℕ} (hN : 2 ≤ N) (a beta : ℝ)
+  (z : ↥VarianceCosineHilbert) (Y : SourceFiniteConfiguration N 1) :
+  rayleighInf (sampledMomentHessian varianceCosineEncodedFeature (varianceCosineObjective a beta) z Y) =
+    varianceCosineCurvature a beta ((varianceCosineDecode 0) z)
+'PaperFormalization.Manuscript.varianceCosine_source_sampled_curvature' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_population_sampled_curvature {N : ℕ} (hN : 2 ≤ N)
+  (mu0 : Measure VarianceCosinePoint) [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R)
+  (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R) (hmean : varianceCosineMean mu0 = 0) (a beta m r : ℝ)
+  (Y : SourceFiniteConfiguration N 1) :
+  rayleighInf
+      (sampledMomentHessian varianceCosineEncodedFeature (varianceCosineObjective a beta)
+        (integral (varianceCosinePopulation mu0 m r) varianceCosineEncodedFeature) Y) =
+    varianceCosineCurvature a beta m
+'PaperFormalization.Manuscript.varianceCosine_population_sampled_curvature' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCurvature_lower (a beta m : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ beta) :
+  -varianceCosineCurvatureScale beta ≤ varianceCosineCurvature a beta m
+'PaperFormalization.Manuscript.varianceCosineCurvature_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCurvature_abs (a beta m : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ beta) :
+  |varianceCosineCurvature a beta m| ≤ max a (varianceCosineCurvatureScale beta)
+'PaperFormalization.Manuscript.varianceCosineCurvature_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCurvature_recovered (a beta m : ℝ) (hb : 0 ≤ beta)
+  (hc : Real.cos (Real.pi * m) ≤ -(1 / 2)) : varianceCosineRecoveryRate a beta ≤ varianceCosineCurvature a beta m
+'PaperFormalization.Manuscript.varianceCosineCurvature_recovered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCurvature_continuous (a beta : ℝ) :
+  Continuous (varianceCosineCurvature a beta)
+'PaperFormalization.Manuscript.varianceCosineCurvature_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_mean_curvature_recovered (a beta T x rho t : ℝ) (hb : 0 < beta)
+  (hr : 0 < rho) (hx : varianceCosineEscapeLanding rho x) (ht : t ∈ Icc 0 T)
+  (hwait : varianceCosineRecoveryDelay (varianceCosineCurvatureScale beta) rho ≤ t) :
+  varianceCosineRecoveryRate a beta ≤ varianceCosineCurvature a beta (varianceCosineMeanFlow beta T x t)
+'PaperFormalization.Manuscript.varianceCosine_mean_curvature_recovered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineGaussian_pdf_mono (v : NNReal) (x y : ℝ) (hxy : |x| ≤ |y|) :
+  gaussianPDFReal 0 v y ≤ gaussianPDFReal 0 v x
+'PaperFormalization.Manuscript.varianceCosineGaussian_pdf_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineGaussian_interval_upper (v : NNReal) (hv : v ≠ 0) (A B d : ℝ) (hd : 0 ≤ d)
+  (h : ∀ x ∈ Ioo A B, d ≤ |x|) :
+  (gaussianReal 0 v) (Ioo A B) ≤ ENNReal.ofReal (B - A) * ENNReal.ofReal (gaussianPDFReal 0 v d)
+'PaperFormalization.Manuscript.varianceCosineGaussian_interval_upper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineGaussian_interval_lower (v : NNReal) (hv : v ≠ 0) (A B d : ℝ) (hd : 0 ≤ d)
+  (h : ∀ x ∈ Ioo A B, |x| ≤ d) :
+  ENNReal.ofReal (B - A) * ENNReal.ofReal (gaussianPDFReal 0 v d) ≤ (gaussianReal 0 v) (Ioo A B)
+'PaperFormalization.Manuscript.varianceCosineGaussian_interval_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePositiveLanding (rho : ℝ) (k : ℕ) : Set ℝ
+'PaperFormalization.Manuscript.varianceCosinePositiveLanding' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineNegativeLanding (rho : ℝ) (k : ℕ) : Set ℝ
+'PaperFormalization.Manuscript.varianceCosineNegativeLanding' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePositiveReference (k : ℕ) : Set ℝ
+'PaperFormalization.Manuscript.varianceCosinePositiveReference' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineNegativeReference (k : ℕ) : Set ℝ
+'PaperFormalization.Manuscript.varianceCosineNegativeReference' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineGaussian_positive_interval (v : NNReal) (hv : v ≠ 0) (rho : ℝ)
+  (hr : 0 ≤ rho) (hr1 : rho ≤ 1) (k : ℕ) :
+  (gaussianReal 0 v) (varianceCosinePositiveLanding rho k) ≤
+    ENNReal.ofReal (2 * rho) * (gaussianReal 0 v) (varianceCosinePositiveReference k)
+'PaperFormalization.Manuscript.varianceCosineGaussian_positive_interval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineGaussian_negative_interval (v : NNReal) (hv : v ≠ 0) (rho : ℝ)
+  (hr : 0 ≤ rho) (hr1 : rho ≤ 1) (k : ℕ) :
+  (gaussianReal 0 v) (varianceCosineNegativeLanding rho k) ≤
+    ENNReal.ofReal (2 * rho) * (gaussianReal 0 v) (varianceCosineNegativeReference k)
+'PaperFormalization.Manuscript.varianceCosineGaussian_negative_interval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePositiveReference_disjoint :
+  Pairwise (Function.onFun Disjoint varianceCosinePositiveReference)
+'PaperFormalization.Manuscript.varianceCosinePositiveReference_disjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineNegativeReference_disjoint :
+  Pairwise (Function.onFun Disjoint varianceCosineNegativeReference)
+'PaperFormalization.Manuscript.varianceCosineNegativeReference_disjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_union_of_disjoint_dominators (mu : Measure ℝ) [IsProbabilityMeasure mu]
+  (A B : ℕ → Set ℝ) (hB : ∀ (k : ℕ), MeasurableSet (B k)) (hd : Pairwise (Function.onFun Disjoint B)) (c : ENNReal)
+  (h : ∀ (k : ℕ), mu (A k) ≤ c * mu (B k)) : mu (⋃ k, A k) ≤ c
+'PaperFormalization.Manuscript.varianceCosine_union_of_disjoint_dominators' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeLanding_bad_cover (rho : ℝ) :
+  {x | ¬varianceCosineEscapeLanding rho x} ⊆
+    (Ioo (-rho) rho ∪ ⋃ k, varianceCosinePositiveLanding rho k) ∪ ⋃ k, varianceCosineNegativeLanding rho k
+'PaperFormalization.Manuscript.varianceCosineEscapeLanding_bad_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeConstant (v : NNReal) : ℝ
+'PaperFormalization.Manuscript.varianceCosineEscapeConstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeConstant_ge_four (v : NNReal) : 4 ≤ varianceCosineEscapeConstant v
+'PaperFormalization.Manuscript.varianceCosineEscapeConstant_ge_four' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineGaussian_escape_failure (v : NNReal) (hv : v ≠ 0) (rho : ℝ) (hr : 0 ≤ rho)
+  (hr1 : rho ≤ 1) :
+  (gaussianReal 0 v) {x | ¬varianceCosineEscapeLanding rho x} ≤ ENNReal.ofReal (varianceCosineEscapeConstant v * rho)
+'PaperFormalization.Manuscript.varianceCosineGaussian_escape_failure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeRadius (v : NNReal) (p : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineEscapeRadius' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeRadius_bounds (v : NNReal) (p : ℝ) (hp : 0 < p) (hp1 : p ≤ 1) :
+  0 < varianceCosineEscapeRadius v p ∧ varianceCosineEscapeRadius v p ≤ 1 / 8
+'PaperFormalization.Manuscript.varianceCosineEscapeRadius_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineGaussian_escape_budget (v : NNReal) (hv : v ≠ 0) (p : ℝ) (hp : 0 < p)
+  (hp1 : p ≤ 1) :
+  (gaussianReal 0 v) {x | ¬varianceCosineEscapeLanding (varianceCosineEscapeRadius v p) x} ≤ ENNReal.ofReal (p / 2)
+'PaperFormalization.Manuscript.varianceCosineGaussian_escape_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeEvent {N : ℕ} (sigma rho : ℝ) : Set (VarianceCosineCouplingSpace N)
+'PaperFormalization.Manuscript.varianceCosineEscapeEvent' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeEvent_measurable {N : ℕ} (sigma rho : ℝ) :
+  MeasurableSet (varianceCosineEscapeEvent sigma rho)
+'PaperFormalization.Manuscript.varianceCosineEscapeEvent_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCoupling_landing_law {N : ℕ} (mu : Measure (SourceFiniteConfiguration N 1))
+  [IsProbabilityMeasure mu] (sigma : ℝ) :
+  Measure.map (fun w => -sigma * w.2.1) (varianceCosineCouplingLaw mu) = gaussianReal 0 ⟨sigma ^ 2, ⋯⟩
+'PaperFormalization.Manuscript.varianceCosineCoupling_landing_law' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeEvent_budget {N : ℕ} (mu : Measure (SourceFiniteConfiguration N 1))
+  [IsProbabilityMeasure mu] (sigma p : ℝ) (hs : 0 < sigma) (hp : 0 < p) (hp1 : p ≤ 1) :
+  have v := ⟨sigma ^ 2, ⋯⟩;
+  (varianceCosineCouplingLaw mu) (varianceCosineEscapeEvent sigma (varianceCosineEscapeRadius v p))ᶜ ≤
+    ENNReal.ofReal (p / 2)
+'PaperFormalization.Manuscript.varianceCosineEscapeEvent_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.recovery_energy_decay (E dE : ℝ → ℝ) (q s t : ℝ) (hst : s ≤ t)
+  (hE : ContinuousOn E (Icc s t)) (hdE : ∀ u ∈ Ioo s t, HasDerivAt E (dE u) u)
+  (hineq : ∀ u ∈ Ioo s t, dE u ≤ -q * E u) : E t ≤ E s * Real.exp (-q * (t - s))
+'PaperFormalization.Manuscript.recovery_energy_decay' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulationExcess (a beta V : ℝ) (m : ℝ → ℝ) (t : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosinePopulationExcess' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulationExcessDeriv (a beta V : ℝ) (m : ℝ → ℝ) (t : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosinePopulationExcessDeriv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulationExcess_nonneg (a beta V : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ beta)
+  (hV : 0 ≤ V) (m : ℝ → ℝ) (t : ℝ) : 0 ≤ varianceCosinePopulationExcess a beta V m t
+'PaperFormalization.Manuscript.varianceCosinePopulationExcess_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulationExcess_hasDerivAt (a beta V : ℝ) (m : ℝ → ℝ) (t : ℝ)
+  (hm : HasDerivAt m (varianceCosineMeanDrift beta (m t)) t) :
+  HasDerivAt (varianceCosinePopulationExcess a beta V m) (varianceCosinePopulationExcessDeriv a beta V m t) t
+'PaperFormalization.Manuscript.varianceCosinePopulationExcess_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulationExcess_differential_bound (a beta V : ℝ) (ha : 0 ≤ a)
+  (hb : 0 ≤ beta) (hV : 0 ≤ V) (m : ℝ → ℝ) (t : ℝ) (hc : Real.cos (Real.pi * m t) ≤ -(1 / 2)) :
+  varianceCosinePopulationExcessDeriv a beta V m t ≤
+    -2 * varianceCosineRecoveryRate a beta * varianceCosinePopulationExcess a beta V m t
+'PaperFormalization.Manuscript.varianceCosinePopulationExcess_differential_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulationExcess_uniform (a beta V R : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ beta)
+  (hV : 0 ≤ V) (hVR : V ≤ R ^ 2) (m : ℝ → ℝ) (t : ℝ) (ht : 0 ≤ t) :
+  varianceCosinePopulationExcess a beta V m t ≤ a / 2 * R ^ 2 + 2 * beta
+'PaperFormalization.Manuscript.varianceCosinePopulationExcess_uniform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineInitial_variance_bounds (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R)
+  (hm : varianceCosineMean mu0 = 0) : 0 ≤ varianceCosineVariance mu0 ∧ varianceCosineVariance mu0 ≤ R ^ 2
+'PaperFormalization.Manuscript.varianceCosineInitial_variance_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulationExcess_eq_objective (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R)
+  (hm : varianceCosineMean mu0 = 0) (a beta : ℝ) (m : ℝ → ℝ) (t : ℝ) :
+  Integrable varianceCosineEncodedFeature (varianceCosinePopulation mu0 (m t) (Real.exp (-a * t))) ∧
+    varianceCosineObjective a beta
+          (∫ (x : VarianceCosinePoint),
+            varianceCosineEncodedFeature x ∂varianceCosinePopulation mu0 (m t) (Real.exp (-a * t))) +
+        beta =
+      varianceCosinePopulationExcess a beta (varianceCosineVariance mu0) m t
+'PaperFormalization.Manuscript.varianceCosinePopulationExcess_eq_objective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulation_objective_after_escape (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R)
+  (hm0 : varianceCosineMean mu0 = 0) (a beta tau eta T Z rho t : ℝ) (ha : 0 < a) (hb : 0 < beta) (htau : 0 ≤ tau)
+  (hr : 0 < rho) (hr1 : rho ≤ 1) (hland : varianceCosineEscapeLanding rho (varianceCosinePostMeanY a beta eta Z))
+  (ht : tau + varianceCosineRecoveryDelay (varianceCosineCurvatureScale beta) rho ≤ t) (htT : t ≤ T) :
+  have m := fun u => varianceCosineMeanFlow beta T (varianceCosinePostMeanY a beta eta Z) (u - tau);
+  have r := tau + varianceCosineRecoveryDelay (varianceCosineCurvatureScale beta) rho;
+  0 ≤ varianceCosinePopulationExcess a beta (varianceCosineVariance mu0) m t ∧
+    varianceCosinePopulationExcess a beta (varianceCosineVariance mu0) m t ≤
+      (a / 2 * R ^ 2 + 2 * beta) * Real.exp (-2 * varianceCosineRecoveryRate a beta * (t - r))
+'PaperFormalization.Manuscript.varianceCosinePopulation_objective_after_escape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.recoveryContinuousResponse (kappa : ℝ → ℝ) (t : ℝ) : ℝ
+'PaperFormalization.Manuscript.recoveryContinuousResponse' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.recoveryJumpResponse (kappa : ℝ → ℝ) (tau eta t : ℝ) : ℝ
+'PaperFormalization.Manuscript.recoveryJumpResponse' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.recoveryContinuousResponse_nonneg (kappa : ℝ → ℝ) (t : ℝ) (ht : 0 ≤ t) :
+  0 ≤ recoveryContinuousResponse kappa t
+'PaperFormalization.Manuscript.recoveryContinuousResponse_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.recoveryJumpResponse_nonneg (kappa : ℝ → ℝ) (tau eta t : ℝ) (he : 0 ≤ eta) :
+  0 ≤ recoveryJumpResponse kappa tau eta t
+'PaperFormalization.Manuscript.recoveryJumpResponse_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.recoveryJumpResponse_at_jump (kappa : ℝ → ℝ) (tau eta : ℝ) :
+  recoveryJumpResponse kappa tau eta tau = eta
+'PaperFormalization.Manuscript.recoveryJumpResponse_at_jump' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.recovery_intervalIntegrable (kappa : ℝ → ℝ) (s t T : ℝ)
+  (hk : IntervalIntegrable kappa ℙ 0 T) (hs : 0 ≤ s) (hst : s ≤ t) (ht : t ≤ T) : IntervalIntegrable kappa ℙ s t
+'PaperFormalization.Manuscript.recovery_intervalIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.recovery_propagator_le (kappa : ℝ → ℝ) (c s t : ℝ) (hst : s ≤ t)
+  (hk : IntervalIntegrable kappa ℙ s t) (hlower : ∀ u ∈ Icc s t, c ≤ kappa u) :
+  propagator kappa t s ≤ Real.exp (-c * (t - s))
+'PaperFormalization.Manuscript.recovery_propagator_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.recovery_integral_exp (c s t : ℝ) (hc : c ≠ 0) :
+  ∫ (u : ℝ) in s..t, Real.exp (c * (t - u)) = (Real.exp (c * (t - s)) - 1) / c
+'PaperFormalization.Manuscript.recovery_integral_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.recoveryContinuousResponse_early (kappa : ℝ → ℝ) (b t : ℝ) (hb : 0 < b) (ht : 0 ≤ t)
+  (hk : IntervalIntegrable kappa ℙ 0 t) (hlower : ∀ u ∈ Icc 0 t, -b ≤ kappa u) :
+  recoveryContinuousResponse kappa t ≤ Real.exp (b * t) / b
+'PaperFormalization.Manuscript.recoveryContinuousResponse_early' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.recovery_tail_integral (kappa : ℝ → ℝ) (lam s t : ℝ) (hlam : 0 < lam) (hst : s ≤ t)
+  (hk : IntervalIntegrable kappa ℙ s t) (hlower : ∀ u ∈ Icc s t, lam ≤ kappa u) :
+  ∫ (u : ℝ) in s..t, propagator kappa t u ≤ lam⁻¹
+'PaperFormalization.Manuscript.recovery_tail_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.recoveryContinuousResponse_split (kappa : ℝ → ℝ) (r t : ℝ) (hr : 0 ≤ r) (hrt : r ≤ t)
+  (hk : IntervalIntegrable kappa ℙ 0 t) :
+  recoveryContinuousResponse kappa t =
+    propagator kappa t r * recoveryContinuousResponse kappa r + ∫ (s : ℝ) in r..t, propagator kappa t s
+'PaperFormalization.Manuscript.recoveryContinuousResponse_split' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.recoveryContinuousResponse_late (kappa : ℝ → ℝ) (b lam r t : ℝ) (hb : 0 < b)
+  (hlam : 0 < lam) (hr : 0 ≤ r) (hrt : r ≤ t) (hk : IntervalIntegrable kappa ℙ 0 t)
+  (hlower : ∀ u ∈ Icc 0 t, -b ≤ kappa u) (hrecovered : ∀ u ∈ Icc r t, lam ≤ kappa u) :
+  recoveryContinuousResponse kappa t ≤ Real.exp (b * r) / b * Real.exp (-lam * (t - r)) + lam⁻¹
+'PaperFormalization.Manuscript.recoveryContinuousResponse_late' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.recoveryJumpResponse_early (kappa : ℝ → ℝ) (b tau eta r t : ℝ) (hb : 0 ≤ b)
+  (htau : 0 ≤ tau) (heta : 0 ≤ eta) (htr : t ≤ r) (hk : IntervalIntegrable kappa ℙ 0 t)
+  (hlower : ∀ u ∈ Icc 0 t, -b ≤ kappa u) : recoveryJumpResponse kappa tau eta t ≤ eta * Real.exp (b * r)
+'PaperFormalization.Manuscript.recoveryJumpResponse_early' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.recoveryJumpResponse_late (kappa : ℝ → ℝ) (b lam tau eta r t : ℝ) (hb : 0 ≤ b)
+  (hlam : 0 < lam) (htau : 0 ≤ tau) (heta : 0 ≤ eta) (htaur : tau ≤ r) (hrt : r ≤ t)
+  (hk : IntervalIntegrable kappa ℙ 0 t) (hlower : ∀ u ∈ Icc 0 t, -b ≤ kappa u)
+  (hrecovered : ∀ u ∈ Icc r t, lam ≤ kappa u) :
+  recoveryJumpResponse kappa tau eta t ≤ eta * Real.exp (b * r) * Real.exp (-lam * (t - r))
+'PaperFormalization.Manuscript.recoveryJumpResponse_late' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRightMean (a beta tau eta T Z t : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineRightMean' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRightCurvature (a beta tau eta T Z t : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineRightCurvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRecoveryTime (beta tau rho : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineRecoveryTime' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineResponseConstant (a beta tau eta : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineResponseConstant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRightMean_branch (a beta tau eta T Z t : ℝ) :
+  varianceCosineRightMean a beta tau eta T Z t =
+    varianceCosineBranchMeanY a beta tau eta T Z (if t < tau then 0 else 1) t
+'PaperFormalization.Manuscript.varianceCosineRightMean_branch' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRightMean_measurable (a beta tau eta T : ℝ) :
+  Measurable fun z => varianceCosineRightMean a beta tau eta T z.1 z.2
+'PaperFormalization.Manuscript.varianceCosineRightMean_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRightCurvature_measurable (a beta tau eta T Z : ℝ) :
+  Measurable (varianceCosineRightCurvature a beta tau eta T Z)
+'PaperFormalization.Manuscript.varianceCosineRightCurvature_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRightCurvature_integrable (a beta tau eta T Z : ℝ) (ha : 0 ≤ a)
+  (hb : 0 ≤ beta) : IntervalIntegrable (varianceCosineRightCurvature a beta tau eta T Z) ℙ 0 T
+'PaperFormalization.Manuscript.varianceCosineRightCurvature_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRightCurvature_eq_sampled {N : ℕ} (hN : 2 ≤ N)
+  (mu0 : Measure VarianceCosinePoint) [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R)
+  (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R) (hm0 : varianceCosineMean mu0 = 0) (a beta tau eta T Z t : ℝ)
+  (Y : SourceFiniteConfiguration N 1) :
+  rayleighInf
+      (sampledMomentHessian varianceCosineEncodedFeature (varianceCosineObjective a beta)
+        (∫ (x : VarianceCosinePoint),
+          varianceCosineEncodedFeature
+            x ∂varianceCosinePopulation mu0 (varianceCosineRightMean a beta tau eta T Z t) (Real.exp (-a * t)))
+        Y) =
+    varianceCosineRightCurvature a beta tau eta T Z t
+'PaperFormalization.Manuscript.varianceCosineRightCurvature_eq_sampled' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRightCurvature_recovered (a beta tau eta T Z rho : ℝ) (ha : 0 < a)
+  (hb : 0 < beta) (htau : 0 ≤ tau) (hr : 0 < rho) (hr1 : rho ≤ 1)
+  (hland : varianceCosineEscapeLanding rho (varianceCosinePostMeanY a beta eta Z)) (t : ℝ)
+  (ht : t ∈ Icc (varianceCosineRecoveryTime beta tau rho) T) :
+  varianceCosineRecoveryRate a beta ≤ varianceCosineRightCurvature a beta tau eta T Z t
+'PaperFormalization.Manuscript.varianceCosineRightCurvature_recovered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRecoveryTime_exp (beta tau rho : ℝ) (hb : 0 < beta) (hr : 0 < rho) :
+  Real.exp (varianceCosineCurvatureScale beta * varianceCosineRecoveryTime beta tau rho) =
+    2 * Real.exp (varianceCosineCurvatureScale beta * tau) / rho
+'PaperFormalization.Manuscript.varianceCosineRecoveryTime_exp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_responses_uniform (a beta tau eta T Z rho : ℝ) (ha : 0 < a) (hb : 0 < beta)
+  (htau : 0 ≤ tau) (heta : 0 ≤ eta) (hr : 0 < rho) (hr1 : rho ≤ 1)
+  (hland : varianceCosineEscapeLanding rho (varianceCosinePostMeanY a beta eta Z)) (t : ℝ) (ht : t ∈ Icc 0 T) :
+  recoveryContinuousResponse (varianceCosineRightCurvature a beta tau eta T Z) t +
+      recoveryJumpResponse (varianceCosineRightCurvature a beta tau eta T Z) tau eta t ≤
+    varianceCosineResponseConstant a beta tau eta / rho
+'PaperFormalization.Manuscript.varianceCosine_responses_uniform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_responses_late (a beta tau eta T Z rho t : ℝ) (ha : 0 < a) (hb : 0 < beta)
+  (htau : 0 ≤ tau) (heta : 0 ≤ eta) (hr : 0 < rho) (hr1 : rho ≤ 1)
+  (hland : varianceCosineEscapeLanding rho (varianceCosinePostMeanY a beta eta Z))
+  (ht : t ∈ Icc (varianceCosineRecoveryTime beta tau rho) T) :
+  have b := varianceCosineCurvatureScale beta;
+  have lam := varianceCosineRecoveryRate a beta;
+  have r := varianceCosineRecoveryTime beta tau rho;
+  have k := varianceCosineRightCurvature a beta tau eta T Z;
+  recoveryContinuousResponse k t ≤ 2 * Real.exp (b * tau) / (rho * b) * Real.exp (-lam * (t - r)) + lam⁻¹ ∧
+    recoveryJumpResponse k tau eta t ≤ 2 * eta * Real.exp (b * tau) / rho * Real.exp (-lam * (t - r))
+'PaperFormalization.Manuscript.varianceCosine_responses_late' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.recovery_wait_bound (lam r rho v t : ℝ) (hl : 0 < lam) (hr : 0 < rho) (hv : 0 < v)
+  (ht : r + Real.log (rho * v)⁻¹ / lam ≤ t) : Real.exp (-lam * (t - r)) ≤ rho * v
+'PaperFormalization.Manuscript.recovery_wait_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_source_envelope_one_jump (kappa : ℝ → ℝ)
+  (tau eta delta deltaTilde A t : ℝ) :
+  sourceCurvatureEnvelope kappa (varianceCosineTimes tau) (varianceCosineAmplitudes eta) delta deltaTilde A 1 t =
+    delta * recoveryContinuousResponse kappa t + A * (√delta + √deltaTilde) * recoveryJumpResponse kappa tau eta t
+'PaperFormalization.Manuscript.varianceCosine_source_envelope_one_jump' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineJumpSigma (a beta eta : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineJumpSigma' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineLandingVariance (a beta eta : ℝ) : NNReal
+'PaperFormalization.Manuscript.varianceCosineLandingVariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePostMeanY_landing (a beta eta Z : ℝ) :
+  varianceCosinePostMeanY a beta eta Z = -varianceCosineJumpSigma a beta eta * Z
+'PaperFormalization.Manuscript.varianceCosinePostMeanY_landing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_response_control {N : ℕ} (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R)
+  (hm0 : varianceCosineMean mu0 = 0) (a beta tau eta T p : ℝ) (ha : 0 < a) (hb : 0 < beta) (htau : 0 ≤ tau)
+  (heta : 0 < eta) (hp : 0 < p) (hp1 : p ≤ 1) :
+  have sigma := varianceCosineJumpSigma a beta eta;
+  have rho := varianceCosineEscapeRadius (varianceCosineLandingVariance a beta eta) p;
+  have r := varianceCosineRecoveryTime beta tau rho;
+  have P := varianceCosineCouplingLaw (sourceInitialConfigurationLaw mu0);
+  have E := varianceCosineEscapeEvent sigma rho;
+  MeasurableSet E ∧
+    P Eᶜ ≤ ENNReal.ofReal (p / 2) ∧
+      ∀ w ∈ E,
+        (∀ t ∈ Icc 0 T,
+            recoveryContinuousResponse (varianceCosineRightCurvature a beta tau eta T w.2.1) t +
+                recoveryJumpResponse (varianceCosineRightCurvature a beta tau eta T w.2.1) tau eta t ≤
+              varianceCosineResponseConstant a beta tau eta / rho) ∧
+          (∀ t ∈ Icc r T,
+              have k := varianceCosineRightCurvature a beta tau eta T w.2.1;
+              have b := varianceCosineCurvatureScale beta;
+              have lam := varianceCosineRecoveryRate a beta;
+              recoveryContinuousResponse k t ≤ 2 * Real.exp (b * tau) / (rho * b) * Real.exp (-lam * (t - r)) + lam⁻¹ ∧
+                recoveryJumpResponse k tau eta t ≤ 2 * eta * Real.exp (b * tau) / rho * Real.exp (-lam * (t - r))) ∧
+            ∀ t ∈ Icc r T,
+              have pop :=
+                varianceCosinePopulation mu0 (varianceCosineRightMean a beta tau eta T w.2.1 t) (Real.exp (-a * t));
+              Integrable varianceCosineEncodedFeature pop ∧
+                0 ≤
+                    varianceCosineObjective a beta (∫ (x : VarianceCosinePoint), varianceCosineEncodedFeature x ∂pop) +
+                      beta ∧
+                  varianceCosineObjective a beta (∫ (x : VarianceCosinePoint), varianceCosineEncodedFeature x ∂pop) +
+                      beta ≤
+                    (a / 2 * R ^ 2 + 2 * beta) * Real.exp (-2 * varianceCosineRecoveryRate a beta * (t - r))
+'PaperFormalization.Manuscript.varianceCosine_response_control' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEscapeEvent_tower_budget {N : ℕ}
+  (mu : Measure (SourceFiniteConfiguration N 1)) [IsProbabilityMeasure mu] (sigma p : ℝ) (hs : 0 < sigma) (hp : 0 < p)
+  (hp1 : p ≤ 1) :
+  have v := ⟨sigma ^ 2, ⋯⟩;
+  have E := varianceCosineEscapeEvent sigma (varianceCosineEscapeRadius v p);
+  (sourceAuxiliaryMeasure (mu.prod (gaussianReal 0 1)) (stdGaussian (SourceStepNormal N 1)) 1)
+      (varianceCosineTowerCoordinates ⁻¹' E)ᶜ ≤
+    ENNReal.ofReal (p / 2)
+'PaperFormalization.Manuscript.varianceCosineEscapeEvent_tower_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_source_envelope_sup_bound (a beta tau eta T Z rho delta deltaTilde A : ℝ)
+  (ha : 0 < a) (hb : 0 < beta) (htau : 0 ≤ tau) (heta : 0 ≤ eta) (hT : 0 ≤ T) (hr : 0 < rho) (hr1 : rho ≤ 1)
+  (hd : 0 ≤ delta) (hA : 0 ≤ A) (hland : varianceCosineEscapeLanding rho (varianceCosinePostMeanY a beta eta Z)) :
+  sourceCurvatureEnvelopeSup (varianceCosineRightCurvature a beta tau eta T Z) (varianceCosineTimes tau)
+      (varianceCosineAmplitudes eta) delta deltaTilde A 1 T ≤
+    (delta + A * (√delta + √deltaTilde)) * varianceCosineResponseConstant a beta tau eta / rho
+'PaperFormalization.Manuscript.varianceCosine_source_envelope_sup_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_rpow_nat (n x : ℝ) (hn : 0 < n) (k : ℕ) : (n ^ x) ^ k = n ^ (x * ↑k)
+'PaperFormalization.Manuscript.varianceCosine_rpow_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_rate_exponents (n theta : ℝ) (hn : 0 < n) :
+  (n ^ (-(1 / 16))) ^ 3 * (n ^ theta) ^ 4 = n ^ (-(3 / 16) + 4 * theta) ∧
+    (n ^ (-(1 / 16))) ^ 8 * (n ^ theta) ^ 4 = n ^ (-(1 / 2) + 4 * theta) ∧
+      n ^ (-(1 / 16)) * (n ^ theta) ^ 4 = n ^ (-(1 / 16) + 4 * theta)
+'PaperFormalization.Manuscript.varianceCosine_rate_exponents' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_stability_scale_algebra (s P C L delta S A J cD Bstar : ℝ) (hs : 0 < s)
+  (hs1 : s ≤ 1) (hP : 1 ≤ P) (hC : 1 ≤ C) (hL : 0 ≤ L) (hd : 0 ≤ delta) (hS : 0 ≤ S) (hA : 0 ≤ A) (hJ : 0 ≤ J)
+  (hcD : 0 ≤ cD) (hB : 0 ≤ Bstar) (hdU : delta ≤ C * s ^ 8 * P) (hSU : S ≤ C * s ^ 4 * P) (hAU : A ≤ C * P)
+  (hJU : J ≤ C * P) (hcDU : cD ≤ C * P) (hBU : Bstar ≤ (delta + A * S) * L / s) :
+  Bstar ≤ 2 * C ^ 2 * L * s ^ 3 * P ^ 2 ∧
+    2 * J * Bstar ≤ 4 * C ^ 3 * L * s ^ 3 * P ^ 3 ∧
+      s⁻¹ ^ 2 * (delta + cD * (2 * J * Bstar)) ≤ (C + 4 * C ^ 4 * L) * s * P ^ 4
+'PaperFormalization.Manuscript.varianceCosine_stability_scale_algebra' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_uniform_rate_algebra (s P K L Cresp Jresp loss : ℝ) (hs : 0 < s)
+  (hs1 : s ≤ 1) (hK : 0 ≤ K) (hL : 0 ≤ L) (hCr : 0 ≤ Cresp) (hJr : 0 ≤ Jresp) (hresp : Cresp + Jresp ≤ L / s)
+  (hloss : loss ≤ K * P ^ 4 * (s ^ 8 * (1 + Cresp) + s ^ 4 * Jresp)) : loss ≤ K * (1 + 2 * L) * s ^ 3 * P ^ 4
+'PaperFormalization.Manuscript.varianceCosine_uniform_rate_algebra' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_late_rate_algebra (s P K L Cresp Jresp loss : ℝ) (hK : 0 ≤ K)
+  (hC : Cresp ≤ L) (hJ : Jresp ≤ L * s ^ 4) (hloss : loss ≤ K * P ^ 4 * (s ^ 8 * (1 + Cresp) + s ^ 4 * Jresp)) :
+  loss ≤ K * (1 + 2 * L) * s ^ 8 * P ^ 4
+'PaperFormalization.Manuscript.varianceCosine_late_rate_algebra' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_responses_after_wait (a beta tau eta T Z rho v t : ℝ) (ha : 0 < a)
+  (hb : 0 < beta) (htau : 0 ≤ tau) (heta : 0 ≤ eta) (hr : 0 < rho) (hr1 : rho ≤ 1) (hv : 0 < v) (hv1 : v ≤ 1)
+  (hland : varianceCosineEscapeLanding rho (varianceCosinePostMeanY a beta eta Z))
+  (ht : t ∈ Icc (varianceCosineRecoveryTime beta tau rho) T)
+  (hwait : varianceCosineRecoveryTime beta tau rho + Real.log (rho * v)⁻¹ / varianceCosineRecoveryRate a beta ≤ t) :
+  have b := varianceCosineCurvatureScale beta;
+  have lam := varianceCosineRecoveryRate a beta;
+  have k := varianceCosineRightCurvature a beta tau eta T Z;
+  recoveryContinuousResponse k t ≤ 2 * Real.exp (b * tau) / b + lam⁻¹ ∧
+    recoveryJumpResponse k tau eta t ≤ 2 * eta * Real.exp (b * tau) * v
+'PaperFormalization.Manuscript.varianceCosine_responses_after_wait' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_energy_after_wait (lam r rho v t E E0 : ℝ) (hl : 0 < lam) (hr : 0 < rho)
+  (hr1 : rho ≤ 1) (hv : 0 < v) (hE0 : 0 ≤ E0) (hwait : r + Real.log (rho * v)⁻¹ / lam ≤ t)
+  (hE : E ≤ E0 * Real.exp (-2 * lam * (t - r))) : E ≤ E0 * v ^ 2
+'PaperFormalization.Manuscript.varianceCosine_energy_after_wait' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_wait_logarithmic (n d b lam tau : ℝ) (hn : 0 < n) (hd : 0 < d) (hb : b ≠ 0)
+  (hl : lam ≠ 0) :
+  tau + Real.log (2 / (d * n ^ (-(1 / 16)))) / b + Real.log (d * n ^ (-(1 / 16)) * n ^ (-(1 / 4)))⁻¹ / lam =
+    tau + Real.log (2 / d) / b + Real.log d⁻¹ / lam + (1 / (16 * b) + 5 / (16 * lam)) * Real.log n
+'PaperFormalization.Manuscript.varianceCosine_wait_logarithmic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_same_event_budget.{u_1} {Omega : Type u_1} [MeasurableSpace Omega]
+  (P : Measure Omega) (A E : Set Omega) (p : ℝ) (hp : 0 ≤ p) (hA : P Aᶜ ≤ ENNReal.ofReal (p / 2))
+  (hE : P Eᶜ ≤ ENNReal.ofReal (p / 2)) : P (A ∩ E)ᶜ ≤ ENNReal.ofReal p
+'PaperFormalization.Manuscript.varianceCosine_same_event_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

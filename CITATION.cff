@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Please cite the accompanying paper when using these materials."
 title: "Reproducibility materials for Finite-Sample Approximation of Hessian-Guided Perturbed Wasserstein Gradient Flows"
 type: software
-version: "2026.10.07"
+version: "2026.10.07.1"
 repository-code: "https://github.com/ryotaro-kawata-wa/pwgf-finite-sample"
 authors:
   - family-names: "Kawata"

@@ -12,9 +12,12 @@ reproducibility materials. Read the [complete paper PDF](paper/manuscript.pdf);
 its source entry point is `paper/main_arxiv.tex`.
 The public repository is
 [ryotaro-kawata-wa/pwgf-finite-sample](https://github.com/ryotaro-kawata-wa/pwgf-finite-sample).
-The [2026-10-07 release](https://github.com/ryotaro-kawata-wa/pwgf-finite-sample/releases/tag/v2026.10.07)
-provides the arXiv source ZIP, the verified repository bundle, and the nine
-separate numerical-state archives with their hash manifest.
+The [corrected source release](https://github.com/ryotaro-kawata-wa/pwgf-finite-sample/releases/tag/v2026.10.07.1)
+provides the arXiv source ZIP and the verified repository bundle. It removes one
+input of an empty placeholder that caused a missing-file error on arXiv; all
+147 pages retain identical text and rendering. The unchanged nine numerical-state
+archives and their hash manifest remain in the
+[initial release](https://github.com/ryotaro-kawata-wa/pwgf-finite-sample/releases/tag/v2026.10.07).
 The code is MIT licensed; the manuscript's distribution license is separate.
 See `CODE_LICENSE_SCOPE.md`.
 
@@ -92,5 +95,6 @@ to the checked Lean inputs. Executed receipts are in `lean/verification/`.
 This repository starts with the selected publication files and does not contain
 the private development repository's Git history. Dependency caches and raw
 state archives are excluded from Git; the states are separate release assets.
-The paper has not yet been submitted to arXiv. No DOI or arXiv identifier is
-claimed; citation metadata will be updated when an identifier is assigned.
+The corrected source has been compiled locally; arXiv server reprocessing is
+not yet confirmed. No DOI or arXiv identifier is claimed; citation metadata will
+be updated when an identifier is assigned.

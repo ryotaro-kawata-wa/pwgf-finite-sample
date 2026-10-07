@@ -78,7 +78,8 @@
     "The author-confirmed deterministic supported-label-continuous AC characteristic class is explicitly defined, including intrinsic tangent L2 first variation and law uniqueness within that same class. No unrestricted weak-PDE representation or unconditional WGF existence is asserted.",
     "Formal verification scope is stated in the discussion; the count is registered declarations. Curvature directions are continuous tangent fields, including smooth fields, not arbitrary L2 directions.",
     "Anonymous-package wording changed to reproducibility bundle. The original numerical figures and original reported values are retained, with fresh-run validation reported separately.",
-    "The discussion links the author-approved public repository ryotaro-kawata-wa/pwgf-finite-sample. This URL-only publication update does not change mathematical statements, Lean sources, or experimental code and results."
+    "The discussion links the author-approved public repository ryotaro-kawata-wa/pwgf-finite-sample. This URL-only publication update does not change mathematical statements, Lean sources, or experimental code and results.",
+    "Removed the single input of the zero-byte appendix_final_general/00_dependency_map.tex placeholder after an arXiv missing-file error. All other manuscript bytes are unchanged from the initial public release. An extracted-source build with that empty file omitted succeeds; all 147 pages have identical text and rendering to the released PDF. No mathematical content or claim endpoint changed."
   ],
   "not_claimed": [
     "Automatic semantic verification of TeX",
@@ -134,8 +135,8 @@
       "baseline": "arxiv/appendix_final_general/general_argument_reorg_v1_6.tex",
       "baseline_sha256": "b55ba9e0e93a7f34ea8977c7a3a20df1958e43e5d4f82f01e4777ab480837dc2",
       "publication": "paper/appendix_final_general/general_argument_reorg_v1_6.tex",
-      "publication_sha256": "b55ba9e0e93a7f34ea8977c7a3a20df1958e43e5d4f82f01e4777ab480837dc2",
-      "identical": true
+      "publication_sha256": "2005aa39f6b14e935762bf4d8f35b9851bb8b946037c613d437bc857d9a39831",
+      "identical": false
     },
     {
       "baseline": "arxiv/appendix_final_general/general_assumptions.tex",

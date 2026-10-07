@@ -1,0 +1,59 @@
+checks/MF23Checks.lean:32:24: warning: Variable name `hw` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PaperFormalization.MatrixFactorization.represented_global_attraction {d h : ℕ} {O : Finset ℕ} {a : ℕ → Weight h}
+  {pole : ↑(UnitSphere d)} {lambda p : ℝ} {teacher : Measure ↑(UnitSphere d)}
+  {initial : Fin 2 → Measure ↑(UnitSphere d)} (X : PotentialCharacteristicFlow O a pole lambda p teacher initial)
+  [IsProbabilityMeasure teacher] (hO : ∀ n ∈ O, Odd n)
+  (hu : PotentialCharacteristicLawUnique O a pole lambda p teacher initial)
+  (hi : initial 1 = reflectedMeasure (initial 0)) (r : ℝ) (hc : ∀ (i : Fin 2), TwoCapClass pole r (initial i))
+  (hl : 0 < lambda) (hp : 2 < p) (hp3 : p < 3) (zstar : ℝ) (hzstar : 0 < zstar)
+  (hrad : sourceRadialConstant d O a teacher * zstar ^ ((4 - p) / 2) ≤ lambda / 2)
+  (hforce : sourceFittingConstant d O a teacher / lambda * zstar ^ ((3 - p) / 2) ≤ r / 2)
+  (hinit : productAntipodalTransportSq pole (initial 0) (initial 1) ≤ zstar) :
+  X.sourceBarrier < r ∧
+    (∀ (i : Fin 2) (t : ℝ), 0 ≤ t → TwoCapClass pole r (X.measure i t)) ∧
+      (∀ (t : ℝ),
+          0 ≤ t →
+            (∀ (i : Fin 2), (X.measure i t).support ⊆ {w | sphericalPoleRadius pole w ≤ X.sourceBarrier}) ∧
+              (productSphericalSupportRadius pole fun i => X.measure i t) ≤ X.sourceBarrier) ∧
+        PotentialGlobalEstimates X ∧
+          Tendsto X.transport atTop (𝓝 0) ∧
+            Tendsto (fun t => √(X.transport t)) atTop (𝓝 0) ∧
+              (∀ (i : Fin 2) (n : ℕ), Odd n → Tendsto (fun t => rawMoment (X.measure i t) n) atTop (𝓝 0)) ∧
+                (∀ (t : ℝ), 0 ≤ t → ∀ (n : ℕ), Odd n → symmetricMoment (X.measure 0 t) (X.measure 1 t) n = 0) ∧
+                  ∀ (n : ℕ), Tendsto (fun t => antisymmetricMoment (X.measure 0 t) (X.measure 1 t) n) atTop (𝓝 0)
+PaperFormalization.MatrixFactorization.PotentialCharacteristicFlow.source_confinement {d h : ℕ} {O : Finset ℕ}
+  {a : ℕ → Weight h} {pole : ↑(UnitSphere d)} {lambda p : ℝ} {teacher : Measure ↑(UnitSphere d)}
+  {initial : Fin 2 → Measure ↑(UnitSphere d)} (X : PotentialCharacteristicFlow O a pole lambda p teacher initial)
+  [IsProbabilityMeasure teacher] (hO : ∀ n ∈ O, Odd n)
+  (hu : PotentialCharacteristicLawUnique O a pole lambda p teacher initial)
+  (hi : initial 1 = reflectedMeasure (initial 0)) (r : ℝ) (hc : ∀ (i : Fin 2), TwoCapClass pole r (initial i))
+  (hl : 0 < lambda) (hp : 2 < p) (hp3 : p < 3) (zstar : ℝ) (hzstar : 0 < zstar)
+  (hrad : sourceRadialConstant d O a teacher * zstar ^ ((4 - p) / 2) ≤ lambda / 2)
+  (hforce : sourceFittingConstant d O a teacher / lambda * zstar ^ ((3 - p) / 2) ≤ r / 2)
+  (hinit : productAntipodalTransportSq pole (initial 0) (initial 1) ≤ zstar) :
+  X.sourceBarrier < r ∧
+    (∀ (i : Fin 2),
+        ∀ w ∈ (initial i).support,
+          ∀ (t : ℝ), 0 ≤ t → sphericalPoleRadius pole (X.characteristic i t w) ≤ X.sourceBarrier) ∧
+      (∀ (i : Fin 2) (t : ℝ), 0 ≤ t → TwoCapClass pole r (X.measure i t)) ∧
+        ∀ (t : ℝ),
+          0 ≤ t →
+            (∀ (i : Fin 2), (X.measure i t).support ⊆ {w | sphericalPoleRadius pole w ≤ X.sourceBarrier}) ∧
+              (productSphericalSupportRadius pole fun i => X.measure i t) ≤ X.sourceBarrier
+PaperFormalization.MatrixFactorization.PotentialCharacteristicFlow.source_global_estimates {d h : ℕ} {O : Finset ℕ}
+  {a : ℕ → Weight h} {pole : ↑(UnitSphere d)} {lambda p : ℝ} {teacher : Measure ↑(UnitSphere d)}
+  {initial : Fin 2 → Measure ↑(UnitSphere d)} (X : PotentialCharacteristicFlow O a pole lambda p teacher initial)
+  [IsProbabilityMeasure teacher] (hO : ∀ n ∈ O, Odd n)
+  (hu : PotentialCharacteristicLawUnique O a pole lambda p teacher initial)
+  (hi : initial 1 = reflectedMeasure (initial 0)) (r : ℝ) (hc : ∀ (i : Fin 2), TwoCapClass pole r (initial i))
+  (hl : 0 < lambda) (hp : 2 < p) (hp3 : p < 3) (zstar : ℝ) (hzstar : 0 < zstar)
+  (hrad : sourceRadialConstant d O a teacher * zstar ^ ((4 - p) / 2) ≤ lambda / 2)
+  (hforce : sourceFittingConstant d O a teacher / lambda * zstar ^ ((3 - p) / 2) ≤ r / 2)
+  (hinit : productAntipodalTransportSq pole (initial 0) (initial 1) ≤ zstar) :
+  (∀ (i : Fin 2) (t : ℝ), 0 ≤ t → TwoCapClass pole r (X.measure i t)) ∧ PotentialGlobalEstimates X
+PaperFormalization.MatrixFactorization.antipodalPotential_zero_no_gradient_at_equator {d : ℕ} (a w : ↑(UnitSphere d))
+  (hr : sphericalDistance w a = Real.pi / 2) : ¬∃ g, HasSpherePotentialGradient (antipodalPotential a 0) w g

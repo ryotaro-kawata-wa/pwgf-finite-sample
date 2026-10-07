@@ -1,0 +1,16 @@
+checks/MF04Checks.lean:61:4: warning: This simp argument is unused:
+  Polynomial.hermite_one
+
+Hint: Omit it from the simp argument list.
+  simp [finiteHermiteActivationJet, normalizedHermiteJet, hermiteRealPolynomial,̵
+  ̵ ̵ ̵ ̵ ̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵h̵e̵r̵m̵i̵t̵e̵_̵o̵n̵e̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+checks/MF04Checks.lean:68:4: warning: This simp argument is unused:
+  Polynomial.hermite_one
+
+Hint: Omit it from the simp argument list.
+  simp [finiteHermiteActivationJet, normalizedHermiteJet, hermiteRealPolynomial,
+      P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵h̵e̵r̵m̵i̵t̵e̵_̵o̵n̵e̵,̵ ̵Function.iterate_succ_apply']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

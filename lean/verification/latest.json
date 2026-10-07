@@ -1,8 +1,8 @@
 {
-  "checkpoint": "public-launch-20261007",
-  "started_utc": "20261007T122617.371351Z",
+  "checkpoint": "arxiv-empty-input-fix",
+  "started_utc": "20261007T135433.350061Z",
   "status": "passed",
-  "verification_directory": "verification/20261007T122617.371351Z_public-launch-20261007",
+  "verification_directory": "verification/20261007T135433.350061Z_arxiv-empty-input-fix",
   "declarations": [
     "PaperFormalization.Affine.closedForm_zero",
     "PaperFormalization.Affine.closedForm_succ",
@@ -4311,7 +4311,7 @@
         "lake",
         "env",
         "lean",
-        "verification/20261007T122617.371351Z_public-launch-20261007/AxiomAudit.lean"
+        "verification/20261007T135433.350061Z_arxiv-empty-input-fix/AxiomAudit.lean"
       ],
       "output": "axioms.txt",
       "status": "passed",
@@ -4363,8 +4363,8 @@
       }
     ]
   },
-  "git_head_at_verification": null,
-  "source_identity_kind": "source-archive-with-input-hashes",
+  "git_head_at_verification": "a674b9e731b7309460751184d4a69baf12709655",
+  "source_identity_kind": "git-checkout-with-input-hashes",
   "toolchain": "leanprover/lean4:v4.32.1",
   "dependency_revisions": {
     "mathlib": "520045ab14e26149ee970e2e617ca04b09bde5d6",

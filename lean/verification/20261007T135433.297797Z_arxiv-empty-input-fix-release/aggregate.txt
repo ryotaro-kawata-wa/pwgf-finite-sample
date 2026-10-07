@@ -1,0 +1,4 @@
+Running: lake env lean --version
+Running: lake build PaperFormalization
+Running: lake env lean verification/20261007T135433.350061Z_arxiv-empty-input-fix/AxiomAudit.lean
+Verified 4274 declarations; receipt: /Users/ryotarokawata/git_projects/mfld-for-lean/publication/artifacts/pwgf-finite-sample/lean/verification/20261007T135433.350061Z_arxiv-empty-input-fix/receipt.json

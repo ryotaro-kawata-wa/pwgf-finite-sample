@@ -1,6 +1,6 @@
 {
-  "source_commit": "0fb969641e7dd5e62afc031f8f464d58df011e2b",
-  "source_identity_note": "Selected export from the recorded private baseline; exact input hashes identify the public source tree.",
+  "source_commit": "5ec2aee867bcf27398e9688ba3d64d836b9ff72f",
+  "source_identity_note": "One-line arXiv source fix from the recorded private checkpoint; exact input hashes identify the reviewed public source tree.",
   "files": {
     "arxiv/appendix_final_general/00_dependency_map.tex": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "arxiv/appendix_final_general/01_overview.tex": "7cb32f552533017b8acca58168cf3382c8127ce654257dbecdb83e2b2f3ef46c",
@@ -774,14 +774,14 @@
     "lean/scripts/verify_release.py": "d93e9bf2b34b0ca907d4d6283e016c46bf9531e08c6bc8871d988fcfa5156bc5",
     "lean/source_snapshot.json": "eb0e7f98d191f160d379e5c2190597f6f1ee880d6e97fe05334deb9b82a7aa97",
     "lean/verification_targets.json": "1e2051607daeece923544afdb0ce110c58a605e1e197b0c1adec55cf779e6d8e",
-    "verification/manuscript-correspondence.json": "ee450f0924543037d6d4f849de0fe3dcc10a09b6dd060187fe8af77d517a8596",
+    "verification/manuscript-correspondence.json": "53c51d91e27b5bae66606c6422f598d9a3c18abc918e7130dd16b48e0975862e",
     "paper/appendix_final_general/00_dependency_map.tex": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "paper/appendix_final_general/01_overview.tex": "7cb32f552533017b8acca58168cf3382c8127ce654257dbecdb83e2b2f3ef46c",
     "paper/appendix_final_general/02_fixed_schedule_statement.tex": "9663222516bed8c58a4f4c0a4e0be7aa578ab520910f0abf9168d581dc3b7518",
     "paper/appendix_final_general/03_trigger_stability.tex": "d3adbed814f45f75668a20c9111c7c22659afd7592d35b7b4a09ef3617a40205",
     "paper/appendix_final_general/04_functional_gap.tex": "6e20c0d37a7c053ffb1921d87bfc1abe4d03de670b8fa53703bfe1ba8b8b02ba",
     "paper/appendix_final_general/canonical_variance_cosine.tex": "5f829cbc93c171b50b82580c556438399dce0fad1d98e7d0733074fe9984721e",
-    "paper/appendix_final_general/general_argument_reorg_v1_6.tex": "b55ba9e0e93a7f34ea8977c7a3a20df1958e43e5d4f82f01e4777ab480837dc2",
+    "paper/appendix_final_general/general_argument_reorg_v1_6.tex": "2005aa39f6b14e935762bf4d8f35b9851bb8b946037c613d437bc857d9a39831",
     "paper/appendix_final_general/general_assumptions.tex": "e4aed3d04838635620f943740c3e460ef4916d1ec9ce10d3d6f3ee205cab9c3f",
     "paper/appendix_final_general/general_bound_r_t_bound_including_jump_bounded_by_gamma.tex": "5e43ee17678fd39198b5d11893242b7c50e382e5a5717cc33a864e6a612a8709",
     "paper/appendix_final_general/general_bound_r_t_bound_stochastic_errors.tex": "118e74cc4aacca42dfb3478ad8d7e19dd90d07c26e88b37c2f0ec62a78f8e95f",
@@ -823,6 +823,6 @@
   },
   "manuscript_review": {
     "path": "verification/manuscript-correspondence.json",
-    "sha256": "ee450f0924543037d6d4f849de0fe3dcc10a09b6dd060187fe8af77d517a8596"
+    "sha256": "53c51d91e27b5bae66606c6422f598d9a3c18abc918e7130dd16b48e0975862e"
   }
 }

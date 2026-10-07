@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-10-07T13:54:24.123802+00:00",
+  "source_commit": "5ec2aee867bcf27398e9688ba3d64d836b9ff72f",
+  "prior_public_commit": "a674b9e731b7309460751184d4a69baf12709655",
+  "change": "Remove exactly one input of the zero-byte dependency-map placeholder",
+  "changed_files": [
+    "appendix_final_general/general_argument_reorg_v1_6.tex"
+  ],
+  "zero_byte_files_omitted_for_compile": [
+    "appendix_final_general/00_dependency_map.tex"
+  ],
+  "source_archive_sha256": "c8d82671d995af7a87b1aab15af02162626b7a7987b1106c74b29d6c90fa19ec",
+  "source_archive_bytes": 548946,
+  "archive_member_count": 46,
+  "only_one_archive_member_changed": true,
+  "server_failure": "The supplied arXiv log reports appendix_final_general/00_dependency_map.tex not found. The original uploaded archive contains that file with zero bytes; the reason it was absent server-side is not established.",
+  "validation": {
+    "status": "passed",
+    "pages": 147,
+    "all_page_text_equal": true,
+    "all_page_render_equal": true,
+    "zero_byte_file_absent_during_build": true,
+    "warnings": [],
+    "compiler": "TeX Live 2026 / pdfTeX 1.40.29",
+    "arxiv_server_reprocessing_executed": false,
+    "compiled_pdf_sha256": "fa4d636dc488ed6183c457d79e3c8d4354acd2d8ad7b92aed4123fdeab5211cd",
+    "prior_pdf_sha256": "7fdf7f1fc3975d7c115028f29d6888c2b5fc668480fc3a70723ec5cf736bb356",
+    "retained_pdf": "paper/manuscript.pdf"
+  },
+  "comparison_render_dpi": 50.4,
+  "underfull_box_messages": [
+    "Underfull \\hbox (badness 2205) in paragraph at lines 106--118",
+    "Underfull \\hbox (badness 1194) in paragraph at lines 647--655",
+    "Underfull \\hbox (badness 2376) in paragraph at lines 160--165",
+    "Underfull \\hbox (badness 4013) in paragraph at lines 402--402",
+    "Underfull \\hbox (badness 1009) in paragraph at lines 402--406",
+    "Underfull \\hbox (badness 2837) in paragraph at lines 152--153",
+    "Underfull \\hbox (badness 1184) in paragraph at lines 181--189"
+  ],
+  "warning_scope": "Unresolved references/citations, LaTeX/package warnings, overfull boxes and missing characters; underfull messages are recorded separately.",
+  "visual_review": "Appendix opening page 16 was inspected at full size; all 147 pages match the previously reviewed PDF in text and render.",
+  "lean_source_changed": false,
+  "numerical_code_or_results_changed": false,
+  "frozen_baseline_changed": false,
+  "lean": {
+    "status": "passed",
+    "registered_declarations": 4274,
+    "modules": 661,
+    "diagnostic_files": 57,
+    "release_receipt": "lean/verification/20261007T135433.297797Z_arxiv-empty-input-fix-release/release-receipt.json",
+    "release_receipt_sha256": "b2cd139d528148f5e9b191bd7af6befd3984c0445dd869009a2788d37031f920",
+    "project_build_cache_reused": true,
+    "dependency_cache_reused": true,
+    "pinned_dependencies_rechecked": 9,
+    "prior_receipt_files_preserved": 325,
+    "source_and_verifier_files_unchanged": true
+  },
+  "numerics": {
+    "code_and_results_unchanged": true,
+    "prior_nine_job_and_saved_state_audit_reused": true,
+    "jobs_reexecuted_for_this_source_only_fix": false
+  }
+}

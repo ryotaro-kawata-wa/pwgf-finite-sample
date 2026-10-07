@@ -48,8 +48,9 @@
       "tracked_files_clean": true
     }
   ],
-  "scope": "The public-launch run reuses project and dependency caches. All pinned dependency revisions and tracked files were rechecked. The earlier clean project build is retained in the included prior receipts; this run does not claim a clean rebuild of either project or mathlib.",
+  "scope": "The arxiv-empty-input-fix run reuses project and dependency caches. All nine pinned dependency revisions and tracked files were rechecked and unchanged. Prior clean project-build evidence is retained; this run does not claim a clean rebuild of the project or mathlib.",
   "prior_project_build_started_without_existing_oleans": true,
   "project_build_cache_reused": true,
-  "current_checkpoint": "public-launch-20261007"
+  "current_checkpoint": "arxiv-empty-input-fix",
+  "prior_checkpoint": "public-launch-20261007"
 }

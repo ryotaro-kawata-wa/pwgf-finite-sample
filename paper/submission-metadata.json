@@ -31,7 +31,7 @@
   "journal_reference": null,
   "doi": null,
   "arxiv_identifier": null,
-  "submission_status": "prepared, not submitted",
+  "submission_status": "source processing attempted; corrected bundle prepared; arXiv acceptance not confirmed",
   "note": "Please choose the manuscript distribution license and category in the submission form. MIT covers project code only. The public repository is separate from the private development repository. No arXiv identifier or DOI has been assigned.",
   "author_details": [
     {
@@ -65,6 +65,7 @@
   ],
   "acknowledgments": "RK was partially supported by JSPS KAKENHI (24K02905) and JST BOOST (JPMJBS2418). TS was partially supported by JST CREST (JPMJCR2115) and JSPS KAKENHI (25H01107). This work was partially supported by JST ERATO Grant Number JPMJER2601. This research is supported by the National Research Foundation, Singapore and the Ministry of Digital Development and Information under the AI Visiting Professorship Programme (award number AIVP-2024-004). Any opinions, findings and conclusions or recommendations expressed in this material are those of the author(s) and do not reflect the views of National Research Foundation, Singapore and the Ministry of Digital Development and Information.",
   "repository_url": "https://github.com/ryotaro-kawata-wa/pwgf-finite-sample",
-  "reproducibility_version": "2026.10.07",
-  "reproducibility_release_url": "https://github.com/ryotaro-kawata-wa/pwgf-finite-sample/releases/tag/v2026.10.07"
+  "reproducibility_version": "2026.10.07.1",
+  "reproducibility_release_url": "https://github.com/ryotaro-kawata-wa/pwgf-finite-sample/releases/tag/v2026.10.07.1",
+  "raw_state_release_url": "https://github.com/ryotaro-kawata-wa/pwgf-finite-sample/releases/tag/v2026.10.07"
 }
