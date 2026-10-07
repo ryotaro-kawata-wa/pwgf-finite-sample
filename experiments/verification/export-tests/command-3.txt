@@ -1,0 +1,6 @@
+{
+  "verified_files": 83,
+  "verified_original_figures": 10,
+  "optional_state_files_missing": 9,
+  "anonymity_check": "CJK, text metadata, and configured private tokens checked"
+}

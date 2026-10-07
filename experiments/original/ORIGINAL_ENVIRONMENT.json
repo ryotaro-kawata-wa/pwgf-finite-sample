@@ -1,0 +1,196 @@
+{
+  "scope": "Observed original scientific package builds; a selected dependency record, not a complete environment lock or a tested clean environment reconstruction.",
+  "python": "3.12.4",
+  "numpy": "1.26.4",
+  "matplotlib": "3.8.4",
+  "system": "Linux",
+  "machine": "x86_64",
+  "libc": [
+    "glibc",
+    "2.31"
+  ],
+  "blas": "MKL 2023.1; NumPy configuration reports mkl-sdl",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "packages": [
+    {
+      "name": "blas",
+      "version": "1.0",
+      "build": "mkl",
+      "subdir": "linux-64",
+      "sha256": "05f806e9b610f80e15f2c8d7b4e9a7a2817ed4870b85427acb2a89a1db44ec0e",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.2.0",
+      "build": "py312hdb19cb5_0",
+      "subdir": "linux-64",
+      "sha256": "30fd762e0dc5c5a672974f7bc3afeb5355e1185ef07886aace7130c4b73f5bbf",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "cycler",
+      "version": "0.11.0",
+      "build": "pyhd3eb1b0_0",
+      "subdir": "noarch",
+      "sha256": "dda35af3a1f92960aa01fee1e3c3587da67a23f186a09a2c313fc325392216c3",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.51.0",
+      "build": "py312h5eee18b_0",
+      "subdir": "linux-64",
+      "sha256": "23cf88f09ebba9351079df68ff06a92e7a350f9ac4af4b58a52685fe148902f3",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "freetype",
+      "version": "2.12.1",
+      "build": "h4a9f257_0",
+      "subdir": "linux-64",
+      "sha256": "d40c0f2889023791b4b9115cba9549fe97768bb2fa13d1721d8d095ff4f17a6f",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "intel-openmp",
+      "version": "2023.1.0",
+      "build": "hdb19cb5_46306",
+      "subdir": "linux-64",
+      "sha256": "b73c169115156c76d439211b956b3a12e69f9ad533ba46b8444693f1c9941277",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.4.4",
+      "build": "py312h6a678d5_0",
+      "subdir": "linux-64",
+      "sha256": "0a5e7983c66b5f25e2395c209a9241287c095f050023ba038bca12439e427b99",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "libpng",
+      "version": "1.6.39",
+      "build": "h5eee18b_0",
+      "subdir": "linux-64",
+      "sha256": "61f2daac38a2be6429f5119b6288914d25b5bbf6ca0cb2cfe117ef44141514b1",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.8.4",
+      "build": "py312h06a4308_0",
+      "subdir": "linux-64",
+      "sha256": "739901a3013b5772d4fae8dbad119d492e1ee33fb6fa50395e1bc0a088ee2754",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "matplotlib-base",
+      "version": "3.8.4",
+      "build": "py312h526ad5a_0",
+      "subdir": "linux-64",
+      "sha256": "d08cd826369ea449e71e5eed2eeedfb8599dc2ce92ed2e26cb25e42e0feba311",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "mkl",
+      "version": "2023.1.0",
+      "build": "h213fc3f_46344",
+      "subdir": "linux-64",
+      "sha256": "74453e0d9e072ef8e60e48a734380c238f9df2cf0191ad9a2db6dbf9f8391034",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "mkl-service",
+      "version": "2.4.0",
+      "build": "py312h5eee18b_1",
+      "subdir": "linux-64",
+      "sha256": "4b83fa638e1be68f0772b9cc1b0d453fa607dd4fa1863d52ea5a04b2d8e8346b",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "mkl_fft",
+      "version": "1.3.8",
+      "build": "py312h5eee18b_0",
+      "subdir": "linux-64",
+      "sha256": "10ff6aaa0f48c222ce3fdef14d372415ba6271b66077b93177d9e10e077b2cb1",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "mkl_random",
+      "version": "1.2.4",
+      "build": "py312hdb19cb5_0",
+      "subdir": "linux-64",
+      "sha256": "8d5ba60415da3f5dc08cf3b954e479a9792bc91c93bc1d4fc7f36c74c3fd159e",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "numpy",
+      "version": "1.26.4",
+      "build": "py312hc5e2394_0",
+      "subdir": "linux-64",
+      "sha256": "0207cc348f64b8adf828454b7b3488de082bb25c1965058b46585b4117367a11",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "numpy-base",
+      "version": "1.26.4",
+      "build": "py312h0da6c21_0",
+      "subdir": "linux-64",
+      "sha256": "6cbb90df64063ef66000a63e7920951abf0ec635c9c361197710c35bf47709ea",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "packaging",
+      "version": "24.1",
+      "build": "py312h06a4308_0",
+      "subdir": "linux-64",
+      "sha256": "962a78d7747a61b60aeb0f65c75abfada1a74480c75cd85d1f4f8b761a38ecb0",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "pillow",
+      "version": "10.4.0",
+      "build": "py312h5eee18b_0",
+      "subdir": "linux-64",
+      "sha256": "87ee430088763adb6fefbe73c4d58c133228de90bccf2d0deb91fb2b11e5f618",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.0.9",
+      "build": "py312h06a4308_0",
+      "subdir": "linux-64",
+      "sha256": "3c84da5d75caf4a1bc3475c501d0264c33c34474bc7353236441d0ebd90c15e4",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "python",
+      "version": "3.12.4",
+      "build": "h5148396_1",
+      "subdir": "linux-64",
+      "sha256": "81b230223b737aaaaa108d4b767a5c6d66e40955b363d22751c562a04feeb9d2",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0post0",
+      "build": "py312h06a4308_2",
+      "subdir": "linux-64",
+      "sha256": "7dcdba7369ce62f60853efd295fd1e4cbd6adb8b0b8501d6e64f511409a667c8",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    },
+    {
+      "name": "six",
+      "version": "1.16.0",
+      "build": "pyhd3eb1b0_1",
+      "subdir": "noarch",
+      "sha256": "71c97b4ddc3d19ed41bfa1a2d40f620f96b4d46f097dc48ab115b36640f7df0a",
+      "channel": "https://repo.anaconda.com/pkgs/main"
+    }
+  ]
+}

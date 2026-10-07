@@ -1,0 +1,190 @@
+
+%%%%%%%%%%%%%% MY MACROS
+
+\usepackage{fancybox}
+\usepackage{ascmac}
+
+\usepackage{enumitem}
+% Useful packages
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{bbm}
+
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{natbib}
+%\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{cleveref}
+\usepackage{comment}
+
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Phase 1 revisions are blue by default. For a clean build, please define
+% \PhaseOneClean before the main input, or use \phaseonecolorsfalse here.
+% The block environment supports paragraphs, displays, and theorem bodies.
+\newif\ifphaseonecolors
+\ifdefined\PhaseOneClean
+  \phaseonecolorsfalse
+\else
+  \phaseonecolorstrue
+\fi
+\definecolor{PhaseOneBlue}{RGB}{0,70,180}
+\DeclareRobustCommand{\phaseone}[1]{{\ifphaseonecolors\color{PhaseOneBlue}\fi #1}}
+\newenvironment{phaseoneblock}
+  {\begingroup\ifphaseonecolors\color{PhaseOneBlue}\fi}
+  {\endgroup}
+\pdfstringdefDisableCommands{\def\phaseone#1{#1}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{hypothesis}{Hypothesis}[section]
+
+
+\newcommand{\SetofProb}{\mathcal{P}}
+\newcommand{\Loss}{\mathcal{L}}
+\newcommand{\Ent}{\mathrm{Ent}}
+\newcommand{\fv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\Law}{\mathrm{Law}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\perturbedbs}[1]{\bs{#1}^{(\mathrm{p})}}
+
+\newcommand{\empiricalmeasure}[1]{\rho_{#1}}
+\newcommand{\LossN}{\mathcal{L}^{(N)}}
+\newcommand{\muN}{\mu^{(N)}}
+\newcommand{\muNttrappedinomega}{\mu^{(N)}_{t,\Omega}}
+\newcommand{\muNtrappedinomega}[1]{\mu^{(N)}_{#1,\Omega}}
+\newcommand{\muNoutofomega}[1]{\mu^{(N)}_{#1, \mathrm{res}}}
+\newcommand{\muNtgivenomega}{\mu^{(N)}_{t\mid \Omega}}
+\newcommand{\muNgivenomega}[1]{\mu^{(N)}_{#1 \mid \Omega}}
+
+\newcommand{\muNtilde}{\tilde{\mu}^{(N)}}
+\newcommand{\muNdag}{{\mu^{(N)\,\dag}}}
+\newcommand{\muNdagstar}{{\mu^{(N)\,\dag}_\star}}
+\newcommand{\muNdagstaromega}{{\mu^{(N)\,\dag}_{\star\Omega}}}
+
+\newcommand{\muFOO}{\mu_{*\mathrm{F}}}
+\newcommand{\muprodN}{\mu^{\otimes N}}
+
+\newcommand{\muavgN}{\bar{\mu}^{(N)}}
+\newcommand{\KL}{\mathrm{KL}}
+\newcommand{\FI}{\mathrm{FI}}
+
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\GP}{\mathrm{GP}}
+
+\newcommand{\boundeddomain}{B}
+
+\newcommand{\sgn}{\mathrm{sgn}}
+
+\newcommand{\tstartomega}{t^{(0)}_\Omega}
+\newcommand{\tendomega}{t^{(1)}_\Omega}
+
+\newcommand{\sdforgaussian}{\tau_{\mathrm{s}}}
+
+\newcommand{\leakedscalar}{\epsilon_{t,\Omega}}
+\newcommand{\leakeddistributiont}{\muN_{t\mid \Omega^c}}
+
+\newcommand{\sign}{\mathrm{sign}}
+
+%% mathbb
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Nat}{\mathbb{N}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\usepackage{mathrsfs}
+
+%\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\Odd}{\mathcal{O}}
+\newcommand{\Even}{\mathcal{E}}
+\newcommand{\Ric}{\mathrm{Ric}}
+\newcommand{\Harmonic}{\mathcal{A}}
+\providecommand{\Ptwo}{\mathcal P_2}
+\providecommand{\Law}{\mathrm{Law}}
+\providecommand{\Wtwo}{W_2}
+\providecommand{\dW}{\nabla_{\!W}}
+\providecommand{\HessW}{\nabla^{2}_{\!W}}
+\providecommand{\xHessW}{\nabla_x \nabla_{\!W}}
+\providecommand{\supp}{\mathrm{supp}}
+\providecommand{\Lip}{\mathrm{Lip}}
+\providecommand{\GP}{\mathrm{GP}}
+\providecommand{\wtO}{\widetilde O}
+\providecommand{\wtOp}{\widetilde O_{\mathbb P}}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\rhot}{\rho_{X_t}}
+\providecommand{\rhoX}{\rho_X}
+\providecommand{\rhoY}{\rho_Y}
+\providecommand{\ones}{\mathbf 1}
+
+\newcommand{\Fthres}{F_\mathrm{thres}}
+\newcommand{\Tthres}{T_\mathrm{thres}}
+\newcommand{\tthres}{t_\mathrm{thres}}
+
+\newcommand{\submanifoldforsaddlepoint}{\mathcal{M}_{-}}
+\newcommand{\subMstab}{\submanifoldforsaddlepoint^{\mathrm{stab}}}
+\newcommand{\subMunstab}{\submanifoldforsaddlepoint^{\mathrm{unst}}}
+\newcommand{\subMmid}{\submanifoldforsaddlepoint^{\mathrm{mid}}}
+\newcommand{\Runst}{\mathcal{R}_{\mathrm{unst}}}
+\newcommand{\Rstab}{\mathcal{R}_{\mathrm{stab}}}
+\newcommand{\Rmid}{\mathcal{R}_{\mathrm{mid}}}
+\newcommand{\supXY}{\mathrm{D}_{\sup}}
+\newcommand{\NofJ}{L_{\mathrm{jump}}}
+
+\newcommand{\curvatureBudget}{\mathcal{B}}
+\newcommand{\curveline}{\mathcal{C}}
+\newcommand{\tubeWtwo}{\mathcal{U}^{W_2}}
+\newcommand{\dist}{\mathrm{dist}}
+\newcommand{\lambdaReg}{\lambda_{\mathrm{reg}}}
+\newcommand{\Sym}{\mathrm{Sym}}
+\newcommand{\sym}[1]{\mathrm{sym}\left({#1}\right)}
+\newcommand{\Hertensor}{\mathcal{H}}
+\newcommand{\HS}{\mathrm{HS}}
+\newcommand{\F}{\mathrm{F}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\Sg}{\mathfrak{S}}
+\newcommand{\innerProd}[2]{\left\langle #1,#2\right\rangle}
+%\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\HessianMatrices}{\mathrm{H}}
+\newcommand{\contr}[1]{\otimes_{#1}}
+\newcommand{\HSTensor}{\HS,\mathrm{Tnsr}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\lambdapoincare}{\lambda_{\mathrm{P}}}
+\newcommand{\gammaUniformity}{\gamma_{\mathrm{U}}}
+\newcommand{\fD}{\mathrm{D}}
+
+\newcommand{\operator}{\mathrm{op}}
+\newcommand{\Loperator}[1]{{#1}\to{#1}}
+\newcommand{\esssup}{\mathrm{esssup}}
+
+\newcommand{\degreeAct}{q_{\mathrm{act}}}
+\newcommand{\degreeActMin}{p_{\mathrm{act}}}
+\newcommand{\decayrateAct}{r_{\mathrm{act}}}
+
+\newcommand{\LSIconst}{\lambda_{\mathrm{LSI}}}
+\newcommand{\DoobDiff}{(\Delta_{\mathrm{doob}})}
+
+\newcommand{\mudag}{\mu_\dag}
+
+\newcommand{\refinebegin}{\color{blue}}
+\newcommand{\refine}[1]{\textcolor{blue}{#1}}
+\newcommand{\refineend}{\color{black}}
+
+\newcommand{\LOG}{\mathrm{LOG}}
+\newcommand{\EXP}{\mathrm{EXP}}
+
+
+
+\crefname{assumption}{assumption}{assumptions}
+
+\allowdisplaybreaks[3]

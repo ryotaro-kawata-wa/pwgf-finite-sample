@@ -1,0 +1,132 @@
+\paragraph{Notations.}
+For nonnegative quantities \(a,b\), we write \(a\lesssim b\) if
+\(a\le Cb\) for a constant \(C>0\) independent of the main asymptotic
+parameters, such as the particle number \(N\), horizon \(T\), and
+failure probability \(p\).  Equivalently, \(a=O(b)\) means \(a\lesssim b\).
+We write \(a=o(b)\) if \(a/b\to0\) in the prescribed asymptotic regime.
+Similarly, \(a=\Omega(b)\) means \(b=O(a)\), and \(a=\omega(b)\) means
+\(b=o(a)\).  We write \(a=\Theta(b)\) if both \(a=O(b)\) and
+\(a=\Omega(b)\) hold.  Finally, \(a=\widetilde O(b)\) hides
+polylogarithmic factors in the main asymptotic parameters.  The hidden
+constants may depend on fixed problem parameters, the dimension, and structural smoothness constants, but not on \(N,T\), or \(p\).
+
+For normed spaces \(E,F\), \(\mathcal L(E;F)\) denotes the space of bounded
+linear maps from \(E\) to \(F\), and \(\mathcal L(E_1,\ldots,E_k;F)\) denotes
+the space of bounded \(k\)-linear maps from \(E_1\times\cdots\times E_k\) to
+\(F\).  When \(E=F\), we write \(\mathcal L(E)\).  For a linear map
+\(A:\mathbb R^d\to\mathbb R^d\), 
+$
+    \norm{A}_{\Loperator{d}}
+    :=
+    \sup_{\norm{v}_2=1}\norm{Av}_2
+$
+denotes its Euclidean operator norm.  We use \(\norm{\cdot}_{\HS}\) for the
+Hilbert--Schmidt norm and \(\norm{\cdot}_{\F}\) for the Frobenius norm; in
+finite-dimensional matrix spaces these coincide, but we reserve
+\(\norm{\cdot}_{\HS}\) for Hilbert-space operators or tensor-valued feature
+maps, and \(\norm{\cdot}_{\F}\) for ordinary finite matrices.
+
+\paragraph{Vector fields, configurations, and empirical measures.}
+For a measure \(\mu\in\Ptwo(\mathbb R^d)\) and vector fields
+\(v,w:\mathbb R^d\to\mathbb R^d\), define
+\[
+ \|v\|_{L^2(\mu)}^2:=\int\|v(x)\|^2\,\mu(dx),
+ \qquad
+ \langle v,w\rangle_{L^2(\mu)}:=\int\langle v(x),w(x)\rangle\,\mu(dx).
+\]
+For a configuration \(\mathbf x=(x^1,\ldots,x^N)\in(\mathbb R^d)^N\), set
+\[
+ \|\mathbf x\|_N^2:=\frac1N\sum_{i=1}^N\|x^i\|^2,
+ \qquad
+ \rho_{\mathbf x}:=\frac1N\sum_{i=1}^N\delta_{x^i},
+ \qquad
+ \xi^N(\mathbf x):=(\xi(x^1),\ldots,\xi(x^N)).
+\]
+We abbreviate \(\rho_{X_t}:=\rho_{\mathbf X_t}\) and
+\(\rho_{Y_t}:=\rho_{\mathbf Y_t}\). The coupled discrepancy is
+\[
+ \delta_{t,i}:=X_t^i-Y_t^i,
+ \qquad
+ r_t^2:=\frac1N\sum_{i=1}^N\|\delta_{t,i}\|^2
+       =\|\mathbf X_t-\mathbf Y_t\|_N^2.
+\]
+The normalized configuration inner product is
+\[
+ \langle\mathbf u,\mathbf v\rangle_N
+ :=\frac1N\sum_{i=1}^N\langle u^i,v^i\rangle.
+\]
+
+\paragraph{Gradient, Hessian, and jump covariance.}
+The Wasserstein gradient is \(\dW F(\mu,x)\in\mathbb R^d\).
+We distinguish its measure derivative from its spatial Jacobian:
+\begin{align*}
+ \HessW F(\mu;x,y)&:=\nabla_W^2F(\mu;x,y)\in\mathbb R^{d\times d},\\
+ \xHessW F(\mu,x)&:=\nabla_x\nabla_WF(\mu,x)\in\mathbb R^{d\times d}.
+\end{align*}
+Use the following operators on their natural domains in
+\(L^2(\mu;\mathbb R^d)\):
+\begin{align*}
+ (H_\mu v)(x)&:=\int\HessW F(\mu;x,y)v(y)\,\mu(dy),\\
+ (H_\mu'v)(x)&:=\xHessW F(\mu,x)v(x),
+ &\mathcal H_\mu&:=H_\mu+H_\mu'.
+\end{align*}
+In particular, the spatial multiplication operator has domain
+\[
+ \mathcal D(H_\mu')
+ :=\{v\in L^2(\mu;\mathbb R^d):
+       \xHessW F(\mu,\cdot)v(\cdot)\in L^2(\mu;\mathbb R^d)\},
+ \qquad
+ \mathcal D(\mathcal H_\mu)=\mathcal D(H_\mu)\cap\mathcal D(H_\mu').
+\]
+Here \(\mathcal D(H_\mu)\) consists of the fields for which the displayed
+kernel integral exists and defines an \(L^2(\mu)\) field.
+For $v\in\mathcal D(\mathcal H_\mu)$ for which the pushforward perturbation and
+the indicated derivatives are defined, the full second-variation identity is
+\[
+ \frac{d^2}{dh^2}\Big|_{h=0}F((\Id+hv)_\#\mu)
+ =\langle v,\mathcal H_\mu v\rangle_{L^2(\mu)}.
+\]
+The tracking curvature retains both terms of \(\mathcal H_\mu\).
+The additional spatial-Hessian bound in
+\cref{prop:finite-feature-negative-curvature} makes \(H_\mu'\) bounded;
+no such global bound is imposed here.
+In contrast, the Hessian-guided jump covariance uses the integral term:
+\[
+ K_\mu(x,y):=\int\HessW F(\mu;x,z)\HessW F(\mu;z,y)\,\mu(dz),
+ \qquad \xi_\mu\sim\GP(0,K_\mu).
+\]
+Here \(\GP(0,K_\mu)\) denotes a centered Gaussian process with covariance
+kernel \(K_\mu\). The finite Gaussian coordinates used to compare two
+jumps are constructed from the population field in
+\cref{lem:population-first-finite-coupling}.
+For a matrix or trace-class operator \(A\), we use the nuclear norm
+\[
+ \|A\|_*:=\operatorname{tr}((A^*A)^{1/2}),
+\]
+where \(A^*\) denotes the Hilbert adjoint and equals \(A^\top\) for real matrices.
+
+\paragraph{Conventions for the fixed-schedule comparison.}
+The jump count is \(\NofJ\). We take
+\(0<t_1<\cdots<t_{\NofJ}\le T\), put \(t_0=0\) and
+\(t_{\NofJ+1}=T\), and allow \(\NofJ=0\).
+Paths are right-continuous: \(Z_{t_\ell}\) is the post-jump value and
+\(Z_{t_\ell-}=\lim_{s\uparrow t_\ell}Z_s\) is the pre-jump value.
+Jump covariances and jump residuals are evaluated at \(t_\ell-\).
+Empty sums and products are zero and one, respectively.
+
+\paragraph{Population conditioning and comparison history.}
+The population initial law and schedule are deterministic. Population
+Gaussian innovations are independent of the iid initial sample.
+Let \(\mathcal G_\ell\) be the sigma-field generated by the population
+fields through jump \(\ell\), and let
+\(\mathcal G_{\rm pop}=\mathcal G_{\NofJ}\).
+The population path satisfies
+\(\mu_t=\Law(Y_t^1\mid\mathcal G_{\rm pop})\);
+the conditional product law is proved in
+\cref{lemma-gp-jump-implies-conditional-iid}.
+The notation \(\mathcal H_{\ell-}\) denotes the full pre-jump history,
+including \(X_{t_\ell-},Y_{t_\ell-},\mu_{t_\ell-}\), all previous
+population innovations and auxiliary normals, and the initial sample.
+It does not include the current or future innovations. Finite Gaussian comparison
+coordinates are standard Gaussian conditionally on this history;
+they are not the conditioning object in the product law for \(Y\).

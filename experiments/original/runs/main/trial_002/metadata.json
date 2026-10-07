@@ -1,0 +1,165 @@
+{
+  "config": {
+    "d": 32,
+    "population_size": 32768,
+    "particle_counts": [
+      2048,
+      4096,
+      8192,
+      16384,
+      32768
+    ],
+    "population_seed": 20260925,
+    "trial_seed": 81073,
+    "jump_strength": 0.2,
+    "gradient_threshold": 0.01,
+    "wait_time": 10.0,
+    "decrease_threshold": 0.001,
+    "end_time": 100.0,
+    "dt": 0.05,
+    "check_interval": 0.1
+  },
+  "trial": 2,
+  "status": "complete",
+  "python": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:12:24) [GCC 11.2.0]",
+  "numpy": "1.26.4",
+  "platform": "Linux-5.4.0-131-generic-x86_64-with-glibc2.31",
+  "source_sha256": {
+    "model.py": "c52812351535762c392149c76c4f70cac43fe749c385f0f40b004b2cd5eb0df7",
+    "coupling.py": "579237abbab9a12a80d2f193a7cca147e5aa114eac71da20aafce5e6ec58303e",
+    "adaptive.py": "55d5586184edf76fd5ef985d7d250bc16b5de711cdb936ccc70a94832ca196f7",
+    "adaptive_config.json": "63c20a8c120e9b43a22766083c65eb56d5be0f4e75fc9a3dd4f4dd390478121e",
+    "test_adaptive.py": "0643766eb239aa33628ef476b61ea38c2675eb5a888a7815daf8e3a69ba413e3",
+    "run_adaptive_protocol.py": "94052e8e1b1a26922fb73cf154e9836ac4ce19abab8b283b768edaee6755fbc3",
+    "ADAPTIVE.md": "7ef886eeb6d1bb7c4f3adb2b9c9489e136a049fca8a04bebb18505c33eeffd01"
+  },
+  "config_sha256": "ab4c41c97fe2c4ef1c43a7a10a2f9f5dabe0fcadf14020271a92d84f80c5077e",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "summary": {
+    "trial": 2,
+    "seconds": 527.0161984590814,
+    "population_sha256": "8e1507394f75cc598b09040742a166fc2aab739ea836ef64258384e3fda4a5d2",
+    "population": {
+      "status": "stopped",
+      "stop_time": 38.300000000000004,
+      "attempts": 2,
+      "actual": {
+        "objective": 9.184995221881204e-05,
+        "gradient_rms": 0.006847789275811942,
+        "target_relative_error": 0.017144090734133397
+      },
+      "returned": {
+        "objective": 0.00011545178357789967,
+        "gradient_rms": 0.00990861715456271,
+        "target_relative_error": 0.019220970512679087
+      }
+    },
+    "outputs": [
+      {
+        "n": 2048,
+        "status": "stopped",
+        "stop_time": 43.7,
+        "attempts": 1,
+        "actual": {
+          "objective": 9.202578394522446e-05,
+          "gradient_rms": 0.006768332368469838,
+          "target_relative_error": 0.017160492668473082
+        },
+        "returned": {
+          "objective": 0.00014088613093246502,
+          "gradient_rms": 0.009698183456020948,
+          "target_relative_error": 0.021232890029006607
+        },
+        "candidate_time": 33.7,
+        "return_tracking_rms": 0.7641535044385916,
+        "return_spikiness": 1.0059963648695542,
+        "return_objective_gap": 2.5434347354565346e-05
+      },
+      {
+        "n": 4096,
+        "status": "stopped",
+        "stop_time": 42.300000000000004,
+        "attempts": 1,
+        "actual": {
+          "objective": 9.389991737204309e-05,
+          "gradient_rms": 0.00679393901142108,
+          "target_relative_error": 0.017334351317269937
+        },
+        "returned": {
+          "objective": 0.00012307390661152616,
+          "gradient_rms": 0.009624061343789559,
+          "target_relative_error": 0.019845314337568046
+        },
+        "candidate_time": 32.300000000000004,
+        "return_tracking_rms": 2.068589256329387,
+        "return_spikiness": 1.0043723457300366,
+        "return_objective_gap": 7.622123033626489e-06
+      },
+      {
+        "n": 8192,
+        "status": "stopped",
+        "stop_time": 39.0,
+        "attempts": 2,
+        "actual": {
+          "objective": 6.589695623203581e-05,
+          "gradient_rms": 0.005897668967496909,
+          "target_relative_error": 0.014521372522682374
+        },
+        "returned": {
+          "objective": 0.00012188986994271949,
+          "gradient_rms": 0.009917108543867615,
+          "target_relative_error": 0.019749622371496182
+        },
+        "candidate_time": 29.0,
+        "return_tracking_rms": 2.0423437699724034,
+        "return_spikiness": 1.0050588650170833,
+        "return_objective_gap": 6.438086364819818e-06
+      },
+      {
+        "n": 16384,
+        "status": "stopped",
+        "stop_time": 40.6,
+        "attempts": 3,
+        "actual": {
+          "objective": 7.269367813504023e-05,
+          "gradient_rms": 0.006201473914546969,
+          "target_relative_error": 0.015251877590386332
+        },
+        "returned": {
+          "objective": 0.00011940478355441402,
+          "gradient_rms": 0.009893229882776931,
+          "target_relative_error": 0.019547258308369616
+        },
+        "candidate_time": 30.6,
+        "return_tracking_rms": 0.17462752546570307,
+        "return_spikiness": 1.0063870391586045,
+        "return_objective_gap": 3.9529999765143455e-06
+      },
+      {
+        "n": 32768,
+        "status": "stopped",
+        "stop_time": 37.4,
+        "attempts": 2,
+        "actual": {
+          "objective": 9.169331327242889e-05,
+          "gradient_rms": 0.006850221008998406,
+          "target_relative_error": 0.01712946591320852
+        },
+        "returned": {
+          "objective": 0.00011422271414724766,
+          "gradient_rms": 0.009733620855626558,
+          "target_relative_error": 0.019118386052990786
+        },
+        "candidate_time": 27.400000000000002,
+        "return_tracking_rms": 0.0386857936333088,
+        "return_spikiness": 1.0104874218095548,
+        "return_objective_gap": 1.229069430652008e-06
+      }
+    ],
+    "population_replay_exact": true
+  }
+}

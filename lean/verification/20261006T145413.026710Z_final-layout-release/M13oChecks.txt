@@ -1,0 +1,591 @@
+PaperFormalization.Manuscript.source_tracking_all_cases_with_pre (tau pre eta gammaPre gammaTildePre : ℕ → ℝ)
+  (r kappa gamma : ℝ → ℝ) (c delta deltaTilde A T : ℝ) (L : ℕ) (htau0 : tau 0 = 0)
+  (htime : ∀ k < L, tau k < tau (k + 1)) (hT : tau L ≤ T) (hc : 0 ≤ c) (hdelta : 0 ≤ delta) (hA : 0 ≤ A)
+  (hsmall :
+    T *
+        (delta +
+          c *
+            (2 * jumpAmplification (sourceJumpError A eta) L *
+              sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A L T)) ≤
+      1 / 4)
+  (hbranch : ∀ k < L, AbsolutelyContinuousOnInterval (closedBranch r (tau (k + 1)) (pre k)) (tau k) (tau (k + 1)))
+  (hkappa : IntervalIntegrable kappa ℙ 0 T) (hgamma : IntervalIntegrable gamma ℙ 0 T) (hr : ∀ t ∈ Icc 0 T, 0 ≤ r t)
+  (hgamma_bound : ∀ t ∈ Icc 0 T, 0 ≤ gamma t ∧ gamma t ≤ delta)
+  (hdrift :
+    ∀ k < L,
+      ∀ᵐ (t : ℝ) ∂ℙ.restrict (Ioo (tau k) (tau (k + 1))),
+        deriv r t ≤ -kappa t * r t + c * r t ^ 2 + gamma t * r t + gamma t)
+  (heta : ∀ k < L, 0 ≤ eta k) (hgammaPre : ∀ k < L, gammaPre k ≤ delta)
+  (hgammaTildePre : ∀ k < L, gammaTildePre k ≤ deltaTilde)
+  (hjump :
+    ∀ k < L, r (tau (k + 1)) ≤ (1 + sourceJumpError A eta k) * pre k + sourceJumpForcing A eta gammaPre gammaTildePre k)
+  (hfinal : AbsolutelyContinuousOnInterval r (tau L) T)
+  (hdrift_final :
+    ∀ᵐ (t : ℝ) ∂ℙ.restrict (Ioo (tau L) T), deriv r t ≤ -kappa t * r t + c * r t ^ 2 + gamma t * r t + gamma t)
+  (hzero : r 0 = 0) :
+  ((∀ t ∈ Icc 0 T,
+        r t ≤
+          Real.exp (1 / 4) * jumpAmplification (sourceJumpError A eta) L *
+            sourceCurvatureEnvelope kappa tau eta delta deltaTilde A L t) ∧
+      (sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A L T = 0 → ∀ t ∈ Icc 0 T, r t = 0)) ∧
+    (∀ n < L,
+        pre n ≤
+          Real.exp (1 / 4) * jumpAmplification (sourceJumpError A eta) L *
+            sourceCurvatureEnvelope kappa tau eta delta deltaTilde A n (tau (n + 1))) ∧
+      (sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A L T = 0 → ∀ n < L, pre n = 0)
+'PaperFormalization.Manuscript.source_tracking_all_cases_with_pre' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.actual_source_tracking_bound.{u_1, u_2, u_3, u_4, u_5} {Ω : Type u_1} [MeasurableSpace Ω]
+  {N d : ℕ} {H : ℕ → Type u_2} [(n : ℕ) → NormedAddCommGroup (H n)] [(n : ℕ) → InnerProductSpace ℝ (H n)]
+  [∀ (n : ℕ), CompleteSpace (H n)] (c C g p q K D alpha C3 : ℝ) (φ : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n)
+  (hc : 0 < c) (hC : 0 ≤ C) (hp : 1 < p) (hq : q < p) (hK : 0 < K) (hD : 1 ≤ D) (halpha : 0 < alpha)
+  (hφ : ∀ (n : ℕ), ContDiff ℝ 2 (φ n))
+  (hgrowth :
+    ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)),
+      ∀ k ≤ 2, ‖iteratedFDeriv ℝ k (φ n) z‖ ≤ featureGrowth C g q n * (1 + ‖z‖ ^ (n + 1 - k)))
+  (hthirdφ : ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)), DifferentiableAt ℝ (fderiv ℝ (fderiv ℝ (φ n))) z)
+  (hgrowth₃ :
+    ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)),
+      ‖iteratedFDeriv ℝ 3 (φ n) z‖ ≤ featureGrowth C g q n * (1 + ‖z‖ ^ (n + 1 - 3)))
+  (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hSU : measureMomentRegion (sourceWeightedFeatureMap c p φ) (sourceMomentClass alpha K) D ⊆ U)
+  (hG : ContDiffOn ℝ 3 G U)
+  (hthirdG :
+    ∀ theta ∈ measureMomentRegion (sourceWeightedFeatureMap c p φ) (sourceMomentClass alpha K) D,
+      ‖iteratedFDeriv ℝ 3 G theta‖ ≤ C3)
+  (L : NNReal) (hL : ↑L = sourceComparisonEnvelope c C g p q K D alpha C3 φ G) (μ : Measure Ω) [IsProbabilityMeasure μ]
+  (J : ℕ) (tau eta : ℕ → ℝ) (T A_sp : ℝ) (B : NNReal) (hN : 0 < N) (htau0 : tau 0 = 0)
+  (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T) (P : SourceTrackingPaths μ J tau T B c p K D alpha A_sp φ G)
+  (delta deltaTilde pTotal : ℝ)
+  (hGammaLabels :
+    ∀ k ≤ J,
+      ∀ t ∈ Icc (tau k) (if k < J then tau (k + 1) else T),
+        (weightedSampleResidual (featureResidualWeight c p L) φ (fun n => ∫ (ω : Ω), φ n (P.Zbranch k ω t) ∂μ) fun i =>
+            (P.Ybranch k t).ofLp i) ≤
+          delta)
+  (hCovPre :
+    ∀ k < J,
+      have F := sourceWeightedFeatureMap c p φ;
+      have muPre := Measure.map (fun ω => P.Zbranch k ω (tau (k + 1))) μ;
+      matrixNuclearValue
+            (populationCovarianceResidual muPre (fun i => (P.preY k).ofLp i) fun z =>
+              stackedKernelMatrix fun i =>
+                actualMomentKernelMatrix F G (∫ (z : EuclideanSpace ℝ (Fin d)), F z ∂muPre) ((P.preY k).ofLp i) z) /
+          ↑N ≤
+        deltaTilde)
+  {O : Type u_3} [MeasurableSpace O] (ν : Measure O) (S : Fin J → Type u_4) (V : Fin J → Type u_5)
+  [(j : Fin J) → MeasurableSpace (S j)] [(j : Fin J) → MeasurableSpace (V j)]
+  (view : (j : Fin J) → SourceObservedJumpView c p K D alpha φ G U hU hSU ⋯ hN ν (S j) (V j)) (ω : O)
+  (hJumpGood :
+    ∀ (j : Fin J),
+      (view j).observation ω ∉
+        actualSourceJumpFailure c C g p q D φ G L (view j).PopGood (fun h => (view j).κ h) (view j).X (view j).Y
+          (view j).Xpost (view j).Ypost (view j).eta (pTotal / (8 * (↑J + 1))))
+  (hPopGood : ∀ (j : Fin J), ((view j).observation ω).1 ∈ (view j).PopGood)
+  (hPreX : ∀ (j : Fin J), (view j).X ((view j).observation ω).1 = P.preX ↑j)
+  (hPreY : ∀ (j : Fin J), (view j).Y ((view j).observation ω).1 = P.preY ↑j)
+  (hPostX : ∀ (j : Fin J), (view j).Xpost ((view j).observation ω).1 ((view j).observation ω).2 = P.X (tau (↑j + 1)))
+  (hPostY : ∀ (j : Fin J), (view j).Ypost ((view j).observation ω).1 ((view j).observation ω).2 = P.Y (tau (↑j + 1)))
+  (hPreLaw :
+    ∀ (j : Fin J), (view j).κ ((view j).observation ω).1 = Measure.map (fun ω => P.Zbranch (↑j) ω (tau (↑j + 1))) μ)
+  (hEta : ∀ (j : Fin J), (view j).eta = eta ↑j) (hAsp : 1 ≤ A_sp) :
+  have F := sourceWeightedFeatureMap c p φ;
+  have r := fun t => ‖P.X t - P.Y t‖ / √↑N;
+  have kappa := fun t =>
+    rayleighInf
+      (sampledMomentHessian F G (∫ (z : EuclideanSpace ℝ (Fin d)), F z ∂Measure.map (fun ω => P.Z ω t) μ) (P.Y t));
+  have cD := featureDisplacementLambda c C g p q D L + (2 + A_sp) * ↑L;
+  have A :=
+    sourceJumpCoefficient d (featureDisplacementLambda c C g p q D L) ↑L *
+      sourceGaussianDeviation (pTotal / (8 * (↑J + 1)));
+  T *
+        (delta +
+          cD *
+            (2 * jumpAmplification (sourceJumpError A eta) J *
+              sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A J T)) ≤
+      1 / 4 →
+    (∀ t ∈ Icc 0 T,
+        r t ≤
+          Real.exp (1 / 4) * jumpAmplification (sourceJumpError A eta) J *
+            sourceCurvatureEnvelope kappa tau eta delta deltaTilde A J t) ∧
+      (sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A J T = 0 → ∀ t ∈ Icc 0 T, P.X t = P.Y t) ∧
+        (∀ k < J,
+            ‖P.preX k - P.preY k‖ / √↑N ≤
+              Real.exp (1 / 4) * jumpAmplification (sourceJumpError A eta) J *
+                sourceCurvatureEnvelope kappa tau eta delta deltaTilde A k (tau (k + 1))) ∧
+          (sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A J T = 0 → ∀ k < J, P.preX k = P.preY k)
+'PaperFormalization.Manuscript.actual_source_tracking_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.exists_source_observed_tracking_schedule_event.{u_1, u_2, u_3, u_4, u_5, u_6}
+  {O : Type u_1} [MeasurableSpace O] {N d : ℕ} {H : ℕ → Type u_2} [(n : ℕ) → NormedAddCommGroup (H n)]
+  [(n : ℕ) → InnerProductSpace ℝ (H n)] [∀ (n : ℕ), CompleteSpace (H n)] (J : ℕ) (c C g p q K D alpha C3 : ℝ)
+  (φ : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n) (hc : 0 < c) (hC : 0 ≤ C) (hp : 1 < p) (hq : q < p)
+  (halpha : 0 < alpha) (hK : 0 < K) (hD : 1 ≤ D) (hφ : ∀ (n : ℕ), ContDiff ℝ 2 (φ n))
+  (hgrowth :
+    ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)),
+      ∀ k ≤ 2, ‖iteratedFDeriv ℝ k (φ n) z‖ ≤ featureGrowth C g q n * (1 + ‖z‖ ^ (n + 1 - k)))
+  (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hSU : measureMomentRegion (sourceWeightedFeatureMap c p φ) (sourceMomentClass alpha K) D ⊆ U)
+  (hG : ContDiffOn ℝ 3 G U)
+  (hthirdG :
+    ∀ theta ∈ measureMomentRegion (sourceWeightedFeatureMap c p φ) (sourceMomentClass alpha K) D,
+      ‖iteratedFDeriv ℝ 3 G theta‖ ≤ C3)
+  (L : NNReal) (hL : ↑L = sourceComparisonEnvelope c C g p q K D alpha C3 φ G) (hN : 0 < N) (ν : Measure O)
+  [IsProbabilityMeasure ν] (SC : Fin J → Type u_3) (VC : Fin J → Type u_4) (SJ : Fin J → Type u_5)
+  (VJ : Fin J → Type u_6) [(j : Fin J) → MeasurableSpace (SC j)] [(j : Fin J) → MeasurableSpace (VC j)]
+  [(j : Fin J) → MeasurableSpace (SJ j)] [(j : Fin J) → MeasurableSpace (VJ j)]
+  (covView : (j : Fin J) → SourceObservedCovarianceView N d alpha K ν (SC j) (VC j))
+  (jumpView : (j : Fin J) → SourceObservedJumpView c p K D alpha φ G U hU hSU ⋯ hN ν (SJ j) (VJ j)) (pTotal : ℝ)
+  (hpTotal : 0 < pTotal) (hpTotal1 : pTotal < 1) (Model : O → Prop) (hModel : ∀ᵐ (ω : O) ∂ν, Model ω) :
+  have F := sourceWeightedFeatureMap c p φ;
+  ∃ Good,
+    MeasurableSet Good ∧
+      ν.real Goodᶜ ≤ ↑J / (↑J + 1) * (5 * pTotal / 32) ∧
+        ν.real Goodᶜ < pTotal / 4 ∧
+          ∀ ω ∈ Good,
+            Model ω ∧
+              (∀ (j : Fin J),
+                  have z := (covView j).observation ω;
+                  z.1 ∈ (covView j).PopGood →
+                    matrixNuclearValue
+                          (populationCovarianceResidual ((covView j).κ z.1) ((covView j).X z) fun x =>
+                            stackedKernelMatrix fun i =>
+                              actualMomentKernelMatrix F G (∫ (y : EuclideanSpace ℝ (Fin d)), F y ∂(covView j).κ z.1)
+                                ((covView j).X z i) x) /
+                        ↑N ≤
+                      sourcePrescribedCovarianceEnvelope J N d c C g p q alpha K L pTotal) ∧
+                ∀ (j : Fin J),
+                  (jumpView j).observation ω ∉
+                    actualSourceJumpFailure c C g p q D φ G L (jumpView j).PopGood (fun h => (jumpView j).κ h)
+                      (jumpView j).X (jumpView j).Y (jumpView j).Xpost (jumpView j).Ypost (jumpView j).eta
+                      (pTotal / (8 * (↑J + 1)))
+'PaperFormalization.Manuscript.exists_source_observed_tracking_schedule_event' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.SourcePopulationBranchPath (a b : ℝ) (d : ℕ) : Type
+'PaperFormalization.Manuscript.SourcePopulationBranchPath' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationBranchPathMeasurableSpace (a b : ℝ) (d : ℕ) :
+  MeasurableSpace (SourcePopulationBranchPath a b d)
+'PaperFormalization.Manuscript.sourcePopulationBranchPathMeasurableSpace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationBranchPathBorelSpace (a b : ℝ) (d : ℕ) :
+  BorelSpace (SourcePopulationBranchPath a b d)
+'PaperFormalization.Manuscript.sourcePopulationBranchPathBorelSpace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationBranchPath_standardBorel (a b : ℝ) (d : ℕ) :
+  StandardBorelSpace (SourcePopulationBranchPath a b d)
+'PaperFormalization.Manuscript.sourcePopulationBranchPath_standardBorel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationBranchPathStandardBorel (a b : ℝ) (d : ℕ) :
+  StandardBorelSpace (SourcePopulationBranchPath a b d)
+'PaperFormalization.Manuscript.sourcePopulationBranchPathStandardBorel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.SourcePopulationPathSpace (J d : ℕ) (a b : Fin (J + 1) → ℝ) : Type
+'PaperFormalization.Manuscript.SourcePopulationPathSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationPathSpace_standardBorel (J d : ℕ) (a b : Fin (J + 1) → ℝ) :
+  StandardBorelSpace (SourcePopulationPathSpace J d a b)
+'PaperFormalization.Manuscript.sourcePopulationPathSpace_standardBorel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationPathEval {J d : ℕ} {a b : Fin (J + 1) → ℝ}
+  (path : SourcePopulationPathSpace J d a b) (c : Fin 2) (j : Fin (J + 1)) (t : ℝ) : EuclideanSpace ℝ (Fin d)
+'PaperFormalization.Manuscript.sourcePopulationPathEval' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationPathEval_measurable {J d : ℕ} {a b : Fin (J + 1) → ℝ} (c : Fin 2)
+  (j : Fin (J + 1)) (t : ℝ) : Measurable fun path => sourcePopulationPathEval path c j t
+'PaperFormalization.Manuscript.sourcePopulationPathEval_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationPathEval_endpoints {J d : ℕ} {a b : Fin (J + 1) → ℝ}
+  (path : SourcePopulationPathSpace J d a b) (c : Fin 2) (j : Fin (J + 1)) (hab : a j ≤ b j) :
+  sourcePopulationPathEval path c j (a j) = (path c j) ⟨a j, ⋯⟩ ∧
+    sourcePopulationPathEval path c j (b j) = (path c j) ⟨b j, ⋯⟩
+'PaperFormalization.Manuscript.sourcePopulationPathEval_endpoints' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationBranchPath_measurable_of_dense_evaluations.{u_1} {O : Type u_1}
+  [MeasurableSpace O] (a b : ℝ) (d : ℕ) (grid : ℕ → ↑(Icc a b)) (hgrid : DenseRange grid)
+  (paths : O → SourcePopulationBranchPath a b d) (hEval : ∀ (n : ℕ), Measurable fun x => (paths x) (grid n)) :
+  Measurable paths
+'PaperFormalization.Manuscript.sourcePopulationBranchPath_measurable_of_dense_evaluations' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationPathEncode {J d : ℕ} {a b : Fin (J + 1) → ℝ}
+  (Z : Fin 2 → Fin (J + 1) → ℝ → EuclideanSpace ℝ (Fin d))
+  (hCont : ∀ (c : Fin 2) (j : Fin (J + 1)), ContinuousOn (Z c j) (Icc (a j) (b j))) : SourcePopulationPathSpace J d a b
+'PaperFormalization.Manuscript.sourcePopulationPathEncode' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationPathEncode_eval {J d : ℕ} {a b : Fin (J + 1) → ℝ}
+  (Z : Fin 2 → Fin (J + 1) → ℝ → EuclideanSpace ℝ (Fin d))
+  (hCont : ∀ (c : Fin 2) (j : Fin (J + 1)), ContinuousOn (Z c j) (Icc (a j) (b j))) (c : Fin 2) (j : Fin (J + 1))
+  (t : ℝ) (ht : t ∈ Icc (a j) (b j)) : sourcePopulationPathEval (sourcePopulationPathEncode Z hCont) c j t = Z c j t
+'PaperFormalization.Manuscript.sourcePopulationPathEncode_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationPathEncode_measurable.{u_1} {O : Type u_1} [MeasurableSpace O] {J d : ℕ}
+  {a b : Fin (J + 1) → ℝ} (grid : (j : Fin (J + 1)) → ℕ → ↑(Icc (a j) (b j)))
+  (hgrid : ∀ (j : Fin (J + 1)), DenseRange (grid j)) (Z : Fin 2 → Fin (J + 1) → O → ℝ → EuclideanSpace ℝ (Fin d))
+  (hZ : ∀ (c : Fin 2) (j : Fin (J + 1)) (t : ℝ), Measurable fun x => Z c j x t)
+  (hCont : ∀ (x : O) (c : Fin 2) (j : Fin (J + 1)), ContinuousOn (Z c j x) (Icc (a j) (b j))) :
+  Measurable fun x => sourcePopulationPathEncode (fun c j => Z c j x) ⋯
+'PaperFormalization.Manuscript.sourcePopulationPathEncode_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.exists_source_population_path_version_of_dense_grids.{u_1} {O : Type u_1}
+  [MeasurableSpace O] (nu : Measure O) {J d : ℕ} (a b : Fin (J + 1) → ℝ) (B : NNReal)
+  (grid : (j : Fin (J + 1)) → ℕ → ↑(Icc (a j) (b j))) (hgrid : ∀ (j : Fin (J + 1)), DenseRange (grid j))
+  (Z : Fin 2 → Fin (J + 1) → O → ℝ → EuclideanSpace ℝ (Fin d))
+  (hZ : ∀ (c : Fin 2) (j : Fin (J + 1)) (t : ℝ), Measurable fun x => Z c j x t)
+  (hLip : ∀ᵐ (x : O) ∂nu, ∀ (c : Fin 2) (j : Fin (J + 1)), LipschitzOnWith B (Z c j x) (Icc (a j) (b j))) :
+  ∃ paths,
+    Measurable paths ∧
+      ∀ᵐ (x : O) ∂nu,
+        ∀ (c : Fin 2) (j : Fin (J + 1)), ∀ t ∈ Icc (a j) (b j), sourcePopulationPathEval (paths x) c j t = Z c j x t
+'PaperFormalization.Manuscript.exists_source_population_path_version_of_dense_grids' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationPathLipschitz {J d : ℕ} {a b : Fin (J + 1) → ℝ} (B : NNReal) :
+  Set (SourcePopulationPathSpace J d a b)
+'PaperFormalization.Manuscript.sourcePopulationPathLipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationPathLipschitz_isClosed {J d : ℕ} {a b : Fin (J + 1) → ℝ} (B : NNReal) :
+  IsClosed (sourcePopulationPathLipschitz B)
+'PaperFormalization.Manuscript.sourcePopulationPathLipschitz_isClosed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourcePopulationPathLipschitz_iff {J d : ℕ} {a b : Fin (J + 1) → ℝ} (B : NNReal)
+  (path : SourcePopulationPathSpace J d a b) :
+  path ∈ sourcePopulationPathLipschitz B ↔
+    ∀ (c : Fin 2) (j : Fin (J + 1)), LipschitzOnWith B (fun t => sourcePopulationPathEval path c j t) (Icc (a j) (b j))
+'PaperFormalization.Manuscript.sourcePopulationPathLipschitz_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.exists_source_population_path_version.{u_1} {O : Type u_1} [MeasurableSpace O]
+  (nu : Measure O) {J d : ℕ} (a b : Fin (J + 1) → ℝ) (B : NNReal) (hab : ∀ (j : Fin (J + 1)), a j ≤ b j)
+  (Z : Fin 2 → Fin (J + 1) → O → ℝ → EuclideanSpace ℝ (Fin d))
+  (hZ : ∀ (c : Fin 2) (j : Fin (J + 1)) (t : ℝ), Measurable fun x => Z c j x t)
+  (hLip : ∀ᵐ (x : O) ∂nu, ∀ (c : Fin 2) (j : Fin (J + 1)), LipschitzOnWith B (Z c j x) (Icc (a j) (b j))) :
+  ∃ paths,
+    Measurable paths ∧
+      ∀ᵐ (x : O) ∂nu,
+        ∀ (c : Fin 2) (j : Fin (J + 1)), ∀ t ∈ Icc (a j) (b j), sourcePopulationPathEval (paths x) c j t = Z c j x t
+'PaperFormalization.Manuscript.exists_source_population_path_version' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.originalConditionalPathLaw.{u_1, u_2, u_3} {O : Type u_1} {S : Type u_2} {P : Type u_3}
+  [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace P] [StandardBorelSpace P] [Nonempty P] (nu : Measure O)
+  [IsFiniteMeasure nu] (environment : O → S) (paths : O → P) : Kernel S P
+'PaperFormalization.Manuscript.originalConditionalPathLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.originalConditionalPathLaw_markov.{u_1, u_2, u_3} {O : Type u_1} {S : Type u_2}
+  {P : Type u_3} [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace P] [StandardBorelSpace P] [Nonempty P]
+  (nu : Measure O) [IsFiniteMeasure nu] (environment : O → S) (paths : O → P) :
+  IsMarkovKernel (originalConditionalPathLaw nu environment paths)
+'PaperFormalization.Manuscript.originalConditionalPathLaw_markov' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.originalConditionalPathLaw_joint.{u_1, u_2, u_3} {O : Type u_1} {S : Type u_2}
+  {P : Type u_3} [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace P] [StandardBorelSpace P] [Nonempty P]
+  (nu : Measure O) [IsFiniteMeasure nu] (environment : O → S) (paths : O → P) (hpaths : Measurable paths) :
+  Measure.map (fun x => (environment x, paths x)) nu =
+    Measure.map environment nu ⊗ₘ originalConditionalPathLaw nu environment paths
+'PaperFormalization.Manuscript.originalConditionalPathLaw_joint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.originalConditionalPathLaw_marginal.{u_1, u_2, u_3, u_4} {O : Type u_1} {S : Type u_2}
+  {P : Type u_3} {E : Type u_4} [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace P] [StandardBorelSpace P]
+  [Nonempty P] [MeasurableSpace E] (nu : Measure O) [IsFiniteMeasure nu] (environment : O → S) (paths : O → P)
+  (eval : S → P → E) (heval : Measurable fun z => eval z.1 z.2) :
+  IsMarkovKernel (conditionalPathMarginal (originalConditionalPathLaw nu environment paths) eval) ∧
+    ∀ (h : S),
+      (conditionalPathMarginal (originalConditionalPathLaw nu environment paths) eval) h =
+        Measure.map (eval h) ((originalConditionalPathLaw nu environment paths) h)
+'PaperFormalization.Manuscript.originalConditionalPathLaw_marginal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.originalConditionalPathLaw_unique.{u_1, u_2, u_3} {O : Type u_1} {S : Type u_2}
+  {P : Type u_3} [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace P] [StandardBorelSpace P] [Nonempty P]
+  (nu : Measure O) [IsFiniteMeasure nu] (environment : O → S) (paths : O → P) (henvironment : Measurable environment)
+  (hpaths : Measurable paths) (candidate : Kernel S P) [IsFiniteKernel candidate]
+  (hjoint : Measure.map (fun x => (environment x, paths x)) nu = Measure.map environment nu ⊗ₘ candidate) :
+  ⇑(originalConditionalPathLaw nu environment paths) =ᵐ[Measure.map environment nu] ⇑candidate
+'PaperFormalization.Manuscript.originalConditionalPathLaw_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.originalConditionalPathLaw_all_marginals_unique.{u_1, u_2, u_3, u_4, u_5} {O : Type u_1}
+  {S : Type u_2} {P : Type u_3} {E : Type u_4} [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace P]
+  [StandardBorelSpace P] [Nonempty P] [MeasurableSpace E] {I : Type u_5} (nu : Measure O) [IsFiniteMeasure nu]
+  (environment : O → S) (paths : O → P) (henvironment : Measurable environment) (hpaths : Measurable paths)
+  (candidate : Kernel S P) [IsFiniteKernel candidate]
+  (hjoint : Measure.map (fun x => (environment x, paths x)) nu = Measure.map environment nu ⊗ₘ candidate)
+  (eval : I → S → P → E) :
+  ∀ᵐ (h : S) ∂Measure.map environment nu,
+    ∀ (i : I),
+      Measure.map (eval i h) ((originalConditionalPathLaw nu environment paths) h) =
+        Measure.map (eval i h) (candidate h)
+'PaperFormalization.Manuscript.originalConditionalPathLaw_all_marginals_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.originalConditionalPathLaw_eval_condDistrib.{u_1, u_2, u_3, u_4} {O : Type u_1}
+  {S : Type u_2} {P : Type u_3} {E : Type u_4} [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace P]
+  [StandardBorelSpace P] [Nonempty P] [MeasurableSpace E] [StandardBorelSpace E] [Nonempty E] (nu : Measure O)
+  [IsFiniteMeasure nu] (environment : O → S) (paths : O → P) (hpaths : Measurable paths) (eval : P → E)
+  (heval : Measurable eval) :
+  ⇑(condDistrib (eval ∘ paths) environment nu) =ᵐ[Measure.map environment nu]
+    ⇑((originalConditionalPathLaw nu environment paths).map eval)
+'PaperFormalization.Manuscript.originalConditionalPathLaw_eval_condDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.exists_source_constructed_population_event.{u_1, u_2} {O : Type u_1} {S : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace S] (nu : Measure O) [IsProbabilityMeasure nu] (environment : O → S)
+  (henvironment : Measurable environment) (J d : ℕ) (T : ℝ) (a btime : Fin (J + 1) → ℝ) (B : NNReal)
+  (hab : ∀ (j : Fin (J + 1)), a j ≤ btime j) (hlen : ∑ j, (btime j - a j) ≤ T) (alpha K p0 : ℝ) (halpha : 0 < alpha)
+  (hK : 0 < K) (hp0 : 0 < p0) (hp01 : p0 ≤ 1) (Z : Fin 2 → Fin (J + 1) → O → ℝ → EuclideanSpace ℝ (Fin d))
+  (hZ : ∀ (c : Fin 2) (j : Fin (J + 1)) (t : ℝ), Measurable fun x => Z c j x t)
+  (hclass :
+    ∀ (c : Fin 2) (i : PopulationGridLabel B J a btime),
+      Measure.map (fun x => Z c i.fst x (populationGridTime B J a btime i)) nu ∈ sourceMomentClass alpha K)
+  (hLip : ∀ᵐ (x : O) ∂nu, ∀ (c : Fin 2) (j : Fin (J + 1)), LipschitzOnWith B (Z c j x) (Icc (a j) (btime j)))
+  (Model : O → Prop) (hModel : ∀ᵐ (x : O) ∂nu, Model x) :
+  ∃ paths,
+    Measurable paths ∧
+      (∀ᵐ (x : O) ∂nu,
+          ∀ (c : Fin 2) (j : Fin (J + 1)),
+            ∀ t ∈ Icc (a j) (btime j), sourcePopulationPathEval (paths x) c j t = Z c j x t) ∧
+        have law := originalConditionalPathLaw nu environment paths;
+        have b := sourcePopulationExponentialScale alpha K;
+        have A0 := 4 * ↑(populationGridBudget B J T) / p0;
+        have kpop := sourcePopulationNormalizedScale alpha b A0;
+        have Kpop := sourceExponentialMomentCoefficient alpha * kpop;
+        Measure.map (fun x => (environment x, paths x)) nu = Measure.map environment nu ⊗ₘ law ∧
+          ∃ PopGood,
+            MeasurableSet PopGood ∧
+              (Measure.map environment nu).real PopGoodᶜ ≤ p0 ∧
+                (∀ h ∈ PopGood,
+                    ∀ (c : Fin 2) (j : Fin (J + 1)),
+                      ∀ t ∈ Icc (a j) (btime j),
+                        Integrable
+                            (fun path =>
+                              Real.exp
+                                (‖sourcePopulationPathEval path c j t‖ ^ alpha /
+                                  (sourcePopulationFlowFactor alpha * b ^ alpha)))
+                            (law h) ∧
+                          ∫ (path : SourcePopulationPathSpace J d a btime),
+                                Real.exp
+                                  (‖sourcePopulationPathEval path c j t‖ ^ alpha /
+                                    (sourcePopulationFlowFactor alpha * b ^ alpha)) ∂law h ≤
+                              A0 * Real.exp (b ^ (-alpha)) ∧
+                            Integrable (fun path => Real.exp ((‖sourcePopulationPathEval path c j t‖ / kpop) ^ alpha))
+                                (law h) ∧
+                              ∫ (path : SourcePopulationPathSpace J d a btime),
+                                    Real.exp ((‖sourcePopulationPathEval path c j t‖ / kpop) ^ alpha) ∂law h ≤
+                                  2 ∧
+                                Measure.map (fun path => sourcePopulationPathEval path c j t) (law h) ∈
+                                  sourceMomentClass alpha Kpop) ∧
+                  ∃ OriginalGood,
+                    MeasurableSet OriginalGood ∧
+                      nu.real OriginalGoodᶜ ≤ p0 ∧ ∀ x ∈ OriginalGood, Model x ∧ environment x ∈ PopGood
+'PaperFormalization.Manuscript.exists_source_constructed_population_event' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.actual_source_tracking_of_observed_events.{u_1, u_2, u_3, u_4, u_5, u_6, u_7}
+  {Ω : Type u_1} [MeasurableSpace Ω] {N d : ℕ} {H : ℕ → Type u_2} [(n : ℕ) → NormedAddCommGroup (H n)]
+  [(n : ℕ) → InnerProductSpace ℝ (H n)] [∀ (n : ℕ), CompleteSpace (H n)] (c C g p q K D alpha C3 : ℝ)
+  (φ : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n) (hc : 0 < c) (hC : 0 ≤ C) (hp : 1 < p) (hq : q < p) (hK : 0 < K)
+  (hD : 1 ≤ D) (halpha : 0 < alpha) (hφ : ∀ (n : ℕ), ContDiff ℝ 2 (φ n))
+  (hgrowth :
+    ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)),
+      ∀ k ≤ 2, ‖iteratedFDeriv ℝ k (φ n) z‖ ≤ featureGrowth C g q n * (1 + ‖z‖ ^ (n + 1 - k)))
+  (hthirdφ : ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)), DifferentiableAt ℝ (fderiv ℝ (fderiv ℝ (φ n))) z)
+  (hgrowth₃ :
+    ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)),
+      ‖iteratedFDeriv ℝ 3 (φ n) z‖ ≤ featureGrowth C g q n * (1 + ‖z‖ ^ (n + 1 - 3)))
+  (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hSU : measureMomentRegion (sourceWeightedFeatureMap c p φ) (sourceMomentClass alpha K) D ⊆ U)
+  (hG : ContDiffOn ℝ 3 G U)
+  (hthirdG :
+    ∀ theta ∈ measureMomentRegion (sourceWeightedFeatureMap c p φ) (sourceMomentClass alpha K) D,
+      ‖iteratedFDeriv ℝ 3 G theta‖ ≤ C3)
+  (L : NNReal) (hL : ↑L = sourceComparisonEnvelope c C g p q K D alpha C3 φ G) (μ : Measure Ω) [IsProbabilityMeasure μ]
+  (J : ℕ) (tau eta : ℕ → ℝ) (T A_sp : ℝ) (B : NNReal) (hN : 0 < N) (htau0 : tau 0 = 0)
+  (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T) (P : SourceTrackingPaths μ J tau T B c p K D alpha A_sp φ G)
+  (delta pTotal : ℝ)
+  (hGammaLabels :
+    ∀ k ≤ J,
+      ∀ t ∈ Icc (tau k) (if k < J then tau (k + 1) else T),
+        (weightedSampleResidual (featureResidualWeight c p L) φ (fun n => ∫ (ω : Ω), φ n (P.Zbranch k ω t) ∂μ) fun i =>
+            (P.Ybranch k t).ofLp i) ≤
+          delta)
+  {O : Type u_3} [MeasurableSpace O] (ν : Measure O) (SC : Fin J → Type u_4) (VC : Fin J → Type u_5)
+  (SJ : Fin J → Type u_6) (VJ : Fin J → Type u_7) [(j : Fin J) → MeasurableSpace (SC j)]
+  [(j : Fin J) → MeasurableSpace (VC j)] [(j : Fin J) → MeasurableSpace (SJ j)] [(j : Fin J) → MeasurableSpace (VJ j)]
+  (covView : (j : Fin J) → SourceObservedCovarianceView N d alpha K ν (SC j) (VC j))
+  (jumpView : (j : Fin J) → SourceObservedJumpView c p K D alpha φ G U hU hSU ⋯ hN ν (SJ j) (VJ j)) (ω : O)
+  (hCovEvent :
+    have F := sourceWeightedFeatureMap c p φ;
+    ∀ (j : Fin J),
+      have z := (covView j).observation ω;
+      z.1 ∈ (covView j).PopGood →
+        matrixNuclearValue
+              (populationCovarianceResidual ((covView j).κ z.1) ((covView j).X z) fun x =>
+                stackedKernelMatrix fun i =>
+                  actualMomentKernelMatrix F G (∫ (y : EuclideanSpace ℝ (Fin d)), F y ∂(covView j).κ z.1)
+                    ((covView j).X z i) x) /
+            ↑N ≤
+          sourcePrescribedCovarianceEnvelope J N d c C g p q alpha K L pTotal)
+  (hJumpGood :
+    ∀ (j : Fin J),
+      (jumpView j).observation ω ∉
+        actualSourceJumpFailure c C g p q D φ G L (jumpView j).PopGood (fun h => (jumpView j).κ h) (jumpView j).X
+          (jumpView j).Y (jumpView j).Xpost (jumpView j).Ypost (jumpView j).eta (pTotal / (8 * (↑J + 1))))
+  (hCovPopGood : ∀ (j : Fin J), ((covView j).observation ω).1 ∈ (covView j).PopGood)
+  (hCovSample : ∀ (j : Fin J), (covView j).X ((covView j).observation ω) = fun i => (P.preY ↑j).ofLp i)
+  (hCovPreLaw :
+    ∀ (j : Fin J),
+      (covView j).κ ((covView j).observation ω).1 = Measure.map (fun x => P.Zbranch (↑j) x (tau (↑j + 1))) μ)
+  (hPopGood : ∀ (j : Fin J), ((jumpView j).observation ω).1 ∈ (jumpView j).PopGood)
+  (hPreX : ∀ (j : Fin J), (jumpView j).X ((jumpView j).observation ω).1 = P.preX ↑j)
+  (hPreY : ∀ (j : Fin J), (jumpView j).Y ((jumpView j).observation ω).1 = P.preY ↑j)
+  (hPostX :
+    ∀ (j : Fin J),
+      (jumpView j).Xpost ((jumpView j).observation ω).1 ((jumpView j).observation ω).2 = P.X (tau (↑j + 1)))
+  (hPostY :
+    ∀ (j : Fin J),
+      (jumpView j).Ypost ((jumpView j).observation ω).1 ((jumpView j).observation ω).2 = P.Y (tau (↑j + 1)))
+  (hPreLaw :
+    ∀ (j : Fin J),
+      (jumpView j).κ ((jumpView j).observation ω).1 = Measure.map (fun ω => P.Zbranch (↑j) ω (tau (↑j + 1))) μ)
+  (hEta : ∀ (j : Fin J), (jumpView j).eta = eta ↑j) (hAsp : 1 ≤ A_sp) :
+  have deltaTilde := sourcePrescribedCovarianceEnvelope J N d c C g p q alpha K L pTotal;
+  have F := sourceWeightedFeatureMap c p φ;
+  have r := fun t => ‖P.X t - P.Y t‖ / √↑N;
+  have kappa := fun t =>
+    rayleighInf
+      (sampledMomentHessian F G (∫ (z : EuclideanSpace ℝ (Fin d)), F z ∂Measure.map (fun ω => P.Z ω t) μ) (P.Y t));
+  have cD := featureDisplacementLambda c C g p q D L + (2 + A_sp) * ↑L;
+  have A :=
+    sourceJumpCoefficient d (featureDisplacementLambda c C g p q D L) ↑L *
+      sourceGaussianDeviation (pTotal / (8 * (↑J + 1)));
+  T *
+        (delta +
+          cD *
+            (2 * jumpAmplification (sourceJumpError A eta) J *
+              sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A J T)) ≤
+      1 / 4 →
+    (∀ t ∈ Icc 0 T,
+        r t ≤
+          Real.exp (1 / 4) * jumpAmplification (sourceJumpError A eta) J *
+            sourceCurvatureEnvelope kappa tau eta delta deltaTilde A J t) ∧
+      (sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A J T = 0 → ∀ t ∈ Icc 0 T, P.X t = P.Y t) ∧
+        (∀ k < J,
+            ‖P.preX k - P.preY k‖ / √↑N ≤
+              Real.exp (1 / 4) * jumpAmplification (sourceJumpError A eta) J *
+                sourceCurvatureEnvelope kappa tau eta delta deltaTilde A k (tau (k + 1))) ∧
+          (sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A J T = 0 → ∀ k < J, P.preX k = P.preY k)
+'PaperFormalization.Manuscript.actual_source_tracking_of_observed_events' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.exists_source_actual_tracking_on_observed_event.{u_1, u_2, u_3, u_4, u_5, u_6, u_7}
+  {Ω : Type u_1} [MeasurableSpace Ω] {N d : ℕ} {H : ℕ → Type u_2} [(n : ℕ) → NormedAddCommGroup (H n)]
+  [(n : ℕ) → InnerProductSpace ℝ (H n)] [∀ (n : ℕ), CompleteSpace (H n)] (c C g p q K D alpha C3 : ℝ)
+  (φ : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n) (hc : 0 < c) (hC : 0 ≤ C) (hp : 1 < p) (hq : q < p) (hK : 0 < K)
+  (hD : 1 ≤ D) (halpha : 0 < alpha) (hφ : ∀ (n : ℕ), ContDiff ℝ 2 (φ n))
+  (hgrowth :
+    ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)),
+      ∀ k ≤ 2, ‖iteratedFDeriv ℝ k (φ n) z‖ ≤ featureGrowth C g q n * (1 + ‖z‖ ^ (n + 1 - k)))
+  (hthirdφ : ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)), DifferentiableAt ℝ (fderiv ℝ (fderiv ℝ (φ n))) z)
+  (hgrowth₃ :
+    ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)),
+      ‖iteratedFDeriv ℝ 3 (φ n) z‖ ≤ featureGrowth C g q n * (1 + ‖z‖ ^ (n + 1 - 3)))
+  (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hSU : measureMomentRegion (sourceWeightedFeatureMap c p φ) (sourceMomentClass alpha K) D ⊆ U)
+  (hG : ContDiffOn ℝ 3 G U)
+  (hthirdG :
+    ∀ theta ∈ measureMomentRegion (sourceWeightedFeatureMap c p φ) (sourceMomentClass alpha K) D,
+      ‖iteratedFDeriv ℝ 3 G theta‖ ≤ C3)
+  (L : NNReal) (hL : ↑L = sourceComparisonEnvelope c C g p q K D alpha C3 φ G) {O : Type u_3} [MeasurableSpace O]
+  (J : ℕ) (hN : 0 < N) (ν : Measure O) [IsProbabilityMeasure ν] (SC : Fin J → Type u_4) (VC : Fin J → Type u_5)
+  (SJ : Fin J → Type u_6) (VJ : Fin J → Type u_7) [(j : Fin J) → MeasurableSpace (SC j)]
+  [(j : Fin J) → MeasurableSpace (VC j)] [(j : Fin J) → MeasurableSpace (SJ j)] [(j : Fin J) → MeasurableSpace (VJ j)]
+  (covView : (j : Fin J) → SourceObservedCovarianceView N d alpha K ν (SC j) (VC j))
+  (jumpView : (j : Fin J) → SourceObservedJumpView c p K D alpha φ G U hU hSU ⋯ hN ν (SJ j) (VJ j)) (delta pTotal : ℝ)
+  (hpTotal : 0 < pTotal) (hpTotal1 : pTotal < 1) (Model : O → Prop) (hModel : ∀ᵐ (ω : O) ∂ν, Model ω) :
+  ∃ Good,
+    MeasurableSet Good ∧
+      ν.real Goodᶜ ≤ ↑J / (↑J + 1) * (5 * pTotal / 32) ∧
+        ν.real Goodᶜ < pTotal / 4 ∧
+          ∀ ω ∈ Good,
+            Model ω ∧
+              ∀ (μ : Measure Ω) [IsProbabilityMeasure μ] (tau eta : ℕ → ℝ) (T A_sp : ℝ) (B : NNReal),
+                tau 0 = 0 →
+                  (∀ k < J, tau k < tau (k + 1)) →
+                    tau J ≤ T →
+                      ∀ (P : SourceTrackingPaths μ J tau T B c p K D alpha A_sp φ G),
+                        (∀ k ≤ J,
+                            ∀ t ∈ Icc (tau k) (if k < J then tau (k + 1) else T),
+                              (weightedSampleResidual (featureResidualWeight c p L) φ
+                                  (fun n => ∫ (ω : Ω), φ n (P.Zbranch k ω t) ∂μ) fun i => (P.Ybranch k t).ofLp i) ≤
+                                delta) →
+                          (∀ (j : Fin J), ((covView j).observation ω).1 ∈ (covView j).PopGood) →
+                            (∀ (j : Fin J), (covView j).X ((covView j).observation ω) = fun i => (P.preY ↑j).ofLp i) →
+                              (∀ (j : Fin J),
+                                  (covView j).κ ((covView j).observation ω).1 =
+                                    Measure.map (fun x => P.Zbranch (↑j) x (tau (↑j + 1))) μ) →
+                                (∀ (j : Fin J), ((jumpView j).observation ω).1 ∈ (jumpView j).PopGood) →
+                                  (∀ (j : Fin J), (jumpView j).X ((jumpView j).observation ω).1 = P.preX ↑j) →
+                                    (∀ (j : Fin J), (jumpView j).Y ((jumpView j).observation ω).1 = P.preY ↑j) →
+                                      (∀ (j : Fin J),
+                                          (jumpView j).Xpost ((jumpView j).observation ω).1
+                                              ((jumpView j).observation ω).2 =
+                                            P.X (tau (↑j + 1))) →
+                                        (∀ (j : Fin J),
+                                            (jumpView j).Ypost ((jumpView j).observation ω).1
+                                                ((jumpView j).observation ω).2 =
+                                              P.Y (tau (↑j + 1))) →
+                                          (∀ (j : Fin J),
+                                              (jumpView j).κ ((jumpView j).observation ω).1 =
+                                                Measure.map (fun ω => P.Zbranch (↑j) ω (tau (↑j + 1))) μ) →
+                                            (∀ (j : Fin J), (jumpView j).eta = eta ↑j) →
+                                              1 ≤ A_sp →
+                                                have deltaTilde :=
+                                                  sourcePrescribedCovarianceEnvelope J N d c C g p q alpha K L pTotal;
+                                                have F := sourceWeightedFeatureMap c p φ;
+                                                have r := fun t => ‖P.X t - P.Y t‖ / √↑N;
+                                                have kappa := fun t =>
+                                                  rayleighInf
+                                                    (sampledMomentHessian F G
+                                                      (∫ (z : EuclideanSpace ℝ (Fin d)),
+                                                        F z ∂Measure.map (fun ω => P.Z ω t) μ)
+                                                      (P.Y t));
+                                                have cD := featureDisplacementLambda c C g p q D L + (2 + A_sp) * ↑L;
+                                                have A :=
+                                                  sourceJumpCoefficient d (featureDisplacementLambda c C g p q D L) ↑L *
+                                                    sourceGaussianDeviation (pTotal / (8 * (↑J + 1)));
+                                                T *
+                                                      (delta +
+                                                        cD *
+                                                          (2 * jumpAmplification (sourceJumpError A eta) J *
+                                                            sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A
+                                                              J T)) ≤
+                                                    1 / 4 →
+                                                  (∀ t ∈ Icc 0 T,
+                                                      r t ≤
+                                                        Real.exp (1 / 4) * jumpAmplification (sourceJumpError A eta) J *
+                                                          sourceCurvatureEnvelope kappa tau eta delta deltaTilde A J
+                                                            t) ∧
+                                                    (sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A J T =
+                                                          0 →
+                                                        ∀ t ∈ Icc 0 T, P.X t = P.Y t) ∧
+                                                      (∀ k < J,
+                                                          ‖P.preX k - P.preY k‖ / √↑N ≤
+                                                            Real.exp (1 / 4) *
+                                                                jumpAmplification (sourceJumpError A eta) J *
+                                                              sourceCurvatureEnvelope kappa tau eta delta deltaTilde A k
+                                                                (tau (k + 1))) ∧
+                                                        (sourceCurvatureEnvelopeSup kappa tau eta delta deltaTilde A J
+                                                              T =
+                                                            0 →
+                                                          ∀ k < J, P.preX k = P.preY k)
+'PaperFormalization.Manuscript.exists_source_actual_tracking_on_observed_event' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

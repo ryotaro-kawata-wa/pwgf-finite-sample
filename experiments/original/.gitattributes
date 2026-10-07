@@ -1,0 +1,4 @@
+# Preserve the bytes authenticated by MANIFEST.json on every platform.
+* -text
+# Python csv.writer used CRLF in the original recorded data.
+*.csv whitespace=cr-at-eol

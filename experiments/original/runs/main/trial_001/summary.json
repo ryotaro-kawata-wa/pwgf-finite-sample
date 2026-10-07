@@ -1,0 +1,123 @@
+{
+  "trial": 1,
+  "seconds": 387.05442869500257,
+  "population_sha256": "8e1507394f75cc598b09040742a166fc2aab739ea836ef64258384e3fda4a5d2",
+  "population": {
+    "status": "stopped",
+    "stop_time": 28.1,
+    "attempts": 2,
+    "actual": {
+      "objective": 7.827788700917182e-05,
+      "gradient_rms": 0.006121512784986106,
+      "target_relative_error": 0.015826851816749594
+    },
+    "returned": {
+      "objective": 0.00011750652145854748,
+      "gradient_rms": 0.009948261089876509,
+      "target_relative_error": 0.019391257531871216
+    }
+  },
+  "outputs": [
+    {
+      "n": 2048,
+      "status": "stopped",
+      "stop_time": 41.1,
+      "attempts": 1,
+      "actual": {
+        "objective": 0.0001612340465671068,
+        "gradient_rms": 0.008498969671930541,
+        "target_relative_error": 0.022714509658250205
+      },
+      "returned": {
+        "objective": 0.00013755167448662166,
+        "gradient_rms": 0.009677116217973432,
+        "target_relative_error": 0.020980118168332357
+      },
+      "candidate_time": 31.1,
+      "return_tracking_rms": 2.404608101402122,
+      "return_spikiness": 1.004025281748137,
+      "return_objective_gap": 2.0045153028074183e-05
+    },
+    {
+      "n": 4096,
+      "status": "stopped",
+      "stop_time": 34.4,
+      "attempts": 1,
+      "actual": {
+        "objective": 0.00014393812985184895,
+        "gradient_rms": 0.008316192990728706,
+        "target_relative_error": 0.021461640559983217
+      },
+      "returned": {
+        "objective": 0.0001229624116128644,
+        "gradient_rms": 0.009810530676301086,
+        "target_relative_error": 0.019836323176465092
+      },
+      "candidate_time": 24.400000000000002,
+      "return_tracking_rms": 1.141178479886923,
+      "return_spikiness": 1.005605067222101,
+      "return_objective_gap": 5.4558901543169235e-06
+    },
+    {
+      "n": 8192,
+      "status": "stopped",
+      "stop_time": 27.400000000000002,
+      "attempts": 2,
+      "actual": {
+        "objective": 7.908663182557875e-05,
+        "gradient_rms": 0.00614763740616535,
+        "target_relative_error": 0.01590840098318659
+      },
+      "returned": {
+        "objective": 0.00011621360526607715,
+        "gradient_rms": 0.00972764475784274,
+        "target_relative_error": 0.01928428211916241
+      },
+      "candidate_time": 17.400000000000002,
+      "return_tracking_rms": 0.07533160082924395,
+      "return_spikiness": 1.0102094892562041,
+      "return_objective_gap": 1.292916192470334e-06
+    },
+    {
+      "n": 16384,
+      "status": "stopped",
+      "stop_time": 28.1,
+      "attempts": 2,
+      "actual": {
+        "objective": 7.790139312783391e-05,
+        "gradient_rms": 0.006106646248623416,
+        "target_relative_error": 0.015788744662229123
+      },
+      "returned": {
+        "objective": 0.00011251240461056647,
+        "gradient_rms": 0.009612585244616119,
+        "target_relative_error": 0.018974711980786766
+      },
+      "candidate_time": 18.1,
+      "return_tracking_rms": 0.061788591937504786,
+      "return_spikiness": 1.0102209170481886,
+      "return_objective_gap": 4.9941168479810115e-06
+    },
+    {
+      "n": 32768,
+      "status": "stopped",
+      "stop_time": 28.200000000000003,
+      "attempts": 2,
+      "actual": {
+        "objective": 7.925011723202801e-05,
+        "gradient_rms": 0.0061539080636806385,
+        "target_relative_error": 0.015924835168455897
+      },
+      "returned": {
+        "objective": 0.00011210376185759428,
+        "gradient_rms": 0.009648085070738076,
+        "target_relative_error": 0.01894022275329152
+      },
+      "candidate_time": 18.2,
+      "return_tracking_rms": 0.045957621619152636,
+      "return_spikiness": 1.0077989321597274,
+      "return_objective_gap": 5.402759600953196e-06
+    }
+  ],
+  "population_replay_exact": true
+}

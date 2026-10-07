@@ -1,0 +1,4 @@
+Running: lake env lean --version
+Running: lake build PaperFormalization
+Running: lake env lean verification/20261006T144807.668818Z_author-layout/AxiomAudit.lean
+Verified 4274 declarations; receipt: /Users/ryotarokawata/git_projects/mfld-for-lean/publication/artifacts/public-repository/lean/verification/20261006T144807.668818Z_author-layout/receipt.json

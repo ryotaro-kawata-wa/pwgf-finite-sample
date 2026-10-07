@@ -1,0 +1,880 @@
+
+\subsection{The anti-symmetric branch and descent towards the saddle}
+\label{subsec:antisymmetric-branch-and-dissipation}
+
+This subsection proves invariance of the anti-symmetric branch and, under a local initial condition, cap confinement and convergence to the antipodal Dirac target.
+
+\subsubsection{Invariance of the anti-symmetric branch}
+\label{subsubsec:invariance}
+
+We first show that the first variation respects the antipodal reflection symmetry.
+
+\begin{lemma}[Reflection--exchange covariance of the full first variation]
+\label{lem:gradient-symmetry-antisymmetric-branch}
+\textbf{Assumptions used.} \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}.
+
+Let \(\mathsf R(w)=-w\) and define the reflection--exchange involution
+\[
+ \mathfrak R(\mu_1,\mu_2)
+ :=(\mathsf R_\#\mu_2,\mathsf R_\#\mu_1).
+\]
+For every admissible product state \(\mu=(\mu_1,\mu_2)\),
+\begin{equation}
+\label{eq:mf-reflection-swap-objective}
+ F(\mathfrak R\mu)=F(\mu),
+\end{equation}
+and its spherical gradient fields satisfy
+\begin{equation}
+\label{eq:mf-reflection-swap-gradient}
+\begin{aligned}
+ g_1(\mathfrak R\mu;-w)&=-g_2(\mu;w),\\
+ g_2(\mathfrak R\mu;-w)&=-g_1(\mu;w),
+\end{aligned}
+\end{equation}
+where \(g_i=\nabla_\Sphere(\delta F/\delta\mu_i)\).
+If \(\mu\in\submanifoldforsaddlepoint\), then \(\mathfrak R\mu=\mu\), so
+\begin{equation}
+\label{eq:full-first-variation-reflection-covariance}
+ \fv{F}{\mu_2}(-w)=\fv{F}{\mu_1}(w)+\mathrm{const},
+ \qquad g_2(\mu;-w)=-g_1(\mu;w).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\noindent\textbf{Step 1: transform the objective at an arbitrary state.}
+Oddness of the activation gives, for every marginal \(\nu\),
+\[
+ h_{\mathsf R_\#\nu}(z)
+ =\int\sigma((-w)^\top z)\,d\nu(w)=-h_\nu(z).
+\]
+Consequently,
+\[
+ h_{\mathsf R_\#\mu_2}h_{\mathsf R_\#\mu_1}^\top
+ =h_{\mu_2}h_{\mu_1}^\top
+ =(h_{\mu_1}h_{\mu_2}^\top)^\top.
+\]
+The teacher matrix \(h_{\nu^o}h_{\nu^o}^\top\) is symmetric by
+\cref{assumption:odd-symmetric-teacher}, and the Frobenius norm is invariant
+under transposition.  Thus the fitting loss is unchanged.  Reflection is a
+spherical isometry and \(\mathsf R_\#\nu_\star^\pm=\nu_\star^\pm\).  Pushing
+any transport plan forward by \((\mathsf R,\mathsf R)\), and then applying
+this involution once more, gives
+\[
+ W_2(\mathsf R_\#\nu,\nu_\star^\pm)=W_2(\nu,\nu_\star^\pm).
+\]
+The reflection exchanges the two summands in \(Z_\pm\), which proves
+\cref{eq:mf-reflection-swap-objective} for every admissible state.
+
+\par\noindent\textbf{Step 2: differentiate the symmetry and specialize to the branch.}
+Vary the second marginal of \(\mu\) in
+\cref{eq:mf-reflection-swap-objective}.  The corresponding variation of the
+first marginal of \(\mathfrak R\mu\) is reflected, and
+the first-variation identity is
+\[
+ \fv{F}{\mu_1}(\mathfrak R\mu;-w)
+ =\fv{F}{\mu_2}(\mu;w)+\mathrm{const}.
+\]
+Here the additive constant is immaterial because first-variation potentials
+are defined only up to constants.  Since \(D\mathsf R=-I\), differentiating
+this identity gives, for every \(v\in T_w\Sphere^{d_w-1}\),
+\[
+ \langle g_1(\mathfrak R\mu;-w),-v\rangle_{\mathbb R^{d_w}}
+ =\langle g_2(\mu;w),v\rangle_{\mathbb R^{d_w}}.
+\]
+Since this holds for every \(v\), it proves the first identity in
+\cref{eq:mf-reflection-swap-gradient}; exchanging the factors proves the
+second.  A state lies in \(\mathcal M_-\) precisely when
+\(\mathfrak R\mu=\mu\), so the gradient and potential identities in
+\cref{eq:full-first-variation-reflection-covariance} follow.
+\end{proof}
+
+We prove branch invariance by applying reflection and factor exchange
+to an arbitrary admissible product state before using uniqueness.
+\begin{proposition}[Invariance of $\submanifoldforsaddlepoint$]
+\label{lem:invariance-antisymmetric-branch}
+Assume \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}.
+Let \(\mu_0\in\submanifoldforsaddlepoint\). On every interval on which
+the characteristic product WGF is uniquely defined and remains in the
+fixed-assignment cap class \(\mu_{i,t}\in\mathcal P_\pm(r_{\mathrm{cap}})\), \(i=1,2\),
+\[
+ \mu_{2,t}=(-\Id)_\#\mu_{1,t},
+ \qquad \mu_t\in\submanifoldforsaddlepoint.
+\]
+\end{proposition}
+
+\begin{proof}
+Let \(\mathfrak R\) be the reflection--exchange involution from
+\cref{lem:gradient-symmetry-antisymmetric-branch}.  If
+\(\Phi_{i,t}\) are the original characteristics, define
+\[
+ \widetilde\Phi_{1,t}(w):=-\Phi_{2,t}(-w),\qquad
+ \widetilde\Phi_{2,t}(w):=-\Phi_{1,t}(-w).
+\]
+Using the characteristic equation
+\(\dot\Phi_{i,t}=-g_i(\mu_t;\Phi_{i,t})\) and the first identity in
+\cref{eq:mf-reflection-swap-gradient},
+\[
+\begin{aligned}
+ \frac d{dt}\widetilde\Phi_{1,t}(w)
+ &=g_2(\mu_t;\Phi_{2,t}(-w))\\
+ &=-g_1(\mathfrak R\mu_t;\widetilde\Phi_{1,t}(w)).
+\end{aligned}
+\]
+The second factor satisfies the analogous equation.  Their marginal laws are
+\(\mathfrak R\mu_t=(\mathsf R_\#\mu_{2,t},\mathsf R_\#\mu_{1,t})\), and
+reflection exchanges the two equal-mass caps, so the transformed pair remains
+in the same admissible class.
+
+Since \(\mu_0\in\mathcal M_-\), one has \(\mathfrak R\mu_0=\mu_0\); hence
+the transformed and original characteristic systems have the same initial
+state.  Uniqueness on the stated interval gives
+\(\mathfrak R\mu_t=\mu_t\), or equivalently
+\(\mu_{2,t}=\mathsf R_\#\mu_{1,t}\), throughout that interval.
+\end{proof}
+
+\subsubsection{Dissipation towards the antipodal saddle point on the anti-symmetric branch}
+\label{subsubsec:diddipation}
+
+We establish quantitative transport estimates and use them to prove local attraction to the antipodal target.
+
+\paragraph{Fixed-assignment geometry and first variations.}
+Recall the cap class \(\mathcal P_\pm(r_{\mathrm{cap}})\) and product
+class \(\mathcal X_\pm(r_{\mathrm{cap}})=\mathcal P_\pm(r_{\mathrm{cap}})^2\)
+from \cref{eq:mf-cap-class,eq:mf-product-cap-class}: each marginal has
+mass \(1/2\) in each of the two open caps. The assigned pole and its cost
+from \cref{eq:mf-assigned-pole,eq:mf-fixed-assignment-cost} are
+\[
+ \pi_\star(w)=\begin{cases}a_\star,&w\in K_+(r_{\mathrm{cap}}),\\
+                         -a_\star,&w\in K_-(r_{\mathrm{cap}}),\end{cases}
+ \qquad c_\star(w)=\frac12 r(w)^2,\qquad
+ r(w):=d_\Sphere(w,\pi_\star(w)).
+\]
+The endpoint vector \(q_\star\) of
+\cref{definition-spherical-logarithm-exponential} is illustrated in
+\cref{fig:mf-spherical-geometry}.  The fixed-assignment calculation in
+\cref{lem:fixed-assignment-contraction-geometry,eq:mf-contraction-geodesic-derivatives,eq:mf-cost-gradient-LOG}
+shows that \(C_s\) is a constant-speed spherical geodesic with zero
+covariant acceleration and that
+\[
+ q_\star(w)=\nabla_\Sphere c_\star(w)=-\LOG_w\pi_\star(w).
+\]
+
+For subsequent derivative formulas define the gradient fields
+\begin{equation}
+\label{eq:mf-branch-radial-notation}
+ g_i(\mu,w):=\nabla_\Sphere\frac{\delta F}{\delta\mu_i}(\mu,w),
+ \qquad
+ g_{i,\mathrm{fit}}(\mu,w):=\nabla_\Sphere
+                  \frac{\delta F_{\mathrm{fit}}}{\delta\mu_i}(\mu,w).
+\end{equation}
+By the fixed-assignment formula \cref{eq:fixed-assignment-W2-square-formula},
+\begin{equation}
+\label{eq:mf-branch-distance-gradient}
+\begin{aligned}
+ Z_\pm(\mu)&=\sum_{i=1}^2\int r(w)^2\,\dd\mu_i(w),\\
+ \|(q_\star,q_\star)\|_{L^2(\mu)}^2&=Z_\pm(\mu),
+ &\nabla_{W_2}Z_\pm(\mu)&=2(q_\star,q_\star).
+\end{aligned}
+\end{equation}
+Here the product norm is
+\(\|V\|_{L^2(\mu)}^2=\sum_{i=1}^2\int\|V_i\|^2\,\dd\mu_i\).
+For a smooth product field \(V=(V_1,V_2)\), write
+\(DF(\mu)[V]:=\sum_{i=1}^2\int\langle g_i,V_i\rangle\,\dd\mu_i\);
+the same convention applies to \(F_{\mathrm{fit}}\).
+
+\paragraph{Constants for the local estimates.}
+Under \cref{assumption:odd-symmetric-teacher}, write
+\(b(z):=h_{\nu^o}(z)\). Let \(G_1,G_2\) be independent standard real
+Gaussians. For a vector-valued random variable \(X\), use
+\(\|X\|_{L^4}:=(\E\|X\|_2^4)^{1/4}\), and define
+\begin{equation}
+\label{eq:mf-gaussian-derivative-constants}
+\begin{aligned}
+ M_4&:=\|\sigma(G_1)\|_{L^4},
+ &B_4&:=\|b(z)\|_{L^4_z},\\
+ K_1&:=\|\sigma'(G_1)G_2\|_{L^4},
+ &K_2&:=\|\sigma''(G_1)G_2^2-\sigma'(G_1)G_1\|_{L^4}.
+\end{aligned}
+\end{equation}
+The constants in the branch estimates are
+\begin{equation}
+\label{eq:mf-branch-estimate-constants}
+ C_\star:=\frac{K_2^2(M_4^2+B_4^2)}{32},
+ \qquad
+ L_{\mathrm{fit}}:=\frac{K_1^2(M_4^2+B_4^2)}{\sqrt{2}}.
+\end{equation}
+All four Gaussian moments are finite because \(\sigma\) is a finite
+polynomial. By Gaussian rotational invariance and Minkowski's inequality,
+\begin{equation}
+\label{eq:mf-output-fourth-moment-bound}
+ \|h_\nu\|_{L^4_z}\le M_4
+ \quad\text{for every probability measure \(\nu\) on \(\Sphere^{d_w-1}\)},
+ \qquad B_4\le M_4.
+\end{equation}
+These constants depend only on the fixed activation and teacher, and not on
+time, the student initialization, or particle number. The parameters
+\(p_W,\lambdaReg,r_{\mathrm{cap}}\) are fixed separately.
+
+\begin{lemma}[Pole-contraction and fitting-field estimates]
+\label{lem:mf-pole-contraction-estimates}
+Assume \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}.
+For every \(\mu\in\submanifoldforsaddlepoint\cap
+\mathcal X_\pm(r_{\mathrm{cap}})\), the following two bounds hold:
+\begin{equation}
+\label{eq:mf-pole-contraction-estimates}
+\begin{aligned}
+ \textup{(i)}\quad &DF_{\mathrm{fit}}(\mu)[(q_\star,q_\star)]
+                  \ge-C_\star Z_\pm(\mu)^2,\\
+ \textup{(ii)}\quad &\sup_{w\in\Sphere^{d_w-1}}
+       \|g_{i,\mathrm{fit}}(\mu,w)\|_{\mathbb R^{d_w}}
+       \le L_{\mathrm{fit}}\sqrt{Z_\pm(\mu)},\qquad i=1,2.
+\end{aligned}
+\end{equation}
+The constants are those in
+\cref{eq:mf-gaussian-derivative-constants,eq:mf-branch-estimate-constants}.
+The simultaneous pole contraction is an admissible smooth transport
+perturbation at \(\mu\).
+\end{lemma}
+
+\begin{proof}
+Within this proof only, write \(Z=Z_\pm(\mu)\) and
+\(h=h_{\mu_1}=-h_{\mu_2}\). The teacher output is
+\(h_{\nu^o}(z)=\int\sigma(w^\top z)\,\dd\nu^o(w)\), where
+\(\nu^o=\mu_1^o=\mu_2^o\) by \cref{assumption:odd-symmetric-teacher}.
+
+\par\noindent\textbf{Step 1: contraction, Gaussian derivatives, and the remainder.}
+Recall the contraction from \cref{definition-spherical-logarithm-exponential}
+and define its output by
+\begin{equation}
+\label{eq:mf-pole-contraction-path}
+\begin{aligned}
+ C_s(w)&=\EXP_{\pi_\star(w)}\bigl(s\LOG_{\pi_\star(w)}w\bigr),
+ &\mu_{i,s}&=(C_s)_\#\mu_i,\\
+ h_s(z)&=\int\sigma(C_s(w)^\top z)\,\dd\mu_1(w),
+ &0&\le s\le1.
+\end{aligned}
+\end{equation}
+Since \(C_s(-w)=-C_s(w)\), reflection of the first pushed-forward
+marginal equals the second. Each point stays in its assigned cap, with
+\(r(C_s(w))=s r(w)\). The mass \(1/2\) in each cap and oddness give
+\(h_0=\tfrac12\sigma(a_\star^\top z)+
+\tfrac12\sigma(-a_\star^\top z)=0\). Reflection also gives
+\(\int r^2\,\dd\mu_2=\int r(-w)^2\,\dd\mu_1=\int r^2\,\dd\mu_1\).
+Consequently,
+\begin{equation}
+\label{eq:mf-contraction-endpoint-identities}
+ h_0=0,\qquad h_1=h,\qquad
+ \int r^2\,\dd\mu_1=\frac Z2,\qquad
+ Z_\pm(\mu_{1,s},\mu_{2,s})=s^2Z.
+\end{equation}
+The closed supports are compact subsets of the open caps; hence
+\(s r(w)<r_{\mathrm{cap}}\) uniformly for \(s\) in a small two-sided
+neighborhood of \(1\). This proves admissibility, with product velocity
+\((q_\star,q_\star)\) at \(s=1\).
+
+For \(r(w)>0\), \cref{eq:mf-contraction-geodesic-derivatives} gives
+\begin{equation}
+\label{eq:mf-contraction-orthogonal-unit-pair}
+ \|C_s(w)\|_{\mathbb R^{d_w}}=1,\qquad
+ \left\|\frac{\partial_sC_s(w)}{r(w)}\right\|_{\mathbb R^{d_w}}=1,
+ \qquad
+ \left\langle C_s(w),\frac{\partial_sC_s(w)}{r(w)}
+ \right\rangle_{\mathbb R^{d_w}}=0.
+\end{equation}
+Thus the geometry separates the first derivative's factor \(r(w)\) from
+second-order terms carrying \(r(w)^2\).  Only for the next calculation, set
+\[
+ X_s:=C_s(w)^\top z,
+ \qquad
+ Y_s:=\frac{\partial_sC_s(w)^\top z}{r(w)}.
+\]
+For \(z\sim\mathcal N(0,I_{d_w})\),
+\cref{eq:mf-contraction-orthogonal-unit-pair} gives
+\[
+ \mathbb E_zX_s^2=1,\qquad \mathbb E_zY_s^2=1,\qquad
+ \mathbb E_z[X_sY_s]=0.
+\]
+The pair \((X_s,Y_s)\) is jointly Gaussian, so it has the law of independent
+standard normals \((G_1,G_2)\).  Recall from
+\cref{eq:mf-gaussian-derivative-constants} that
+\[
+ K_1=\|\sigma'(G_1)G_2\|_{L^4},\qquad
+ K_2=\|\sigma''(G_1)G_2^2-\sigma'(G_1)G_1\|_{L^4}.
+\]
+For \(f_w(s,z):=\sigma(C_s(w)^\top z)\), the chain rule and
+\(\partial_s^2C_s=-r(w)^2C_s\) from
+\cref{eq:mf-contraction-geodesic-derivatives} give
+\begin{equation}
+\label{eq:mf-spherical-feature-derivatives}
+\begin{aligned}
+ \partial_s f_w
+ &=r(w)\sigma'(X_s)Y_s,\\
+ \partial_s^2 f_w
+ &=r(w)^2\bigl[\sigma''(X_s)Y_s^2-\sigma'(X_s)X_s\bigr],\\
+ \|\partial_s f_w\|_{L^4_z}
+ &=r(w)\|\sigma'(G_1)G_2\|_{L^4}=K_1r(w),\\
+ \|\partial_s^2 f_w\|_{L^4_z}
+ &=r(w)^2\|\sigma''(G_1)G_2^2-\sigma'(G_1)G_1\|_{L^4}
+ =K_2r(w)^2.
+\end{aligned}
+\end{equation}
+When \(r(w)=0\), \(C_s(w)=w\) is constant, so both derivatives vanish and
+the same norm identities hold without defining \(Y_s\).
+
+The endpoint identities \(h_0=0\) and \(h_1=h\) in
+\cref{eq:mf-contraction-endpoint-identities} show that a linear output path
+would satisfy \(h'_1=h_1-h_0=h\).  We therefore measure the failure of this
+linearity by \(e:=h'_1-h\).  Step 2 substitutes \(h'_1=h+e\) into the
+fitting derivative, so the next calculation bounds \(\|e\|_{L^4_z}\).
+For each fixed \(w,z\), integration by parts gives
+\[
+ \int_0^1s f_w''(s)\,\dd s
+ =[s f_w'(s)]_0^1-\int_0^1f_w'(s)\,\dd s
+ =f_w'(1)-f_w(1)+f_w(0).
+\]
+Integrating this identity in \(w\) gives
+\(\int f_w'(1)\,d\mu_1=h'_1\),
+\(\int f_w(1)\,d\mu_1=h_1=h\), and
+\(\int f_w(0)\,d\mu_1=h_0=0\).  Hence
+\begin{equation}
+\label{eq:mf-contraction-feature-remainder}
+\begin{aligned}
+ e:=h'_1-h
+ &=\int\!\int_0^1s f_w''(s,\cdot)\,\dd s\,\dd\mu_1(w),\\
+ \|e\|_{L^4_z}
+ &\le\int\!\int_0^1s\|f_w''(s,\cdot)\|_{L^4_z}\,\dd s\,\dd\mu_1(w)\\
+ &\le K_2\left(\int_0^1s\,\dd s\right)\int r(w)^2\,\dd\mu_1(w)\\
+ &=\frac{K_2}{2}\frac Z2=\frac{K_2Z}{4},
+ \qquad h'_1=h+e,
+\end{aligned}
+\end{equation}
+where the last equality uses
+\cref{eq:mf-contraction-endpoint-identities}.  The first inequality is
+Minkowski for the Bochner integral over \(s\) and \(w\).
+The activation is a finite polynomial and the sphere is compact, so its
+Gaussian polynomial bounds justify these differentiations and integrals.
+
+\par\noindent\textbf{Step 2: the fitting derivative.}
+The product path in \cref{eq:mf-pole-contraction-path} has endpoint velocity
+\((q_\star,q_\star)\), so by definition of the directional derivative,
+\begin{equation}
+\label{eq:mf-contraction-directional-derivative}
+ DF_{\mathrm{fit}}(\mu)[(q_\star,q_\star)]
+ =\left.\frac d{ds}\right|_{s=1}
+   F_{\mathrm{fit}}(\mu_{1,s},\mu_{2,s}).
+\end{equation}
+Recall \(M_4=\|\sigma(G_1)\|_{L^4}\) and
+\(B_4=\|h_{\nu^o}\|_{L^4_z}\le M_4\) from
+\cref{eq:mf-gaussian-derivative-constants,eq:mf-output-fourth-moment-bound}.
+In particular,
+\(\|h\|_{L^4_z}\le\int\|\sigma(w^\top z)\|_{L^4_z}\,\dd\mu_1(w)=M_4\).
+On the anti-symmetric branch,
+\(h_{\mu_1}=h\) and \(h_{\mu_2}=-h\), so the model output matrix is
+\(-hh^\top\).  Hence
+\[
+ F_{\mathrm{fit}}(\mu)
+ =\frac12\mathbb E_z
+   \|-hh^\top-h_{\nu^o}h_{\nu^o}^\top\|_{\mathrm F}^2.
+\]
+The Frobenius identities
+\(\|hh^\top\|_{\mathrm F}^2=\|h\|_2^4\) and
+\(\langle hh^\top,h_{\nu^o}h_{\nu^o}^\top\rangle_{\mathrm F}
+=\langle h,h_{\nu^o}\rangle^2\) expand the branch objective as
+\begin{equation}
+\label{eq:mf-branch-energy-expansion}
+ F_{\mathrm{fit}}(\mu)
+ =\frac12\E_z\|h\|_2^4
+  +\E_z\langle h,h_{\nu^o}\rangle^2
+  +\frac12\E_z\|h_{\nu^o}\|_2^4.
+\end{equation}
+For the first two summands, before evaluating at \(s=1\),
+\[
+ \frac{\dd}{\dd s}\frac12\|h_s\|_2^4
+ =2\|h_s\|_2^2\langle h_s,h_s'\rangle,\qquad
+ \frac{\dd}{\dd s}\langle h_s,h_{\nu^o}\rangle^2
+ =2\langle h_s,h_{\nu^o}\rangle\langle h_s',h_{\nu^o}\rangle.
+\]
+The teacher term is constant.  Evaluating at \(s=1\), using \(h_1=h\),
+and substituting \(h'_1=h+e\) from
+\cref{eq:mf-contraction-feature-remainder} into
+\cref{eq:mf-contraction-directional-derivative} gives
+\begin{align}
+ DF_{\mathrm{fit}}(\mu)[(q_\star,q_\star)]
+ =2\E_z\bigl[&\|h\|_2^4+\|h\|_2^2\langle h,e\rangle
+   +\langle h,h_{\nu^o}\rangle^2\notag\\
+   &+\langle h,h_{\nu^o}\rangle\langle e,h_{\nu^o}\rangle\bigr].
+\end{align}
+The two pointwise square completions are
+\[
+ 2\|h\|_2^2(\|h\|_2^2+\langle h,e\rangle)
+ =2\|h\|_2^2\|h+e/2\|_2^2-\tfrac12\|h\|_2^2\|e\|_2^2,
+\]
+\[
+\begin{aligned}
+ 2\langle h,h_{\nu^o}\rangle^2
+ +2\langle h,h_{\nu^o}\rangle\langle e,h_{\nu^o}\rangle
+ &=2(\langle h,h_{\nu^o}\rangle+\tfrac12\langle e,h_{\nu^o}\rangle)^2
+       -\tfrac12\langle e,h_{\nu^o}\rangle^2\\
+ &\ge-\tfrac12\|e\|_2^2\|h_{\nu^o}\|_2^2.
+\end{aligned}
+\]
+Discarding the nonnegative squares and applying H\"older with exponents
+\(2,2\) to each product of squared norms yields
+\begin{align}
+ DF_{\mathrm{fit}}(\mu)[(q_\star,q_\star)]
+ &\ge-\tfrac12\E_z[(\|h\|_2^2+\|h_{\nu^o}\|_2^2)\|e\|_2^2]\notag\\
+ &\ge-\tfrac12(\|h\|_{L^4_z}^2+\|h_{\nu^o}\|_{L^4_z}^2)
+                          \|e\|_{L^4_z}^2\notag\\
+ &\ge-\tfrac12(M_4^2+B_4^2)(K_2Z/4)^2=-C_\star Z^2,
+ \label{eq:mf-contraction-square-completion}
+\end{align}
+where \(C_\star=K_2^2(M_4^2+B_4^2)/32\), exactly as in
+\cref{eq:mf-branch-estimate-constants}.
+
+\par\noindent\textbf{Step 3: the pointwise fitting field and output norm.}
+For vectors \(x,y\in\R^{d_h}\) and an increment \(a\),
+\[
+ \left.\frac{\dd}{\dd t}\frac12
+ \|(x+ta)y^\top-h_{\nu^o}h_{\nu^o}^\top\|_{\mathrm F}^2\right|_{t=0}
+ =\langle (xy^\top-h_{\nu^o}h_{\nu^o}^\top)y,a\rangle.
+\]
+Thus, at \((x,y)=(h,-h)\), the first output gradient is
+\(\|h\|_2^2h+\langle h,h_{\nu^o}\rangle h_{\nu^o}\); the second is
+its negative. This differentiates one output at a time, unlike Step 2,
+which moves both marginals.
+For a unit tangent \(u\in T_w\Sphere^{d_w-1}\), the vectors \(w,u\) are
+orthogonal unit vectors.  Hence \((w^\top z,u^\top z)\) has the law of the
+independent standard Gaussian pair \((G_1,G_2)\), and
+\(\|\sigma'(w^\top z)(u^\top z)\|_{L^4_z}=K_1\) by
+\cref{eq:mf-gaussian-derivative-constants}.  Euclidean Cauchy--Schwarz,
+followed by H\"older with \(1/(4/3)+1/4=1\), gives
+\[
+\begin{aligned}
+ |\langle g_{i,\mathrm{fit}}(\mu,w),u\rangle|
+ &\le\mathbb E_z\!\left[
+ \bigl\|\|h\|_2^2h+\langle h,h_{\nu^o}\rangle h_{\nu^o}\bigr\|_2
+ \bigl\|\sigma'(w^\top z)(u^\top z)\bigr\|_2\right]\\
+ &\le K_1\bigl\|\|h\|_2^2h
+              +\langle h,h_{\nu^o}\rangle h_{\nu^o}\bigr\|_{L^{4/3}_z}\\
+ &\le K_1\bigl(\|h\|_{L^4_z}^3
+                     +\|h\|_{L^4_z}\|h_{\nu^o}\|_{L^4_z}^2\bigr).
+\end{aligned}
+\]
+For the last line, the triangle inequality and
+\[
+ \|\|h\|_2^3\|_{L^{4/3}_z}
+ =(\mathbb E_z\|h\|_2^4)^{3/4}=\|h\|_{L^4_z}^3
+\]
+handle the first term.  For the second, pointwise Cauchy--Schwarz and
+H\"older with \(1/(4/3)=1/4+1/2\) give
+\[
+ \bigl\||\langle h,h_{\nu^o}\rangle|\,\|h_{\nu^o}\|_2
+ \bigr\|_{L^{4/3}_z}
+ \le\|\|h\|_2\|h_{\nu^o}\|_2^2\|_{L^{4/3}_z}
+ \le\|h\|_{L^4_z}\|h_{\nu^o}\|_{L^4_z}^2.
+\]
+Taking the supremum over unit tangents gives the same bound for
+\(\|g_{i,\mathrm{fit}}(\mu,w)\|_{\mathbb R^{d_w}}\), because the fitting
+field belongs to \(T_w\Sphere^{d_w-1}\).
+Finally, \(h_0=0\) and the fundamental theorem of calculus give
+\[
+ h(z)=\int\int_0^1\sigma'(C_s(w)^\top z)
+                      (\partial_sC_s(w)^\top z)\,\dd s\,\dd\mu_1(w).
+\]
+Minkowski, \cref{eq:mf-spherical-feature-derivatives}, and
+Cauchy--Schwarz against the probability measure \(\mu_1\) yield
+\[
+\begin{aligned}
+ \|h\|_{L^4_z}
+ &\le\int\int_0^1 K_1 r(w)\,\dd s\,\dd\mu_1(w)\\
+ &\le K_1\left(\int r(w)^2\,\dd\mu_1(w)\right)^{1/2}
+          \left(\int1\,\dd\mu_1\right)^{1/2}
+ =K_1\sqrt{Z/2}.
+\end{aligned}
+\]
+Combining this estimate with \(\|h\|_{L^4_z}\le M_4\) proves
+\[
+ \|g_{i,\mathrm{fit}}(\mu,w)\|_{\mathbb R^{d_w}}
+ \le K_1(M_4^2+B_4^2)K_1\sqrt{Z/2}
+ =L_{\mathrm{fit}}\sqrt Z,
+ \qquad L_{\mathrm{fit}}=\frac{K_1^2(M_4^2+B_4^2)}{\sqrt2},
+\]
+which is the constant in \cref{eq:mf-branch-estimate-constants}.
+\end{proof}
+
+We now pass from the comparison transport to the gradient of the full
+objective and the actual product WGF.
+
+\begin{proposition}[Quantitative radial dissipation near the target]
+\label{lem:radial-positivity-antisymmetric-branch-full-density}
+Assume \cref{assumption:on-sphere,assumption:odd-symmetric-teacher} and let
+\(2<p_W<4\). Every state
+\(\mu\in\mathcal M_-\cap\mathcal X_\pm(r_{\mathrm{cap}})\) satisfying
+\begin{equation}
+\label{eq:mf-local-radial-smallness}
+ 0<Z_\pm(\mu),\qquad
+ C_\star Z_\pm(\mu)^{(4-p_W)/2}\le\frac{\lambdaReg}{2}
+\end{equation}
+obeys
+\begin{equation}
+\label{eq:mf-local-radial-dissipation}
+\begin{aligned}
+ DF(\mu)[(q_\star,q_\star)]
+ &\ge\frac{\lambdaReg}{2}Z_\pm(\mu)^{p_W/2},\\
+ \sum_{i=1}^2\int
+ \|g_i(\mu,w)\|_{\mathbb R^{d_w}}^2\,\dd\mu_i(w)
+ &\ge\frac{\lambdaReg^2}{4}Z_\pm(\mu)^{p_W-1}.
+\end{aligned}
+\end{equation}
+Consequently, on every time interval on which the product WGF remains in
+\(\mathcal M_-\cap\mathcal X_\pm(r_{\mathrm{cap}})\), has positive distance,
+and satisfies the smallness condition in
+\cref{eq:mf-local-radial-smallness},
+\begin{equation}
+\label{eq:mf-local-distance-differential}
+ \frac{\dd}{\dd t}Z_\pm(\mu_t)
+ =-2DF(\mu_t)[(q_\star,q_\star)]
+ \le-\lambdaReg Z_\pm(\mu_t)^{p_W/2}.
+\end{equation}
+Among the states in
+\(\mathcal M_-\cap\mathcal X_\pm(r_{\mathrm{cap}})\) satisfying the second
+inequality in \cref{eq:mf-local-radial-smallness}, the only stationary state
+is \(\mu^\dagger:=\nu_\star^\pm\otimes\nu_\star^\pm\).
+\end{proposition}
+
+\begin{proof}
+\noindent\textbf{Step 1: fix the radial margin and bound the squared gradient.}
+The contraction in \cref{eq:mf-pole-contraction-path} has endpoint field
+\((q_\star,q_\star)\). By
+\cref{eq:mf-contraction-endpoint-identities}, its distance is
+\(s^2Z_\pm(\mu)\), so
+\[
+ F_{\mathrm{reg}}(\mu_s)
+ =\frac{\lambdaReg}{p_W}s^{p_W}Z_\pm(\mu)^{p_W/2},
+ \qquad
+ \left.\frac{\dd}{\dd s}F_{\mathrm{reg}}(\mu_s)\right|_{s=1}
+ =\lambdaReg Z_\pm(\mu)^{p_W/2}.
+\]
+Adding the fitting bound in
+\cref{lem:mf-pole-contraction-estimates,eq:mf-pole-contraction-estimates}
+and using
+\[
+Z_\pm(\mu)^2
+ =Z_\pm(\mu)^{(4-p_W)/2}Z_\pm(\mu)^{p_W/2}
+\]
+gives
+\begin{align}
+ DF(\mu)[(q_\star,q_\star)]
+ &\ge \lambdaReg Z_\pm(\mu)^{p_W/2}-C_\star Z_\pm(\mu)^2\notag\\
+ &=\left[\lambdaReg-C_\star Z_\pm(\mu)^{(4-p_W)/2}\right]
+                  Z_\pm(\mu)^{p_W/2}\notag\\
+ &\ge\frac{\lambdaReg}{2}Z_\pm(\mu)^{p_W/2}.
+ \label{eq:mf-full-radial-lower-bound}
+\end{align}
+The exponent \((4-p_W)/2\) is positive because \(p_W<4\); hence the
+\(O(Z_\pm^{p_W/2})\) regularizer term dominates the
+\(O(Z_\pm^2)\) fitting remainder sufficiently near the target.
+
+Recall from \cref{eq:mf-branch-distance-gradient} that
+\(\|(q_\star,q_\star)\|_{L^2(\mu;\mathbb R^{d_w})}
+=Z_\pm(\mu)^{1/2}\). Cauchy--Schwarz and
+\cref{eq:mf-full-radial-lower-bound} therefore give
+\[
+ \frac{\lambdaReg}{2}Z_\pm(\mu)^{p_W/2}
+ \le DF(\mu)[(q_\star,q_\star)]
+ \le
+ \left(\sum_{i=1}^2\int
+       \|g_i(\mu,w)\|_{\mathbb R^{d_w}}^2\,\dd\mu_i(w)\right)^{1/2}
+ Z_\pm(\mu)^{1/2}.
+\]
+Since \(Z_\pm(\mu)>0\), division by its square root and then squaring yield
+the second inequality in \cref{eq:mf-local-radial-dissipation}.
+
+\par\noindent\textbf{Step 2: differentiate the distance along WGF.}
+The WGF velocity is \(-g_i\), whereas the outward cost gradient is
+\(\nabla_\Sphere c_\star=q_\star\) by
+\cref{eq:mf-fixed-assignment-cost,eq:mf-cost-gradient-LOG}. Thus the
+fixed-assignment formula gives
+\[
+ \frac{\dd}{\dd t}Z_\pm(\mu_t)
+ =2\sum_{i=1}^2\int
+   \langle q_\star(w),-g_i(\mu_t,w)\rangle_{\mathbb R^{d_w}}
+   \,\dd\mu_{i,t}(w)
+ =-2DF(\mu_t)[(q_\star,q_\star)].
+\]
+Substitution of \cref{eq:mf-full-radial-lower-bound} proves
+\cref{eq:mf-local-distance-differential}. The minus sign explains why a
+positive outward directional derivative makes the negative gradient flow
+move toward the assigned poles.
+
+\par\noindent\textbf{Step 3: identify the stationary state.}
+If \(Z_\pm(\mu)>0\), the squared-gradient lower bound in
+\cref{eq:mf-local-radial-dissipation} rules out stationarity. If
+\(Z_\pm(\mu)=0\), both marginals equal \(\nu_\star^\pm\). Their output is
+\[
+ \tfrac12\sigma(a_\star^\top z)+
+ \tfrac12\sigma((-a_\star)^\top z)=0
+\]
+by oddness of \(\sigma\), so the fitting fields computed in Step 3 of
+\cref{lem:mf-pole-contraction-estimates} vanish. The regularization field
+\(\lambdaReg Z_\pm(\mu)^{(p_W-2)/2}q_\star\) also vanishes by
+\cref{eq:W2-dirac-metric-gradient}. Hence \(\mu^\dagger\) is stationary.
+\end{proof}
+
+\paragraph{Second-order behavior at the target.}
+For every \(p_W>2\), a smooth atom transport from \(\mu^\dagger\)
+satisfies \(Z_\pm(\mu_h)=O(h^2)\). Consequently,
+\[
+ F_{\mathrm{reg}}(\mu_h)
+ =\frac{\lambdaReg}{p_W}Z_\pm(\mu_h)^{p_W/2}
+ =O(|h|^{p_W})=o(h^2).
+\]
+The regularizer has zero second variation at the target; the existence
+of this derivative for the normalized retractions is verified explicitly
+in \cref{eq:mf-zero-distance-retraction}. The exponent condition here is
+\(p_W>2\); the next local-attraction result additionally requires \(p_W<3\).
+
+\begin{proposition}[Cap confinement and convergence for a global characteristic flow]
+\label{prop:reduced-dissipation-antisymmetric-branch}
+Assume \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}.
+Fix \(2<p_W<3\) and \(\lambdaReg>0\). Choose \(z_\star>0\) such that
+\begin{equation}
+\label{eq:mf-local-basin-threshold}
+ C_\star z_\star^{(4-p_W)/2}\le\frac{\lambdaReg}{2},\qquad
+ \frac{L_{\mathrm{fit}}}{\lambdaReg}z_\star^{(3-p_W)/2}
+ \le\frac{r_{\mathrm{cap}}}{2}.
+\end{equation}
+Let \(\mu_0\in\mathcal M_-\cap\mathcal X_\pm(r_{\mathrm{cap}})\), and define
+\begin{equation}
+\label{eq:mf-local-initial-data}
+ Z_0:=Z_\pm(\mu_0),\qquad
+ R_0:=\max_{i=1,2}\sup_{w\in\operatorname{supp}\mu_{i,0}}r(w)
+ <r_{\mathrm{cap}}.
+\end{equation}
+Let \((\mu_t)_{t\ge0}\) be the globally well-posed characteristic product WGF
+of \Cref{def:mf-characteristic-solution}
+starting from \(\mu_0\): it exists for every \(t\ge0\) and is unique in the
+class of characteristic solutions. If \(0\le Z_0\le z_\star\), then:
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item The flow satisfies
+\(\mu_t\in\mathcal M_-\cap\mathcal X_\pm(r_{\mathrm{cap}})\) for all
+\(t\ge0\), and
+\begin{equation}
+\label{eq:mf-local-distance-decay}
+ 0\le Z_\pm(\mu_t)\le
+ \frac{Z_0}{\bigl[1+\tfrac{\lambdaReg(p_W-2)}2
+                   Z_0^{(p_W-2)/2}t\bigr]^{2/(p_W-2)}}
+ \le Z_0.
+\end{equation}
+\item Its support satisfies
+\begin{equation}
+\label{eq:mf-local-support-barrier}
+ \max_{i=1,2}\sup_{w\in\operatorname{supp}\mu_{i,t}}r(w)
+ \le\overline R:=\max\left\{R_0,
+        \frac{L_{\mathrm{fit}}}{\lambdaReg}Z_0^{(3-p_W)/2}\right\}
+ <r_{\mathrm{cap}}.
+\end{equation}
+\item For almost every \(t\ge0\),
+\begin{equation}
+\label{eq:mf-local-energy-dissipation}
+ \frac{\dd}{\dd t}F(\mu_t)
+ =-\sum_{i=1}^2\int
+       \|g_i(\mu_t,w)\|_{\mathbb R^{d_w}}^2\,\dd\mu_{i,t}(w)
+ \le-\frac{\lambdaReg^2}{4}Z_\pm(\mu_t)^{p_W-1}\le0.
+\end{equation}
+The inequality is strict at every differentiability time for which
+\(Z_\pm(\mu_t)>0\). Moreover, \(\mu_t\to\mu^\dagger\) in product
+Wasserstein distance, \(\mathbf S(\mu_t)=0\), and
+\(\mathbf A(\mu_t)\to0\).
+\end{enumerate}
+If \(Z_0=0\), the unique flow is the stationary target \(\mu^\dagger\).
+No density or lower bound on atom masses is required.
+\end{proposition}
+
+The strict initial support bound in \cref{eq:mf-local-initial-data} follows
+from \cref{eq:mf-cap-class}: the closed support is compact and contained in
+the two open caps. Both exponents in \cref{eq:mf-local-basin-threshold} are
+positive, so such a \(z_\star>0\) exists for every fixed
+\(\lambdaReg>0\). Global well-posedness specifies the time domain and
+uniqueness of the trajectory; cap confinement in
+\cref{eq:mf-local-support-barrier} is a conclusion proved below.
+
+\begin{proof}
+\par\noindent\textbf{Step 1: branch invariance and the mean-distance barrier.}
+If \(Z_0=0\), then \(\mu_0=\mu^\dagger\). By
+\cref{lem:radial-positivity-antisymmetric-branch-full-density}, the full field
+vanishes there, so the constant curve is a characteristic product WGF.
+The assumed uniqueness makes it the trajectory in the proposition, and all
+claims follow. Hence assume \(0<Z_0\le z_\star\).
+
+Let $\Phi_{i,t}$ be the characteristic maps of the assumed global flow and
+define the first cap-exit time
+\[
+ \tau_{\rm cap}:=\inf\left\{t\ge0:
+  \max_{i=1,2}\sup_{w\in\operatorname{supp}\mu_{i,0}}
+  r(\Phi_{i,t}(w))\ge r_{\rm cap}\right\},
+ \qquad \inf\varnothing:=\infty.
+\]
+The strict initial support bound in \cref{eq:mf-local-initial-data} and
+continuity of the characteristics give $\tau_{\rm cap}>0$.
+Write \(Z(t)=Z_\pm(\mu_t)\). On $[0,\tau_{\rm cap})$,
+\cref{lem:invariance-antisymmetric-branch} gives
+\(\mu_t\in\mathcal M_-\). The fixed-assignment distance identity in
+\cref{eq:mf-local-distance-differential} shows that \(Z\) is continuously
+differentiable there: the characteristic maps, the finitely many active
+moments, and both gradient fields are continuous in time.
+Whenever \(0<Z(t)\le Z_0\), the basin condition
+\cref{eq:mf-local-basin-threshold} and
+\cref{eq:mf-local-distance-differential} give
+\begin{equation}
+\label{eq:mf-distance-decay-differential}
+ \dot Z(t)\le-\lambdaReg Z(t)^{p_W/2}\le0.
+\end{equation}
+In particular, \(\dot Z(0)<0\). If \(Z\) later exceeded \(Z_0\), continuity
+would give a first upward return time \(s>0\) with \(Z(s)=Z_0\) and
+\(\dot Z(s)\ge0\). This contradicts
+\(\dot Z(s)\le-\lambdaReg Z_0^{p_W/2}<0\). Thus, up to a possible cap exit,
+\[
+ Z(t)\le Z_0,
+ \qquad
+ \dot Z(t)\le-\lambdaReg Z(t)^{p_W/2}
+ \quad\text{whenever }Z(t)>0.
+\]
+
+On every interval on which \(Z(t)>0\), the chain rule gives
+\[
+ \frac{\dd}{\dd t}Z(t)^{-(p_W-2)/2}
+ =-\frac{p_W-2}{2}Z(t)^{-p_W/2}\dot Z(t)
+ \ge\frac{\lambdaReg(p_W-2)}2.
+\]
+Integrating from \(0\) to \(t\), and then taking the negative power
+\(-2/(p_W-2)\), gives the first upper bound in
+\cref{eq:mf-local-distance-decay}. If the distance reaches zero at a finite
+time, the state is \(\mu^\dagger\); the stationary solution and the assumed
+uniqueness keep it there thereafter. Thus the same bound remains valid without
+substituting \(Z=0\) into the preceding negative power.
+
+\par\noindent\textbf{Step 2: pointwise support confinement.}
+For a characteristic \(w_i(t)\), let
+\(r_i(t)=d_\Sphere(w_i(t),\pi_\star(w_i(t)))\). This is a pointwise pole
+distance, whereas \(Z(t)\) is the sum of the two mean squared distances.
+Recall from
+\cref{definition-spherical-logarithm-exponential,lem:fixed-assignment-contraction-geometry,eq:mf-cost-gradient-LOG}
+that, with \(r(w)=d_\Sphere(w,\pi_\star(w))\),
+\[
+ q_\star(w)
+ =\left.\partial_sC_s(w)\right|_{s=1}
+ =\nabla_\Sphere c_\star(w)
+ =-\LOG_w\pi_\star(w),
+ \qquad
+ \|q_\star(w)\|_{\mathbb R^{d_w}}=r(w).
+\]
+Since \(c_\star=r^2/2\), at every point with \(r(w)>0\),
+\[
+ q_\star(w)=r(w)\nabla_\Sphere r(w),
+ \qquad
+ \nabla_\Sphere r(w)=\frac{q_\star(w)}{r(w)},
+ \qquad
+ \left\|\frac{q_\star(w)}{r(w)}\right\|_{\mathbb R^{d_w}}=1.
+\]
+Thus \(q_\star/r\) is the outward unit radial tangent. By
+\cref{eq:W2-dirac-metric-gradient,eq:mf-cost-gradient-LOG}, the
+regularization field is
+\[
+ g_{i,\mathrm{reg}}(\mu,w)
+ =\lambdaReg Z_\pm(\mu)^{(p_W-2)/2}q_\star(w).
+\]
+The fitting-field estimate in
+\cref{lem:mf-pole-contraction-estimates,eq:mf-pole-contraction-estimates}
+is uniform in the support point:
+\[
+ \|g_{i,\mathrm{fit}}(\mu_t,w_i(t))\|_{\mathbb R^{d_w}}
+ \le L_{\mathrm{fit}}\sqrt{Z(t)}.
+\]
+This is the aggregate output estimate proved in that lemma; it does not use
+the generally invalid pointwise comparison \(r_i(t)\le\sqrt{Z(t)}\).
+For \(r_i(t)>0\), the characteristic equation
+\(\dot w_i=-g_{i,\mathrm{fit}}-g_{i,\mathrm{reg}}\), the chain rule, and
+Cauchy--Schwarz therefore give
+\begin{align}
+ \dot r_i(t)
+ &=\left\langle\frac{q_\star(w_i(t))}{r_i(t)},\dot w_i(t)
+          \right\rangle_{\mathbb R^{d_w}}\notag\\
+ &=-\left\langle\frac{q_\star(w_i(t))}{r_i(t)},
+                 g_{i,\mathrm{fit}}(\mu_t,w_i(t))
+          \right\rangle_{\mathbb R^{d_w}}
+       -\lambdaReg Z(t)^{(p_W-2)/2}r_i(t)\notag\\
+ &\le L_{\mathrm{fit}}\sqrt{Z(t)}
+       -\lambdaReg Z(t)^{(p_W-2)/2}r_i(t)\notag\\
+ &=\lambdaReg Z(t)^{(p_W-2)/2}
+       \left[\frac{L_{\mathrm{fit}}}{\lambdaReg}
+                    Z(t)^{(3-p_W)/2}-r_i(t)\right]\notag\\
+ &\le\lambdaReg Z(t)^{(p_W-2)/2}(\overline R-r_i(t)).
+ \label{eq:mf-pointwise-radius-differential}
+\end{align}
+The last line uses \(p_W<3\), \(Z(t)\le Z_0\), and the definition of
+\(\overline R\) in \cref{eq:mf-local-support-barrier}. At a pole, the upper
+right derivative satisfies
+\[
+ D^+r_i(t)\le\|\dot w_i(t)\|_{\mathbb R^{d_w}}
+ =\|g_{i,\mathrm{fit}}(\mu_t,w_i(t))\|_{\mathbb R^{d_w}}
+ \le L_{\mathrm{fit}}\sqrt{Z(t)},
+\]
+because the regularizer field vanishes there; hence the same differential
+bound holds. Multiplying by the integrating factor and using
+\(r_i(0)\le R_0\le\overline R\) yields
+\[
+\begin{aligned}
+ r_i(t)
+ &\le\overline R+(r_i(0)-\overline R)
+ \exp\!\left[-\lambdaReg\int_0^t
+       Z(s)^{(p_W-2)/2}\,\dd s\right]\\
+ &\le\overline R<r_{\mathrm{cap}}.
+\end{aligned}
+\]
+Here \(\overline R<r_{\mathrm{cap}}\) follows from
+\cref{eq:mf-local-basin-threshold,eq:mf-local-initial-data}. The estimate is
+uniform over the compact initial supports for every $t<\tau_{\rm cap}$.
+If $\tau_{\rm cap}<\infty$, continuity of the characteristic maps and the
+preceding inequality, followed by $t\uparrow\tau_{\rm cap}$, would give
+\[
+ \max_{i=1,2}\sup_{w\in\operatorname{supp}\mu_{i,0}}
+ r(\Phi_{i,\tau_{\rm cap}}(w))
+ \le\overline R<r_{\rm cap},
+\]
+contradicting the definition of $\tau_{\rm cap}$. Hence
+$\tau_{\rm cap}=\infty$.
+Since the characteristic flow is globally defined by assumption,
+\cref{lem:invariance-antisymmetric-branch} now gives branch invariance for all
+\(t\ge0\), and the distance estimate from Step 1 also holds for all time.
+
+\par\noindent\textbf{Step 3: dissipation and convergence.}
+For \(Z(t)>0\), the basin condition and \(Z(t)\le Z_0\le z_\star\) allow us
+to apply the squared-gradient estimate in
+\cref{eq:mf-local-radial-dissipation}. The characteristic chain rule gives
+\[
+\begin{aligned}
+ \frac{\dd}{\dd t}F(\mu_t)
+ &=\sum_{i=1}^2\int
+   \langle g_i(\mu_t,w),-g_i(\mu_t,w)\rangle_{\mathbb R^{d_w}}
+   \,\dd\mu_{i,t}(w)\\
+ &=-\sum_{i=1}^2\int
+   \|g_i(\mu_t,w)\|_{\mathbb R^{d_w}}^2\,\dd\mu_{i,t}(w)\\
+ &\le-\frac{\lambdaReg^2}{4}Z(t)^{p_W-1}<0.
+\end{aligned}
+\]
+If \(Z(t)=0\), uniqueness keeps the flow at the stationary target, so the
+energy derivative is zero. This proves
+\cref{eq:mf-local-energy-dissipation} with the stated strictness.
+
+The right-hand side of \cref{eq:mf-local-distance-decay} tends to zero, and
+the product Wasserstein distance from \(\mu_t\) to \(\mu^\dagger\) is
+\(\sqrt{Z(t)}\). Hence \(\mu_t\to\mu^\dagger\). Branch invariance gives
+\(\mathbf S(\mu_t)=0\). For each \(n\in\mathcal O\), continuity of
+\(w\mapsto w^{\otimes n}\) on the compact sphere gives
+\[
+ T_{i,n}(\mu_{i,t})\longrightarrow
+ \tfrac12a_\star^{\otimes n}+\tfrac12(-a_\star)^{\otimes n}=0.
+\]
+Since \(\mathcal O\) is finite, \(\mathbf A(\mu_t)\to0\).
+\end{proof}

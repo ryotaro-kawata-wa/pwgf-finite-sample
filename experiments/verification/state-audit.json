@@ -1,0 +1,184 @@
+{
+  "status": "passed",
+  "jobs": {
+    "integration_half/trial_000": {
+      "comparisons": 148,
+      "max_scaled_error": 6.773709751055723e-11,
+      "saved_arrays": 32,
+      "independent_hessians": 10,
+      "replayed_jumps": 10,
+      "covariance_checks": 8,
+      "max_covariance_relative_error": 1.219352077883767e-14,
+      "status": "passed",
+      "trial": 0,
+      "files_sha256": {
+        "events.json": "82acdcad37e723b44e678e2c01c259ee741865e7afc10791ea84a0365a46d1e1",
+        "metadata.json": "400a22da8745451e009ce1fbd5c9b5bc7d5ab7f06ac4025d12f1f475940fc8ac",
+        "population.csv": "7ce1228b3175ace346ae12e26db6354fd54db82b0eb18ada3adb37b90c411b4f",
+        "states.npz": "bbd62969dc639b0464a5053a108c024da9765bbee603b98da57b6cfa6bec4e40",
+        "summary.json": "1d4f293a877ff521c7963da7df1d719869578300ff3deb87014e035d25f3989c",
+        "trajectory.csv": "8abea8dca5b7de2b1b355296b6e10488a42a85162f15315e3e19b0212d22b269"
+      }
+    },
+    "integration_half/trial_001": {
+      "comparisons": 148,
+      "max_scaled_error": 6.847457108777295e-11,
+      "saved_arrays": 32,
+      "independent_hessians": 10,
+      "replayed_jumps": 10,
+      "covariance_checks": 8,
+      "max_covariance_relative_error": 1.2631630197032864e-14,
+      "status": "passed",
+      "trial": 1,
+      "files_sha256": {
+        "events.json": "a96834c9382543ce6f7c8e854303e8bc7588d361c59317e34ab63b3bd10c2345",
+        "metadata.json": "4da71d93ca984f5375dc01ad9005d4198552b273e0e5842b13424f466851766e",
+        "population.csv": "91b6ef5b16d3206032ec9aeb48ac5b660c23d1d02f8aeb52756c87924f401551",
+        "states.npz": "7bf4078569fa61c496c338bc240f5a09e6b7d58847f9e3fbe7984df6b8e6c787",
+        "summary.json": "5405649bc0a2dd258a1d0aeda985e43093551605569adb22882fb80aaa6c46ed",
+        "trajectory.csv": "757697cf47df5d18b8f6a6a561fd077d4d526d5a1f91012adbb3dbba5f6f64cd"
+      }
+    },
+    "integration_half/trial_002": {
+      "comparisons": 155,
+      "max_scaled_error": 6.843438452823819e-11,
+      "saved_arrays": 34,
+      "independent_hessians": 11,
+      "replayed_jumps": 11,
+      "covariance_checks": 8,
+      "max_covariance_relative_error": 1.448361349279296e-14,
+      "status": "passed",
+      "trial": 2,
+      "files_sha256": {
+        "events.json": "58fe51854bc93b8ae66426bd609de4e9ae029df77aaafaafa97888e143e80d50",
+        "metadata.json": "6be0aadcd6f020409413fbdd624f7ce3821db85443553d0bc2bc6c5383f629e5",
+        "population.csv": "e457f070ba41e7ed2e510b045f354272298baf9ccf0a17dd59fcf8a95d07e708",
+        "states.npz": "a1e86e3308890dc36b39cfca163e8f68e48421d0a6d3bb5e9979445a77e3750a",
+        "summary.json": "d822aeda28b7ab598c3501197b1045232770db3d045b272758634ff4407c0e7a",
+        "trajectory.csv": "f26ffde720f3bf12cb838272fcbf491dbc2a0679b16e9e3c1385b367ff6eb83d"
+      }
+    },
+    "main/trial_000": {
+      "comparisons": 148,
+      "max_scaled_error": 6.768030409360026e-11,
+      "saved_arrays": 32,
+      "independent_hessians": 10,
+      "replayed_jumps": 10,
+      "covariance_checks": 8,
+      "max_covariance_relative_error": 1.6180268806249138e-14,
+      "status": "passed",
+      "trial": 0,
+      "files_sha256": {
+        "events.json": "a8aa9f5bc9f51d1f487c6e49ab698812cbbf7e60df0f7c9ce4ed9d32c31fd6b2",
+        "metadata.json": "614bd040fef9091fa972b5272b195a466b3daf5ea1f077d9a3c1f24d9386dc4f",
+        "population.csv": "143ca5c8cc625ae64952d432378bdf31480fef27ac817da8646df82cfd55b67e",
+        "states.npz": "deeaa45008d445312049f16d7a413d9fcfa15996369a04a3c38093427b9c4927",
+        "summary.json": "37e2f61e874c440bb087ad16d9a639165af4b1d6f37a42795378b454d2b17ab8",
+        "trajectory.csv": "3792929ce8a72ca48ed2bd92fca185853efd01b7cef21037d061556501462b99"
+      }
+    },
+    "main/trial_001": {
+      "comparisons": 148,
+      "max_scaled_error": 6.841297165833894e-11,
+      "saved_arrays": 32,
+      "independent_hessians": 10,
+      "replayed_jumps": 10,
+      "covariance_checks": 8,
+      "max_covariance_relative_error": 1.499628695578863e-14,
+      "status": "passed",
+      "trial": 1,
+      "files_sha256": {
+        "events.json": "087ec7744eb00befa75df3f40ba2a9f2078bde2154d261dee5ad5958459db804",
+        "metadata.json": "536e653bef4d561d7dca4977cb25e3c5276c61aba608e7e4a6084a8fca3bf8d3",
+        "population.csv": "9b2bf584a83eee9ee48ac06d2e34e8771850152fb1e9e5b803d64aa00fd94004",
+        "states.npz": "2c8f460e83d56259b955f468ebd831a23bf3f6f38291a0014ad003a9b659ce0a",
+        "summary.json": "c5e6e46c4a8a1e29393f17208d85309714603d0d5f5a03170ac021712bb9e043",
+        "trajectory.csv": "1a890b5b87caf0ba60f86f9ac817836995fcc960b0c352dd6d1c7a0d42937b8a"
+      }
+    },
+    "main/trial_002": {
+      "comparisons": 155,
+      "max_scaled_error": 6.838296572230852e-11,
+      "saved_arrays": 34,
+      "independent_hessians": 11,
+      "replayed_jumps": 11,
+      "covariance_checks": 8,
+      "max_covariance_relative_error": 1.3348417396730406e-14,
+      "status": "passed",
+      "trial": 2,
+      "files_sha256": {
+        "events.json": "10697035093dfed285756b0d57e48a8b157b566dd60961852cb89d481b65cb10",
+        "metadata.json": "889baba374dfd7a4d2f8f13a27291900e1fc2aa62ab89ff02dad0dd7bd42c391",
+        "population.csv": "40e55dffb68f62e9736f06f5ca8406385c4a7e19e00639a1042236d103598f31",
+        "states.npz": "eecfb31b97af6300afedc9d5d608d7250911c780c297105691af299c1b150c39",
+        "summary.json": "25604a7c15c0b64c7ad5549bfb74e321c47067d2b9c5ad3a16285dccec9f27d4",
+        "trajectory.csv": "7f542390522fff13f1d90084d34dec1c4bff4c9e3fe57dea960e682e3cb362f0"
+      }
+    },
+    "trigger_half/trial_000": {
+      "comparisons": 148,
+      "max_scaled_error": 6.773709751055723e-11,
+      "saved_arrays": 32,
+      "independent_hessians": 10,
+      "replayed_jumps": 10,
+      "covariance_checks": 8,
+      "max_covariance_relative_error": 1.772317948352873e-14,
+      "status": "passed",
+      "trial": 0,
+      "files_sha256": {
+        "events.json": "2ffd256d7ed9c3071fd55148e70ffb2b219b587e08ce9ad7c633a8804438aa01",
+        "metadata.json": "fd53ad28e90186af5c21574c7cc2e9e62b5d03fc4831c8c44b187db467904d90",
+        "population.csv": "2b2d6c6356737643fe98fea5025ba322930c45d8162b518c4fa7cc940d8e066c",
+        "states.npz": "3f78291c885b987b67dc050806223e61e7b0a55978a06429523c41fb1e6ce2bf",
+        "summary.json": "9e772e9e05ca6093b91ee63168622f2d10b02e68bebf706ca72685d9370fd2e0",
+        "trajectory.csv": "2364a473aa63714d19ac433396e39d1e02dff51a577d3f13de1f11c433429e58"
+      }
+    },
+    "trigger_half/trial_001": {
+      "comparisons": 148,
+      "max_scaled_error": 6.8354427712404e-11,
+      "saved_arrays": 32,
+      "independent_hessians": 10,
+      "replayed_jumps": 10,
+      "covariance_checks": 8,
+      "max_covariance_relative_error": 1.2934103937405418e-14,
+      "status": "passed",
+      "trial": 1,
+      "files_sha256": {
+        "events.json": "311aefda00468cab0291a1e178bc78d28ca87a83ff72364b4f2148e0e00c3574",
+        "metadata.json": "9d4dacdcce71ca8a7c3a2718842b127f8001f8caa731f9847e4138a679263bf9",
+        "population.csv": "5ac2c66114ec92c2d113fbcf1c9912ec4dec483a9b1063eca46b9cc83b89094f",
+        "states.npz": "dd795942715b05f825172e083d650d8e65859fb13a3123d5eba626131f89afab",
+        "summary.json": "237c31951220893ad175bc254cb5ec5582b801b62beaa8aa4e207536c5180f85",
+        "trajectory.csv": "d75e52faceab79fe7b782a3a82d5c85bdbe6db89dbee5c49a15603549e4e7f76"
+      }
+    },
+    "trigger_half/trial_002": {
+      "comparisons": 155,
+      "max_scaled_error": 6.872537902936417e-11,
+      "saved_arrays": 34,
+      "independent_hessians": 11,
+      "replayed_jumps": 11,
+      "covariance_checks": 8,
+      "max_covariance_relative_error": 1.2569481975221122e-14,
+      "status": "passed",
+      "trial": 2,
+      "files_sha256": {
+        "events.json": "35bebc5a4a8ed8fe3923facb919700977cb6a078124856df13a00a6b8c7e43a1",
+        "metadata.json": "0330b5c3a1aeb9d53aa1b9779489d045f8cac5a2dad4ea93480db2cf3bbc40f0",
+        "population.csv": "0e44a056e1707e9ea0465396d4095d24430237fc5d9ebfd5a14ce898422c11c2",
+        "states.npz": "57282e05be3c019e134cfd4298c7b9f723f77a4b6465b82a9ba066dc246241f3",
+        "summary.json": "a139f8b8b94fba0b03da56d93dac6881f4587c438ddd4faff156e3413d81d78c",
+        "trajectory.csv": "96271ed8ac952aeefae790672add94284f0ed1bec85793bc8610a313b05b4de0"
+      }
+    }
+  },
+  "audit_source_sha256": "bbad9d3521e34b8205ac1b03aab1dfb5031bee6d693d980a2db75442b945337a",
+  "scope": "Independent target/objective/gradient/Hessian and saved-state checks; same-code RNG jump replay; recomputed low-dimensional and selected-point field covariances. Not a proof for all paths or a statistical convergence-rate guarantee.",
+  "not_reconstructed": [
+    "All intermediate inspection states",
+    "All successful decrease-test states",
+    "Original Linux/MKL raw states, which are absent"
+  ],
+  "elapsed_seconds": 24.51361716608517
+}

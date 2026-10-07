@@ -1,0 +1,929 @@
+PaperFormalization.Manuscript.VarianceCosinePoint : Type
+'PaperFormalization.Manuscript.VarianceCosinePoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.VarianceCosineHilbert : AddSubgroup (PreLp fun x => ℝ)
+'PaperFormalization.Manuscript.VarianceCosineHilbert' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineScalar : VarianceCosinePoint →L[ℝ] ℝ
+'PaperFormalization.Manuscript.varianceCosineScalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePoint (x : ℝ) : VarianceCosinePoint
+'PaperFormalization.Manuscript.varianceCosinePoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePoint_scalar (x : VarianceCosinePoint) :
+  varianceCosinePoint (varianceCosineScalar x) = x
+'PaperFormalization.Manuscript.varianceCosinePoint_scalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineScalar_point (x : ℝ) : varianceCosineScalar (varianceCosinePoint x) = x
+'PaperFormalization.Manuscript.varianceCosineScalar_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePoint_norm (x : ℝ) : ‖varianceCosinePoint x‖ = |x|
+'PaperFormalization.Manuscript.varianceCosinePoint_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineScalar_abs (x : VarianceCosinePoint) : |varianceCosineScalar x| = ‖x‖
+'PaperFormalization.Manuscript.varianceCosineScalar_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineScalar_norm_le : ‖varianceCosineScalar‖ ≤ 1
+'PaperFormalization.Manuscript.varianceCosineScalar_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePointCLM : ℝ →L[ℝ] VarianceCosinePoint
+'PaperFormalization.Manuscript.varianceCosinePointCLM' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePointCLM_apply (x : ℝ) : varianceCosinePointCLM x = varianceCosinePoint x
+'PaperFormalization.Manuscript.varianceCosinePointCLM_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFeature : ℕ → VarianceCosinePoint → ℝ
+'PaperFormalization.Manuscript.varianceCosineFeature' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFeature_contDiff (n : ℕ) : ContDiff ℝ 3 (varianceCosineFeature n)
+'PaperFormalization.Manuscript.varianceCosineFeature_contDiff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFeature_fderiv (n : ℕ) (x : VarianceCosinePoint) :
+  fderiv ℝ (varianceCosineFeature n) x =
+    if n = 0 then varianceCosineScalar else if n = 1 then (2 * varianceCosineScalar x) • varianceCosineScalar else 0
+'PaperFormalization.Manuscript.varianceCosineFeature_fderiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFeature_second (n : ℕ) (x : VarianceCosinePoint) :
+  fderiv ℝ (fderiv ℝ (varianceCosineFeature n)) x =
+    if n = 1 then 2 • varianceCosineScalar.smulRight varianceCosineScalar else 0
+'PaperFormalization.Manuscript.varianceCosineFeature_second' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFeature_third (n : ℕ) (x : VarianceCosinePoint) :
+  fderiv ℝ (fderiv ℝ (fderiv ℝ (varianceCosineFeature n))) x = 0
+'PaperFormalization.Manuscript.varianceCosineFeature_third' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFeature_third_exists (n : ℕ) (x : VarianceCosinePoint) :
+  DifferentiableAt ℝ (fderiv ℝ (fderiv ℝ (varianceCosineFeature n))) x
+'PaperFormalization.Manuscript.varianceCosineFeature_third_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFeature_growth (n : ℕ) (x : VarianceCosinePoint) (k : ℕ) (hk : k ≤ 2) :
+  ‖iteratedFDeriv ℝ k (varianceCosineFeature n) x‖ ≤ featureGrowth 1 1 0 n * (1 + ‖x‖ ^ (n + 1 - k))
+'PaperFormalization.Manuscript.varianceCosineFeature_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFeature_growth_three (n : ℕ) (x : VarianceCosinePoint) :
+  ‖iteratedFDeriv ℝ 3 (varianceCosineFeature n) x‖ ≤ featureGrowth 1 1 0 n * (1 + ‖x‖ ^ (n + 1 - 3))
+'PaperFormalization.Manuscript.varianceCosineFeature_growth_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineWeight : ℕ → ℝ
+'PaperFormalization.Manuscript.varianceCosineWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineDecode (n : ℕ) : ↥VarianceCosineHilbert →L[ℝ] ℝ
+'PaperFormalization.Manuscript.varianceCosineDecode' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEncodedFeature : VarianceCosinePoint → ↥VarianceCosineHilbert
+'PaperFormalization.Manuscript.varianceCosineEncodedFeature' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEncodedFeature_coordinate (x : VarianceCosinePoint) (n : ℕ) :
+  ↑(varianceCosineEncodedFeature x) n = varianceCosineWeight n * varianceCosineFeature n x
+'PaperFormalization.Manuscript.varianceCosineEncodedFeature_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineDecode_feature (x : VarianceCosinePoint) (n : ℕ) :
+  (varianceCosineDecode n) (varianceCosineEncodedFeature x) = varianceCosineFeature n x
+'PaperFormalization.Manuscript.varianceCosineDecode_feature' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEncodedFeature_two_terms (x : VarianceCosinePoint) :
+  varianceCosineEncodedFeature x =
+    (weightedCoordinateEmbedding varianceCosineWeight 0) (varianceCosineScalar x) +
+      (weightedCoordinateEmbedding varianceCosineWeight 1) (varianceCosineScalar x ^ 2)
+'PaperFormalization.Manuscript.varianceCosineEncodedFeature_two_terms' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineObjective (a beta : ℝ) (z : ↥VarianceCosineHilbert) : ℝ
+'PaperFormalization.Manuscript.varianceCosineObjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMean (mu : Measure VarianceCosinePoint) : ℝ
+'PaperFormalization.Manuscript.varianceCosineMean' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineVariance (mu : Measure VarianceCosinePoint) : ℝ
+'PaperFormalization.Manuscript.varianceCosineVariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFunctional (a beta : ℝ) (mu : Measure VarianceCosinePoint) : ℝ
+'PaperFormalization.Manuscript.varianceCosineFunctional' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineObjective_formula (a beta : ℝ) (z : ↥VarianceCosineHilbert) :
+  varianceCosineObjective a beta z =
+    a / 2 * (↑z 1 / varianceCosineWeight 1 - (↑z 0 / varianceCosineWeight 0) ^ 2) +
+      beta * Real.cos (Real.pi * (↑z 0 / varianceCosineWeight 0))
+'PaperFormalization.Manuscript.varianceCosineObjective_formula' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineObjective_contDiff (a beta : ℝ) :
+  ContDiff ℝ 3 (varianceCosineObjective a beta)
+'PaperFormalization.Manuscript.varianceCosineObjective_contDiff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineObjective_domains (alpha : ℝ) :
+  SourceAllMomentDomains varianceCosineEncodedFeature alpha univ
+'PaperFormalization.Manuscript.varianceCosineObjective_domains' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_integrable_coordinates (mu : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu] (h2 : MemLp id 2 mu) :
+  Integrable (fun x => varianceCosineScalar x) mu ∧ Integrable (fun x => varianceCosineScalar x ^ 2) mu
+'PaperFormalization.Manuscript.varianceCosine_integrable_coordinates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFeature_integrable (mu : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu] (h2 : MemLp id 2 mu) (n : ℕ) : Integrable (varianceCosineFeature n) mu
+'PaperFormalization.Manuscript.varianceCosineFeature_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEncodedFeature_integrable (mu : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu] (h2 : MemLp id 2 mu) : Integrable varianceCosineEncodedFeature mu
+'PaperFormalization.Manuscript.varianceCosineEncodedFeature_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineDecode_integral (mu : Measure VarianceCosinePoint) [IsProbabilityMeasure mu]
+  (h2 : MemLp id 2 mu) (n : ℕ) :
+  (varianceCosineDecode n) (integral mu varianceCosineEncodedFeature) = integral mu (varianceCosineFeature n)
+'PaperFormalization.Manuscript.varianceCosineDecode_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineVariance_eq_second_sub_mean_sq (mu : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu] (h2 : MemLp id 2 mu) :
+  varianceCosineVariance mu = ∫ (x : VarianceCosinePoint), varianceCosineScalar x ^ 2 ∂mu - varianceCosineMean mu ^ 2
+'PaperFormalization.Manuscript.varianceCosineVariance_eq_second_sub_mean_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineObjective_population_identity (a beta : ℝ)
+  (mu : Measure VarianceCosinePoint) [IsProbabilityMeasure mu] (h2 : MemLp id 2 mu) :
+  Integrable varianceCosineEncodedFeature mu ∧
+    varianceCosineObjective a beta (integral mu varianceCosineEncodedFeature) = varianceCosineFunctional a beta mu
+'PaperFormalization.Manuscript.varianceCosineObjective_population_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFunctional_lower (a beta : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ beta)
+  (mu : Measure VarianceCosinePoint) [IsProbabilityMeasure mu] (h2 : MemLp id 2 mu) :
+  -beta ≤ varianceCosineFunctional a beta mu
+'PaperFormalization.Manuscript.varianceCosineFunctional_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFunctional_dirac_one (a beta : ℝ) :
+  varianceCosineFunctional a beta (Measure.dirac (varianceCosinePoint 1)) = -beta
+'PaperFormalization.Manuscript.varianceCosineFunctional_dirac_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineDecode_empirical (N : ℕ) (X : SourceFiniteConfiguration N 1) (n : ℕ) :
+  (varianceCosineDecode n) (empiricalMomentMap varianceCosineEncodedFeature X) =
+    (↑N)⁻¹ * ∑ i, varianceCosineFeature n (X.ofLp i)
+'PaperFormalization.Manuscript.varianceCosineDecode_empirical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanDrift (beta x : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineMeanDrift' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineKernel (a beta m : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineKernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineD1 (a beta : ℝ) (z : ↥VarianceCosineHilbert) :
+  ↥VarianceCosineHilbert →L[ℝ] ℝ
+'PaperFormalization.Manuscript.varianceCosineD1' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineD2 (a beta : ℝ) (z : ↥VarianceCosineHilbert) :
+  ↥VarianceCosineHilbert →L[ℝ] ↥VarianceCosineHilbert →L[ℝ] ℝ
+'PaperFormalization.Manuscript.varianceCosineD2' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineD3 (beta : ℝ) (z : ↥VarianceCosineHilbert) :
+  ↥VarianceCosineHilbert →L[ℝ] ↥VarianceCosineHilbert →L[ℝ] ↥VarianceCosineHilbert →L[ℝ] ℝ
+'PaperFormalization.Manuscript.varianceCosineD3' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_hasFDerivAt (a beta : ℝ) (z : ↥VarianceCosineHilbert) :
+  HasFDerivAt (varianceCosineObjective a beta) (varianceCosineD1 a beta z) z
+'PaperFormalization.Manuscript.varianceCosine_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineD1_hasFDerivAt (a beta : ℝ) (z : ↥VarianceCosineHilbert) :
+  HasFDerivAt (varianceCosineD1 a beta) (varianceCosineD2 a beta z) z
+'PaperFormalization.Manuscript.varianceCosineD1_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineD2_hasFDerivAt (a beta : ℝ) (z : ↥VarianceCosineHilbert) :
+  HasFDerivAt (varianceCosineD2 a beta) (varianceCosineD3 beta z) z
+'PaperFormalization.Manuscript.varianceCosineD2_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_fderiv (a beta : ℝ) :
+  fderiv ℝ (varianceCosineObjective a beta) = varianceCosineD1 a beta
+'PaperFormalization.Manuscript.varianceCosine_fderiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_second_fderiv (a beta : ℝ) :
+  fderiv ℝ (fderiv ℝ (varianceCosineObjective a beta)) = varianceCosineD2 a beta
+'PaperFormalization.Manuscript.varianceCosine_second_fderiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_third_fderiv (a beta : ℝ) :
+  fderiv ℝ (fderiv ℝ (fderiv ℝ (varianceCosineObjective a beta))) = varianceCosineD3 beta
+'PaperFormalization.Manuscript.varianceCosine_third_fderiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineDecode_norm_le (n : ℕ) :
+  ‖varianceCosineDecode n‖ ≤ (varianceCosineWeight n)⁻¹
+'PaperFormalization.Manuscript.varianceCosineDecode_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineThirdBound (beta : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineThirdBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_third_bound (a beta : ℝ) (hb : 0 ≤ beta) (z : ↥VarianceCosineHilbert) :
+  ‖iteratedFDeriv ℝ 3 (varianceCosineObjective a beta) z‖ ≤ varianceCosineThirdBound beta
+'PaperFormalization.Manuscript.varianceCosine_third_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineKernel_bound (a beta m : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ beta) :
+  |varianceCosineKernel a beta m| ≤ a + beta * Real.pi ^ 2
+'PaperFormalization.Manuscript.varianceCosineKernel_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanDrift_bound (beta x : ℝ) (hb : 0 ≤ beta) :
+  |varianceCosineMeanDrift beta x| ≤ beta * Real.pi
+'PaperFormalization.Manuscript.varianceCosineMeanDrift_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanDrift_hasDerivAt (beta x : ℝ) :
+  HasDerivAt (varianceCosineMeanDrift beta) (beta * Real.pi ^ 2 * Real.cos (Real.pi * x)) x
+'PaperFormalization.Manuscript.varianceCosineMeanDrift_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanDrift_contDiff (beta : ℝ) : ContDiff ℝ 1 (varianceCosineMeanDrift beta)
+'PaperFormalization.Manuscript.varianceCosineMeanDrift_contDiff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanDrift_lipschitz (beta : ℝ) (hb : 0 ≤ beta) :
+  LipschitzWith ⟨beta * Real.pi ^ 2, ⋯⟩ (varianceCosineMeanDrift beta)
+'PaperFormalization.Manuscript.varianceCosineMeanDrift_lipschitz' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFeatureD1 (x : VarianceCosinePoint) :
+  VarianceCosinePoint →L[ℝ] ↥VarianceCosineHilbert
+'PaperFormalization.Manuscript.varianceCosineFeatureD1' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFeatureD2 :
+  VarianceCosinePoint →L[ℝ] VarianceCosinePoint →L[ℝ] ↥VarianceCosineHilbert
+'PaperFormalization.Manuscript.varianceCosineFeatureD2' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEncodedFeature_contDiff : ContDiff ℝ 3 varianceCosineEncodedFeature
+'PaperFormalization.Manuscript.varianceCosineEncodedFeature_contDiff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEncodedFeature_hasFDerivAt (x : VarianceCosinePoint) :
+  HasFDerivAt varianceCosineEncodedFeature (varianceCosineFeatureD1 x) x
+'PaperFormalization.Manuscript.varianceCosineEncodedFeature_hasFDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEncodedFeature_fderiv :
+  fderiv ℝ varianceCosineEncodedFeature = varianceCosineFeatureD1
+'PaperFormalization.Manuscript.varianceCosineEncodedFeature_fderiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEncodedFeature_second :
+  fderiv ℝ (fderiv ℝ varianceCosineEncodedFeature) = fun x => varianceCosineFeatureD2
+'PaperFormalization.Manuscript.varianceCosineEncodedFeature_second' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineDecode_featureD1 (x v : VarianceCosinePoint) :
+  (varianceCosineDecode 0) ((varianceCosineFeatureD1 x) v) = varianceCosineScalar v ∧
+    (varianceCosineDecode 1) ((varianceCosineFeatureD1 x) v) = 2 * varianceCosineScalar x * varianceCosineScalar v
+'PaperFormalization.Manuscript.varianceCosineDecode_featureD1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineDecode_featureD2 (v w : VarianceCosinePoint) :
+  (varianceCosineDecode 0) ((varianceCosineFeatureD2 v) w) = 0 ∧
+    (varianceCosineDecode 1) ((varianceCosineFeatureD2 v) w) = 2 * varianceCosineScalar v * varianceCosineScalar w
+'PaperFormalization.Manuscript.varianceCosineDecode_featureD2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_inner_point (v : VarianceCosinePoint) (x : ℝ) :
+  inner ℝ v (varianceCosinePoint x) = varianceCosineScalar v * x
+'PaperFormalization.Manuscript.varianceCosine_inner_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_source_field (a beta : ℝ) (z : ↥VarianceCosineHilbert)
+  (x : VarianceCosinePoint) :
+  momentGradientField (fderiv ℝ varianceCosineEncodedFeature) (gradient (varianceCosineObjective a beta)) (z, x) =
+    varianceCosinePoint
+      (-a * (varianceCosineScalar x - (varianceCosineDecode 0) z) +
+        varianceCosineMeanDrift beta ((varianceCosineDecode 0) z))
+'PaperFormalization.Manuscript.varianceCosine_source_field' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_source_spatial (a beta : ℝ) (z : ↥VarianceCosineHilbert)
+  (x : VarianceCosinePoint) :
+  momentSpatialHessian (fderiv ℝ (fderiv ℝ varianceCosineEncodedFeature) x)
+      (gradient (varianceCosineObjective a beta) z) =
+    a • ContinuousLinearMap.id ℝ VarianceCosinePoint
+'PaperFormalization.Manuscript.varianceCosine_source_spatial' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_source_integral_hessian (a beta : ℝ) (z : ↥VarianceCosineHilbert)
+  (x y : VarianceCosinePoint) :
+  momentIntegralHessian (fderiv ℝ varianceCosineEncodedFeature x) (fderiv ℝ varianceCosineEncodedFeature y)
+      (momentObjectiveHessian (varianceCosineObjective a beta) z) =
+    varianceCosineKernel a beta ((varianceCosineDecode 0) z) • ContinuousLinearMap.id ℝ VarianceCosinePoint
+'PaperFormalization.Manuscript.varianceCosine_source_integral_hessian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_source_kernel_matrix (a beta : ℝ) (z : ↥VarianceCosineHilbert)
+  (x y : VarianceCosinePoint) (i j : Fin 1) :
+  actualMomentKernelMatrix varianceCosineEncodedFeature (varianceCosineObjective a beta) z x y i j =
+    varianceCosineKernel a beta ((varianceCosineDecode 0) z)
+'PaperFormalization.Manuscript.varianceCosine_source_kernel_matrix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEmpiricalMean {N : ℕ} (X : SourceFiniteConfiguration N 1) : ℝ
+'PaperFormalization.Manuscript.varianceCosineEmpiricalMean' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_source_empirical_drift {N : ℕ} (a beta : ℝ)
+  (X : SourceFiniteConfiguration N 1) (i : Fin N) :
+  (sourceExactEmpiricalDrift 1 2 varianceCosineFeature (varianceCosineObjective a beta) X).ofLp i =
+    varianceCosinePoint
+      (-a * (varianceCosineScalar (X.ofLp i) - varianceCosineEmpiricalMean X) +
+        varianceCosineMeanDrift beta (varianceCosineEmpiricalMean X))
+'PaperFormalization.Manuscript.varianceCosine_source_empirical_drift' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMean_exists (beta : ℝ) (hb : 0 ≤ beta) (s t : ℝ) (hst : s ≤ t) (x : ℝ) :
+  ∃ u, u s = x ∧ ContinuousOn u (Icc s t) ∧ ∀ r ∈ Ioo s t, HasDerivAt u (varianceCosineMeanDrift beta (u r)) r
+'PaperFormalization.Manuscript.varianceCosineMean_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMean_all_initials (beta : ℝ) (hb : 0 ≤ beta) (s t : ℝ) (hst : s ≤ t)
+  (x : ℝ) : x ∈ sourceODEExistenceDomain (varianceCosineMeanDrift beta) s t hst
+'PaperFormalization.Manuscript.varianceCosineMean_all_initials' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanFlow (beta T x t : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineMeanFlow' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanFlow_start (beta T x : ℝ) : varianceCosineMeanFlow beta T x 0 = x
+'PaperFormalization.Manuscript.varianceCosineMeanFlow_start' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanFlow_measurable (beta T : ℝ) :
+  Measurable fun z => varianceCosineMeanFlow beta T z.1 z.2
+'PaperFormalization.Manuscript.varianceCosineMeanFlow_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanFlow_continuous (beta T x : ℝ) :
+  Continuous (varianceCosineMeanFlow beta T x)
+'PaperFormalization.Manuscript.varianceCosineMeanFlow_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanFlow_hasDerivWithinAt (beta T x : ℝ) (hb : 0 ≤ beta) (t : ℝ)
+  (ht : t ∈ Icc 0 (max 0 T)) :
+  HasDerivWithinAt (varianceCosineMeanFlow beta T x) (varianceCosineMeanDrift beta (varianceCosineMeanFlow beta T x t))
+    (Icc 0 (max 0 T)) t
+'PaperFormalization.Manuscript.varianceCosineMeanFlow_hasDerivWithinAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanFlow_hasDerivAt (beta T x : ℝ) (hb : 0 ≤ beta) (t : ℝ)
+  (ht : t ∈ Ioo 0 T) :
+  HasDerivAt (varianceCosineMeanFlow beta T x) (varianceCosineMeanDrift beta (varianceCosineMeanFlow beta T x t)) t
+'PaperFormalization.Manuscript.varianceCosineMeanFlow_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMean_unique (beta s t : ℝ) (hst : s ≤ t) (u v : ℝ → ℝ)
+  (hu : ContinuousOn u (Icc s t)) (hv : ContinuousOn v (Icc s t))
+  (hdu : ∀ r ∈ Ioo s t, HasDerivAt u (varianceCosineMeanDrift beta (u r)) r)
+  (hdv : ∀ r ∈ Ioo s t, HasDerivAt v (varianceCosineMeanDrift beta (v r)) r) (hstart : u s = v s) : EqOn u v (Icc s t)
+'PaperFormalization.Manuscript.varianceCosineMean_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanDrift_integer (beta : ℝ) (k : ℤ) : varianceCosineMeanDrift beta ↑k = 0
+'PaperFormalization.Manuscript.varianceCosineMeanDrift_integer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMean_upper_barrier (beta s t : ℝ) (hst : s ≤ t) (u : ℝ → ℝ)
+  (hu : ContinuousOn u (Icc s t)) (hdu : ∀ r ∈ Ioo s t, HasDerivAt u (varianceCosineMeanDrift beta (u r)) r) (k : ℤ)
+  (hstart : u s ≤ ↑k) (r : ℝ) : r ∈ Icc s t → u r ≤ ↑k
+'PaperFormalization.Manuscript.varianceCosineMean_upper_barrier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMean_lower_barrier (beta s t : ℝ) (hst : s ≤ t) (u : ℝ → ℝ)
+  (hu : ContinuousOn u (Icc s t)) (hdu : ∀ r ∈ Ioo s t, HasDerivAt u (varianceCosineMeanDrift beta (u r)) r) (k : ℤ)
+  (hstart : ↑k ≤ u s) (r : ℝ) : r ∈ Icc s t → ↑k ≤ u r
+'PaperFormalization.Manuscript.varianceCosineMean_lower_barrier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanFlow_movement (beta T x t : ℝ) (hb : 0 ≤ beta) (ht : t ∈ Icc 0 T) :
+  |varianceCosineMeanFlow beta T x t - x| ≤ 1
+'PaperFormalization.Manuscript.varianceCosineMeanFlow_movement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMeanFlow_zero (beta T t : ℝ) (hb : 0 ≤ beta) (ht : t ∈ Icc 0 T) :
+  varianceCosineMeanFlow beta T 0 t = 0
+'PaperFormalization.Manuscript.varianceCosineMeanFlow_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineGaussian_exp :
+  Integrable (fun x => Real.exp ((‖x‖ / 2) ^ 2)) (gaussianReal 0 1) ∧
+    ∫ (x : ℝ), Real.exp ((‖x‖ / 2) ^ 2) ∂gaussianReal 0 1 ≤ 2
+'PaperFormalization.Manuscript.varianceCosineGaussian_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineGaussian_scalar_root (q : ℝ) (hq : 1 ≤ q) :
+  (2 * (2 ^ q * (q / (2 * Real.exp 1)) ^ (q / 2))) ^ q⁻¹ ≤ 2 * q ^ (1 / 2)
+'PaperFormalization.Manuscript.varianceCosineGaussian_scalar_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineGaussian_moment_class : gaussianReal 0 1 ∈ sourceMomentClass 2 2
+'PaperFormalization.Manuscript.varianceCosineGaussian_moment_class' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_moment_of_gaussian_envelope.{u_1, u_2} {O : Type u_1} {E : Type u_2}
+  [MeasurableSpace O] [NormedAddCommGroup E] [MeasurableSpace E] [BorelSpace E] [SecondCountableTopology E]
+  (mu : Measure O) [IsProbabilityMeasure mu] (Z : O → ℝ) (X : O → E) (hZ : Measurable Z) (hX : Measurable X)
+  (hlaw : Measure.map Z mu = gaussianReal 0 1) (M S : ℝ) (hM : 0 ≤ M) (hS : 0 ≤ S)
+  (hbound : ∀ᵐ (o : O) ∂mu, ‖X o‖ ≤ M + S * |Z o|) : Measure.map X mu ∈ sourceMomentClass 2 (M + 2 * S)
+'PaperFormalization.Manuscript.varianceCosine_moment_of_gaussian_envelope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineConstantDirection (N : ℕ) : EuclideanSpace ℝ (Fin N × Fin 1)
+'PaperFormalization.Manuscript.varianceCosineConstantDirection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineConstantDirection_norm (N : ℕ) (hN : 0 < N) :
+  ‖varianceCosineConstantDirection N‖ = 1
+'PaperFormalization.Manuscript.varianceCosineConstantDirection_norm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineNormalMean (N : ℕ) : EuclideanSpace ℝ (Fin N × Fin 1) →L[ℝ] ℝ
+'PaperFormalization.Manuscript.varianceCosineNormalMean' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineNormalMean_law.{u_1} {O : Type u_1} [MeasurableSpace O] (mu : Measure O)
+  (N : ℕ) (hN : 0 < N) (g : O → EuclideanSpace ℝ (Fin N × Fin 1))
+  (hg : Measure.map g mu = stdGaussian (EuclideanSpace ℝ (Fin N × Fin 1))) :
+  Measure.map (fun o => (varianceCosineNormalMean N) (g o)) mu = gaussianReal 0 1
+'PaperFormalization.Manuscript.varianceCosineNormalMean_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePostMeanX {N : ℕ} (a beta tau eta T : ℝ) (U : SourceFiniteConfiguration N 1)
+  (zeta : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosinePostMeanX' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePostMeanY (a beta eta Z : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosinePostMeanY' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineBranchMeanX {N : ℕ} (a beta tau eta T : ℝ)
+  (U : SourceFiniteConfiguration N 1) (zeta : ℝ) (k : ℕ) (t : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineBranchMeanX' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineBranchMeanY (a beta tau eta T Z : ℝ) (k : ℕ) (t : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineBranchMeanY' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch {N : ℕ} (a beta tau eta T : ℝ)
+  (U : SourceFiniteConfiguration N 1) (Z zeta : ℝ) (k : ℕ) (t : ℝ) :
+  SourceFiniteConfiguration N 1 × SourceFiniteConfiguration N 1
+'PaperFormalization.Manuscript.varianceCosinePairBranch' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRightPair {N : ℕ} (a beta tau eta T : ℝ) (U : SourceFiniteConfiguration N 1)
+  (Z zeta t : ℝ) : SourceFiniteConfiguration N 1 × SourceFiniteConfiguration N 1
+'PaperFormalization.Manuscript.varianceCosineRightPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch_difference {N : ℕ} (a beta tau eta T : ℝ)
+  (U : SourceFiniteConfiguration N 1) (Z zeta : ℝ) (k : ℕ) (t : ℝ) (i : Fin N) :
+  ((varianceCosinePairBranch a beta tau eta T U Z zeta k t).1 -
+          (varianceCosinePairBranch a beta tau eta T U Z zeta k t).2).ofLp
+      i =
+    varianceCosinePoint
+      (varianceCosineBranchMeanX a beta tau eta T U zeta k t - varianceCosineBranchMeanY a beta tau eta T Z k t -
+        Real.exp (-a * t) * varianceCosineEmpiricalMean U)
+'PaperFormalization.Manuscript.varianceCosinePairBranch_difference' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineEmpiricalMean_bound {N : ℕ} (hN : 0 < N) (U : SourceFiniteConfiguration N 1)
+  (R : ℝ) (hR : 0 ≤ R) (hU : ∀ (i : Fin N), ‖U.ofLp i‖ ≤ R) : |varianceCosineEmpiricalMean U| ≤ R
+'PaperFormalization.Manuscript.varianceCosineEmpiricalMean_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch_meanX {N : ℕ} (hN : 0 < N) (a beta tau eta T : ℝ)
+  (U : SourceFiniteConfiguration N 1) (Z zeta : ℝ) (k : ℕ) (t : ℝ) :
+  varianceCosineEmpiricalMean (varianceCosinePairBranch a beta tau eta T U Z zeta k t).1 =
+    varianceCosineBranchMeanX a beta tau eta T U zeta k t
+'PaperFormalization.Manuscript.varianceCosinePairBranch_meanX' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch_start {N : ℕ} (a beta tau eta T : ℝ)
+  (U : SourceFiniteConfiguration N 1) (Z zeta : ℝ) : varianceCosinePairBranch a beta tau eta T U Z zeta 0 0 = (U, U)
+'PaperFormalization.Manuscript.varianceCosinePairBranch_start' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch_jump {N : ℕ} (a beta tau eta T : ℝ)
+  (U : SourceFiniteConfiguration N 1) (Z zeta : ℝ) (i : Fin N) :
+  (varianceCosinePairBranch a beta tau eta T U Z zeta 1 tau).1.ofLp i =
+      (varianceCosinePairBranch a beta tau eta T U Z zeta 0 tau).1.ofLp i +
+        varianceCosinePoint
+          (eta * varianceCosineKernel a beta (varianceCosineMeanFlow beta T (varianceCosineEmpiricalMean U) tau) *
+            zeta) ∧
+    (varianceCosinePairBranch a beta tau eta T U Z zeta 1 tau).2.ofLp i =
+      (varianceCosinePairBranch a beta tau eta T U Z zeta 0 tau).2.ofLp i +
+        varianceCosinePoint (eta * varianceCosineKernel a beta 0 * Z)
+'PaperFormalization.Manuscript.varianceCosinePairBranch_jump' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch_continuous {N : ℕ} (a beta tau eta T : ℝ)
+  (U : SourceFiniteConfiguration N 1) (Z zeta : ℝ) (k : ℕ) :
+  Continuous (varianceCosinePairBranch a beta tau eta T U Z zeta k)
+'PaperFormalization.Manuscript.varianceCosinePairBranch_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch_measurable {N : ℕ} (a beta tau eta T : ℝ) (k : ℕ) (t : ℝ) :
+  Measurable fun z => varianceCosinePairBranch a beta tau eta T z.1 z.2.1 z.2.2 k t
+'PaperFormalization.Manuscript.varianceCosinePairBranch_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch_envelope {N : ℕ} (hN : 0 < N) (a beta tau eta T R : ℝ)
+  (ha : 0 ≤ a) (hb : 0 ≤ beta) (htau : 0 ≤ tau) (hT : tau ≤ T) (heta : 0 ≤ eta) (hR : 0 ≤ R)
+  (U : SourceFiniteConfiguration N 1) (hU : ∀ (i : Fin N), ‖U.ofLp i‖ ≤ R) (Z zeta : ℝ) (k : ℕ) (hk : k ≤ 1) (t : ℝ)
+  (ht : t ∈ Icc (if k = 0 then 0 else tau) (if k = 0 then tau else T)) (i : Fin N) :
+  ‖(varianceCosinePairBranch a beta tau eta T U Z zeta k t).1.ofLp i‖ ≤
+      3 * R + 2 + eta * (a + beta * Real.pi ^ 2) * |zeta| ∧
+    ‖(varianceCosinePairBranch a beta tau eta T U Z zeta k t).2.ofLp i‖ ≤
+      3 * R + 2 + eta * (a + beta * Real.pi ^ 2) * |Z|
+'PaperFormalization.Manuscript.varianceCosinePairBranch_envelope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineMomentScale (a beta R eta : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineMomentScale' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineSpeed (a beta R : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineSpeed' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_common_displacement {N : ℕ} (hN : 0 < N)
+  (X Y : SourceFiniteConfiguration N 1) (d : ℝ) (hd : ∀ (i : Fin N), (X - Y).ofLp i = varianceCosinePoint d) :
+  ‖X - Y‖ / √↑N = |d| ∧ (↑N)⁻¹ * ∑ i, ‖(X - Y).ofLp i‖ ^ 3 = (‖X - Y‖ / √↑N) ^ 3
+'PaperFormalization.Manuscript.varianceCosine_common_displacement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch_antispike {N : ℕ} (hN : 0 < N) (a beta tau eta T : ℝ)
+  (U : SourceFiniteConfiguration N 1) (Z zeta : ℝ) (k : ℕ) (t : ℝ) :
+  (↑N)⁻¹ *
+      ∑ i,
+        ‖((varianceCosinePairBranch a beta tau eta T U Z zeta k t).1 -
+                  (varianceCosinePairBranch a beta tau eta T U Z zeta k t).2).ofLp
+              i‖ ^
+          3 =
+    (‖(varianceCosinePairBranch a beta tau eta T U Z zeta k t).1 -
+            (varianceCosinePairBranch a beta tau eta T U Z zeta k t).2‖ /
+        √↑N) ^
+      3
+'PaperFormalization.Manuscript.varianceCosinePairBranch_antispike' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRight_antiSpikiness {N : ℕ} (hN : 0 < N) (a beta tau eta T : ℝ)
+  (U : SourceFiniteConfiguration N 1) (Z zeta : ℝ) :
+  SourceRightAntiSpikiness (fun t => (varianceCosineRightPair a beta tau eta T U Z zeta t).1)
+    (fun t => (varianceCosineRightPair a beta tau eta T U Z zeta t).2) T 1
+'PaperFormalization.Manuscript.varianceCosineRight_antiSpikiness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineBranchMeanX_ode {N : ℕ} (a beta tau eta T : ℝ) (hb : 0 ≤ beta)
+  (htau : 0 ≤ tau) (hT : tau ≤ T) (U : SourceFiniteConfiguration N 1) (zeta : ℝ) (k : ℕ) (t : ℝ)
+  (ht : t ∈ Ioo (if k = 0 then 0 else tau) (if k = 0 then tau else T)) :
+  HasDerivAt (varianceCosineBranchMeanX a beta tau eta T U zeta k)
+    (varianceCosineMeanDrift beta (varianceCosineBranchMeanX a beta tau eta T U zeta k t)) t
+'PaperFormalization.Manuscript.varianceCosineBranchMeanX_ode' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineBranchMeanY_ode (a beta tau eta T Z : ℝ) (hb : 0 ≤ beta) (htau : 0 ≤ tau)
+  (k : ℕ) (t : ℝ) (ht : t ∈ Ioo (if k = 0 then 0 else tau) (if k = 0 then tau else T)) :
+  HasDerivAt (varianceCosineBranchMeanY a beta tau eta T Z k)
+    (varianceCosineMeanDrift beta (varianceCosineBranchMeanY a beta tau eta T Z k t)) t
+'PaperFormalization.Manuscript.varianceCosineBranchMeanY_ode' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch_coordinate_ode {N : ℕ} (a beta tau eta T : ℝ) (hb : 0 ≤ beta)
+  (htau : 0 ≤ tau) (hT : tau ≤ T) (U : SourceFiniteConfiguration N 1) (Z zeta : ℝ) (k : ℕ) (t : ℝ)
+  (ht : t ∈ Ioo (if k = 0 then 0 else tau) (if k = 0 then tau else T)) (i : Fin N) :
+  HasDerivAt (fun s => (varianceCosinePairBranch a beta tau eta T U Z zeta k s).1.ofLp i)
+      (varianceCosinePoint
+        (varianceCosineMeanDrift beta (varianceCosineBranchMeanX a beta tau eta T U zeta k t) -
+          a * Real.exp (-a * t) * (varianceCosineScalar (U.ofLp i) - varianceCosineEmpiricalMean U)))
+      t ∧
+    HasDerivAt (fun s => (varianceCosinePairBranch a beta tau eta T U Z zeta k s).2.ofLp i)
+      (varianceCosinePoint
+        (varianceCosineMeanDrift beta (varianceCosineBranchMeanY a beta tau eta T Z k t) -
+          a * Real.exp (-a * t) * varianceCosineScalar (U.ofLp i)))
+      t
+'PaperFormalization.Manuscript.varianceCosinePairBranch_coordinate_ode' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_closed_lipschitz.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] (f df : ℝ → E) (s t : ℝ) (hst : s ≤ t) (B : ℝ≥0) (hc : ContinuousOn f (Icc s t))
+  (hd : ∀ r ∈ Ioo s t, HasDerivAt f (df r) r) (hb : ∀ r ∈ Ioo s t, ‖df r‖ ≤ ↑B) : LipschitzOnWith B f (Icc s t)
+'PaperFormalization.Manuscript.varianceCosine_closed_lipschitz' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch_lipschitz {N : ℕ} (hN : 0 < N) (a beta tau eta T R : ℝ)
+  (ha : 0 ≤ a) (hb : 0 ≤ beta) (htau : 0 ≤ tau) (hT : tau ≤ T) (hR : 0 ≤ R) (U : SourceFiniteConfiguration N 1)
+  (hU : ∀ (i : Fin N), ‖U.ofLp i‖ ≤ R) (Z zeta : ℝ) (k : ℕ) (i : Fin N) :
+  have B := ⟨varianceCosineSpeed a beta R, ⋯⟩;
+  LipschitzOnWith B (fun t => (varianceCosinePairBranch a beta tau eta T U Z zeta k t).1.ofLp i)
+      (Icc (if k = 0 then 0 else tau) (if k = 0 then tau else T)) ∧
+    LipschitzOnWith B (fun t => (varianceCosinePairBranch a beta tau eta T U Z zeta k t).2.ofLp i)
+      (Icc (if k = 0 then 0 else tau) (if k = 0 then tau else T))
+'PaperFormalization.Manuscript.varianceCosinePairBranch_lipschitz' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePairBranch_moments.{u_1} {O : Type u_1} [MeasurableSpace O] (nu : Measure O)
+  [IsProbabilityMeasure nu] {N : ℕ} (hN : 0 < N) (a beta tau eta T R : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ beta) (htau : 0 ≤ tau)
+  (hT : tau ≤ T) (heta : 0 ≤ eta) (hR : 0 ≤ R) (U : O → SourceFiniteConfiguration N 1) (Z zeta : O → ℝ)
+  (hU : Measurable U) (hZ : Measurable Z) (hzeta : Measurable zeta)
+  (hbound : ∀ᵐ (o : O) ∂nu, ∀ (i : Fin N), ‖(U o).ofLp i‖ ≤ R) (hZlaw : Measure.map Z nu = gaussianReal 0 1)
+  (hzetalaw : Measure.map zeta nu = gaussianReal 0 1) (k : ℕ) (hk : k ≤ 1) (t : ℝ)
+  (ht : t ∈ Icc (if k = 0 then 0 else tau) (if k = 0 then tau else T)) (i : Fin N) :
+  Measure.map (fun o => (varianceCosinePairBranch a beta tau eta T (U o) (Z o) (zeta o) k t).1.ofLp i) nu ∈
+      sourceMomentClass 2 (varianceCosineMomentScale a beta R eta) ∧
+    Measure.map (fun o => (varianceCosinePairBranch a beta tau eta T (U o) (Z o) (zeta o) k t).2.ofLp i) nu ∈
+      sourceMomentClass 2 (varianceCosineMomentScale a beta R eta)
+'PaperFormalization.Manuscript.varianceCosinePairBranch_moments' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRankFactor (N : ℕ) (c : ℝ) : Matrix (Fin N × Fin 1) (Fin N × Fin 1) ℝ
+'PaperFormalization.Manuscript.varianceCosineRankFactor' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRankCovariance (N : ℕ) (c : ℝ) : Matrix (Fin N × Fin 1) (Fin N × Fin 1) ℝ
+'PaperFormalization.Manuscript.varianceCosineRankCovariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFieldVector (N : ℕ) (c z : ℝ) : EuclideanSpace ℝ (Fin N × Fin 1)
+'PaperFormalization.Manuscript.varianceCosineFieldVector' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRankFactor_hermitian (N : ℕ) (c : ℝ) :
+  (varianceCosineRankFactor N c).IsHermitian
+'PaperFormalization.Manuscript.varianceCosineRankFactor_hermitian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRankFactor_covariance (N : ℕ) (hN : 0 < N) (c : ℝ) :
+  varianceCosineRankFactor N c * (varianceCosineRankFactor N c)ᵀ = varianceCosineRankCovariance N c
+'PaperFormalization.Manuscript.varianceCosineRankFactor_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRankCovariance_pos (N : ℕ) (c : ℝ) :
+  (varianceCosineRankCovariance N c).PosSemidef
+'PaperFormalization.Manuscript.varianceCosineRankCovariance_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineRankFactor_apply (N : ℕ) (c : ℝ) (g : EuclideanSpace ℝ (Fin N × Fin 1)) :
+  (toEuclideanCLM (varianceCosineRankFactor N c)) g = varianceCosineFieldVector N c ((varianceCosineNormalMean N) g)
+'PaperFormalization.Manuscript.varianceCosineRankFactor_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_source_empirical_factor {N : ℕ} (a beta : ℝ)
+  (X : SourceFiniteConfiguration N 1) :
+  sourceEmpiricalKernelFactor 1 2 varianceCosineFeature (varianceCosineObjective a beta) X =
+    varianceCosineRankFactor N (varianceCosineKernel a beta (varianceCosineEmpiricalMean X))
+'PaperFormalization.Manuscript.varianceCosine_source_empirical_factor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_population_covariance {N : ℕ} (a beta : ℝ)
+  (mu : Measure VarianceCosinePoint) [IsProbabilityMeasure mu] (h2 : MemLp id 2 mu)
+  (Y : SourceFiniteConfiguration N 1) :
+  have U := fun z =>
+    stackedKernelMatrix fun i =>
+      actualMomentKernelMatrix varianceCosineEncodedFeature (varianceCosineObjective a beta)
+        (integral mu varianceCosineEncodedFeature) (Y.ofLp i) z;
+  Integrable (fun z => U z * (U z)ᵀ) mu ∧
+    populationGramCovariance mu U = varianceCosineRankCovariance N (varianceCosineKernel a beta (varianceCosineMean mu))
+'PaperFormalization.Manuscript.varianceCosine_population_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFieldVector_gaussian (N : ℕ) (hN : 0 < N) (c : ℝ) :
+  Measure.map (varianceCosineFieldVector N c) (gaussianReal 0 1) =
+    multivariateGaussian 0 (varianceCosineRankCovariance N c)
+'PaperFormalization.Manuscript.varianceCosineFieldVector_gaussian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_source_jump_action {N : ℕ} (a beta : ℝ) (X : SourceFiniteConfiguration N 1)
+  (g : EuclideanSpace ℝ (Fin N × Fin 1)) :
+  (matrixEuclideanOperator (sourceEmpiricalKernelFactor 1 2 varianceCosineFeature (varianceCosineObjective a beta) X))
+      g =
+    varianceCosineFieldVector N (varianceCosineKernel a beta (varianceCosineEmpiricalMean X))
+      ((varianceCosineNormalMean N) g)
+'PaperFormalization.Manuscript.varianceCosine_source_jump_action' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.VarianceCosineCouplingSpace (N : ℕ) : Type
+'PaperFormalization.Manuscript.VarianceCosineCouplingSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCouplingLaw {N : ℕ} (rho : Measure (SourceFiniteConfiguration N 1)) :
+  Measure (VarianceCosineCouplingSpace N)
+'PaperFormalization.Manuscript.varianceCosineCouplingLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCouplingLaw_probability {N : ℕ}
+  (rho : Measure (SourceFiniteConfiguration N 1)) [IsProbabilityMeasure rho] :
+  IsProbabilityMeasure (varianceCosineCouplingLaw rho)
+'PaperFormalization.Manuscript.varianceCosineCouplingLaw_probability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineReferencePre {N : ℕ} (a tau : ℝ) (U : SourceFiniteConfiguration N 1) :
+  SourceFiniteConfiguration N 1
+'PaperFormalization.Manuscript.varianceCosineReferencePre' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineReferencePre_measurable {N : ℕ} (a tau : ℝ) :
+  Measurable (varianceCosineReferencePre a tau)
+'PaperFormalization.Manuscript.varianceCosineReferencePre_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineReferencePre_hermitian {N : ℕ} (a beta tau : ℝ)
+  (U : SourceFiniteConfiguration N 1) :
+  (sourceEmpiricalKernelFactor 1 2 varianceCosineFeature (varianceCosineObjective a beta)
+      (varianceCosineReferencePre a tau U)).IsHermitian
+'PaperFormalization.Manuscript.varianceCosineReferencePre_hermitian' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCouplingSeed {N : ℕ} (a beta tau : ℝ) (w : VarianceCosineCouplingSpace N) :
+  SourceStepNormal N 1
+'PaperFormalization.Manuscript.varianceCosineCouplingSeed' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCouplingZeta {N : ℕ} (a beta tau : ℝ) (w : VarianceCosineCouplingSpace N) :
+  ℝ
+'PaperFormalization.Manuscript.varianceCosineCouplingZeta' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCouplingSeed_measurable {N : ℕ} (a beta tau : ℝ) :
+  Measurable (varianceCosineCouplingSeed a beta tau)
+'PaperFormalization.Manuscript.varianceCosineCouplingSeed_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCouplingZeta_measurable {N : ℕ} (a beta tau : ℝ) :
+  Measurable (varianceCosineCouplingZeta a beta tau)
+'PaperFormalization.Manuscript.varianceCosineCouplingZeta_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCouplingSeed_laws {N : ℕ} (hN : 0 < N)
+  (rho : Measure (SourceFiniteConfiguration N 1)) [IsProbabilityMeasure rho] (a beta tau : ℝ) :
+  Measure.map (fun w => (w.1, varianceCosineCouplingSeed a beta tau w)) (varianceCosineCouplingLaw rho) =
+      rho.prod (stdGaussian (SourceStepNormal N 1)) ∧
+    Measure.map (varianceCosineCouplingSeed a beta tau) (varianceCosineCouplingLaw rho) =
+        stdGaussian (SourceStepNormal N 1) ∧
+      ∀ᵐ (w : VarianceCosineCouplingSpace N) ∂varianceCosineCouplingLaw rho,
+        (toEuclideanCLM (alignedCovarianceFactor ⋯ (varianceCosineRankCovariance N (varianceCosineKernel a beta 0))))
+            (varianceCosineCouplingSeed a beta tau w) =
+          varianceCosineFieldVector N (varianceCosineKernel a beta 0) w.2.1
+'PaperFormalization.Manuscript.varianceCosineCouplingSeed_laws' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCoupling_original_law {N : ℕ}
+  (rho : Measure (SourceFiniteConfiguration N 1)) [IsProbabilityMeasure rho] :
+  Measure.map (fun w => (w.1, w.2.1)) (varianceCosineCouplingLaw rho) = rho.prod (gaussianReal 0 1)
+'PaperFormalization.Manuscript.varianceCosineCoupling_original_law' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCoupling_normal_marginals {N : ℕ} (hN : 0 < N)
+  (rho : Measure (SourceFiniteConfiguration N 1)) [IsProbabilityMeasure rho] (a beta tau : ℝ) :
+  Measure.map (fun w => w.2.1) (varianceCosineCouplingLaw rho) = gaussianReal 0 1 ∧
+    Measure.map (varianceCosineCouplingZeta a beta tau) (varianceCosineCouplingLaw rho) = gaussianReal 0 1
+'PaperFormalization.Manuscript.varianceCosineCoupling_normal_marginals' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineCoupling_comparison_regularities {N : ℕ} (hN : 0 < N)
+  (rho : Measure (SourceFiniteConfiguration N 1)) [IsProbabilityMeasure rho] (a beta tau eta T R : ℝ) (ha : 0 ≤ a)
+  (hb : 0 ≤ beta) (htau : 0 ≤ tau) (hT : tau ≤ T) (heta : 0 ≤ eta) (hR : 0 ≤ R)
+  (hU : ∀ᵐ (U : SourceFiniteConfiguration N 1) ∂rho, ∀ (i : Fin N), ‖U.ofLp i‖ ≤ R) :
+  have law := varianceCosineCouplingLaw rho;
+  have P := fun w => varianceCosinePairBranch a beta tau eta T w.1 w.2.1 (varianceCosineCouplingZeta a beta tau w);
+  (∀ k ≤ 1,
+      ∀ t ∈ Icc (if k = 0 then 0 else tau) (if k = 0 then tau else T),
+        ∀ (i : Fin N),
+          Measure.map (fun w => (P w k t).1.ofLp i) law ∈ sourceMomentClass 2 (varianceCosineMomentScale a beta R eta) ∧
+            Measure.map (fun w => (P w k t).2.ofLp i) law ∈
+              sourceMomentClass 2 (varianceCosineMomentScale a beta R eta)) ∧
+    (∀ᵐ (w : VarianceCosineCouplingSpace N) ∂law,
+        ∀ (k : ℕ) (i : Fin N),
+          LipschitzOnWith ⟨varianceCosineSpeed a beta R, ⋯⟩ (fun t => (P w k t).1.ofLp i)
+              (Icc (if k = 0 then 0 else tau) (if k = 0 then tau else T)) ∧
+            LipschitzOnWith ⟨varianceCosineSpeed a beta R, ⋯⟩ (fun t => (P w k t).2.ofLp i)
+              (Icc (if k = 0 then 0 else tau) (if k = 0 then tau else T))) ∧
+      ∀ (w : VarianceCosineCouplingSpace N),
+        SourceRightAntiSpikiness (fun t => (P w (if t < tau then 0 else 1) t).1)
+          (fun t => (P w (if t < tau then 0 else 1) t).2) T 1
+'PaperFormalization.Manuscript.varianceCosineCoupling_comparison_regularities' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineAffine (m r : ℝ) (u : VarianceCosinePoint) : VarianceCosinePoint
+'PaperFormalization.Manuscript.varianceCosineAffine' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulation (mu0 : Measure VarianceCosinePoint) (m r : ℝ) :
+  Measure VarianceCosinePoint
+'PaperFormalization.Manuscript.varianceCosinePopulation' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineAffine_measurable (m r : ℝ) : Measurable (varianceCosineAffine m r)
+'PaperFormalization.Manuscript.varianceCosineAffine_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulation_probability (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (m r : ℝ) : IsProbabilityMeasure (varianceCosinePopulation mu0 m r)
+'PaperFormalization.Manuscript.varianceCosinePopulation_probability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_bounded_initial_memLp (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R) (q : ENNReal) : MemLp id q mu0
+'PaperFormalization.Manuscript.varianceCosine_bounded_initial_memLp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulation_memLp (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R) (m r : ℝ) :
+  MemLp id 2 (varianceCosinePopulation mu0 m r)
+'PaperFormalization.Manuscript.varianceCosinePopulation_memLp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulation_mean_variance (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R)
+  (hmean : varianceCosineMean mu0 = 0) (m r : ℝ) :
+  varianceCosineMean (varianceCosinePopulation mu0 m r) = m ∧
+    varianceCosineVariance (varianceCosinePopulation mu0 m r) = r ^ 2 * varianceCosineVariance mu0
+'PaperFormalization.Manuscript.varianceCosinePopulation_mean_variance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulation_objective (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R)
+  (hmean : varianceCosineMean mu0 = 0) (a beta m r : ℝ) :
+  Integrable varianceCosineEncodedFeature (varianceCosinePopulation mu0 m r) ∧
+    varianceCosineObjective a beta (integral (varianceCosinePopulation mu0 m r) varianceCosineEncodedFeature) =
+      a / 2 * r ^ 2 * varianceCosineVariance mu0 + beta * Real.cos (Real.pi * m)
+'PaperFormalization.Manuscript.varianceCosinePopulation_objective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosinePopulation_field_spec {N : ℕ} (hN : 0 < N)
+  (mu0 : Measure VarianceCosinePoint) [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R)
+  (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R) (hmean : varianceCosineMean mu0 = 0) (a beta m r : ℝ)
+  (Y : SourceFiniteConfiguration N 1) :
+  Measure.map (varianceCosineFieldVector N (varianceCosineKernel a beta m)) (gaussianReal 0 1) =
+    multivariateGaussian 0
+      (populationGramCovariance (varianceCosinePopulation mu0 m r) fun z =>
+        stackedKernelMatrix fun i =>
+          actualMomentKernelMatrix varianceCosineEncodedFeature (varianceCosineObjective a beta)
+            (integral (varianceCosinePopulation mu0 m r) varianceCosineEncodedFeature) (Y.ofLp i) z)
+'PaperFormalization.Manuscript.varianceCosinePopulation_field_spec' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineInitial_marginal {N : ℕ} (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (i : Fin N) : Measure.map (fun U => U.ofLp i) (sourceInitialConfigurationLaw mu0) = mu0
+'PaperFormalization.Manuscript.varianceCosineInitial_marginal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineInitial_bounded {N : ℕ} (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R) :
+  ∀ᵐ (U : SourceFiniteConfiguration N 1) ∂sourceInitialConfigurationLaw mu0, ∀ (i : Fin N), ‖U.ofLp i‖ ≤ R
+'PaperFormalization.Manuscript.varianceCosineInitial_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineInitial_iid {N : ℕ} (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] : iIndepFun (fun i U => U.ofLp i) (sourceInitialConfigurationLaw mu0)
+'PaperFormalization.Manuscript.varianceCosineInitial_iid' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineTimes (tau : ℝ) (n : ℕ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineTimes' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineAmplitudes (eta : ℝ) (n : ℕ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineAmplitudes' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFlowY (a beta tau eta T : ℝ) (n : ℕ) :
+  (Fin n → ℝ) → ℝ → VarianceCosinePoint → VarianceCosinePoint
+'PaperFormalization.Manuscript.varianceCosineFlowY' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineField (a beta : ℝ) (n : ℕ) :
+  (Fin n → ℝ) → ℝ → VarianceCosinePoint → VarianceCosinePoint
+'PaperFormalization.Manuscript.varianceCosineField' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFlowY_measurable (a beta tau eta T : ℝ) (n : ℕ) (t : ℝ) :
+  Measurable fun z => varianceCosineFlowY a beta tau eta T n z.1 t z.2
+'PaperFormalization.Manuscript.varianceCosineFlowY_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineField_measurable (a beta : ℝ) (n : ℕ) :
+  Measurable fun z => varianceCosineField a beta n z.1.1 z.1.2 z.2
+'PaperFormalization.Manuscript.varianceCosineField_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineFlowY_start (a beta tau eta T : ℝ) (n : ℕ) (past : Fin n → ℝ)
+  (x : VarianceCosinePoint) : varianceCosineFlowY a beta tau eta T n past (varianceCosineTimes tau n) x = x
+'PaperFormalization.Manuscript.varianceCosineFlowY_start' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineReferencePre_zero (a beta tau eta T : ℝ) (past : Fin 0 → ℝ)
+  (u : VarianceCosinePoint) :
+  sourceReferencePre (varianceCosineTimes tau) (varianceCosineFlowY a beta tau eta T)
+      (sourcePopulationFieldJump (varianceCosineAmplitudes eta) (varianceCosineField a beta)) 0 past u =
+    varianceCosineAffine 0 (Real.exp (-a * tau)) u
+'PaperFormalization.Manuscript.varianceCosineReferencePre_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineReferenceBranch_formula (a beta tau eta T Z : ℝ) (u : VarianceCosinePoint)
+  (k : ℕ) (hk : k ≤ 1) (t : ℝ) :
+  sourceReferenceBranch (varianceCosineTimes tau) (varianceCosineFlowY a beta tau eta T)
+      (sourcePopulationFieldJump (varianceCosineAmplitudes eta) (varianceCosineField a beta)) k (fun x => Z) u t =
+    varianceCosineAffine (varianceCosineBranchMeanY a beta tau eta T Z k t) (Real.exp (-a * t)) u
+'PaperFormalization.Manuscript.varianceCosineReferenceBranch_formula' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_tensor_integrable (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R) (m r : ℝ) :
+  Integrable (fun x => finiteOperatorCovariance (fderiv ℝ varianceCosineEncodedFeature x))
+    (varianceCosinePopulation mu0 m r)
+'PaperFormalization.Manuscript.varianceCosine_tensor_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineActualCovariance_zero {N : ℕ} (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R)
+  (hmean : varianceCosineMean mu0 = 0) (a beta tau eta T : ℝ) (past : Fin 0 → ℝ) (Y : SourceFiniteConfiguration N 1) :
+  sourceActualCovarianceVersion mu0 1 2 varianceCosineFeature (varianceCosineObjective a beta) univ
+      (varianceCosineTimes tau) (varianceCosineAmplitudes eta) (varianceCosineFlowY a beta tau eta T)
+      (varianceCosineField a beta) 0 past Y =
+    varianceCosineRankCovariance N (varianceCosineKernel a beta 0)
+'PaperFormalization.Manuscript.varianceCosineActualCovariance_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_reference_source_ode (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R)
+  (hmean : varianceCosineMean mu0 = 0) (a beta tau eta T Z : ℝ) (hb : 0 ≤ beta) (htau : 0 ≤ tau) (k : ℕ)
+  (u : VarianceCosinePoint) (t : ℝ) (ht : t ∈ Ioo (if k = 0 then 0 else tau) (if k = 0 then tau else T)) :
+  have m := varianceCosineBranchMeanY a beta tau eta T Z k;
+  have P := fun s => varianceCosineAffine (m s) (Real.exp (-a * s)) u;
+  HasDerivAt P
+    (momentGradientField (fderiv ℝ varianceCosineEncodedFeature) (gradient (varianceCosineObjective a beta))
+      (integral (varianceCosinePopulation mu0 (m t) (Real.exp (-a * t))) varianceCosineEncodedFeature, P t))
+    t
+'PaperFormalization.Manuscript.varianceCosine_reference_source_ode' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_raw_empirical_schedule {N : ℕ} (hN : 0 < N)
+  (mu0 : Measure VarianceCosinePoint) [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R)
+  (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R) (hmean : varianceCosineMean mu0 = 0) (a beta tau eta T : ℝ)
+  (hb : 0 ≤ beta) (htau : 0 ≤ tau) (hT : tau ≤ T) (w : VarianceCosineCouplingSpace N) :
+  SourceRawEmpiricalSchedule mu0 1 2 2 varianceCosineFeature (varianceCosineObjective a beta) univ ⋯ ⋯ ⋯ hN
+    (varianceCosineTimes tau) (varianceCosineAmplitudes eta) (varianceCosineFlowY a beta tau eta T)
+    (varianceCosineField a beta) 1 T (fun x => w.2) w.1 fun k t =>
+    (varianceCosinePairBranch a beta tau eta T w.1 w.2.1 (varianceCosineCouplingZeta a beta tau w) k t).1
+'PaperFormalization.Manuscript.varianceCosine_raw_empirical_schedule' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineInnovation (n : ℕ) (Z : ℝ) : ℝ
+'PaperFormalization.Manuscript.varianceCosineInnovation' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.exists_varianceCosine_common_characteristic (mu0 : Measure VarianceCosinePoint)
+  [IsProbabilityMeasure mu0] (R : ℝ) (hR : 0 ≤ R) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R)
+  (a beta tau eta T : ℝ) (ha : 0 ≤ a) (hb : 0 ≤ beta) (htau : 0 < tau) (hT : tau ≤ T) :
+  have times := varianceCosineTimes tau;
+  have etaSeq := varianceCosineAmplitudes eta;
+  have B := ⟨varianceCosineSpeed a beta R, ⋯⟩;
+  ∃ Phi,
+    (Measurable fun z => Phi z.1 z.2) ∧
+      ∀ᵐ (z :
+        (ℕ → ℝ) ×
+          VarianceCosinePoint) ∂(Measure.map (fun Z n => varianceCosineInnovation n Z) (gaussianReal 0 1)).prod mu0,
+        ∀ (j : Fin (1 + 1)),
+          ∀ t ∈ Icc (sourceScheduleLeft times 1 j) (sourceScheduleRight times 1 T j),
+            sourceReferencePathEval (Phi z.1 z.2) j t =
+              sourceOriginalCharacteristic times etaSeq (varianceCosineFlowY a beta tau eta T)
+                (varianceCosineField a beta) (↑j) z.1 z.2 t
+'PaperFormalization.Manuscript.exists_varianceCosine_common_characteristic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineModelLaw (N : ℕ) (mu0 : Measure VarianceCosinePoint) :
+  Measure (VarianceCosineCouplingSpace N)
+'PaperFormalization.Manuscript.varianceCosineModelLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.varianceCosineModelBranches {N : ℕ} (a beta tau eta T : ℝ)
+  (w : VarianceCosineCouplingSpace N) (k : ℕ) (t : ℝ) : SourceFiniteConfiguration N 1 × SourceFiniteConfiguration N 1
+'PaperFormalization.Manuscript.varianceCosineModelBranches' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.VarianceCosineComparisonCertificate (N : ℕ) (hN : 0 < N)
+  (mu0 : Measure VarianceCosinePoint) (a beta tau eta T R : ℝ) (hSpeed : 0 ≤ varianceCosineSpeed a beta R) : Prop
+'PaperFormalization.Manuscript.VarianceCosineComparisonCertificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_comparison_assumptions (N : ℕ) (hN : 0 < N)
+  (mu0 : Measure VarianceCosinePoint) [IsProbabilityMeasure mu0] (a beta tau eta T R : ℝ) (ha : 0 < a) (hb : 0 < beta)
+  (htau : 0 < tau) (heta : 0 < eta) (hR : 0 ≤ R) (hT : tau ≤ T) (hU : ∀ᵐ (u : VarianceCosinePoint) ∂mu0, ‖u‖ ≤ R)
+  (hmean : varianceCosineMean mu0 = 0) : VarianceCosineComparisonCertificate N hN mu0 a beta tau eta T R ⋯
+'PaperFormalization.Manuscript.varianceCosine_comparison_assumptions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosine_comparison_right_moments (N : ℕ) (hN : 0 < N)
+  (mu0 : Measure VarianceCosinePoint) (a beta tau eta T R : ℝ) (htau : 0 ≤ tau) (hT : tau ≤ T)
+  (hSpeed : 0 ≤ varianceCosineSpeed a beta R)
+  (cert : VarianceCosineComparisonCertificate N hN mu0 a beta tau eta T R hSpeed) (t : ℝ) (ht : t ∈ Icc 0 T)
+  (i : Fin N) :
+  Measure.map (fun w => (varianceCosineModelBranches a beta tau eta T w (if t < tau then 0 else 1) t).1.ofLp i)
+        (varianceCosineModelLaw N mu0) ∈
+      sourceMomentClass 2 (varianceCosineMomentScale a beta R eta) ∧
+    Measure.map (fun w => (varianceCosineModelBranches a beta tau eta T w (if t < tau then 0 else 1) t).2.ofLp i)
+        (varianceCosineModelLaw N mu0) ∈
+      sourceMomentClass 2 (varianceCosineMomentScale a beta R eta)
+'PaperFormalization.Manuscript.varianceCosine_comparison_right_moments' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineTowerCoordinates {N : ℕ}
+  (z : SourceAuxiliarySpace (SourceFiniteConfiguration N 1 × ℝ) (SourceStepNormal N 1) 1) :
+  VarianceCosineCouplingSpace N
+'PaperFormalization.Manuscript.varianceCosineTowerCoordinates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineTower_preserving {N : ℕ} (rho : Measure (SourceFiniteConfiguration N 1))
+  [IsProbabilityMeasure rho] :
+  MeasurePreserving varianceCosineTowerCoordinates
+    (sourceAuxiliaryMeasure (rho.prod (gaussianReal 0 1)) (stdGaussian (SourceStepNormal N 1)) 1)
+    (varianceCosineCouplingLaw rho)
+'PaperFormalization.Manuscript.varianceCosineTower_preserving' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.varianceCosineTower_map.{u_1} {N : ℕ} {E : Type u_1} [MeasurableSpace E]
+  (rho : Measure (SourceFiniteConfiguration N 1)) [IsProbabilityMeasure rho] (f : VarianceCosineCouplingSpace N → E)
+  (hf : Measurable f) :
+  Measure.map (fun z => f (varianceCosineTowerCoordinates z))
+      (sourceAuxiliaryMeasure (rho.prod (gaussianReal 0 1)) (stdGaussian (SourceStepNormal N 1)) 1) =
+    Measure.map f (varianceCosineCouplingLaw rho)
+'PaperFormalization.Manuscript.varianceCosineTower_map' depends on axioms: [propext, Classical.choice, Quot.sound]

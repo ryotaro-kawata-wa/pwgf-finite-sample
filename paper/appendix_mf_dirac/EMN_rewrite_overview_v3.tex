@@ -1,0 +1,306 @@
+
+\subsection{Overview of the nonlinear-moment landscape}
+\label{subsec:nonlinear-landscape-overview}
+
+\paragraph{Why matrix factorization is the testbed.}
+The example in \cref{sec:matrix-factorization} should be read as a compact
+matrix-factorization instance of a broader tensor-decomposition theme.  Classical
+low-rank matrix models represent an object by a small number of latent factors,
+while tensor decompositions replace a two-way array by multiway rank-one
+components and their variants
+\citep{kolda2009tensor,sidiropoulos2017tensor}.  Such tensor decompositions are not
+only algebraic objects: in latent-variable learning, observable second- and
+third-order moments often reduce parameter recovery to a structured symmetric
+tensor decomposition problem
+\citep{anandkumar2014tensor}.  This makes matrix and tensor
+factorization a natural source of non-convex objectives whose geometry is simple
+enough to analyze but rich enough to contain saddles, symmetries, and multiple
+factor branches.
+
+The same family of examples has also played a central role in non-convex
+optimization theory.  Low-rank matrix recovery and matrix factorization provide
+canonical settings where, under appropriate measurement and rank assumptions,
+local minima are global or nearly global and saddle points carry negative
+curvature
+\citep{BhojanapalliNeyshaburSrebro2016,GeJinZheng2017}.  Orthogonal
+tensor decomposition gives a parallel strict-saddle model with many symmetry
+related optima and saddles
+\citep{GeHuangJinYuan2015}.  These works motivate looking not only at first-order
+stationarity, but also at the second-variation geometry that decides whether a
+stationary point is stable or escapable.
+
+Our population model transfers this matrix/tensor-factorization geometry to a
+mean-field product-measure setting.  The two finite factor vectors are replaced
+by two mean-field feature maps
+\[
+    h_{\mu_i}(z)
+    =
+    \int \sigma(w^\top z)\,\dd\mu_i(w),
+    \qquad i=1,2,
+\]
+and the fitting term compares the matrix-valued products
+\[
+    h_{\mu_1}(z)h_{\mu_2}(z)^\top
+    \quad\text{and}\quad
+    h_{\mu^o_1}(z)h_{\mu^o_2}(z)^\top .
+\]
+Thus the non-convexity is not introduced by a finite-dimensional factor matrix,
+but by a nonlinear product map on probability measures.  In the Gaussian-input
+spherical specialization, the Hermite expansion in
+\cref{lemma:EMN-expansion-F} rewrites this product map in terms of moment tensors
+\(T_{i,n}=\int w^{\otimes n}\,\dd\mu_i(w)\).  The fitting loss becomes a squared
+residual system for the tensor blocks \(\Delta\mathcal M_p\), while the metric
+regularizer controls the Wasserstein distance to the antipodal anchor.  This is
+the precise sense in which the appendix studies a nonlinear moment landscape:
+the active coordinates are tensor moments, but the actual dynamics remain
+Wasserstein dynamics of the underlying measures.
+
+This perspective is close to the mean-field two-layer neural-network viewpoint,
+where wide-network training is described by the evolution of a parameter
+measure, often through Wasserstein gradient flow
+\citep{songmei2018,chizat2018,nitanda2022convex}. It is also close to the
+matrix-decomposition example in \citet{yamamoto2025hessianguided}, where a
+single mean-field feature map is used through the symmetric self-product
+\(h_{\mu}(z)h_{\mu}(z)^\top\).  The present product version separates the two
+factor measures and studies the product WGF on
+\(\mu_1\otimes\mu_2\).  This separation is useful because the two natural
+branches
+\[
+    \mathcal M_-=\{\mu_2=(-\Id)_\#\mu_1\},
+    \qquad
+    \mathcal M_+=\{\mu_1=\mu_2\}
+\]
+become visible in the active odd moments. For
+\(n\in\mathcal O\), where \(\mathcal O\) is the finite set of active odd
+Hermite degrees, recall
+\[
+ T_{i,n}=\int w^{\otimes n}\,\dd\mu_i(w),\qquad
+ S_n=\frac{T_{1,n}+T_{2,n}}2,\qquad
+ A_n=\frac{T_{1,n}-T_{2,n}}2
+\]
+from \cref{assumption:odd-symmetric-teacher,eq:mf-symmetric-antisymmetric-active-blocks}.
+Thus
+membership in \(\mathcal M_-\) implies \(\mathbf S=0\), while
+membership in \(\mathcal M_+\) implies \(\mathbf A=0\).
+These finite moment implications are not converses; see
+\eqref{eq:mf-finite-active-moment-map}.
+The appendix establishes four local statements: attraction, transverse
+descent, and positive second variation in two separate regions. Each statement
+has its own hypotheses.
+
+\subsubsection{Summary of the section}
+
+This subsection summarizes the separate population-level statements behind
+the diagram in \cref{sec:matrix-factorization}. The local incoming branch,
+transverse descent direction, and positive-curvature regions are proved below.
+A trajectory connecting these regions, or a finite-sample escape guarantee,
+is not established by these geometric statements.
+Two conventions apply throughout.
+First, throughout this appendix the dynamics are the product Wasserstein gradient
+flow, namely the WGF restricted to product measures and product tangent fields, as
+recorded in \cref{app:product-measure-wgf}.  This should not be read as a claim
+that the unrestricted WGF on all joint measures preserves product structure.
+Second, $D^2_{W_2}F(\mu)[v,v]$ is the spherical product pushforward second
+variation, defined as the full EXP-pushforward derivative. It equals the
+quadratic form of the full
+spherical product Hessian $\mathcal H_{\Sphere,\mu}$ in
+\cref{lem:mf-full-spherical-Hessian,eq:mf-full-Hessian-second-variation}.
+This includes both the measure derivative and the spatial Hessian,
+also at stationary states. When the prescribed pushforward path is a product
+Wasserstein geodesic, this quantity is its geodesic second derivative; general
+admissible fields are not assumed to generate such a geodesic.
+
+The model is fixed by the spherical product objective
+\cref{eq:EMN-objective-squared-chi2}.  Under the cap and summability assumptions
+in \cref{assumption:on-sphere}, and the finite odd-block symmetric-teacher
+assumption in \cref{assumption:odd-symmetric-teacher}, the fitting term admits the
+Hermite tensor expansion of \cref{lemma:EMN-expansion-F}. Our Hermite-basis analysis follows a now-standard Gaussian-input toolkit in which activation coefficients directly parameterize optimization\citep{arous2021online,abbe23a, bietti2023} and kernel phenomena~\citep{daniely2016toward,murray2023characterizing}, rather than merely serving as a formal expansion.  The metric regularizer
+is
+\[
+    F_{\mathrm{reg}}(\mu_1,\mu_2)
+    =
+    \frac{\lambdaReg}{p_W}
+    Z_\pm(\mu_1,\mu_2)^{p_W/2},
+    \qquad
+    p_W=2+\delta_W>2,
+\]
+where \(Z_\pm\) is the squared product distance to the antipodal Dirac pair
+\(\nu_\star^\pm=\frac12\delta_{a_\star}+\frac12\delta_{-a_\star}\).  The
+fixed-assignment geometry in \cref{lemma-fixed-assignment} and
+\cref{definition-spherical-logarithm-exponential} is used locally on the two caps.
+The choice \(p_W>2\) is deliberate: the regularizer gives positive curvature on
+metric annuli with \(Z_\pm>0\), but it is Hessian-flat at the antipodal Dirac target
+\[
+    \mu^\dagger
+    \coloneq
+    \mu_\star^\pm
+    =
+    \nu_\star^\pm\otimes\nu_\star^\pm .
+\]
+Thus the quadratic saddle structure at \(\mu^\dagger\) is governed by the fitting
+term.
+
+The finite odd Hermite block gives the active coordinates used to describe the
+landscape; their full definition is in
+\cref{subsec:introduce-symmetric-antisymmetric-branches-and-saddle-point,eq:mf-symmetric-antisymmetric-active-blocks}.
+The measure-level anti-symmetric branch
+\(\submanifoldforsaddlepoint\) implies \(\mathbf S=0\) on the active odd block,
+whereas the same-density branch \(\mathcal M_+\) implies \(\mathbf A=0\).
+These coordinates are diagnostic coordinates for the finite active fitting term,
+not a complete parametrization of the full metric-regularized objective.  The
+antipodal target belongs to the active-origin intersection and is first-order
+stationary, as stated in \cref{prop:intersection-zero-output-fiber}.  The same
+subsection also identifies the reference zero-fit teacher point on the
+same-density branch in \cref{prop:reference-fit-minimum-on-Mplus}.
+
+\paragraph{Local attraction on the anti-symmetric branch.}
+Reflection covariance of the full first variation, proved in
+\cref{lem:gradient-symmetry-antisymmetric-branch}, yields branch invariance
+up to cap exit in \cref{lem:invariance-antisymmetric-branch}.
+The attraction proof in
+\cref{subsec:antisymmetric-branch-and-dissipation} then has three steps.
+Recall the assigned-pole cost \(c_\star(w)=d_\Sphere(w,\pi_\star(w))^2/2\)
+from \cref{eq:mf-fixed-assignment-cost} and its outward gradient
+\(q_\star(w)=\nabla_\Sphere c_\star(w)=-\LOG_w\pi_\star(w)\) from
+\cref{eq:mf-cost-gradient-LOG}.
+The constants \(C_\star\) and \(L_{\mathrm{fit}}\) below depend only on the
+fixed activation and teacher; they are defined immediately before the pole
+contraction lemma in
+\cref{eq:mf-gaussian-derivative-constants,eq:mf-branch-estimate-constants}.
+\begin{enumerate}
+ \item \textbf{An admissible pole contraction.}
+ \Cref{lem:mf-pole-contraction-estimates} uses the spherical transport
+ \cref{eq:mf-pole-contraction-path} to show
+ \[
+ DF_{\mathrm{fit}}(\mu)[(q_\star,q_\star)]\ge-C_\star Z_\pm(\mu)^2,
+ \qquad \sup_w\|g_{i,\mathrm{fit}}(\mu,w)\|
+                 \le L_{\mathrm{fit}}\sqrt{Z_\pm(\mu)}.
+ \]
+ Here \(g_{i,\mathrm{fit}}=\nabla_\Sphere(\delta F_{\mathrm{fit}}/\delta\mu_i)\),
+ as defined in \cref{eq:mf-branch-radial-notation}.
+ \item \textbf{A local radial inequality.}
+ Adding the regularizer derivative gives
+ \[
+ DF(\mu)[(q_\star,q_\star)]
+ \ge\lambdaReg Z_\pm(\mu)^{p_W/2}-C_\star Z_\pm(\mu)^2.
+ \]
+ For \(2<p_W<4\), if
+ \(C_\star Z_\pm(\mu)^{(4-p_W)/2}\le\lambdaReg/2\), then
+ \cref{lem:radial-positivity-antisymmetric-branch-full-density,eq:mf-full-radial-lower-bound}
+ gives
+ \[
+ DF(\mu)[(q_\star,q_\star)]
+ \ge\frac{\lambdaReg}{2}Z_\pm(\mu)^{p_W/2}.
+ \]
+ The identity
+ \[
+ \frac{\dd}{\dd t}Z_\pm(\mu_t)=-2DF(\mu_t)[(q_\star,q_\star)]
+ \]
+ then controls distance while \(\mu_t\in\mathcal M_-\cap
+ \mathcal X_\pm(r_{\mathrm{cap}})\).
+ \item \textbf{Confinement and convergence from initial data.}
+ For \(2<p_W<3\), choose \(z_\star\) by
+ \cref{eq:mf-local-basin-threshold}. For every globally well-posed
+ characteristic product WGF starting from
+ \(\mu_0\in\mathcal M_-\cap\mathcal X_\pm(r_{\mathrm{cap}})\) with
+ \(Z_\pm(\mu_0)\le z_\star\), the mean-distance barrier and the pointwise
+ fitting-field estimate give cap confinement, dissipation while away from the
+ target, and \(\mu_t\to\mu^\dagger\), by
+ \cref{prop:reduced-dissipation-antisymmetric-branch}.
+ Here globally well posed means existence for all times and uniqueness in the
+ characteristic-solution class.
+ The distance decay and support barrier are
+ \cref{eq:mf-local-distance-decay,eq:mf-local-support-barrier}.
+\end{enumerate}
+The stationary-state conclusion uses the same direct smallness condition in
+\cref{eq:mf-local-radial-smallness}. The distance and support comparisons do
+not require a density and apply equally to atomic initial measures.
+
+\paragraph{Spherical product pushforward second variation at anti-symmetric states.}
+The positive-curvature estimate is proved in
+\cref{subsec:curvature-away-from-saddle-on-antisymmetric}.  The fitting term may
+have negative curvature, but on an anti-symmetric active ball
+\(\|\mathbf A\|_{\mathcal H_{\mathcal O}}\le R_{\mathrm{act}}\) its negative
+second variation is uniformly bounded below by
+\cref{lem:fitting-curvature-lower-bound-Mminus-smoothness}.  The metric part gives
+the compensating positive curvature: \cref{lem:spherical-squared-distance-Hessian-on-caps}
+lower bounds the spherical Hessian of the fixed squared-distance cost on the caps,
+and \cref{lem:W2-power-regularizer-Hessian-on-fixed-caps} lifts this to the
+regularizer.  Combining the fitting lower bound with the metric lower bound gives
+the ambient second-variation bound
+\cref{prop:sqchi2-away-from-origin-Wasserstein-convexity}.  Its branchwise
+specialization is \cref{cor:branchwise-positivity-Wasserstein-Mminus}.  This is the
+appendix-level estimate underlying the annular label in the main-text diagram:
+at fixed-assignment states with \(Z_\pm\ge\zeta_{\min}^2\), every admissible
+product tangent field has positive spherical product pushforward second variation
+with an explicit domination condition
+\[
+    \lambdaReg\kappa_{\mathrm{cap}}\zeta_{\min}^{\delta_W}
+    >
+    C_{\mathrm{fit}}^-(R_{\mathrm{act}}) .
+\]
+Here \(C_{\mathrm{fit}}^-\) is defined in
+\eqref{eq:def-Cfit-Mminus-derived}. The field may point outside
+\(\mathcal M_-\); global geodesic convexity of the annulus is not asserted.
+
+\paragraph{The escape direction at the saddle.}
+The escape direction at the antipodal saddle is constructed in
+\cref{subsec:descent-direction-to-escape}.  The teacher imbalance condition is
+formulated as a two-sided transverse moment condition in
+\cref{assumption:quantitative-unweighted-two-sided-transverse-imbalance}; the
+associated transverse moment measure is defined in
+\cref{def:two-sided-transverse-teacher-moment-measure}.  The tangential visibility
+operator at an antipodal Dirac pair is introduced in
+\cref{def:tangential-visibility-matrix-dirac-pair}, and
+\cref{lem:active-weighted-transverse-moment-implies-visibility} turns the
+transverse teacher signal into a strictly positive escape coefficient.  The
+resulting same-density perturbation is summarized in
+\cref{lemma:descent-direction-antipodal-dirac-from-unweighted-imbalance}: for a
+suitable spherical pushforward path starting at
+\(\mu^\dagger=\nu_{\star}^\pm\otimes\nu_{\star}^\pm\) at the fixed anchor
+\(a=a_\star\),
+\[
+    \frac{\dd}{\dd h}\bigg|_{h=0}F(\mu_h)=0,
+    \qquad
+    F(\mu_h)
+    =
+    F(\mu^\dagger)
+    -
+    h^2\gamma_{\mathrm{esc}}
+    +
+    o(h^2),
+    \qquad
+    \gamma_{\mathrm{esc}}>0 .
+\]
+At the same time, because \(Z_\pm(\mu_h)=O(h^2)\) and \(p_W=2+\delta_W\), the
+metric regularizer contributes only \(O(h^{2+\delta_W})=o(h^2)\).  Hence the
+quadratic escape curvature is not masked by the regularizer. This verifies an available same-density escape direction, not that every
+perturbation necessarily follows it.
+
+Our escape argument adapts the zero-output saddle mechanism of
+\citet{yamamoto2025hessianguided} to the product-spherical setting by replacing
+affine interpolation with a teacher-visible same-density tangent perturbation.
+
+\paragraph{Ambient curvature near the same-density teacher.}
+Finally, \cref{subsec:post-escape-convexity-on-the-same-density} proves the
+local teacher-side curvature estimate. The branch \(\mathcal M_+\) is
+invariant by exchange symmetry, as shown in
+\cref{lem:invariance-same-density-branch}. At the same-density teacher point
+\(\mu_+^o=\nu^o\otimes\nu^o\), the fitting residual vanishes and its second
+variation is a nonnegative square. If
+\(Z_o:=Z_\pm(\mu_+^o)>0\), the metric regularizer supplies a strictly positive
+margin. The proof of \cref{prop:Mplus-teacher-local-positive-curvature} keeps
+this margin positive in a sufficiently small product Wasserstein neighborhood
+relative to the fixed-assignment cap class. Its key nearby-state estimate is
+\[
+ D_{W_2}^2F(\mu)[v,v]
+ \ge
+ \left[
+ \lambdaReg\kappa_{\mathrm{cap}}Z_\pm(\mu)^{(p_W-2)/2}
+ -C\|h_{\mu_1}h_{\mu_2}^{\top}
+          -h_{\nu^o}h_{\nu^o}^{\top}\|_{L^2_z(\mathrm F)}
+ \right]\|v\|_{L^2(\mu;\mathbb R^{d_w})}^2,
+\]
+where the proof-local \(C<\infty\) depends only on the fixed activation.
+The result does not imply that the teacher is stationary for the regularized
+objective or that a trajectory escaping the saddle reaches this neighborhood.

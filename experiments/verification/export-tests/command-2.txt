@@ -1,0 +1,8 @@
+test_failed_refinement_is_not_success (test_render.ReportExitTests.test_failed_refinement_is_not_success) ... ok
+test_optimized_python_is_rejected (test_render.ReportExitTests.test_optimized_python_is_rejected) ... ok
+test_success_returns_normally (test_render.ReportExitTests.test_success_returns_normally) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.151s
+
+OK

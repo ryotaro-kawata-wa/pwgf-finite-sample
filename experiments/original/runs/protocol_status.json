@@ -1,0 +1,131 @@
+{
+  "status": "complete",
+  "trials": [
+    0,
+    1,
+    2
+  ],
+  "workers": 3,
+  "variants": {
+    "main": {
+      "d": 32,
+      "population_size": 32768,
+      "particle_counts": [
+        2048,
+        4096,
+        8192,
+        16384,
+        32768
+      ],
+      "population_seed": 20260925,
+      "trial_seed": 81073,
+      "jump_strength": 0.2,
+      "gradient_threshold": 0.01,
+      "wait_time": 10.0,
+      "decrease_threshold": 0.001,
+      "end_time": 100.0,
+      "dt": 0.05,
+      "check_interval": 0.1
+    },
+    "integration_half": {
+      "d": 32,
+      "population_size": 32768,
+      "particle_counts": [
+        2048,
+        4096,
+        8192,
+        16384,
+        32768
+      ],
+      "population_seed": 20260925,
+      "trial_seed": 81073,
+      "jump_strength": 0.2,
+      "gradient_threshold": 0.01,
+      "wait_time": 10.0,
+      "decrease_threshold": 0.001,
+      "end_time": 100.0,
+      "dt": 0.025,
+      "check_interval": 0.1
+    },
+    "trigger_half": {
+      "d": 32,
+      "population_size": 32768,
+      "particle_counts": [
+        2048,
+        4096,
+        8192,
+        16384,
+        32768
+      ],
+      "population_seed": 20260925,
+      "trial_seed": 81073,
+      "jump_strength": 0.2,
+      "gradient_threshold": 0.01,
+      "wait_time": 10.0,
+      "decrease_threshold": 0.001,
+      "end_time": 100.0,
+      "dt": 0.025,
+      "check_interval": 0.05
+    }
+  },
+  "completed": [
+    {
+      "trial": 1,
+      "variant": "main",
+      "seconds": 397.44699798407964
+    },
+    {
+      "trial": 0,
+      "variant": "main",
+      "seconds": 437.80080755986273
+    },
+    {
+      "trial": 2,
+      "variant": "main",
+      "seconds": 538.1195565741509
+    },
+    {
+      "trial": 1,
+      "variant": "integration_half",
+      "seconds": 698.5553252180107
+    },
+    {
+      "trial": 0,
+      "variant": "integration_half",
+      "seconds": 781.3255604980513
+    },
+    {
+      "trial": 2,
+      "variant": "integration_half",
+      "seconds": 951.3935010069981
+    },
+    {
+      "trial": 1,
+      "variant": "trigger_half",
+      "seconds": 776.744138896931
+    },
+    {
+      "trial": 0,
+      "variant": "trigger_half",
+      "seconds": 861.2363470681012
+    },
+    {
+      "trial": 2,
+      "variant": "trigger_half",
+      "seconds": 1049.7958196459804
+    }
+  ],
+  "failed": [],
+  "source_sha256": {
+    "ADAPTIVE.md": "7ef886eeb6d1bb7c4f3adb2b9c9489e136a049fca8a04bebb18505c33eeffd01",
+    "README.md": "e5eb5b24a72fbab859280496b82c1320fea84cd78c15b3d4afb7e4e2003aa92b",
+    "adaptive.py": "55d5586184edf76fd5ef985d7d250bc16b5de711cdb936ccc70a94832ca196f7",
+    "adaptive_config.json": "63c20a8c120e9b43a22766083c65eb56d5be0f4e75fc9a3dd4f4dd390478121e",
+    "coupling.py": "579237abbab9a12a80d2f193a7cca147e5aa114eac71da20aafce5e6ec58303e",
+    "model.py": "c52812351535762c392149c76c4f70cac43fe749c385f0f40b004b2cd5eb0df7",
+    "run_adaptive_protocol.py": "94052e8e1b1a26922fb73cf154e9836ac4ce19abab8b283b768edaee6755fbc3",
+    "summarize_adaptive.py": "f52a4b445db892c7f8a83e507f3d47899a025edf8920fbb229300cdd55cce769",
+    "test_adaptive.py": "0643766eb239aa33628ef476b61ea38c2675eb5a888a7815daf8e3a69ba413e3",
+    "test_verification.py": "edf1ccb42b5f6e2022a394b690f2c1f4ec52df1fcb0a1815b69a43732f077a82"
+  }
+}

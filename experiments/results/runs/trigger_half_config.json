@@ -1,0 +1,20 @@
+{
+  "d": 32,
+  "population_size": 32768,
+  "particle_counts": [
+    2048,
+    4096,
+    8192,
+    16384,
+    32768
+  ],
+  "population_seed": 20260925,
+  "trial_seed": 81073,
+  "jump_strength": 0.2,
+  "gradient_threshold": 0.01,
+  "wait_time": 10.0,
+  "decrease_threshold": 0.001,
+  "end_time": 100.0,
+  "dt": 0.025,
+  "check_interval": 0.05
+}

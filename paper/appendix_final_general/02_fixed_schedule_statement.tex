@@ -1,0 +1,785 @@
+\subsection{Fixed-schedule comparison with explicit high-probability rates}
+\label{subsec:fixed-schedule-package}
+
+We assemble the deterministic ODE--jump comparison and the two
+stochastic concentration bounds into the final fixed-schedule tracking theorem.
+
+This subsection packages the detailed estimates from
+\cref{lemma-common-empirical-moment-residual-directional-rt},
+\cref{lem:jump-bound-common-seed},
+\cref{lem:piecewise-gronwall-forced-jumps},
+\cref{lemma-uniform-sup-gamma-bound-convenient},
+\cref{cor:tilde-gamma-jump-time-union-bound}
+into a single fixed-schedule statement.  
+
+We keep only the quantities that enter the final comparison bound.
+\begin{itemize}
+    \item the pathwise comparison variable is
+    \[
+    r_t=\frac{1}{\sqrt N}\norm{\bs X_t-\bs Y_t}_2,
+    \]
+    \item the continuous stochastic residual is
+    \[
+    \Gamma_t^N=\sum_{m\ge1}\mathrm L_Da_m
+    \left\|\frac1N\sum_{i=1}^N\phi_m(Y_t^i)
+                         -\int\phi_m(y)\,\mu_t(dy)\right\|_{\mathsf H_m},
+    \]
+    as in \eqref{eq:common-moment-residual-and-lipschitz-sum},
+    \item the jump defect is controlled by $\widetilde\Gamma_{t_\ell-}^N$
+    from \eqref{eq:tilde-gamma-full-definition-weighted} only at the prescribed jump times,
+    \item curvature is retained through the propagator
+    $G_\kappa^Y(t,s)=\exp(-\int_s^t\kappa_u^{Y,N}\,du)$, using the
+    sampled full Hessian curvature in \eqref{eq:curvature-main}.
+\end{itemize}
+
+The first lemma solves the deterministic comparison inequality across ODE
+intervals and multiplicative jump errors.
+
+\begin{lemma}[Piecewise Gr\"onwall estimate with recursive jump amplification]
+\label{lem:piecewise-gronwall-forced-jumps}
+Fix $T>0$ and jump times
+\[
+0<t_1<\cdots<t_{\NofJ}\le T,
+\qquad
+t_0:=0,
+\qquad
+t_{\NofJ+1}:=T.
+\]
+Assume that $r_t:=\frac{1}{\sqrt N}\norm{\bs X_t-\bs Y_t}_2$
+is absolutely continuous on each interval $(t_\ell,t_{\ell+1})$, $\ell=0,\dots,\NofJ$.
+Assume right-continuity and absolute continuity up to each branch endpoint. Here $c_D$ is a deterministic upper bound on the ODE quadratic coefficient, and $q(p)=1+\sqrt{2\log(2/p)}$. For a given pathwise radius $R>0$, define
+\[
+\tau_R:=\inf\{t\in[0,T]: r_t\ge R\},
+\]
+with the convention $\inf\emptyset=\infty$.
+
+Let
+\[
+\beta_t:=\kappa_t^{Y,N}-c_D R-\Gamma_t^N.
+\]
+Assume the following.
+
+\begin{enumerate}
+    \item For every $\ell=0,\dots,\NofJ$ and for a.e.
+    $t\in (t_\ell,t_{\ell+1})\cap[0,\tau_R)$,
+    \begin{equation}
+    \label{eq:forced-ode-assumption-recursive}
+    \dot r_t\le -\beta_t r_t+\Gamma_t^N.
+    \end{equation}
+    (corresponding to the conclusion in \cref{lemma-common-empirical-moment-residual-directional-rt})
+
+    \item For each jump time $t_\ell\le\tau_R$, including a candidate first exit at that jump, $\ell=1,\dots,\NofJ$, the previous jump lemma yields
+    \begin{equation}
+    \label{eq:jump-recursion-assumption}
+    r_{t_\ell}
+    \le
+    \bigl(1+a_\ell\bigr)r_{t_\ell-}+b_\ell,
+    \end{equation}
+    where
+    \[
+    a_\ell(\supXY,p):=c_J(D)\eta_\ell q(p),
+    \qquad
+    b_\ell:=a_\ell\Bigl(\sqrt{\Gamma_{t_\ell-}^N}+\sqrt{\widetilde{\Gamma}_{t_\ell-}^N}\Bigr).
+    \]
+    (corresponding to \cref{lem:jump-bound-common-seed} on the event $E_{T,\supXY}$).
+\end{enumerate}
+
+Then, for every $t\in[0,T]\cap[0,\tau_R)$,
+\begin{align}
+\label{eq:piecewise-recursive-bound}
+r_t
+&\le
+\int_0^t
+\exp\Bigl(-\int_s^t \beta_u\,du\Bigr)
+\prod_{\ell:\,s<t_\ell\le t}(1+a_\ell)\,
+\Gamma_s^N\,ds\\
+&+
+\sum_{\ell:\,t_\ell\le t}
+\exp\Bigl(-\int_{t_\ell}^t \beta_u\,du\Bigr)
+\prod_{j:\,t_\ell<t_j\le t}(1+a_j)\,
+b_\ell
+\end{align}
+if $r_0=0$. The same bound holds at a finite candidate exit $\tau_R$, using the pre-jump or post-jump trace as appropriate. No adaptedness of $R$ is required.
+\end{lemma}
+
+\begin{proof}
+\noindent\textbf{Step 1: integrate within one ODE interval.}
+For $0\le s\le t\le T$, define
+\[
+G(t,s):=\exp\Bigl(-\int_s^t \beta_u\,du\Bigr).
+\]
+By the definition of $\beta$, this is
+$G(t,s)=G_\kappa^Y(t,s)\exp\{c_DR(t-s)+\int_s^t\Gamma_u^N\,du\}$,
+with the curvature propagator of \cref{def:curvature-responses}.
+On each continuity interval $(t_\ell,t_{\ell+1})$, the differential inequality
+\eqref{eq:forced-ode-assumption-recursive} implies
+\begin{equation}
+\label{eq:continuous-duhamel-recursive}
+r_t
+\le
+G(t,s)\,r_s+\int_s^t G(t,u)\Gamma_u^N\,du,
+\qquad
+t_\ell\le s\le t<t_{\ell+1},
+\quad t<\tau_R.
+\end{equation}
+Indeed,
+\[
+\dot r_t+\beta_t r_t\le \Gamma_t^N,
+\]
+and multiplying by the integrating factor
+$\exp(\int_s^t\beta_u\,du)$ and integrating from $s$ to $t$
+gives \eqref{eq:continuous-duhamel-recursive}.
+
+
+\par\noindent\textbf{Step 2: propagate the bound through each jump and interval.}
+We now prove \eqref{eq:piecewise-recursive-bound} by induction over the jump intervals.
+
+First, if $t\in[0,t_1)\cap[0,\tau_R)$, then there are no jumps before time $t$, hence
+\eqref{eq:piecewise-recursive-bound} reduces exactly to
+\eqref{eq:continuous-duhamel-recursive} with $s=0$.
+
+Next, let $m\in\{1,\dots,\NofJ\}$ and assume that
+\eqref{eq:piecewise-recursive-bound} has been proved for all times in $[0,t_m)$.
+Take $t\in[t_m,t_{m+1})\cap[0,\tau_R)$.
+Applying \eqref{eq:continuous-duhamel-recursive} on $[t_m,t]$ yields
+\begin{equation}
+\label{eq:after-last-jump-recursive}
+r_t
+\le
+G(t,t_m)\,r_{t_m}
++
+\int_{t_m}^t G(t,s)\Gamma_s^N\,ds.
+\end{equation}
+Using the jump recursion \eqref{eq:jump-recursion-assumption},
+\[
+r_{t_m}\le (1+a_m)r_{t_m-}+b_m,
+\]
+we obtain
+\begin{equation}
+\label{eq:after-substitute-jump-recursive}
+r_t
+\le
+G(t,t_m)(1+a_m)r_{t_m-}
++
+G(t,t_m)b_m
++
+\int_{t_m}^t G(t,s)\Gamma_s^N\,ds.
+\end{equation}
+
+Now apply the induction hypothesis at time $t_m-$:
+\begin{align}
+r_{t_m-}\le&
+G(t_m,0)\prod_{\ell=1}^{m-1}(1+a_\ell)\,r_0\quad
++
+\int_0^{t_m}
+G(t_m,s)\prod_{\ell:\,s<t_\ell<t_m}(1+a_\ell)\Gamma_s^N\,ds\\
+&+
+\sum_{\ell=1}^{m-1}
+G(t_m,t_\ell)\prod_{j:\,t_\ell<t_j<t_m}(1+a_j)\,b_\ell.
+\label{eq:IH-at-tmminus}
+\end{align}
+Substituting \eqref{eq:IH-at-tmminus} into
+\eqref{eq:after-substitute-jump-recursive}, we get
+\begin{align*}
+r_t
+&\le
+G(t,t_m)(1+a_m)G(t_m,0)\prod_{\ell=1}^{m-1}(1+a_\ell)\,r_0
+\\
+&\quad
++
+G(t,t_m)(1+a_m)
+\int_0^{t_m}
+G(t_m,s)\prod_{\ell:\,s<t_\ell<t_m}(1+a_\ell)\Gamma_s^N\,ds
+\\
+&\quad
++
+G(t,t_m)(1+a_m)
+\sum_{\ell=1}^{m-1}
+G(t_m,t_\ell)\prod_{j:\,t_\ell<t_j<t_m}(1+a_j)\,b_\ell
+\\
+&\quad
++
+G(t,t_m)b_m
++
+\int_{t_m}^t G(t,s)\Gamma_s^N\,ds.
+\end{align*}
+Using the semigroup property of $G$,
+\[
+G(t,t_m)G(t_m,s)=G(t,s),
+\qquad 0\le s\le t_m\le t,
+\]
+we rewrite this as
+\begin{align*}
+r_t
+&\le
+G(t,0)\prod_{\ell=1}^{m}(1+a_\ell)\,r_0
++
+\int_0^{t_m}
+G(t,s)\prod_{\ell:\,s<t_\ell\le t_m}(1+a_\ell)\Gamma_s^N\,ds
+\\
+&\quad
++
+\sum_{\ell=1}^{m-1}
+G(t,t_\ell)\prod_{j:\,t_\ell<t_j\le t_m}(1+a_j)\,b_\ell
++
+G(t,t_m)b_m
++
+\int_{t_m}^t G(t,s)\Gamma_s^N\,ds.
+\end{align*}
+Since there is no jump in $(t_m,t)$, for $s\in(t_m,t)$ the product
+$\prod_{\ell:\,s<t_\ell\le t}(1+a_\ell)$ is empty and equals $1$.
+Also, because $t\in[t_m,t_{m+1})$, the sets
+\[
+\{\ell:\,s<t_\ell\le t\}
+\quad\text{and}\quad
+\{\ell:\,s<t_\ell\le t_m\}
+\]
+coincide when $s<t_m$, and similarly
+\[
+\{j:\,t_\ell<t_j\le t\}
+=
+\{j:\,t_\ell<t_j\le t_m\}
+\qquad (\ell\le m-1),
+\]
+while for $\ell=m$ the product over $j:\,t_m<t_j\le t$ is empty and equals $1$.
+Therefore,
+\begin{align*}
+r_t&\le
+G(t,0)\prod_{\ell:\,t_\ell\le t}(1+a_\ell)\,r_0
++
+\int_0^t
+G(t,s)\prod_{\ell:\,s<t_\ell\le t}(1+a_\ell)\Gamma_s^N\,ds\\
+&+
+\sum_{\ell:\,t_\ell\le t}
+G(t,t_\ell)\prod_{j:\,t_\ell<t_j\le t}(1+a_j)\,b_\ell,
+\end{align*}
+which is exactly \eqref{eq:piecewise-recursive-bound}. This completes the induction. Taking the left limit gives the bound at a continuous candidate exit; at a candidate exit that is a jump, apply the assumed recursion at that jump itself. Empty sums and products cover the case of no jumps.
+\end{proof}
+
+The next lemma packages the local coefficients without discarding their dependence on the population moment scale or anti-spikiness.
+
+\begin{lemma}[Explicit local comparison coefficients]
+\label{lem:comparison-coefficients-v15}
+Fix the deterministic population scale $K=K_{\rm pop}$ and radius $D\ge1$.
+Use $\mathrm L_D,\gamma_m(D)=\mathrm L_Da_m$ from
+\cref{lemma-localized-moment-smoothness-consequences} and put
+\[
+\Lambda(D)=\sum_{m\ge1}\gamma_m(D)L_m(1+2D^{m-1}),\qquad
+c_D=\Lambda(D)+(2+A_{\rm sp})\mathrm L_D,
+\]
+\[
+c_J(D)=1+\sqrt d\{\Lambda(D)+2\mathrm L_D\}+\sqrt{2d\mathrm L_D}.
+\]
+On $E_{\rm pop}\cap E_{T,D}\cap E_{T,\rm sp}(A_{\rm sp})$,
+$c_D$ and $c_J(D)$ are the coefficients in
+\cref{lemma-common-empirical-moment-residual-directional-rt,lem:jump-bound-common-seed}.
+With $p_0=p/8$, write $\Xi=8N(e+T)(\NofJ+1)(1+B)/p$ and choose
+\begin{equation}
+\label{eq:def-supXY-v15}
+\supXY=D=C_D(1+\log\Xi)^{1/\alpha},
+\end{equation}
+where the fixed $C_D$ is sufficiently large for
+\eqref{eq:gamma-radius-choice} with budget $p_0$ and for the clipping-bias
+estimate in Lemma~\ref{lemma-uniform-sup-gamma-bound-convenient}.
+For fixed model parameters and uniformly bounded $K_0,B,A_{\rm sp}$,
+for every $\varepsilon>0$ there is $C_\varepsilon$ such that
+\begin{equation}
+\label{eq:Ccmp-localized-v15}
+1+c_D+c_J(D)+\Lambda(D)\le C_\varepsilon\Xi^\varepsilon.
+\end{equation}
+The constants may depend on the fixed anchor derivatives and $C_3$.
+\end{lemma}
+\begin{proof}
+The empirical moment displacement is
+$L_m(1+2D^{m-1})r_t$ by \cref{lemma-directional-measure-slot-error},
+\eqref{eq:paired-empirical-moment-displacement}. The sum of the two Hessian measure errors is bounded
+with weights $\gamma_m(D)$ by \cref{eq:local-two-hessians-moment-bound},
+so its coefficient is $\Lambda(D)$.
+The two spatial kernel slots contribute $2\mathrm L_D$ by
+\cref{eq:local-kernel-spatial-bound}; the diagonal term contributes
+$A_{\rm sp}\mathrm L_D$ by \cref{eq:local-jacobian-spatial-bound} and
+\cref{eq-cubic-antispike-bound}. Thus
+the ODE coefficient is exactly $c_D$. The jump
+coefficient is exactly the one in Lemma~\ref{lem:jump-bound-common-seed}.
+For the common growth bound, $D\ge1$ and
+\eqref{eq:conditional-comparison-envelope} give
+\[
+\begin{aligned}
+ \Lambda(D)
+ &\le2\mathrm L_D\sum_m a_mL_m
+       (2+D^m+K_{\rm pop}^m m^{m/\alpha})
+ \le\mathrm L_D^2.
+\end{aligned}
+\]
+For the last inequality, use $2u\le4(1+u)^3$ for $u\ge0$ and
+$1+g_0+h_0+C_3\ge1$ in the definition of $\mathrm L_D$.
+Using $\mathrm L_D\ge1$ in the displayed definitions therefore yields
+\begin{equation}
+\label{eq:comparison-coefficients-common-envelope}
+ 1+c_D+c_J(D)+\Lambda(D)
+ \le(6+A_{\rm sp}+3\sqrt d+\sqrt{2d})\mathrm L_D^2.
+\end{equation}
+By \cref{lem:population-moment-event},
+\cref{eq:population-exponential-amplitude,eq:population-exponential-scale},
+the grid count is at most $C(e+T)(\NofJ+1)(1+B)$, so
+$\log A_0\le C+\log\Xi$ and
+$K_{\rm pop}\le C(1+\log\Xi)^{1/\alpha}$ when $K_0,B$ are bounded.
+Insert this and \eqref{eq:def-supXY-v15} into
+\cref{lem:conditional-local-coefficient-growth}, \eqref{eq:local-envelope-growth}:
+\[
+ \mathrm L_D^2\le C\exp\{C[1+\log\log(e+\Xi)]^{\kappa_{\rm dec}/(\kappa_{\rm dec}-1)}\}
+ \le C_\varepsilon\Xi^\varepsilon.
+\]
+The last step uses $[\log\log(e+\Xi)]^{\kappa_{\rm dec}/(\kappa_{\rm dec}-1)}
+=o(\log\Xi)$. This proves \eqref{eq:Ccmp-localized-v15}.
+\end{proof}
+
+\paragraph{Setup and curvature-response factors for the tracking theorem.}
+Fix $N\ge2$, $p\in(0,1)$, a deterministic schedule
+$0<t_1<\cdots<t_{\NofJ}\le T$ with $\eta_\ell\ge0$, and $A_{\rm sp}\ge1$.
+Set $p_0=p/8$ and use the population constants of
+\cref{lem:population-moment-event} with budget $p_0$.
+Choose $D$ satisfying \eqref{eq:gamma-radius-choice} with budget $p_0$;
+\eqref{eq:def-supXY-v15} is one such choice. Use $c_D,c_J$ from
+\cref{lem:comparison-coefficients-v15}.
+Define the actual deterministic residual envelopes by
+\begin{equation}
+\label{eq:def-delta-v15}
+\delta_{N,T,p}:=\delta_\Gamma(D)
+\quad\text{from \eqref{eq:gamma-explicit-envelope}, with }p_\Gamma=p_0,
+\end{equation}
+\begin{equation}
+\label{eq:def-tdelta-v15}
+\widetilde\delta_{N,T,p}:=
+\widetilde\delta_{N,T,p_0}^{\rm HS}
+\quad\text{from \eqref{eq:phase1-HS-tilde-delta-envelope}},
+\end{equation}
+For readability write $\delta=\delta_{N,T,p}$ and
+$\widetilde\delta=\widetilde\delta_{N,T,p}$ in the following statement and proof.
+
+For the sampled full Hessian curvature $\kappa_t^{Y,N}$, on any path
+where $\int_0^T|\kappa_t^{Y,N}|\,dt<\infty$, recall the curvature-response factors
+of \cref{def:curvature-responses}:
+\begin{equation}
+\label{eq:tracking-curvature-responses}
+G_\kappa^Y(t,s)=\exp\!\left(-\int_s^t\kappa_u^{Y,N}\,du\right),\qquad
+\mathfrak C_t^Y=\int_0^tG_\kappa^Y(t,s)\,ds,\qquad
+\mathfrak J_t^Y=\sum_{\ell:t_\ell\le t}\eta_\ell G_\kappa^Y(t,t_\ell).
+\end{equation}
+Set
+\[
+q_p=1+\sqrt{2\log(2(\NofJ+1)/p_0)},\qquad
+a_\ell=c_J(D)q_p\eta_\ell,
+\]
+\begin{equation}
+\label{eq:def-jump-amplification-v15}
+J_{N,T,p}:=\prod_{\ell=1}^{\NofJ}(1+a_\ell),
+\end{equation}
+\begin{equation}
+\label{eq:def-B-v15}
+\mathfrak B_{N,T,p}(t):=
+\delta\mathfrak C_t^Y+
+c_J(D)q_p(\sqrt\delta+\sqrt{\widetilde\delta})\mathfrak J_t^Y,
+\qquad \mathfrak B_*:=\sup_{t\le T}\mathfrak B_{N,T,p}(t).
+\end{equation}
+Empty sums and products are zero and one, respectively. The envelope
+$\mathfrak B$ is generally random because the curvature-response factors are random.
+Let $R=2J_{N,T,p}\mathfrak B_*$ and define the nonlinear stability event
+\begin{equation}
+\label{eq:smallness-v15}
+\mathcal S_{N,T,p}:=
+\{T(\delta+c_D R)\le1/4\}.
+\end{equation}
+\paragraph{Which quantities are fixed.}
+The following convention applies to the asymptotic corollary; the explicit
+theorem retains the actual deterministic envelopes.
+\begin{center}
+\begin{tabular}{p{0.25\linewidth}p{0.66\linewidth}}
+Fixed structural bounds & $d,\alpha$, feature growth/decay parameters,
+$g_0,h_0,C_3$, and the initial population law.\\
+Uniform regularity assumptions & $K_0,B,A_{\rm sp}$; these are assumptions
+along the growing horizon, not consequences of localization.\\
+Deterministic growing quantities & $D,K_{\rm pop},\delta_{N,T,p},
+\widetilde\delta_{N,T,p},c_D,c_J,\Lambda,q_p,J_{N,T,p}$.
+The residual envelopes are defined in
+\cref{eq:def-delta-v15,eq:def-tdelta-v15}; their dependence on $N,T,p$ is retained.\\
+Random reference quantities & $\kappa^{Y,N},\mathfrak C^Y,\mathfrak J^Y,
+\mathfrak B_*,R$ and the nonlinear stability event. Their bounds are pathwise conditions.
+\end{tabular}
+\end{center}
+
+\begin{theorem}[Fixed-schedule comparison on the nonlinear stability event]
+\label{thm:fixed-schedule-high-prob-r-v15}
+Assume \cref{assumption-structured-moment-smoothness,assumption-common-seed,assumption-moment-growth,assumption-uniform-concentration-piecewise-lipschitz}
+and use the deterministic schedule, $N\ge2$, $p\in(0,1)$, and radius
+specified above, with $r_0=0$ and integrable curvature on $[0,T]$.
+Use the residual envelopes \cref{eq:def-delta-v15,eq:def-tdelta-v15},
+the amplification \eqref{eq:def-jump-amplification-v15}, the forcing
+\eqref{eq:def-B-v15}, and the nonlinear stability event \eqref{eq:smallness-v15}.
+There is an event $\Omega_p$ with $\mathbb P(\Omega_p)\ge1-p$ such that on
+$\Omega_p\cap E_{T,\rm sp}(A_{\rm sp})\cap\mathcal S_{N,T,p}$,
+simultaneously at all times and left limits,
+\begin{equation}
+\label{eq:high-prob-r-bound-v15}
+r_t\le e^{1/4}J_{N,T,p}\mathfrak B_{N,T,p}(t)
+<\tfrac32J_{N,T,p}\mathfrak B_{N,T,p}(t)
+\quad\text{when }\mathfrak B_{N,T,p}(t)>0,
+\end{equation}
+and $r_t=0$ if that envelope is zero. In particular,
+\[
+\mathbb P\!\left(E_{T,\rm sp}(A_{\rm sp})\cap\mathcal S_{N,T,p}
+\cap\{\exists t\le T:r_t>2J_{N,T,p}\mathfrak B_{N,T,p}(t)\}\right)\le p.
+\]
+This is a bound on failure within the stated events, not a bound on the
+conditional failure probability given $\mathcal S_{N,T,p}$.
+\end{theorem}
+\par\noindent\textbf{Remark (Relation to the main-text growing-horizon theorem).}
+The main-text result in \Cref{theorem-main-r_t} applies the preceding theorem
+on paths satisfying the controlled-curvature path condition $\mathcal R_N$ and uses the simple sufficient horizon
+$T\le N^{1/4-\upsilon-\zeta}$. The integrable-curvature condition imposes no separate
+model assumption there: on the common good event used in the proof,
+\Cref{eq:fixed-schedule-curvature-bound} gives
+$|\kappa_t^{Y,N}|\le2\mathrm L_D$, and hence
+\[
+ \int_0^T|\kappa_t^{Y,N}|\,\dd t
+ \le \int_0^T2\mathrm L_D\,\dd t
+ =2T\mathrm L_D<\infty.
+\]
+The explicit stability requirement remains
+$T(\delta_{N,T,p}+c_DR)\le1/4$ by
+\Cref{eq:smallness-v15}; it can also hold on longer stable trajectories. The
+strict margin $\zeta>0$ in the main-text sufficient regime absorbs the
+subpolynomial concentration and localization factors. Finally, the probability
+statement is a bound on failure within the controlled-curvature path condition
+and the nonlinear stability event. It neither lower-bounds
+$\mathbb P(\mathcal R_N)$ nor gives a conditional failure probability given
+that condition.
+\begin{proof}
+\noindent\textbf{Step 1: a common good event.}
+Recall $p_0=p/8$ and the residual envelopes
+\eqref{eq:def-delta-v15}--\eqref{eq:def-tdelta-v15}. Define
+\[
+ E_\Gamma:=\{\sup_{t\le T}\Gamma_t^N\le\delta\},\qquad
+ E_{\widetilde\Gamma}:=
+ \{\max_{\ell\le\NofJ}\widetilde\Gamma_{t_\ell-}^N\le\widetilde\delta\}.
+\]
+Every supremum includes the relevant left and right traces. Use the
+population and radius events with budgets $p_0$ specified in the statement.
+For each jump, let $\Omega_{\ell,p_0/(\NofJ+1)}^{\rm jump}$ be the Gaussian
+event in \cref{lem:jump-bound-common-seed}, and set
+\[
+ \Omega_p:=E_{\rm pop}\cap E_{T,D}\cap E_\Gamma\cap E_{\widetilde\Gamma}
+       \cap\bigcap_{\ell=1}^{\NofJ}
+                   \Omega_{\ell,p_0/(\NofJ+1)}^{\rm jump}.
+\]
+The failure bounds and their sources are:
+\begin{center}
+\begin{tabular}{p{0.38\linewidth}p{0.10\linewidth}p{0.42\linewidth}}
+Failure event & Budget & Source\\\hline
+$E_{\rm pop}^c$ & $p_0$ & \cref{lem:population-moment-event}\\
+$E_{T,D}^c$ & $p_0$ & \cref{lemma:uniform-radius-bound-XY}, \eqref{eq:gamma-radius-choice}\\
+$E_{\rm pop}\cap E_{T,D}\cap E_\Gamma^c$ & $p_0$ & \cref{lemma-uniform-sup-gamma-bound-localized-conditional}, \eqref{eq:gamma-localized-probability}\\
+$E_{\rm pop}\cap E_{\widetilde\Gamma}^c$ & $p_0$ & \cref{cor:tilde-gamma-jump-time-union-bound}, \eqref{eq:tilde-gamma-jump-time-union-bound}\\
+$(\Omega_{\ell,p_0/(\NofJ+1)}^{\rm jump})^c$ & $\frac{p_0}{\NofJ+1}$ & \cref{lem:jump-bound-common-seed}
+\end{tabular}
+\end{center}
+The covariance estimate conditions on $\mathcal G_{\rm pop}$, while the
+Gaussian jump estimate conditions on $\mathcal H_{\ell-}$. The tower
+property converts these bounds to unconditional ones:
+\[
+\begin{aligned}
+ \mathbb P(E_{\rm pop}\cap E_{\widetilde\Gamma}^c)
+ &=\mathbb E[\mathbf1_{E_{\rm pop}}
+      \mathbb P(E_{\widetilde\Gamma}^c\mid\mathcal G_{\rm pop})]\le p_0,\\
+ \mathbb P((\Omega_{\ell,p_0/(\NofJ+1)}^{\rm jump})^c)
+ &=\mathbb E[\mathbb P((\Omega_{\ell,p_0/(\NofJ+1)}^{\rm jump})^c
+      \mid\mathcal H_{\ell-})]\le p_0/(\NofJ+1).
+\end{aligned}
+\]
+Consequently,
+\[
+\begin{aligned}
+ \mathbb P(\Omega_p^c)
+ &\le\mathbb P(E_{\rm pop}^c)+\mathbb P(E_{T,D}^c)
+      +\mathbb P(E_{\rm pop}\cap E_{T,D}\cap E_\Gamma^c)\\
+ &\quad+\mathbb P(E_{\rm pop}\cap E_{\widetilde\Gamma}^c)
+      +\sum_{\ell=1}^{\NofJ}
+              \mathbb P((\Omega_{\ell,p_0/(\NofJ+1)}^{\rm jump})^c)\\
+ &\le4p_0+\frac{\NofJ}{\NofJ+1}p_0<5p_0<p.
+\end{aligned}
+\]
+This union bound does not require independence. The sample event $E_{T,D}$
+is intersected after concentration; it is not part of the conditioning used
+to establish the reference product law.
+
+\par\noindent\textbf{Step 2: deterministic comparison on the good event.}
+Fix a realization in $\Omega_p\cap E_{T,\rm sp}(A_{\rm sp})$.
+The two deterministic inputs can now be tied to explicit parts of this event.
+On
+$E_{\rm pop}\cap E_{T,D}\cap E_{T,\rm sp}(A_{\rm sp})\cap E_\Gamma$,
+\cref{lemma-common-empirical-moment-residual-directional-rt} gives
+\[
+ \dot r_t\le-\kappa_t^{Y,N}r_t+c_Dr_t^2+\delta r_t+\delta.
+\]
+On the other hand, on
+$E_{\rm pop}\cap E_{T,D}\cap E_\Gamma\cap E_{\widetilde\Gamma}
+\cap\Omega_{\ell,p_0/(\NofJ+1)}^{\rm jump}$,
+\cref{lem:jump-bound-common-seed} gives
+\[
+ r_{t_\ell}\le(1+a_\ell)r_{t_\ell-}
+                 +a_\ell(\sqrt\delta+\sqrt{\widetilde\delta}).
+\]
+Before applying these two inputs,
+\cref{lemma-localized-moment-smoothness-consequences},
+\eqref{eq:local-field-magnitude-bound}, and the block estimate in
+\cref{lemma-operator-norm-block-matrix} give
+\begin{equation}
+\label{eq:fixed-schedule-curvature-bound}
+ |\kappa_t^{Y,N}|\le\|\HessianMatrices_t^Y\|_{\mathbb R^{dN}\to\mathbb R^{dN}}
+ \le\left\|(\mathrm L_D/N)\mathbf1\mathbf1^\top+\mathrm L_DI_N
+        \right\|_{\mathbb R^N\to\mathbb R^N}=2\mathrm L_D.
+\end{equation}
+Here $\mathbf1=(1,\ldots,1)^\top\in\mathbb R^N$ and
+$P=N^{-1}\mathbf1\mathbf1^\top$ satisfies $P^\top=P$, $P^2=P$,
+and $P\mathbf1=\mathbf1$. Thus $\|P+I_N\|_{\mathbb R^N\to\mathbb R^N}=2$.
+In particular $\int_0^T|\kappa_t^{Y,N}|\,dt\le2T\mathrm L_D<\infty$
+on this good event, so the curvature-response factors in
+\eqref{eq:tracking-curvature-responses} are well-defined.
+The absolute-continuity premise of
+\cref{lem:piecewise-gronwall-forced-jumps} is also automatic on each ODE
+branch. Indeed, the branchwise $B$-Lipschitz bounds in
+\cref{assumption-uniform-concentration-piecewise-lipschitz} give
+\[
+\begin{aligned}
+ |r_t-r_s|
+ &\le\frac1{\sqrt N}\|\Delta_t-\Delta_s\|_{\mathbb R^{dN}}\\
+ &\le\frac1{\sqrt N}
+       \left[\sum_{i=1}^N
+       \bigl(\|X_t^i-X_s^i\|_{\mathbb R^d}
+             +\|Y_t^i-Y_s^i\|_{\mathbb R^d}\bigr)^2\right]^{1/2}
+ \le2B|t-s|.
+\end{aligned}
+\]
+Suppose first $\mathfrak B_*>0$, and recall
+$R=2J_{N,T,p}\mathfrak B_*$ from the statement. Before a first exit from
+$r<R$, replace $c_Dr_t^2$ by $c_DRr_t$.
+The exponent in \cref{lem:piecewise-gronwall-forced-jumps} satisfies
+\[
+\begin{aligned}
+ \exp\left(-\int_s^t\beta_u\,du\right)
+ &=G_\kappa^Y(t,s)
+       \exp\left((t-s)c_DR+\int_s^t\Gamma_u^N\,du\right)\\
+ &\le G_\kappa^Y(t,s)e^{T(c_DR+\delta)}.
+\end{aligned}
+\]
+Every indicated subproduct of $(1+a_\ell)$ is at most
+$J_{N,T,p}=\prod_{\ell=1}^{\NofJ}(1+a_\ell)$, since $a_\ell\ge0$.
+Apply \cref{lem:piecewise-gronwall-forced-jumps},
+\eqref{eq:piecewise-recursive-bound}, retaining the two forcing terms:
+\begin{equation}
+\label{eq:tracking-stopped-propagator-bound}
+ r_t\le J_{N,T,p}e^{T(c_DR+\delta)}
+ \left[\int_0^tG_\kappa^Y(t,s)\Gamma_s^N\,ds
+       +\sum_{\ell:t_\ell\le t}G_\kappa^Y(t,t_\ell)b_\ell\right].
+\end{equation}
+The continuous and jump forcing terms satisfy
+\[
+\begin{aligned}
+ \int_0^tG_\kappa^Y(t,s)\Gamma_s^N\,ds
+ &\le\delta\mathfrak C_t^Y,\\
+ \sum_{\ell:t_\ell\le t}G_\kappa^Y(t,t_\ell)b_\ell
+ &\le c_J(D)q_p(\sqrt\delta+\sqrt{\widetilde\delta})
+                \sum_{\ell:t_\ell\le t}\eta_\ell G_\kappa^Y(t,t_\ell)\\
+ &=c_J(D)q_p(\sqrt\delta+\sqrt{\widetilde\delta})\mathfrak J_t^Y.
+\end{aligned}
+\]
+Here $b_\ell$ is the additive forcing in
+\eqref{eq:jump-recursion-assumption}. The sum of the two right-hand sides is
+$\mathfrak B_{N,T,p}(t)$ from \eqref{eq:def-B-v15}. Substitution into
+\eqref{eq:tracking-stopped-propagator-bound} gives
+\begin{equation}
+\label{eq:tracking-forcing-envelope-bound}
+ r_t\le J_{N,T,p}e^{T(c_DR+\delta)}\mathfrak B_{N,T,p}(t).
+\end{equation}
+
+\par\noindent\textbf{Step 3: exclude all first exits.}
+The candidate-exit conclusion of
+\cref{lem:piecewise-gronwall-forced-jumps},
+\eqref{eq:piecewise-recursive-bound}, applies at a continuous exit,
+a pre-jump trace, or a post-jump exit, including a jump at $T$.
+At a post-jump exit its partial products already include that jump.
+Thus the same bounds on the propagator, products, and forcing give
+\cref{eq:tracking-stopped-propagator-bound,eq:tracking-forcing-envelope-bound}
+at the candidate exit itself; no extra factor $1+a_\ell$ is introduced.
+On the nonlinear stability event \eqref{eq:smallness-v15}, the candidate value is
+therefore at most
+\[
+ e^{1/4}J_{N,T,p}\mathfrak B_*
+ =\frac{e^{1/4}}2 R<R.
+\]
+There are finitely many branches and jumps, so this strict margin excludes
+an exit on $[0,T]$. The radius may depend on future reference curvature-response factors:
+the argument is pathwise and uses no stopping-time theorem.
+
+If $\mathfrak B_*=0$ and $T>0$, positivity of $G_\kappa^Y(t,s)$ implies
+$\delta=0$, and every nonnegative jump forcing
+$a_\ell(\sqrt\delta+\sqrt{\widetilde\delta})$ is zero. On a branch and
+below any fixed positive radius $R'$, the ODE inequality becomes
+$\dot r_t\le(|\kappa_t^{Y,N}|+c_DR')r_t$.
+Multiplication by the integrating factor, starting from $r=0$, gives
+$r_t\le0$ on that branch. The jump recursion sends zero to zero.
+Induction proves $r\equiv0$; no zero radius is used in the first-exit lemma.
+For $T=0$, the conclusion is just $r_0=0$.
+
+\par\noindent\textbf{Step 4: the failure event.}
+The preceding argument proves the pathwise bound on
+$\Omega_p\cap E_{T,\rm sp}(A_{\rm sp})\cap\mathcal S_{N,T,p}$.
+Consequently any violation within the regularity event and the nonlinear stability event
+belongs to $\Omega_p^c$, whose probability is at most $p$. No conditional
+failure probability given the nonlinear stability event is asserted.
+\end{proof}
+
+\begin{corollary}[A simple sufficient horizon and the curvature-dependent rate]
+\label{cor:fixed-schedule-high-prob-r-rate-v15}
+Use the same model as $N$ varies, with fixed structural and anchor bounds and
+uniform $K_0,B,A_{\rm sp}$. Fix $\upsilon\ge0$, $\zeta>0$ with $\upsilon+\zeta<1/4$, and $C_p,C_0,L_0>0$.
+Suppose
+\[
+T\le N^{1/4-\upsilon-\zeta},\qquad p\ge N^{-C_p},\qquad
+\NofJ\le L_0,\qquad 0\le\eta_\ell\le C_0,
+\]
+and choose $D$ as in \eqref{eq:def-supXY-v15}.
+Define the controlled-curvature path condition $\mathcal R_N$ by
+\begin{equation}
+\label{eq:reference-response-event}
+\mathcal R_N:=\left\{\int_0^T|\kappa_t^{Y,N}|\,dt<\infty,\quad
+\mathfrak C_*^Y:=\sup_{t\le T}\mathfrak C_t^Y
+\le C_0N^\upsilon(1+T),\quad
+\mathfrak J_*^Y:=\sup_{t\le T}\mathfrak J_t^Y\le C_0N^\upsilon\right\}.
+\end{equation}
+For all sufficiently large $N$, the condition $\mathcal R_N$ implies the
+nonlinear stability event $\mathcal S_{N,T,p}$ of \eqref{eq:smallness-v15}.
+For every fixed $\varepsilon>0$, on
+$\Omega_p\cap E_{T,\rm sp}(A_{\rm sp})\cap\mathcal R_N$,
+\begin{equation}
+\label{eq:r-rate-simplified-v15}
+r_t\le C_\varepsilon\Xi^\varepsilon
+\left[(N^{-1/2}+T/N)\mathfrak C_t^Y
++(N^{-1/4}+\sqrt{T/N})\mathfrak J_t^Y\right],\qquad t\le T.
+\end{equation}
+Thus the same bound holds with failure probability at most $p$ within
+$E_{T,\rm sp}(A_{\rm sp})\cap\mathcal R_N$.
+\end{corollary}
+\begin{proof}
+\noindent\textbf{Step 1: recall the deterministic envelopes.}
+In this proof, write $\delta=\delta_{N,T,p}$ and
+$\widetilde\delta=\widetilde\delta_{N,T,p}$ as defined in
+\cref{eq:def-delta-v15,eq:def-tdelta-v15}.
+Use \cref{lemma-uniform-sup-gamma-bound-convenient},
+\eqref{eq:tilde-gamma-jump-time-final-rate}, and
+\eqref{eq:Ccmp-localized-v15}. Uniform $K_0,B,A_{\rm sp}$ imply that
+$K_{\rm pop},D$ are bounded by fixed powers of $\log\Xi$.
+For \cref{lemma-uniform-sup-gamma-bound-convenient}, use total budget
+$3p_0=3p/8<1$. Its population, radius, and concentration budgets are
+then each $p_0$, and its scale agrees exactly with the present one:
+\[
+ \frac{3N(e+T)(\NofJ+1)(1+B)}{3p_0}
+ =\frac{N(e+T)(\NofJ+1)(1+B)}{p_0}=\Xi.
+\]
+The polynomial-amplitude premise of that lemma holds with $c_M=1$.
+Indeed, \cref{eq:population-exponential-amplitude} and the grid bound in
+\cref{lem:population-moment-event} give
+\[
+ M_{\rm pop}\le\frac{4eQ}{p_0}
+ \le\frac{C(e+T)(\NofJ+1)(1+B)}{p_0}
+ =\frac{C\Xi}{N}\le C\Xi.
+\]
+For \eqref{eq:tilde-gamma-jump-time-final-rate} with budget $p_0=p/8$,
+the present $\Xi\ge N(\NofJ+1)/p_0$ satisfies its scale condition
+directly. For every $\theta>0$, the cited bounds give
+\begin{equation}
+\label{eq:main-rate-internal-envelopes}
+\begin{aligned}
+ \delta&\le C_\theta\Xi^\theta(N^{-1/2}+T/N),&
+ \widetilde\delta&\le C_\theta\Xi^\theta N^{-1/2},\\
+ c_D+c_J(D)q_p+\Lambda(D)&\le C_\theta\Xi^\theta.
+\end{aligned}
+\end{equation}
+For $c_Jq_p$, apply the individual bounds with exponent $\theta/2$ to
+each factor: $q_p=1+\sqrt{2\log(2(\NofJ+1)/p_0)}$ also satisfies
+$q_p\le C_\theta\Xi^{\theta/2}$.
+
+\par\noindent\textbf{Step 2: count the powers in the jump and curvature-response bounds.}
+The amplitude bound $0\le\eta_\ell\le C_0$,
+\eqref{eq:def-jump-amplification-v15}, and $\NofJ\le L_0$ imply
+\[
+ J_{N,T,p}\le(1+C_0c_J(D)q_p)^{L_0}
+             \le C_\theta\Xi^{L_0\theta}.
+\]
+Using $\sqrt{a+b}\le\sqrt a+\sqrt b$ in
+\eqref{eq:main-rate-internal-envelopes},
+\[
+ \sqrt\delta+\sqrt{\widetilde\delta}
+ \le C_\theta\Xi^{\theta/2}(N^{-1/4}+\sqrt{T/N}).
+\]
+By \eqref{eq:def-B-v15} and the controlled-curvature path condition
+\eqref{eq:reference-response-event},
+\[
+ \mathfrak B_*\le\delta\mathfrak C_*^Y
+       +c_J(D)q_p(\sqrt\delta+\sqrt{\widetilde\delta})\mathfrak J_*^Y.
+\]
+Substitute the preceding estimates and $T/N\le N^{-1/2}$ to get
+\[
+ \mathfrak B_*
+ \le C_\theta\Xi^\theta N^\upsilon(1+T)N^{-1/2}
+       +C_\theta\Xi^{3\theta/2}N^\upsilon N^{-1/4}.
+\]
+Multiplying by $2J_{N,T,p}$ and using $\Xi\ge1$ yields
+\[
+ R\le C_\theta\Xi^{(L_0+3/2)\theta}N^\upsilon
+         \{(1+T)N^{-1/2}+N^{-1/4}\}.
+\]
+
+\par\noindent\textbf{Step 3: verify the nonlinear stability event.}
+Recall $\Xi=8N(e+T)(\NofJ+1)(1+B)/p$. The horizon and probability
+assumptions imply $\Xi\le C N^{5/4+C_p}$. For the desired
+$\varepsilon>0$, choose a fixed $\theta>0$ sufficiently small that
+\begin{equation}
+\label{eq:main-rate-internal-exponent}
+ (5/4+C_p)(L_0+5/2)\theta\le\zeta/2,
+ \qquad (L_0+3/2)\theta<\varepsilon.
+\end{equation}
+This choice depends only on the fixed parameters and $\varepsilon,\zeta$,
+not on $N,T,p$. The preceding bounds and $N^\upsilon\ge1$ give
+\[
+\begin{aligned}
+ T(\delta+c_DR)
+ &\le C_\theta\Xi^{(L_0+5/2)\theta}N^\upsilon
+       \left\{\frac{T(1+T)}{\sqrt N}+\frac{T}{N^{1/4}}\right\}\\
+ &\le C_\theta N^{\zeta/2}
+       (N^{-1/4-\zeta}+N^{-\upsilon-2\zeta}+N^{-\zeta})
+ \le3C_\theta N^{-\zeta/2}\longrightarrow0.
+\end{aligned}
+\]
+The second line substitutes $T\le N^{1/4-\upsilon-\zeta}$ into each term:
+\[
+ N^\upsilon T/\sqrt N\le N^{-1/4-\zeta},\qquad
+ N^\upsilon T^2/\sqrt N\le N^{-\upsilon-2\zeta},\qquad
+ N^\upsilon T/N^{1/4}\le N^{-\zeta}.
+\]
+The choice \eqref{eq:main-rate-internal-exponent} ensures
+$(5/4+C_p)(L_0+5/2)\theta\le\zeta/2$.
+For all sufficiently large $N$, the last bound is at most $1/4$, proving
+$\mathcal R_N\subset\mathcal S_{N,T,p}$.
+
+\par\noindent\textbf{Step 4: substitute into the tracking bound.}
+The exact theorem and Steps 1--2 give
+\[
+ r_t\le C_\theta\Xi^{(L_0+3/2)\theta}
+ \left[(N^{-1/2}+T/N)\mathfrak C_t^Y
+ +(N^{-1/4}+\sqrt{T/N})\mathfrak J_t^Y\right].
+\]
+Since $(L_0+3/2)\theta<\varepsilon$, this proves
+\eqref{eq:r-rate-simplified-v15}. The exact theorem continues to apply
+at longer horizons on its nonlinear stability event \eqref{eq:smallness-v15}.
+\end{proof}

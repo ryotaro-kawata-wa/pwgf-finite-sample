@@ -1,0 +1,213 @@
+\section{Technical assumptions and proof overview}
+\label{sec:proof-overview}
+
+\subsection{Technical Assumptions}
+\label{subsec:tracking-assumptions}
+
+We state the conditions used in the main theorem and proof sketch;
+\Cref{subsec:general-argument-bound-settings} gives their full analytic formulation,
+and \Cref{tab:assumption-evidence-map} records how each model section relates to
+the theorem's assumptions and conclusions.
+The conditions below are verified for
+\Cref{ex:variance-cosine-curvature-recovery} in
+\Cref{lem:canonical-comparison-assumptions}.
+\begin{assumption}[Structured moment representation]
+\label{assumption-main-general-moment-smooth-compressed}
+The full conditions of \Cref{assumption-structured-moment-smoothness} hold.
+We use \(F(\rho)=G(M(\rho))\), with
+\(M(\rho):=(\int\phi_m\,d\rho)_{m\ge1}\), as defined in
+\Cref{def:moment-objective}.
+The features have controlled polynomial growth through third spatial
+derivatives, dominated by the decay of the moment weights
+\(a_m=e^{-c_am^{\kappa_{\rm dec}}}\), with \(c_a>0\) and
+\(\kappa_{\rm dec}>1\); see
+\Cref{eq:weighted-moment-space,assumption-structured-moment-smoothness}.
+The functional \(G\) is \(C^3\) on one open weighted-moment domain
+containing all finite-scale feasible moment regions, with a uniform
+weighted third-derivative bound.
+All structural parameters, including the anchor derivative norms and this
+uniform bound, are fixed independently of \(N,T,p\).
+\end{assumption}
+
+The localized drift and Hessian bounds derived in
+\Cref{lem:conditional-local-coefficient-growth,lemma-localized-moment-smoothness-consequences}
+may depend on the spatial localization radius \(D\).
+
+\begin{assumption}[Regularity of the coupled particle systems]
+\label{assumption-main-coupled-particle-regularity}
+Fix \(T>0\). The coupled particle systems
+\(\mathbf X_t=(X_t^1,\dots,X_t^N)\) and
+\(\mathbf Y_t=(Y_t^1,\dots,Y_t^N)\) satisfy the following conditions uniformly
+on \([0,T]\). The \(O(1)\) bounds below are uniform in \(N\) over the
+horizons considered in \Cref{theorem-main-r_t}.
+
+\begingroup\raggedright
+\noindent
+\textbf{(i) Unconditional moment bound.}
+For fixed $\alpha\in(0,2]$,
+\(\sup_{t\le T,q\ge1}q^{-1/\alpha}
+\max\{(\mathbb E\|X_t^1\|^q)^{1/q},
+       (\mathbb E\|Y_t^1\|^q)^{1/q}\}=O(1)\).\par
+\endgroup
+
+\noindent
+\textbf{(ii) Temporal regularity.}
+All particle paths are right-continuous with left limits at the jumps and
+share a deterministic \(O(1)\)-Lipschitz bound on every ODE branch, almost surely.
+
+\noindent
+\textbf{(iii) Non-spikiness of $r_t$.}
+The coupling error \(r_t\) from \Cref{subsec:tracking-metric} is assumed,
+almost surely, not to concentrate on a small number of particles: for some
+\(A_{\mathrm{sp}} = O(1)\),
+\(\frac1N\sum_{i=1}^N\|X_t^i-Y_t^i\|^3 \le A_{\mathrm{sp}} r_t^3\;
+    (0\le t\le T)\).
+This condition controls the cubic Taylor remainder in the particle positions by \(O(r_t^3)\);
+see \Cref{lemma-directional-point-slot-error,eq-directional-point-slot-bound}.
+In \Cref{ex:variance-cosine-curvature-recovery}, all paired errors coincide, giving
+\(A_{\mathrm{sp}}=1\) (\Cref{lem:canonical-comparison-assumptions}(v)).
+\end{assumption}
+
+\begin{assumption}[Prescribed schedule and population-first Gaussian jumps]
+\label{assumption-main-jump-time}
+The common times $(t_\ell)_{\ell=1}^{\NofJ}$ and amplitudes $\eta_\ell\ge0$
+are deterministic, with $\NofJ=O(1)$ in \Cref{theorem-main-r_t}.
+The initial law \(\mu_0\) is deterministic; the common initial positions
+\(X_0^i=Y_0^i\), \(i=1,\ldots,N\), are sampled independently from \(\mu_0\).
+Population innovations are independent of that sample and fresh at each
+jump. The population Gaussian fields and the empirical transitions satisfy
+Assumption~\ref{assumption-common-seed}.
+\end{assumption}
+
+\subsection{Proof sketch}
+\label{subsec:proof-sketch-after-assumptions}
+
+We explain how the ODE and jump comparisons produce the response factors
+in \Cref{def:curvature-responses}. The calculations below are schematic:
+\(\simeq\) retains the leading linearized drift, and \(\lesssim\) suppresses
+localized coefficients and Gaussian probability factors quantified in the appendix.
+
+The reference particles are i.i.d. with law \(\mu_t\) conditional on
+\(\mathcal G_{\rm pop}\) by
+\Cref{lemma-gp-jump-implies-conditional-iid,lem:population-first-finite-coupling},
+enabling concentration (background: \citet{sznitman1991,fournier2015rate}).
+We use \(\Gamma_t^N\) and \(\widetilde\Gamma_t^N\) from
+\Cref{subsec:general-argument-overview} for drift/Hessian fluctuations
+and covariance-sampling error at jumps, respectively.
+
+\maintextheading{ODE intervals (\Cref{subsec:general-argument-bound-r_t-ode-continuous}).}
+Write \(\Delta_t:=\mathbf X_t-\mathbf Y_t\), with particle blocks indexed by \(i\),
+so that \(r_t=N^{-1/2}\|\Delta_t\|_{\mathbb R^{dN}}\).
+For \(r_t>0\), the chain rule and the ODEs in
+\cref{eq:particle-flow,eq:reference-flow} give the equalities below. After adding and subtracting the reference empirical drift,
+then linearizing and comparing Hessians
+(\Cref{lemma-mean-value-theorem,lemma-bound-r_t-given-eta-eps}), we informally have
+\[
+ r_t\dot r_t=\frac12\frac{\mathrm d}{\mathrm dt}r_t^2
+ =-\frac1N\sum_{i=1}^N\bigl\langle\Delta_t^i,
+ \underbrace{\nabla_WF(\rho_{\mathbf X_t},X_t^i)-\nabla_WF(\mu_t,Y_t^i)}_{
+ \simeq\,(\HessianMatrices_t^Y\Delta_t)^i\;\text{(Taylor)}}\bigr\rangle
+ \simeq-\frac1N\Delta_t^\top\HessianMatrices_t^Y\Delta_t.
+\]
+By \Cref{def:curvature-responses}, the quadratic form is bounded above by
+\(-\kappa_t^{Y,N}r_t^2\); dividing by \(r_t\) gives the curvature term
+\(-\kappa_t^{Y,N}r_t\).
+Restoring the errors, on the localized good events and while \(r_t\le R\),
+\Cref{lemma-common-empirical-moment-residual-directional-rt},
+\eqref{eq-rt-directional-stopped}, gives
+\(\dot r_t\le-\kappa_t^{Y,N}r_t+c_DRr_t+\Gamma_t^N(1+r_t)\).
+Here \(c_D\) is defined in \eqref{eq-Csp-definition}; the same lemma
+also handles \(r_t=0\).
+
+\maintextheading{Jump times (\Cref{subsec:general-argument-r_t-jump-errors}).}
+Using the empirical and aligned population factors \(M_X,B_{\rm pop}\)
+and shared Gaussian vector \(\mathbf g_\ell^N\) from
+\Cref{subsec:auxiliary-particles}, we substitute the jump updates in
+\cref{eq:particle-jump,eq:reference-jump} and apply the triangle inequality:
+\[
+ r_{t_\ell}
+ =\frac1{\sqrt N}\bigl\|\Delta_{t_\ell-}
+ +\eta_\ell(M_X-B_{\rm pop})\mathbf g_\ell^N\bigr\|_{\mathbb R^{dN}}
+ \le r_{t_\ell-}
+ +\frac{\eta_\ell}{\sqrt N}
+ \bigl\|(M_X-B_{\rm pop})\mathbf g_\ell^N\bigr\|_{\mathbb R^{dN}}.
+\]
+Let \(M_Y\) be the empirical Hessian factor at the reference configuration
+just before the jump. We split
+\(M_X-B_{\rm pop}=(M_X-M_Y)+(M_Y-B_{\rm pop})\).
+Smoothness controls the contribution of the first difference by a multiple
+of \(r_{t_\ell-}\). For the remaining mismatch, Gaussian concentration and
+the aligned coupling give schematically, with all time-\(t\) quantities
+evaluated at \(t_\ell-\),
+\[
+ \frac{\|(M_Y-B_{\rm pop})\mathbf g_\ell^N\|_{\mathbb R^{dN}}}{\sqrt N}
+ \lesssim
+ \underbrace{
+ \sqrt{\frac1N
+ \|M_Y^2-B_{\rm pop}B_{\rm pop}^{\top}\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}}
+ }_{\text{square root of covariance mismatch}}
+ \lesssim \sqrt{\Gamma_t^N}+\sqrt{\widetilde\Gamma_t^N}.
+\]
+Here \(*\) denotes the nuclear norm. The \((i,j)\)-block of the covariance
+mismatch is \(K_{\rho_{\mathbf Y_t}}(Y_t^i,Y_t^j)-K_{\mu_t}(Y_t^i,Y_t^j)\).
+Using the kernel definition in \Cref{subsec:population-pwgf}, the difference
+\(K_{\rho_{\mathbf Y_t}}(x,y)-K_{\mu_t}(x,y)\) consists schematically of
+\[
+ \underbrace{\text{Hessian approximation}}_{\text{as in the ODE step}}
+ +\int\nabla_W^2F(\mu_t;x,z)\,
+ \nabla_W^2F(\mu_t;z,y)\,
+ (\rho_{\mathbf Y_t}-\mu_t)(dz).
+\]
+Expanding the difference of the two Hessian products bounds the first term
+linearly in the Hessian approximation error, with localized coefficients suppressed.
+The second term is an empirical integration error.
+These comparisons are established in
+\Cref{lemma-aligned-finite-square-root,lemma-kernel-mismatch-bound,lem:jump-bound-common-seed}.
+Combining the two contributions yields
+\(r_{t_\ell}\lesssim(1+\eta_\ell)r_{t_\ell-}
++\eta_\ell(\sqrt{\Gamma_{t_\ell-}^N}+\sqrt{\widetilde\Gamma_{t_\ell-}^N})\):
+a jump amplifies past error and adds a new error.
+The square-root dependence explains why an \(N^{-1/2}\) covariance-sampling
+bound contributes \(N^{-1/4}\) to the jump estimate.
+For background on Gaussian covariance alignment, see \citet{masarotto2019procrustes}.
+
+\maintextheading{From local errors to response factors.}
+Between jumps, the homogeneous equation
+\(\dot r_t=-\kappa_t^{Y,N}r_t\) has solution
+\(r_t=G_\kappa^Y(t,s)r_s\), where
+\(G_\kappa^Y(t,s)=\exp(-\int_s^t\kappa_u^{Y,N}\,du)\).
+Hence an error created at time \(s\) receives this weight at time \(t\).
+Starting from \(r_0=0\), integrating the continuous forcing and summing
+the jump forcing gives an integral and a sum, respectively.
+Taking uniform residual bounds outside them yields schematically
+\[
+ \textstyle r_t\lesssim
+ (\sup_{s\le T}\Gamma_s^N)
+ \underbrace{\textstyle\int_0^tG_\kappa^Y(t,s)\,ds}_{\mathfrak C_t^Y}
+ +(\sqrt{\sup_{s\le T}\Gamma_s^N}
+       +\sqrt{\max_{\ell\le\NofJ}\widetilde\Gamma_{t_\ell-}^N})
+ \underbrace{\textstyle\sum_{\ell:t_\ell\le t}\eta_\ell
+                  G_\kappa^Y(t,t_\ell)}_{\mathfrak J_t^Y}.
+\]
+The maximum is zero if there are no jumps.
+The recursive comparison in \Cref{lem:piecewise-gronwall-forced-jumps},
+\cref{eq:piecewise-recursive-bound,eq:tracking-stopped-propagator-bound},
+retains the extra nonlinear amplification and the products of jump multipliers.
+
+\maintextheading{Residual bounds and closure.}
+Conditioning only on \(\mathcal G_{\rm pop}\), moment localization and
+weighted-feature covariance concentration give, with probability at least
+\(1-p\) and \(\Xi=\Xi_{N,T,p}\) from \Cref{theorem-main-r_t},
+\[
+ \sup_{t\le T}\Gamma_t^N
+ \le C_\varepsilon\Xi^\varepsilon(N^{-1/2}+T/N),\qquad
+ \max_{\ell\le\NofJ}\widetilde\Gamma_{t_\ell-}^N
+ \le C_\varepsilon\Xi^\varepsilon N^{-1/2};
+\]
+see \Cref{lemma-uniform-sup-gamma-bound-convenient,cor:tilde-gamma-jump-time-union-bound}.
+Under the theorem's conditions,
+\Cref{thm:fixed-schedule-high-prob-r-v15,cor:fixed-schedule-high-prob-r-rate-v15}
+close the localized estimate and absorb the extra amplification into
+\(C_\varepsilon\Xi^\varepsilon\).
+\Cref{lem:functional-gap-fixed-time-v15,eq:functional-gap-fixed-time-v15}
+give the objective bound.

@@ -1,0 +1,15 @@
+checks/MF07Checks.lean:14:29: warning: This simp argument is unused:
+  real_inner_self_eq_norm_sq
+
+Hint: Omit it from the simp argument list.
+  simp [transverseHalfField,̵ ̵r̵e̵a̵l̵_̵i̵n̵n̵e̵r̵_̵s̵e̵l̵f̵_̵e̵q̵_̵n̵o̵r̵m̵_̵s̵q̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+checks/MF07Checks.lean:35:4: warning: This simp argument is unused:
+  Polynomial.hermite_one
+
+Hint: Omit it from the simp argument list.
+  simp [transverseFeature, finiteHermiteActivationJet, normalizedHermiteJet, hermiteRealPolynomial,̵
+  ̵ ̵ ̵ ̵ ̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵h̵e̵r̵m̵i̵t̵e̵_̵o̵n̵e̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

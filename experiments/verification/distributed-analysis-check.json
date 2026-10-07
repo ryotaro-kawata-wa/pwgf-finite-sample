@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "source_sha256": "f66ac1f8ebeca5e86c66d1c12a1b569f6938369b7ff5d8359c21b46747d03b86",
+  "compared_fields": [
+    "conditions",
+    "population",
+    "audits",
+    "integration_refinement_pass",
+    "integration_refinement",
+    "trigger_refinement"
+  ],
+  "exact_recorded_analysis_match": true,
+  "raw_state_source": "Extracted nine separately packaged assets plus the distributed protocol record",
+  "scope": "Re-execution of the active report analysis from distributed states; fresh report figures were already rendered and visually checked."
+}

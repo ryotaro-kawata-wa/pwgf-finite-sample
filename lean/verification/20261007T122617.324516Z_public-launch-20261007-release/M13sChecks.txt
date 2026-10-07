@@ -1,0 +1,1279 @@
+PaperFormalization.Manuscript.sourceODEClamp (a b : ℝ) (hab : a ≤ b) (t : ℝ) : ↑(Icc a b)
+'PaperFormalization.Manuscript.sourceODEClamp' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceODEClamp_coe (a b : ℝ) (hab : a ≤ b) (t : ↑(Icc a b)) :
+  sourceODEClamp a b hab ↑t = t
+'PaperFormalization.Manuscript.sourceODEClamp_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceODEClamp_continuous (a b : ℝ) (hab : a ≤ b) : Continuous (sourceODEClamp a b hab)
+'PaperFormalization.Manuscript.sourceODEClamp_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceODEPathExtend.{u_1} {E : Type u_1} [NormedAddCommGroup E] {a b : ℝ} (hab : a ≤ b)
+  (u : C(↑(Icc a b), E)) (t : ℝ) : E
+'PaperFormalization.Manuscript.sourceODEPathExtend' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceODEPathExtend_continuous.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] {a b : ℝ} (hab : a ≤ b) (u : C(↑(Icc a b), E)) :
+  Continuous (sourceODEPathExtend hab u)
+'PaperFormalization.Manuscript.sourceODEPathExtend_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceODEIntegralCLM.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  [CompleteSpace E] (a b : ℝ) (hab : a ≤ b) (t : ℝ) : C(↑(Icc a b), E) →L[ℝ] E
+'PaperFormalization.Manuscript.sourceODEIntegralCLM' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceODESolutionSet.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  (f : E → E) (a b : ℝ) (hab : a ≤ b) : Set C(↑(Icc a b), E)
+'PaperFormalization.Manuscript.sourceODESolutionSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceODESolutionSet_isClosed.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] (f : E → E) (hf : Continuous f) (a b : ℝ) (hab : a ≤ b) :
+  IsClosed (sourceODESolutionSet f a b hab)
+'PaperFormalization.Manuscript.sourceODESolutionSet_isClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceODESolutionSet_hasDerivWithinAt.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] (f : E → E) (hf : Continuous f) (a b : ℝ) (hab : a ≤ b) (u : C(↑(Icc a b), E))
+  (hu : u ∈ sourceODESolutionSet f a b hab) (t : ℝ) (ht : t ∈ Icc a b) :
+  HasDerivWithinAt (sourceODEPathExtend hab u) (f (sourceODEPathExtend hab u t)) (Icc a b) t
+'PaperFormalization.Manuscript.sourceODESolutionSet_hasDerivWithinAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_c1_lipschitz_on_closedBall.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] (f : E → E) (hf : ContDiff ℝ 1 f) (R : ℝ) :
+  ∃ K, LipschitzOnWith K f (Metric.closedBall 0 R)
+'PaperFormalization.Manuscript.source_c1_lipschitz_on_closedBall' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceODESolutionSet_initial_injective.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] (f : E → E) (hf : ContDiff ℝ 1 f) (a b : ℝ)
+  (hab : a ≤ b) : Function.Injective fun u => ↑u ⟨a, ⋯⟩
+'PaperFormalization.Manuscript.sourceODESolutionSet_initial_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceODESolutionSet_of_hasDerivAt.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] (f : E → E) (hf : Continuous f) (a b : ℝ) (hab : a ≤ b) (x : ℝ → E)
+  (hx : ContinuousOn x (Icc a b)) (hode : ∀ t ∈ Ioo a b, HasDerivAt x (f (x t)) t) :
+  { toFun := fun t => x ↑t, continuous_toFun := ⋯ } ∈ sourceODESolutionSet f a b hab
+'PaperFormalization.Manuscript.sourceODESolutionSet_of_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceODEPathMeasurable.{u_1} {E : Type u_1} [NormedAddCommGroup E] (a b : ℝ) :
+  MeasurableSpace C(↑(Icc a b), E)
+'PaperFormalization.Manuscript.sourceODEPathMeasurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceODEPathBorel.{u_1} {E : Type u_1} [NormedAddCommGroup E] (a b : ℝ) :
+  BorelSpace C(↑(Icc a b), E)
+'PaperFormalization.Manuscript.sourceODEPathBorel' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceODEExistenceDomain.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  (f : E → E) (a b : ℝ) (hab : a ≤ b) : Set E
+'PaperFormalization.Manuscript.sourceODEExistenceDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceODEInitial_measurableEmbedding.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E)
+  (hf : ContDiff ℝ 1 f) (a b : ℝ) (hab : a ≤ b) : MeasurableEmbedding fun u => ↑u ⟨a, ⋯⟩
+'PaperFormalization.Manuscript.sourceODEInitial_measurableEmbedding' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceODEExistenceDomain_measurable.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E)
+  (hf : ContDiff ℝ 1 f) (a b : ℝ) (hab : a ≤ b) : MeasurableSet (sourceODEExistenceDomain f a b hab)
+'PaperFormalization.Manuscript.sourceODEExistenceDomain_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalODEPath.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  (f : E → E) (a b : ℝ) (hab : a ≤ b) (x : E) : C(↑(Icc a b), E)
+'PaperFormalization.Manuscript.sourceCanonicalODEPath' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalODEPath_measurable.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E)
+  (hf : ContDiff ℝ 1 f) (a b : ℝ) (hab : a ≤ b) : Measurable (sourceCanonicalODEPath f a b hab)
+'PaperFormalization.Manuscript.sourceCanonicalODEPath_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalODEPath_of_solution.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E)
+  (hf : ContDiff ℝ 1 f) (a b : ℝ) (hab : a ≤ b) (u : C(↑(Icc a b), E)) (hu : u ∈ sourceODESolutionSet f a b hab) :
+  sourceCanonicalODEPath f a b hab (u ⟨a, ⋯⟩) = u
+'PaperFormalization.Manuscript.sourceCanonicalODEPath_of_solution' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalODEPath_of_not_mem.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E) (a b : ℝ)
+  (hab : a ≤ b) (x : E) (hx : x ∉ sourceODEExistenceDomain f a b hab) :
+  sourceCanonicalODEPath f a b hab x = ContinuousMap.const (↑(Icc a b)) x
+'PaperFormalization.Manuscript.sourceCanonicalODEPath_of_not_mem' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalODEPath_initial.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E)
+  (hf : ContDiff ℝ 1 f) (a b : ℝ) (hab : a ≤ b) (x : E) : (sourceCanonicalODEPath f a b hab x) ⟨a, ⋯⟩ = x
+'PaperFormalization.Manuscript.sourceCanonicalODEPath_initial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalODEPath_mem.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E) (hf : ContDiff ℝ 1 f)
+  (a b : ℝ) (hab : a ≤ b) (x : E) (hx : x ∈ sourceODEExistenceDomain f a b hab) :
+  sourceCanonicalODEPath f a b hab x ∈ sourceODESolutionSet f a b hab
+'PaperFormalization.Manuscript.sourceCanonicalODEPath_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalODEFlow.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  (f : E → E) (a b : ℝ) (hab : a ≤ b) (x : E) (t : ℝ) : E
+'PaperFormalization.Manuscript.sourceCanonicalODEFlow' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalODEFlow_measurable.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E)
+  (hf : ContDiff ℝ 1 f) (a b : ℝ) (hab : a ≤ b) : Measurable fun z => sourceCanonicalODEFlow f a b hab z.1 z.2
+'PaperFormalization.Manuscript.sourceCanonicalODEFlow_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalODEFlow_initial.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E)
+  (hf : ContDiff ℝ 1 f) (a b : ℝ) (hab : a ≤ b) (x : E) : sourceCanonicalODEFlow f a b hab x a = x
+'PaperFormalization.Manuscript.sourceCanonicalODEFlow_initial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalODEFlow_eq_actual.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E)
+  (hf : ContDiff ℝ 1 f) (a b : ℝ) (hab : a ≤ b) (x : ℝ → E) (hx : ContinuousOn x (Icc a b))
+  (hode : ∀ t ∈ Ioo a b, HasDerivAt x (f (x t)) t) : EqOn (sourceCanonicalODEFlow f a b hab (x a)) x (Icc a b)
+'PaperFormalization.Manuscript.sourceCanonicalODEFlow_eq_actual' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceODESolutionSet_symmetry.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E)
+  (hf : Continuous f) (a b : ℝ) (hab : a ≤ b) (e : E ≃ₗᵢ[ℝ] E) (he : ∀ (x : E), f (e x) = e (f x))
+  (u : C(↑(Icc a b), E)) (hu : u ∈ sourceODESolutionSet f a b hab) :
+  { toFun := fun t => e (u t), continuous_toFun := ⋯ } ∈ sourceODESolutionSet f a b hab
+'PaperFormalization.Manuscript.sourceODESolutionSet_symmetry' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceODEExistenceDomain_symmetry.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E)
+  (hf : Continuous f) (a b : ℝ) (hab : a ≤ b) (e : E ≃ₗᵢ[ℝ] E) (he : ∀ (x : E), f (e x) = e (f x)) (x : E) :
+  e x ∈ sourceODEExistenceDomain f a b hab ↔ x ∈ sourceODEExistenceDomain f a b hab
+'PaperFormalization.Manuscript.sourceODEExistenceDomain_symmetry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalODEFlow_symmetry.{u_1} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] (f : E → E)
+  (hf : ContDiff ℝ 1 f) (a b : ℝ) (hab : a ≤ b) (e : E ≃ₗᵢ[ℝ] E) (he : ∀ (x : E), f (e x) = e (f x)) (x : E) (t : ℝ) :
+  sourceCanonicalODEFlow f a b hab (e x) t = e (sourceCanonicalODEFlow f a b hab x t)
+'PaperFormalization.Manuscript.sourceCanonicalODEFlow_symmetry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceParticlePermuteIsometry {N d : ℕ} (s : Equiv.Perm (Fin N)) :
+  SourceFiniteConfiguration N d ≃ₗᵢ[ℝ] SourceFiniteConfiguration N d
+'PaperFormalization.Manuscript.sourceParticlePermuteIsometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceParticlePermuteIsometry_apply {N d : ℕ} (s : Equiv.Perm (Fin N))
+  (x : SourceFiniteConfiguration N d) : (sourceParticlePermuteIsometry s) x = sourceParticlePermute s x
+'PaperFormalization.Manuscript.sourceParticlePermuteIsometry_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceHorizonEndpoint (tau : ℕ → ℝ) (J : ℕ) (T : ℝ) (n : ℕ) : ℝ
+'PaperFormalization.Manuscript.sourceHorizonEndpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceHorizonEndpoint_ordered (tau : ℕ → ℝ) (J : ℕ) (T : ℝ)
+  (htime : ∀ n < J, tau n < tau (n + 1)) (hT : tau J ≤ T) (n : ℕ) : tau n ≤ sourceHorizonEndpoint tau J T n
+'PaperFormalization.Manuscript.sourceHorizonEndpoint_ordered' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceHorizonEndpoint_used (tau : ℕ → ℝ) (J : ℕ) (T : ℝ) (n : ℕ) (hn : n ≤ J) :
+  sourceHorizonEndpoint tau J T n = if n < J then tau (n + 1) else T
+'PaperFormalization.Manuscript.sourceHorizonEndpoint_used' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceExactEmpiricalDrift.{u_1} {N d : ℕ} {H : ℕ → Type u_1}
+  [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)] [∀ (m : ℕ), CompleteSpace (H m)] (c p : ℝ)
+  (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (G : ↥(lp H 2) → ℝ) :
+  SourceFiniteConfiguration N d → SourceFiniteConfiguration N d
+'PaperFormalization.Manuscript.sourceExactEmpiricalDrift' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalEmpiricalFlow.{u_1} {N d : ℕ} {H : ℕ → Type u_1}
+  [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)] [∀ (m : ℕ), CompleteSpace (H m)] (c p : ℝ)
+  (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (G : ↥(lp H 2) → ℝ) (tau : ℕ → ℝ) (J : ℕ) (T : ℝ)
+  (htime : ∀ n < J, tau n < tau (n + 1)) (hT : tau J ≤ T) (n : ℕ) (t : ℝ) (x : SourceFiniteConfiguration N d) :
+  SourceFiniteConfiguration N d
+'PaperFormalization.Manuscript.sourceCanonicalEmpiricalFlow' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalEmpiricalFlow_properties.{u_1} {N d : ℕ} {H : ℕ → Type u_1}
+  [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)] [∀ (m : ℕ), CompleteSpace (H m)]
+  (c C g p q alpha : ℝ) (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (hc : 0 < c) (hC : 0 ≤ C) (hp : 1 < p)
+  (hq : q < p) (hphi : ∀ (m : ℕ), ContDiff ℝ 2 (phi m))
+  (hgrowth :
+    ∀ (m : ℕ) (z : EuclideanSpace ℝ (Fin d)),
+      ∀ k ≤ 2, ‖iteratedFDeriv ℝ k (phi m) z‖ ≤ featureGrowth C g q m * (1 + ‖z‖ ^ (m + 1 - k)))
+  (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hDomains : SourceAllMomentDomains (sourceWeightedFeatureMap c p phi) alpha U) (hG : ContDiffOn ℝ 3 G U) (hN : 0 < N)
+  (tau : ℕ → ℝ) (J : ℕ) (T : ℝ) (htime : ∀ n < J, tau n < tau (n + 1)) (hT : tau J ≤ T) :
+  have flow := sourceCanonicalEmpiricalFlow c p phi G tau J T htime hT;
+  (∀ (n : ℕ) (t : ℝ), Measurable (flow n t)) ∧
+    (∀ (n : ℕ) (x : SourceFiniteConfiguration N d), flow n (tau n) x = x) ∧
+      (∀ (n : ℕ) (x : SourceFiniteConfiguration N d), Continuous fun t => flow n t x) ∧
+        ∀ (s : Equiv.Perm (Fin N)) (n : ℕ) (t : ℝ) (x : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+          flow n t (sourceParticlePermute s x) = sourceParticlePermute s (flow n t x)
+'PaperFormalization.Manuscript.sourceCanonicalEmpiricalFlow_properties' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalEmpiricalFlow_ode.{u_1} {N d : ℕ} {H : ℕ → Type u_1}
+  [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)] [∀ (m : ℕ), CompleteSpace (H m)] (c p : ℝ)
+  (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (G : ↥(lp H 2) → ℝ)
+  (hf : ContDiff ℝ 1 (sourceExactEmpiricalDrift c p phi G)) (tau : ℕ → ℝ) (J : ℕ) (T : ℝ)
+  (htime : ∀ n < J, tau n < tau (n + 1)) (hT : tau J ≤ T) (n : ℕ) (x : SourceFiniteConfiguration N d)
+  (hx : x ∈ sourceODEExistenceDomain (sourceExactEmpiricalDrift c p phi G) (tau n) (sourceHorizonEndpoint tau J T n) ⋯)
+  (t : ℝ) (ht : t ∈ Ioo (tau n) (sourceHorizonEndpoint tau J T n)) :
+  HasDerivAt (fun s => sourceCanonicalEmpiricalFlow c p phi G tau J T htime hT n s x)
+    (sourceExactEmpiricalDrift c p phi G (sourceCanonicalEmpiricalFlow c p phi G tau J T htime hT n t x)) t
+'PaperFormalization.Manuscript.sourceCanonicalEmpiricalFlow_ode' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalEmpiricalFlow_eq_source.{u_1} {N d : ℕ} {H : ℕ → Type u_1}
+  [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)] [∀ (m : ℕ), CompleteSpace (H m)] (c p : ℝ)
+  (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (G : ↥(lp H 2) → ℝ)
+  (hf : ContDiff ℝ 1 (sourceExactEmpiricalDrift c p phi G)) (tau : ℕ → ℝ) (J : ℕ) (T : ℝ)
+  (htime : ∀ n < J, tau n < tau (n + 1)) (hT : tau J ≤ T) (n : ℕ) (x : ℝ → SourceFiniteConfiguration N d)
+  (hx : ContinuousOn x (Icc (tau n) (sourceHorizonEndpoint tau J T n)))
+  (hode :
+    ∀ t ∈ Ioo (tau n) (sourceHorizonEndpoint tau J T n), HasDerivAt x (sourceExactEmpiricalDrift c p phi G (x t)) t) :
+  x (tau n) ∈
+      sourceODEExistenceDomain (sourceExactEmpiricalDrift c p phi G) (tau n) (sourceHorizonEndpoint tau J T n) ⋯ ∧
+    EqOn (fun t => sourceCanonicalEmpiricalFlow c p phi G tau J T htime hT n t (x (tau n))) x
+      (Icc (tau n) (sourceHorizonEndpoint tau J T n))
+'PaperFormalization.Manuscript.sourceCanonicalEmpiricalFlow_eq_source' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_stdGaussian_isometry_invariant.{u_1} {I : Type u_1} [Fintype I] [DecidableEq I]
+  (e : EuclideanSpace ℝ I ≃ₗᵢ[ℝ] EuclideanSpace ℝ I) :
+  Measure.map (⇑e) (stdGaussian (EuclideanSpace ℝ I)) = stdGaussian (EuclideanSpace ℝ I)
+'PaperFormalization.Manuscript.source_stdGaussian_isometry_invariant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_step_normal_permutation {N d : ℕ} (s : Equiv.Perm (Fin N)) :
+  MeasurePreserving (sourceEuclideanPermute (sourceParticleIndexPermute s)) (stdGaussian (SourceStepNormal N d))
+    (stdGaussian (SourceStepNormal N d))
+'PaperFormalization.Manuscript.source_step_normal_permutation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceInitialConfigurationLaw {N d : ℕ} (mu0 : Measure (EuclideanSpace ℝ (Fin d))) :
+  Measure (SourceFiniteConfiguration N d)
+'PaperFormalization.Manuscript.sourceInitialConfigurationLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceInitialConfigurationLaw_probability {N d : ℕ}
+  (mu0 : Measure (EuclideanSpace ℝ (Fin d))) [IsProbabilityMeasure mu0] :
+  IsProbabilityMeasure (sourceInitialConfigurationLaw mu0)
+'PaperFormalization.Manuscript.sourceInitialConfigurationLaw_probability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_initial_configuration_permutation {N d : ℕ}
+  (mu0 : Measure (EuclideanSpace ℝ (Fin d))) [IsProbabilityMeasure mu0] (s : Equiv.Perm (Fin N)) :
+  MeasurePreserving (sourceParticlePermute s) (sourceInitialConfigurationLaw mu0) (sourceInitialConfigurationLaw mu0)
+'PaperFormalization.Manuscript.source_initial_configuration_permutation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_original_input_product_law.{u_1, u_2} {N d : ℕ} {O : Type u_1} {S : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace S] (nu : Measure O) [IsProbabilityMeasure nu]
+  (mu0 : Measure (EuclideanSpace ℝ (Fin d))) [IsProbabilityMeasure mu0] (env : O → S)
+  (initial : O → SourceFiniteConfiguration N d) (henv : Measurable env) (hinit : Measurable initial)
+  (hiid : iIndepFun (fun i o => (initial o).ofLp i) nu) (hind : env ⟂ᵢ[nu] fun o i => (initial o).ofLp i)
+  (hlaw : ∀ (i : Fin N), Measure.map (fun o => (initial o).ofLp i) nu = mu0) :
+  Measure.map (fun o => (env o, initial o)) nu = (Measure.map env nu).prod (sourceInitialConfigurationLaw mu0)
+'PaperFormalization.Manuscript.source_original_input_product_law' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceAuxiliaryTransform.{u_1, u_2} {S : Type u_1} {A : Type u_2} (f : S → S) (g : A → A)
+  (n : ℕ) : SourceAuxiliarySpace S A n → SourceAuxiliarySpace S A n
+'PaperFormalization.Manuscript.sourceAuxiliaryTransform' does not depend on any axioms
+PaperFormalization.Manuscript.sourceAuxiliaryTransform_measurable.{u_1, u_2} {S : Type u_1} {A : Type u_2}
+  [MeasurableSpace S] [MeasurableSpace A] (f : S → S) (g : A → A) (hf : Measurable f) (hg : Measurable g) (n : ℕ) :
+  Measurable (sourceAuxiliaryTransform f g n)
+'PaperFormalization.Manuscript.sourceAuxiliaryTransform_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceAuxiliaryTransform_original.{u_1, u_2} {S : Type u_1} {A : Type u_2} (f : S → S)
+  (g : A → A) (n : ℕ) (z : SourceAuxiliarySpace S A n) :
+  sourceAuxiliaryOriginal n (sourceAuxiliaryTransform f g n z) = f (sourceAuxiliaryOriginal n z)
+'PaperFormalization.Manuscript.sourceAuxiliaryTransform_original' does not depend on any axioms
+PaperFormalization.Manuscript.sourceAuxiliaryTransform_array.{u_1, u_2} {S : Type u_1} {A : Type u_2} (f : S → S)
+  (g : A → A) (n : ℕ) (z : SourceAuxiliarySpace S A n) (i : Fin n) :
+  sourceAuxiliaryArray n (sourceAuxiliaryTransform f g n z) i = g (sourceAuxiliaryArray n z i)
+'PaperFormalization.Manuscript.sourceAuxiliaryTransform_array' depends on axioms: [propext, Quot.sound]
+PaperFormalization.Manuscript.sourceAuxiliaryTransform_preserving.{u_1, u_2} {S : Type u_1} {A : Type u_2}
+  [MeasurableSpace S] [MeasurableSpace A] (rho : Measure S) [IsProbabilityMeasure rho] (lambda : Measure A)
+  [IsProbabilityMeasure lambda] (f : S → S) (g : A → A) (hf : MeasurePreserving f rho rho)
+  (hg : MeasurePreserving g lambda lambda) (n : ℕ) :
+  MeasurePreserving (sourceAuxiliaryTransform f g n) (sourceAuxiliaryMeasure rho lambda n)
+    (sourceAuxiliaryMeasure rho lambda n)
+'PaperFormalization.Manuscript.sourceAuxiliaryTransform_preserving' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceAuxiliaryHistory_preserving.{u_1, u_2, u_3} {O : Type u_1} {S : Type u_2}
+  {A : Type u_3} [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace A] (nu : Measure O) [IsProbabilityMeasure nu]
+  (lambda : Measure A) [IsProbabilityMeasure lambda] (data : O → S) (hdata : Measurable data) (n : ℕ) :
+  MeasurePreserving (sourceAuxiliaryHistory data n) (sourceAuxiliaryMeasure nu lambda n)
+    (sourceAuxiliaryMeasure (Measure.map data nu) lambda n)
+'PaperFormalization.Manuscript.sourceAuxiliaryHistory_preserving' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceInputPermute.{u_1} {N d : ℕ} {S : Type u_1} (s : Equiv.Perm (Fin N))
+  (z : S × SourceFiniteConfiguration N d) : S × SourceFiniteConfiguration N d
+'PaperFormalization.Manuscript.sourceInputPermute' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceInputPermute_preserving.{u_1, u_2} {N d : ℕ} {O : Type u_1} {S : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace S] (nu : Measure O) [IsProbabilityMeasure nu]
+  (mu0 : Measure (EuclideanSpace ℝ (Fin d))) [IsProbabilityMeasure mu0] (env : O → S)
+  (initial : O → SourceFiniteConfiguration N d) (henv : Measurable env) (hinit : Measurable initial)
+  (hiid : iIndepFun (fun i o => (initial o).ofLp i) nu) (hind : env ⟂ᵢ[nu] fun o i => (initial o).ofLp i)
+  (hlaw : ∀ (i : Fin N), Measure.map (fun o => (initial o).ofLp i) nu = mu0) (s : Equiv.Perm (Fin N)) :
+  MeasurePreserving (sourceInputPermute s) (Measure.map (fun o => (env o, initial o)) nu)
+    (Measure.map (fun o => (env o, initial o)) nu)
+'PaperFormalization.Manuscript.sourceInputPermute_preserving' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourcePairPermute {N d : ℕ} (s : Equiv.Perm (Fin N))
+  (x : SourceFiniteConfiguration N d × SourceFiniteConfiguration N d) :
+  WithLp 2 ((i : Fin N) → (fun x => EuclideanSpace ℝ (Fin d)) (s i)) ×
+    WithLp 2 ((i : Fin N) → (fun x => EuclideanSpace ℝ (Fin d)) (s i))
+'PaperFormalization.Manuscript.sourcePairPermute' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourcePackedPermute.{u_1} {N d : ℕ} {W : Type u_1} {n : ℕ} (s : Equiv.Perm (Fin N))
+  (h : Fin n → W × SourceStepNormal N d) : Fin n → W × SourceStepNormal N d
+'PaperFormalization.Manuscript.sourcePackedPermute' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourcePackedPermute_population.{u_1} {N d : ℕ} {W : Type u_1} {n : ℕ}
+  (s : Equiv.Perm (Fin N)) (h : Fin n → W × SourceStepNormal N d) :
+  sourcePopulationPrefix (sourcePackedPermute s h) = sourcePopulationPrefix h
+'PaperFormalization.Manuscript.sourcePackedPermute_population' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourcePackedPermute_init.{u_1} {N d : ℕ} {W : Type u_1} {n : ℕ} (s : Equiv.Perm (Fin N))
+  (h : Fin (n + 1) → W × SourceStepNormal N d) :
+  sourceHistoryInit (sourcePackedPermute s h) = sourcePackedPermute s (sourceHistoryInit h)
+'PaperFormalization.Manuscript.sourcePackedPermute_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalCoupledStep_permute {N d : ℕ}
+  (M : SourceFiniteConfiguration N d → Matrix (Fin N × Fin d) (Fin N × Fin d) ℝ)
+  (hM : ∀ (x : SourceFiniteConfiguration N d), (M x).IsHermitian) (s : Equiv.Perm (Fin N))
+  (hMs :
+    ∀ (x : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      M (sourceParticlePermute s x) = (sourceMatrixPermute (sourceParticleIndexPermute s)) (M x))
+  (eta : ℝ) (C : Matrix (Fin N × Fin d) (Fin N × Fin d) ℝ) (X Y V : SourceFiniteConfiguration N d)
+  (a : SourceStepNormal N d) :
+  sourceCanonicalCoupledStep M hM eta ((sourceMatrixPermute (sourceParticleIndexPermute s)) C)
+      (sourceParticlePermute s X) (sourceParticlePermute s Y) (sourceParticlePermute s V)
+      (sourceEuclideanPermute (sourceParticleIndexPermute s) a) =
+    sourcePairPermute s (sourceCanonicalCoupledStep M hM eta C X Y V a)
+'PaperFormalization.Manuscript.sourceCanonicalCoupledStep_permute' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCanonicalCoupledPost_permute.{u_1} {N d : ℕ} {W : Type u_1} (tau eta : ℕ → ℝ)
+  (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (M : SourceFiniteConfiguration N d → Matrix (Fin N × Fin d) (Fin N × Fin d) ℝ)
+  (hM : ∀ (x : SourceFiniteConfiguration N d), (M x).IsHermitian)
+  (C : (n : ℕ) → (Fin n → W) → SourceFiniteConfiguration N d → Matrix (Fin N × Fin d) (Fin N × Fin d) ℝ)
+  (s : Equiv.Perm (Fin N))
+  (hFX :
+    ∀ (n : ℕ) (t : ℝ) (x : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      flowX n t (sourceParticlePermute s x) = sourceParticlePermute s (flowX n t x))
+  (hMs :
+    ∀ (x : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      M (sourceParticlePermute s x) = (sourceMatrixPermute (sourceParticleIndexPermute s)) (M x))
+  (hCs :
+    ∀ (n : ℕ) (h : Fin n → W) (x : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      C n h (sourceParticlePermute s x) = (sourceMatrixPermute (sourceParticleIndexPermute s)) (C n h x))
+  (n : ℕ) (h : Fin n → W × SourceStepNormal N d) (u : SourceFiniteConfiguration N d) :
+  sourceCanonicalCoupledPost tau eta flowX flowY field M hM C n (sourcePackedPermute s h) (sourceParticlePermute s u) =
+    sourcePairPermute s (sourceCanonicalCoupledPost tau eta flowX flowY field M hM C n h u)
+'PaperFormalization.Manuscript.sourceCanonicalCoupledPost_permute' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceActualCovarianceVersion_permute.{u_1, u_2} {N d : ℕ} {W : Type u_1}
+  [MeasurableSpace W] {H : ℕ → Type u_2} [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)]
+  [∀ (m : ℕ), CompleteSpace (H m)] (mu0 : Measure (EuclideanSpace ℝ (Fin d))) [IsProbabilityMeasure mu0] (c p : ℝ)
+  (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (tau eta : ℕ → ℝ)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hFY : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flowY n z.1 t z.2)
+  (hfield : ∀ (n : ℕ), Measurable fun z => field n z.1.1 z.1.2 z.2) (s : Equiv.Perm (Fin N)) (n : ℕ) (past : Fin n → W)
+  (Y : SourceFiniteConfiguration N d) :
+  sourceActualCovarianceVersion mu0 c p phi G U tau eta flowY field n past (sourceParticlePermute s Y) =
+    (sourceMatrixPermute (sourceParticleIndexPermute s))
+      (sourceActualCovarianceVersion mu0 c p phi G U tau eta flowY field n past Y)
+'PaperFormalization.Manuscript.sourceActualCovarianceVersion_permute' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceActualFinitePost_permute.{u_1, u_2} {N d : ℕ} {W : Type u_1} [MeasurableSpace W]
+  {H : ℕ → Type u_2} [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)]
+  [∀ (m : ℕ), CompleteSpace (H m)] (mu0 : Measure (EuclideanSpace ℝ (Fin d))) [IsProbabilityMeasure mu0] (c p alpha : ℝ)
+  (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hDomains : SourceAllMomentDomains (sourceWeightedFeatureMap c p phi) alpha U) (hG : ContDiffOn ℝ 2 G U) (hN : 0 < N)
+  (tau eta : ℕ → ℝ) (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hFY : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flowY n z.1 t z.2)
+  (hfield : ∀ (n : ℕ), Measurable fun z => field n z.1.1 z.1.2 z.2) (s : Equiv.Perm (Fin N))
+  (hFX :
+    ∀ (n : ℕ) (t : ℝ) (x : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      flowX n t (sourceParticlePermute s x) = sourceParticlePermute s (flowX n t x))
+  (n : ℕ) (h : Fin n → W × SourceStepNormal N d) (u : SourceFiniteConfiguration N d) :
+  sourceActualFinitePost mu0 c p alpha phi G U hU hDomains hG hN tau eta flowX flowY field n (sourcePackedPermute s h)
+      (sourceParticlePermute s u) =
+    sourcePairPermute s (sourceActualFinitePost mu0 c p alpha phi G U hU hDomains hG hN tau eta flowX flowY field n h u)
+'PaperFormalization.Manuscript.sourceActualFinitePost_permute' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceFiniteHorizonBranch_permute.{u_1} {N d : ℕ} {W : Type u_1}
+  (post : SourcePostMap W N d) (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (s : Equiv.Perm (Fin N))
+  (hpost :
+    ∀ (n : ℕ) (h : Fin n → W × SourceStepNormal N d) (u : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      post n (sourcePackedPermute s h) (sourceParticlePermute s u) = sourcePairPermute s (post n h u))
+  (hFX :
+    ∀ (n : ℕ) (t : ℝ) (x : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      flowX n t (sourceParticlePermute s x) = sourceParticlePermute s (flowX n t x))
+  (J : ℕ) (h : Fin J → W × SourceStepNormal N d) (u : SourceFiniteConfiguration N d) (n : ℕ) (t : ℝ) :
+  sourceFiniteHorizonBranch post flowX flowY J (sourcePackedPermute s h) (sourceParticlePermute s u) n t =
+    sourcePairPermute s (sourceFiniteHorizonBranch post flowX flowY J h u n t)
+'PaperFormalization.Manuscript.sourceFiniteHorizonBranch_permute' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceFinalBranch.{u_1, u_2} {O : Type u_1} {W : Type u_2} {N d : ℕ}
+  (post : SourcePostMap W N d) (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (initial : O → SourceFiniteConfiguration N d) (innovation : ℕ → O → W) (J : ℕ)
+  (z : SourceAuxiliarySpace O (SourceStepNormal N d) J) (n : ℕ) (t : ℝ) :
+  SourceFiniteConfiguration N d × SourceFiniteConfiguration N d
+'PaperFormalization.Manuscript.sourceFinalBranch' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceFinalRight.{u_1, u_2} {O : Type u_1} {W : Type u_2} {N d : ℕ}
+  (post : SourcePostMap W N d) (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (tau : ℕ → ℝ)
+  (initial : O → SourceFiniteConfiguration N d) (innovation : ℕ → O → W) (J : ℕ)
+  (z : SourceAuxiliarySpace O (SourceStepNormal N d) J) (t : ℝ) :
+  SourceFiniteConfiguration N d × SourceFiniteConfiguration N d
+'PaperFormalization.Manuscript.sourceFinalRight' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourcePairCloud {N d : ℕ} (c : Fin 2)
+  (x : SourceFiniteConfiguration N d × SourceFiniteConfiguration N d) : SourceFiniteConfiguration N d
+'PaperFormalization.Manuscript.sourcePairCloud' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourcePairCloud_measurable {N d : ℕ} (c : Fin 2) : Measurable (sourcePairCloud c)
+'PaperFormalization.Manuscript.sourcePairCloud_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceFiniteHorizonBranch_measurable.{u_2} {W : Type u_2} [MeasurableSpace W] {N d : ℕ}
+  (post : SourcePostMap W N d) (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hpost : ∀ (n : ℕ), Measurable fun z => post n z.1 z.2) (hX : ∀ (n : ℕ) (t : ℝ), Measurable (flowX n t))
+  (hY : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flowY n z.1 t z.2) (J n : ℕ) (t : ℝ) :
+  Measurable fun z => sourceFiniteHorizonBranch post flowX flowY J z.1 z.2 n t
+'PaperFormalization.Manuscript.sourceFiniteHorizonBranch_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceFinalBranch_measurable.{u_1, u_2} {O : Type u_1} {W : Type u_2} [MeasurableSpace O]
+  [MeasurableSpace W] {N d : ℕ} (post : SourcePostMap W N d)
+  (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hpost : ∀ (n : ℕ), Measurable fun z => post n z.1 z.2) (hX : ∀ (n : ℕ) (t : ℝ), Measurable (flowX n t))
+  (hY : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flowY n z.1 t z.2) (initial : O → SourceFiniteConfiguration N d)
+  (innovation : ℕ → O → W) (hinit : Measurable initial) (hInnovation : ∀ (k : ℕ), Measurable (innovation k)) (J n : ℕ)
+  (t : ℝ) : Measurable fun z => sourceFinalBranch post flowX flowY initial innovation J z n t
+'PaperFormalization.Manuscript.sourceFinalBranch_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceInputFinalBranch.{u_2} {W : Type u_2} {N d : ℕ} (post : SourcePostMap W N d)
+  (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (J : ℕ)
+  (z : SourceAuxiliarySpace ((ℕ → W) × SourceFiniteConfiguration N d) (SourceStepNormal N d) J) (n : ℕ) (t : ℝ) :
+  SourceFiniteConfiguration N d × SourceFiniteConfiguration N d
+'PaperFormalization.Manuscript.sourceInputFinalBranch' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceInputFinalBranch_observation.{u_1, u_2} {O : Type u_1} {W : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace W] {N d : ℕ} (post : SourcePostMap W N d)
+  (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (initial : O → SourceFiniteConfiguration N d) (innovation : ℕ → O → W) (J : ℕ)
+  (z : SourceAuxiliarySpace O (SourceStepNormal N d) J) (n : ℕ) (t : ℝ) :
+  sourceInputFinalBranch post flowX flowY J (sourceAuxiliaryHistory (fun o => (fun k => innovation k o, initial o)) J z)
+      n t =
+    sourceFinalBranch post flowX flowY initial innovation J z n t
+'PaperFormalization.Manuscript.sourceInputFinalBranch_observation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceInputFinalBranch_transform.{u_2} {W : Type u_2} [MeasurableSpace W] {N d : ℕ}
+  (post : SourcePostMap W N d) (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (s : Equiv.Perm (Fin N))
+  (hpost :
+    ∀ (n : ℕ) (h : Fin n → W × SourceStepNormal N d) (u : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      post n (sourcePackedPermute s h) (sourceParticlePermute s u) = sourcePairPermute s (post n h u))
+  (hX :
+    ∀ (n : ℕ) (t : ℝ) (x : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      flowX n t (sourceParticlePermute s x) = sourceParticlePermute s (flowX n t x))
+  (J : ℕ) (z : SourceAuxiliarySpace ((ℕ → W) × SourceFiniteConfiguration N d) (SourceStepNormal N d) J) (n : ℕ)
+  (t : ℝ) :
+  sourceInputFinalBranch post flowX flowY J
+      (sourceAuxiliaryTransform (sourceInputPermute s) (sourceEuclideanPermute (sourceParticleIndexPermute s)) J z) n
+      t =
+    sourcePairPermute s (sourceInputFinalBranch post flowX flowY J z n t)
+'PaperFormalization.Manuscript.sourceInputFinalBranch_transform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceFinalBranch_exchangeable.{u_1, u_2} {O : Type u_1} {W : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace W] {N d : ℕ} (post : SourcePostMap W N d)
+  (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hpost : ∀ (n : ℕ), Measurable fun z => post n z.1 z.2) (hX : ∀ (n : ℕ) (t : ℝ), Measurable (flowX n t))
+  (hY : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flowY n z.1 t z.2)
+  (hpostPerm :
+    ∀ (s : Equiv.Perm (Fin N)) (n : ℕ) (h : Fin n → W × SourceStepNormal N d)
+      (u : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      post n (sourcePackedPermute s h) (sourceParticlePermute s u) = sourcePairPermute s (post n h u))
+  (hXPerm :
+    ∀ (s : Equiv.Perm (Fin N)) (n : ℕ) (t : ℝ) (x : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      flowX n t (sourceParticlePermute s x) = sourceParticlePermute s (flowX n t x))
+  (nu : Measure O) [IsProbabilityMeasure nu] (mu0 : Measure (EuclideanSpace ℝ (Fin d))) [IsProbabilityMeasure mu0]
+  (initial : O → SourceFiniteConfiguration N d) (innovation : ℕ → O → W) (hinit : Measurable initial)
+  (hInnovation : ∀ (k : ℕ), Measurable (innovation k)) (hiid : iIndepFun (fun i o => (initial o).ofLp i) nu)
+  (hind : (fun o k => innovation k o) ⟂ᵢ[nu] fun o i => (initial o).ofLp i)
+  (hlaw : ∀ (i : Fin N), Measure.map (fun o => (initial o).ofLp i) nu = mu0) (J n : ℕ) (t : ℝ)
+  (s : Equiv.Perm (Fin N)) :
+  have law := sourceAuxiliaryMeasure nu (stdGaussian (SourceStepNormal N d)) J;
+  Measure.map (fun z => sourcePairPermute s (sourceFinalBranch post flowX flowY initial innovation J z n t)) law =
+    Measure.map (fun z => sourceFinalBranch post flowX flowY initial innovation J z n t) law
+'PaperFormalization.Manuscript.sourceFinalBranch_exchangeable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_pair_marginals_of_permutation.{u_3} {N d : ℕ} {S : Type u_3} [MeasurableSpace S]
+  (rho : Measure S) (X : S → SourceFiniteConfiguration N d × SourceFiniteConfiguration N d) (hX : Measurable X)
+  (hinv : ∀ (s : Equiv.Perm (Fin N)), Measure.map (fun z => sourcePairPermute s (X z)) rho = Measure.map X rho)
+  (c : Fin 2) (i i0 : Fin N) :
+  Measure.map (fun z => (sourcePairCloud c (X z)).ofLp i) rho =
+    Measure.map (fun z => (sourcePairCloud c (X z)).ofLp i0) rho
+'PaperFormalization.Manuscript.source_pair_marginals_of_permutation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_closed_time_in_horizon (tau : ℕ → ℝ) (J : ℕ) (T : ℝ) (htau0 : tau 0 = 0)
+  (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T) (k : ℕ) (hk : k ≤ J) (t : ℝ)
+  (ht : t ∈ Icc (tau k) (if k < J then tau (k + 1) else T)) : t ∈ Icc 0 T
+'PaperFormalization.Manuscript.source_closed_time_in_horizon' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.source_closed_branch_moment_from_right.{u_1, u_2} {S : Type u_1} {E : Type u_2}
+  [MeasurableSpace S] [MeasurableSpace E] [NormedAddCommGroup E] [BorelSpace E] [SecondCountableTopology E]
+  (rho : Measure S) [IsProbabilityMeasure rho] (tau : ℕ → ℝ) (J : ℕ) (T alpha K0 : ℝ) (htau0 : tau 0 = 0)
+  (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T) (X : ℕ → S → ℝ → E)
+  (hX : ∀ (k : ℕ) (t : ℝ), Measurable fun z => X k z t)
+  (hcont : ∀ k ≤ J, ∀ᵐ (z : S) ∂rho, ContinuousOn (X k z) (Icc (tau k) (if k < J then tau (k + 1) else T)))
+  (hfirst : ∀ t ∈ Icc 0 T, Measure.map (fun z => sourceGlue tau J (fun k => X k z) t) rho ∈ sourceMomentClass alpha K0)
+  (k : ℕ) (hk : k ≤ J) (t : ℝ) (ht : t ∈ Icc (tau k) (if k < J then tau (k + 1) else T)) :
+  Measure.map (fun z => X k z t) rho ∈ sourceMomentClass alpha K0
+'PaperFormalization.Manuscript.source_closed_branch_moment_from_right' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceFinalBranch_all_closed_moments.{u_1, u_2} {O : Type u_1} {W : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace W] {N d : ℕ} (post : SourcePostMap W N d)
+  (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hpost : ∀ (n : ℕ), Measurable fun z => post n z.1 z.2) (hX : ∀ (n : ℕ) (t : ℝ), Measurable (flowX n t))
+  (hY : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flowY n z.1 t z.2)
+  (hpostPerm :
+    ∀ (s : Equiv.Perm (Fin N)) (n : ℕ) (h : Fin n → W × SourceStepNormal N d)
+      (u : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      post n (sourcePackedPermute s h) (sourceParticlePermute s u) = sourcePairPermute s (post n h u))
+  (hXPerm :
+    ∀ (s : Equiv.Perm (Fin N)) (n : ℕ) (t : ℝ) (x : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)),
+      flowX n t (sourceParticlePermute s x) = sourceParticlePermute s (flowX n t x))
+  (nu : Measure O) [IsProbabilityMeasure nu] (mu0 : Measure (EuclideanSpace ℝ (Fin d))) [IsProbabilityMeasure mu0]
+  (initial : O → SourceFiniteConfiguration N d) (innovation : ℕ → O → W) (hinit : Measurable initial)
+  (hInnovation : ∀ (k : ℕ), Measurable (innovation k)) (hiid : iIndepFun (fun i o => (initial o).ofLp i) nu)
+  (hind : (fun o k => innovation k o) ⟂ᵢ[nu] fun o i => (initial o).ofLp i)
+  (hlaw : ∀ (i : Fin N), Measure.map (fun o => (initial o).ofLp i) nu = mu0) (tau : ℕ → ℝ) (J : ℕ) (T alpha K0 : ℝ)
+  (htau0 : tau 0 = 0) (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T) (i0 : Fin N)
+  (hcont :
+    ∀ (c : Fin 2),
+      ∀ k ≤ J,
+        ∀ᵐ (z :
+          SourceAuxiliarySpace O (SourceStepNormal N d)
+            J) ∂sourceAuxiliaryMeasure nu (stdGaussian (SourceStepNormal N d)) J,
+          ContinuousOn
+            (fun t => (sourcePairCloud c (sourceFinalBranch post flowX flowY initial innovation J z k t)).ofLp i0)
+            (Icc (tau k) (if k < J then tau (k + 1) else T)))
+  (hfirst :
+    ∀ (c : Fin 2),
+      ∀ t ∈ Icc 0 T,
+        Measure.map
+            (fun z => (sourcePairCloud c (sourceFinalRight post flowX flowY tau initial innovation J z t)).ofLp i0)
+            (sourceAuxiliaryMeasure nu (stdGaussian (SourceStepNormal N d)) J) ∈
+          sourceMomentClass alpha K0)
+  (c : Fin 2) (i : Fin N) (k : ℕ) :
+  k ≤ J →
+    ∀ t ∈ Icc (tau k) (if k < J then tau (k + 1) else T),
+      Measure.map (fun z => (sourcePairCloud c (sourceFinalBranch post flowX flowY initial innovation J z k t)).ofLp i)
+          (sourceAuxiliaryMeasure nu (stdGaussian (SourceStepNormal N d)) J) ∈
+        sourceMomentClass alpha K0
+'PaperFormalization.Manuscript.sourceFinalBranch_all_closed_moments' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.SourceReferenceControl.{u_1} {Seed : Type u_1} [MeasurableSpace Seed] {J d : ℕ}
+  (mu0 : Measure Seed) (R : Fin (J + 1) → Seed → ℝ → EuclideanSpace ℝ (Fin d)) (a btime : Fin (J + 1) → ℝ) (B : ℝ≥0)
+  (alpha K scale : ℝ) : Prop
+'PaperFormalization.Manuscript.SourceReferenceControl' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceReferenceControl_congr.{u_1} {Seed : Type u_1} [MeasurableSpace Seed] {J d : ℕ}
+  (mu0 : Measure Seed) (R S : Fin (J + 1) → Seed → ℝ → EuclideanSpace ℝ (Fin d)) (a btime : Fin (J + 1) → ℝ) (B : ℝ≥0)
+  (alpha K scale : ℝ) (hEq : ∀ᵐ (u : Seed) ∂mu0, ∀ (j : Fin (J + 1)), ∀ t ∈ Icc (a j) (btime j), R j u t = S j u t)
+  (hR : SourceReferenceControl mu0 R a btime B alpha K scale) : SourceReferenceControl mu0 S a btime B alpha K scale
+'PaperFormalization.Manuscript.sourceReferenceControl_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceReferenceControl_exponential_eligibility.{u_1} {Seed : Type u_1}
+  [MeasurableSpace Seed] {J d : ℕ} (mu0 : Measure Seed) (R : Fin (J + 1) → Seed → ℝ → EuclideanSpace ℝ (Fin d))
+  (a btime : Fin (J + 1) → ℝ) (B : ℝ≥0) (alpha K scale : ℝ) (hR : SourceReferenceControl mu0 R a btime B alpha K scale)
+  (j : Fin (J + 1)) (t : ℝ) (ht : t ∈ Icc (a j) (btime j)) :
+  ∫⁻ (x : EuclideanSpace ℝ (Fin d)),
+      ENNReal.ofReal (Real.exp ((‖x‖ / scale) ^ alpha)) ∂Measure.map (fun u => R j u t) mu0 ≤
+    2
+'PaperFormalization.Manuscript.sourceReferenceControl_exponential_eligibility' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.exists_source_retained_population_gamma_radius_event.{u_1, u_2, u_3, u_4} {O : Type u_1}
+  {Env : Type u_2} {Seed : Type u_3} [MeasurableSpace O] [MeasurableSpace Env] [MeasurableSpace Seed] {H : ℕ → Type u_4}
+  [(n : ℕ) → NormedAddCommGroup (H n)] [(n : ℕ) → InnerProductSpace ℝ (H n)] [∀ (n : ℕ), CompleteSpace (H n)]
+  (J N d : ℕ) (hN : 0 < N) (T : ℝ) (a btime : Fin (J + 1) → ℝ) (B : ℝ≥0) (hab : ∀ (j : Fin (J + 1)), a j ≤ btime j)
+  (hlen : ∑ j, (btime j - a j) ≤ T) (alpha K0 pPop pGamma D : ℝ) (halpha : 0 < alpha) (hK0 : 0 < K0) (hpPop : 0 < pPop)
+  (hpPop1 : pPop ≤ 1) (hpGamma : 0 < pGamma) (hpGamma1 : pGamma < 1) (hD : 1 ≤ D) (hRadius : 2 * Real.exp 1 * K0 ≤ D)
+  (nu : Measure O) [IsProbabilityMeasure nu] (mu0 : Measure Seed) [IsProbabilityMeasure mu0] (env : O → Env)
+  (initial : Fin N → O → Seed) (henv : Measurable env) (hinit : ∀ (i : Fin N), Measurable (initial i))
+  (hiid : iIndepFun initial nu) (hind : env ⟂ᵢ[nu] fun o i => initial i o)
+  (hlaw : ∀ (i : Fin N), Measure.map (initial i) nu = mu0) (Phi : Env → Seed → SourceReferencePathSpace J d a btime)
+  (hPhi : Measurable fun z => Phi z.1 z.2) (Z : Fin 2 → Fin N → Fin (J + 1) → O → ℝ → EuclideanSpace ℝ (Fin d))
+  (hZ : ∀ (c : Fin 2) (i : Fin N) (j : Fin (J + 1)) (t : ℝ), Measurable fun o => Z c i j o t)
+  (hLip :
+    ∀ᵐ (o : O) ∂nu, ∀ (c : Fin 2) (i : Fin N) (j : Fin (J + 1)), LipschitzOnWith B (Z c i j o) (Icc (a j) (btime j)))
+  (hMarginal :
+    ∀ (c : Fin 2) (i : Fin N) (j : Fin (J + 1)),
+      ∀ t ∈ Icc (a j) (btime j), Measure.map (fun o => Z c i j o t) nu ∈ sourceMomentClass alpha K0)
+  (hRef :
+    ∀ᵐ (o : O) ∂nu,
+      ∀ (i : Fin N) (j : Fin (J + 1)),
+        ∀ t ∈ Icc (a j) (btime j), Z 1 i j o t = sourceReferencePathEval (Phi (env o) (initial i o)) j t)
+  (Model : O → Prop) (hModel : ∀ᵐ (o : O) ∂nu, Model o) (c C g pDecay q : ℝ) (Lfield : ℝ≥0) (hc : 0 < c)
+  (hpDecay : 1 < pDecay) (hq : q < pDecay) (hC : 0 ≤ C) (phi : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n)
+  (hphi : ∀ (n : ℕ), ContDiff ℝ 1 (phi n))
+  (hvalue : ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)), ‖phi n z‖ ≤ featureGrowth C g q n * (1 + ‖z‖ ^ (n + 1)))
+  (hderiv : ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)), ‖fderiv ℝ (phi n) z‖ ≤ featureGrowth C g q n * (1 + ‖z‖ ^ n)) :
+  have b := sourcePopulationExponentialScale alpha K0;
+  have A0 := 4 * ↑(populationGridBudget B J T) / pPop;
+  have scale := sourcePopulationNormalizedScale alpha b A0;
+  have Kpop := sourceExponentialMomentCoefficient alpha * scale;
+  have delta :=
+    sourceOriginalGammaThreshold J N T B Lfield c C g pDecay q alpha Kpop D (sourcePopulationFlowFactor alpha)⁻¹ b
+      (A0 * Real.exp (b ^ (-alpha))) pGamma;
+  ∃ Good,
+    MeasurableSet Good ∧
+      nu.real Good.compl ≤ pPop + pGamma + sourceOriginalRadiusLoss J N T alpha K0 D B ∧
+        ∀ o ∈ Good,
+          Model o ∧
+            SourceReferenceControl mu0 (fun j u t => sourceReferencePathEval (Phi (env o) u) j t) a btime B alpha Kpop
+                scale ∧
+              (∀ (c : Fin 2) (i : Fin N) (j : Fin (J + 1)), ∀ t ∈ Icc (a j) (btime j), ‖Z c i j o t‖ ≤ D) ∧
+                ∀ (j : Fin (J + 1)),
+                  ∀ t ∈ Icc (a j) (btime j),
+                    (∀ (n : ℕ), Integrable (fun u => phi n (sourceReferencePathEval (Phi (env o) u) j t)) mu0) ∧
+                      (weightedSampleResidual (featureResidualWeight c pDecay Lfield) phi
+                          (fun n => ∫ (u : Seed), phi n (sourceReferencePathEval (Phi (env o) u) j t) ∂mu0) fun i =>
+                          Z 1 i j o t) ≤
+                        delta
+'PaperFormalization.Manuscript.exists_source_retained_population_gamma_radius_event' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceOriginalCharacteristic.{u_2} {W : Type u_2} {d : ℕ} (tau eta : ℕ → ℝ)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (n : ℕ) (e : ℕ → W)
+  (u : EuclideanSpace ℝ (Fin d)) (t : ℝ) : EuclideanSpace ℝ (Fin d)
+'PaperFormalization.Manuscript.sourceOriginalCharacteristic' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceOriginalCharacteristic_measurable.{u_2} {W : Type u_2} [MeasurableSpace W] {d : ℕ}
+  (tau eta : ℕ → ℝ) (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hFY : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flowY n z.1 t z.2)
+  (hField : ∀ (n : ℕ), Measurable fun z => field n z.1.1 z.1.2 z.2) (n : ℕ) (t : ℝ) :
+  Measurable fun z => sourceOriginalCharacteristic tau eta flowY field n z.1 z.2 t
+'PaperFormalization.Manuscript.sourceOriginalCharacteristic_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceFiniteReferenceBranch_original.{u_1, u_2} {O : Type u_1} {W : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace W] {N d : ℕ} (tau eta : ℕ → ℝ)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (innovation : ℕ → O → W)
+  (J k : ℕ) (hk : k ≤ J) (z : SourceAuxiliarySpace O (SourceStepNormal N d) J) (u : EuclideanSpace ℝ (Fin d)) (t : ℝ) :
+  sourceFiniteReferenceBranch tau eta flowY field J (sourceTowerPacked innovation J z) k u t =
+    sourceOriginalCharacteristic tau eta flowY field k (fun n => innovation n (sourceAuxiliaryOriginal J z)) u t
+'PaperFormalization.Manuscript.sourceFiniteReferenceBranch_original' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceFinalBranch_reference_original.{u_1, u_2, u_3} {O : Type u_1} {W : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace W] {N d : ℕ} {H : ℕ → Type u_3} [(n : ℕ) → NormedAddCommGroup (H n)]
+  [(n : ℕ) → InnerProductSpace ℝ (H n)] [∀ (n : ℕ), CompleteSpace (H n)] (mu0 : Measure (EuclideanSpace ℝ (Fin d)))
+  (c p alpha : ℝ) (phi : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n) (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2))
+  (hU : IsOpen U) (hDomains : SourceAllMomentDomains (sourceWeightedFeatureMap c p phi) alpha U)
+  (hG : ContDiffOn ℝ 2 G U) (hN : 0 < N) (tau eta : ℕ → ℝ)
+  (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (initial : O → SourceFiniteConfiguration N d) (innovation : ℕ → O → W) (J k : ℕ) (hk : k ≤ J)
+  (z : SourceAuxiliarySpace O (SourceStepNormal N d) J) (t : ℝ) (i : Fin N) :
+  (sourceFinalBranch (sourceActualFinitePost mu0 c p alpha phi G U hU hDomains hG hN tau eta flowX flowY field) flowX
+            flowY initial innovation J z k t).2.ofLp
+      i =
+    sourceOriginalCharacteristic tau eta flowY field k (fun n => innovation n (sourceAuxiliaryOriginal J z))
+      ((initial (sourceAuxiliaryOriginal J z)).ofLp i) t
+'PaperFormalization.Manuscript.sourceFinalBranch_reference_original' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceFinalBranch_reference_map.{u_1, u_2, u_3} {O : Type u_1} {W : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace W] {N d : ℕ} {H : ℕ → Type u_3} [(n : ℕ) → NormedAddCommGroup (H n)]
+  [(n : ℕ) → InnerProductSpace ℝ (H n)] [∀ (n : ℕ), CompleteSpace (H n)] (mu0 : Measure (EuclideanSpace ℝ (Fin d)))
+  (c p alpha : ℝ) (phi : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n) (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2))
+  (hU : IsOpen U) (hDomains : SourceAllMomentDomains (sourceWeightedFeatureMap c p phi) alpha U)
+  (hG : ContDiffOn ℝ 2 G U) (hN : 0 < N) (tau eta : ℕ → ℝ)
+  (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (nu : Measure O)
+  [IsProbabilityMeasure nu] (initial : O → SourceFiniteConfiguration N d) (innovation : ℕ → O → W)
+  (hinit : Measurable initial) (hInnovation : ∀ (n : ℕ), Measurable (innovation n))
+  (hFY : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flowY n z.1 t z.2)
+  (hField : ∀ (n : ℕ), Measurable fun z => field n z.1.1 z.1.2 z.2) (J k : ℕ) (hk : k ≤ J) (t : ℝ) (i : Fin N) :
+  Measure.map
+      (fun z =>
+        (sourceFinalBranch (sourceActualFinitePost mu0 c p alpha phi G U hU hDomains hG hN tau eta flowX flowY field)
+                flowX flowY initial innovation J z k t).2.ofLp
+          i)
+      (sourceAuxiliaryMeasure nu (stdGaussian (SourceStepNormal N d)) J) =
+    Measure.map
+      (fun o => sourceOriginalCharacteristic tau eta flowY field k (fun n => innovation n o) ((initial o).ofLp i) t) nu
+'PaperFormalization.Manuscript.sourceFinalBranch_reference_map' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceScheduleLeft (tau : ℕ → ℝ) (J : ℕ) (j : Fin (J + 1)) : ℝ
+'PaperFormalization.Manuscript.sourceScheduleLeft' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceScheduleRight (tau : ℕ → ℝ) (J : ℕ) (T : ℝ) (j : Fin (J + 1)) : ℝ
+'PaperFormalization.Manuscript.sourceScheduleRight' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceSchedule_ordered (tau : ℕ → ℝ) (J : ℕ) (T : ℝ)
+  (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T) (j : Fin (J + 1)) :
+  sourceScheduleLeft tau J j ≤ sourceScheduleRight tau J T j
+'PaperFormalization.Manuscript.sourceSchedule_ordered' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceSchedule_total_length (tau : ℕ → ℝ) (J : ℕ) (T : ℝ) (htau : tau 0 = 0) :
+  ∑ j, (sourceScheduleRight tau J T j - sourceScheduleLeft tau J j) = T
+'PaperFormalization.Manuscript.sourceSchedule_total_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.SourceRightAntiSpikiness {N d : ℕ} (X Y : ℝ → SourceFiniteConfiguration N d)
+  (T A_sp : ℝ) : Prop
+'PaperFormalization.Manuscript.SourceRightAntiSpikiness' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceRightAntiSpikiness_of_positive {N d : ℕ} (X Y : ℝ → SourceFiniteConfiguration N d)
+  (T A_sp : ℝ) (hN : 0 < N)
+  (h : ∀ t ∈ Icc 0 T, 0 < ‖X t - Y t‖ / √↑N → (↑N)⁻¹ * ∑ i, ‖(X t - Y t).ofLp i‖ ^ 3 ≤ A_sp * (‖X t - Y t‖ / √↑N) ^ 3) :
+  SourceRightAntiSpikiness X Y T A_sp
+'PaperFormalization.Manuscript.sourceRightAntiSpikiness_of_positive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceRightAntiSpikiness_branches {N d : ℕ} (tau : ℕ → ℝ) (J : ℕ) (T A_sp : ℝ)
+  (htau0 : tau 0 = 0) (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T)
+  (XB YB : ℕ → ℝ → SourceFiniteConfiguration N d)
+  (hsp : SourceRightAntiSpikiness (sourceGlue tau J XB) (sourceGlue tau J YB) T A_sp) (k : ℕ) (hk : k ≤ J) :
+  ∀ᵐ (t : ℝ) ∂ℙ.restrict (Ioo (tau k) (if k < J then tau (k + 1) else T)),
+    (↑N)⁻¹ * ∑ i, ‖(XB k t - YB k t).ofLp i‖ ^ 3 ≤ A_sp * (‖XB k t - YB k t‖ / √↑N) ^ 3
+'PaperFormalization.Manuscript.sourceRightAntiSpikiness_branches' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.SourceTrackingSmallness (kappa : ℝ → ℝ) (tau eta : ℕ → ℝ) (J : ℕ)
+  (T delta deltaTilde A cD : ℝ) : Prop
+'PaperFormalization.Manuscript.SourceTrackingSmallness' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.SourceTrackingConclusion {N d : ℕ} (X Y : ℝ → SourceFiniteConfiguration N d)
+  (preX preY : ℕ → SourceFiniteConfiguration N d) (kappa : ℝ → ℝ) (tau eta : ℕ → ℝ) (J : ℕ) (T delta deltaTilde A : ℝ) :
+  Prop
+'PaperFormalization.Manuscript.SourceTrackingConclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.source_finite_horizon_tracking.{u_1, u_2, u_3, u_4, u_5} {W : Type u_1} {O : Type u_2}
+  [MeasurableSpace W] [MeasurableSpace O] {N d : ℕ} {H : ℕ → Type u_3} [(n : ℕ) → NormedAddCommGroup (H n)]
+  [(n : ℕ) → InnerProductSpace ℝ (H n)] [∀ (n : ℕ), CompleteSpace (H n)] (c C g p q alpha K D scale C3 : ℝ)
+  (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (hc : 0 < c) (hC : 0 ≤ C) (hp : 1 < p) (hq : q < p)
+  (halpha : 0 < alpha) (hK : 0 < K) (hD : 1 ≤ D) (hphi : ∀ (m : ℕ), ContDiff ℝ 2 (phi m))
+  (hgrowth :
+    ∀ (m : ℕ) (x : EuclideanSpace ℝ (Fin d)),
+      ∀ k ≤ 2, ‖iteratedFDeriv ℝ k (phi m) x‖ ≤ featureGrowth C g q m * (1 + ‖x‖ ^ (m + 1 - k)))
+  (hthirdphi : ∀ (m : ℕ) (x : EuclideanSpace ℝ (Fin d)), DifferentiableAt ℝ (fderiv ℝ (fderiv ℝ (phi m))) x)
+  (hgrowth3 :
+    ∀ (m : ℕ) (x : EuclideanSpace ℝ (Fin d)),
+      ‖iteratedFDeriv ℝ 3 (phi m) x‖ ≤ featureGrowth C g q m * (1 + ‖x‖ ^ (m + 1 - 3)))
+  (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hDomains : SourceAllMomentDomains (sourceWeightedFeatureMap c p phi) alpha U) (hG : ContDiffOn ℝ 3 G U)
+  (hthirdG :
+    ∀ theta ∈ measureMomentRegion (sourceWeightedFeatureMap c p phi) (sourceMomentClass alpha K) D,
+      ‖iteratedFDeriv ℝ 3 G theta‖ ≤ C3)
+  (L : ℝ≥0) (hL : ↑L = sourceComparisonEnvelope c C g p q K D alpha C3 phi G) (mu0 : Measure (EuclideanSpace ℝ (Fin d)))
+  [IsProbabilityMeasure mu0] (hN : 0 < N) (tau eta : ℕ → ℝ)
+  (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (J : ℕ) (T : ℝ) (B : ℝ≥0)
+  (htau0 : tau 0 = 0) (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T) (h : Fin J → W × SourceStepNormal N d)
+  (u : SourceFiniteConfiguration N d) (hXstart : ∀ (k : ℕ) (x : SourceFiniteConfiguration N d), flowX k (tau k) x = x)
+  (hYstart : ∀ (k : ℕ) (past : Fin k → W) (x : EuclideanSpace ℝ (Fin d)), flowY k past (tau k) x = x)
+  (delta deltaTilde pTotal : ℝ) (nu : Measure O) (S : Fin J → Type u_4) (V : Fin J → Type u_5)
+  [(n : Fin J) → MeasurableSpace (S n)] [(n : Fin J) → MeasurableSpace (V n)]
+  (view : (n : Fin J) → SourceObservedJumpView c p K D alpha phi G U hU ⋯ ⋯ hN nu (S n) (V n)) (omega : O) :
+  have post := sourceActualFinitePost mu0 c p alpha phi G U hU hDomains ⋯ hN tau eta flowX flowY field;
+  have branches := sourceFiniteHorizonBranch post flowX flowY J h u;
+  have paths := sourceFiniteHorizonPath post flowX flowY tau J h u;
+  have Z := sourceFiniteReferenceBranch tau eta flowY field J h;
+  have F := sourceWeightedFeatureMap c p phi;
+  have kappa := fun t =>
+    PaperFormalization.Continuous.rayleighInf
+      (sampledMomentHessian F G
+        (∫ (x : EuclideanSpace ℝ (Fin d)), F x ∂Measure.map (fun u => sourceGlue tau J (fun k => Z k u) t) mu0)
+        (paths t).2);
+  have A :=
+    sourceJumpCoefficient d (featureDisplacementLambda c C g p q D L) ↑L *
+      sourceGaussianDeviation (pTotal / (8 * (↑J + 1)));
+  SourceReferenceControl mu0 (fun j => Z ↑j) (sourceScheduleLeft tau J) (sourceScheduleRight tau J T) B alpha K scale →
+    (∀ k ≤ J,
+        ∀ (i : Fin N),
+          LipschitzOnWith B (fun t => (branches k t).1.ofLp i) (Icc (tau k) (if k < J then tau (k + 1) else T))) →
+      (∀ k ≤ J,
+          ∀ (i : Fin N),
+            LipschitzOnWith B (fun t => (branches k t).2.ofLp i) (Icc (tau k) (if k < J then tau (k + 1) else T))) →
+        (∀ k ≤ J,
+            ∀ t ∈ Icc (tau k) (if k < J then tau (k + 1) else T),
+              ∀ (i : Fin N), ‖(branches k t).1.ofLp i‖ ≤ D ∧ ‖(branches k t).2.ofLp i‖ ≤ D) →
+          (∀ k ≤ J,
+              ∀ (i : Fin N),
+                ∀ᵐ (t : ℝ) ∂ℙ.restrict (Ioo (tau k) (if k < J then tau (k + 1) else T)),
+                  HasDerivAt (fun s => (branches k s).1.ofLp i)
+                    ((sourceExactEmpiricalDrift c p phi G (branches k t).1).ofLp i) t) →
+            (∀ k ≤ J,
+                ∀ (i : Fin N),
+                  ∀ᵐ (t : ℝ) ∂ℙ.restrict (Ioo (tau k) (if k < J then tau (k + 1) else T)),
+                    HasDerivAt (fun s => (branches k s).2.ofLp i)
+                      ((frozenMomentConfigurationField (momentGradientField (fderiv ℝ F) (gradient G))
+                            (∫ (x : EuclideanSpace ℝ (Fin d)), F x ∂Measure.map (fun u => Z k u t) mu0)
+                            (branches k t).2).ofLp
+                        i)
+                      t) →
+              (∀ k ≤ J,
+                  ∀ t ∈ Icc (tau k) (if k < J then tau (k + 1) else T),
+                    (weightedSampleResidual (featureResidualWeight c p L) phi
+                        (fun m => ∫ (u : EuclideanSpace ℝ (Fin d)), phi m (Z k u t) ∂mu0) fun i =>
+                        (branches k t).2.ofLp i) ≤
+                      delta) →
+                (∀ k < J,
+                    have muPre := Measure.map (fun u => Z k u (tau (k + 1))) mu0;
+                    matrixNuclearValue
+                          (populationCovarianceResidual muPre (fun i => (branches k (tau (k + 1))).2.ofLp i) fun z =>
+                            stackedKernelMatrix fun i =>
+                              actualMomentKernelMatrix F G (∫ (x : EuclideanSpace ℝ (Fin d)), F x ∂muPre)
+                                ((branches k (tau (k + 1))).2.ofLp i) z) /
+                        ↑N ≤
+                      deltaTilde) →
+                  (∀ (n : Fin J),
+                      (view n).observation omega ∉
+                        actualSourceJumpFailure c C g p q D phi G L (view n).PopGood (fun hist => (view n).κ hist)
+                          (view n).X (view n).Y (view n).Xpost (view n).Ypost (view n).eta (pTotal / (8 * (↑J + 1)))) →
+                    (∀ (n : Fin J), ((view n).observation omega).1 ∈ (view n).PopGood) →
+                      (∀ (n : Fin J), (view n).X ((view n).observation omega).1 = (branches (↑n) (tau (↑n + 1))).1) →
+                        (∀ (n : Fin J), (view n).Y ((view n).observation omega).1 = (branches (↑n) (tau (↑n + 1))).2) →
+                          (∀ (n : Fin J),
+                              (view n).Xpost ((view n).observation omega).1 ((view n).observation omega).2 =
+                                (paths (tau (↑n + 1))).1) →
+                            (∀ (n : Fin J),
+                                (view n).Ypost ((view n).observation omega).1 ((view n).observation omega).2 =
+                                  (paths (tau (↑n + 1))).2) →
+                              (∀ (n : Fin J),
+                                  (view n).κ ((view n).observation omega).1 =
+                                    Measure.map (fun u => Z (↑n) u (tau (↑n + 1))) mu0) →
+                                (∀ (n : Fin J), (view n).eta = eta ↑n) →
+                                  ∀ (A_sp : ℝ),
+                                    1 ≤ A_sp →
+                                      SourceRightAntiSpikiness (fun t => (paths t).1) (fun t => (paths t).2) T A_sp →
+                                        SourceTrackingSmallness kappa tau eta J T delta deltaTilde A
+                                            (featureDisplacementLambda c C g p q D L + (2 + A_sp) * ↑L) →
+                                          SourceTrackingConclusion (fun t => (paths t).1) (fun t => (paths t).2)
+                                            (fun k => (branches k (tau (k + 1))).1)
+                                            (fun k => (branches k (tau (k + 1))).2) kappa tau eta J T delta deltaTilde A
+'PaperFormalization.Manuscript.source_finite_horizon_tracking' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceFinalPopulationScale (J : ℕ) (T alpha K0 pTotal : ℝ) (B : ℝ≥0) : ℝ
+'PaperFormalization.Manuscript.sourceFinalPopulationScale' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceFinalMomentScale (J : ℕ) (T alpha K0 pTotal : ℝ) (B : ℝ≥0) : ℝ
+'PaperFormalization.Manuscript.sourceFinalMomentScale' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceFinalGammaThreshold (J N : ℕ) (T alpha K0 D pTotal c C g p q : ℝ) (B L : ℝ≥0) : ℝ
+'PaperFormalization.Manuscript.sourceFinalGammaThreshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceFinalJumpCoefficient (J d : ℕ) (c C g p q D pTotal : ℝ) (L : ℝ≥0) : ℝ
+'PaperFormalization.Manuscript.sourceFinalJumpCoefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceFinalScales_positive (J : ℕ) (T alpha K0 pTotal : ℝ) (B : ℝ≥0) (halpha : 0 < alpha)
+  (hp : 0 < pTotal) (hp1 : pTotal < 1) :
+  0 < sourceFinalPopulationScale J T alpha K0 pTotal B ∧ 0 < sourceFinalMomentScale J T alpha K0 pTotal B
+'PaperFormalization.Manuscript.sourceFinalScales_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.source_iIndepFun_pullback.{u_1, u_2, u_3, u_4} {O : Type u_1} {S : Type u_2}
+  {E : Type u_3} {I : Type u_4} [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace E] (nu : Measure O)
+  (rho : Measure S) (project : S → O) (hp : MeasurePreserving project rho nu) (X : I → O → E)
+  (hX : ∀ (i : I), Measurable (X i)) (hiid : iIndepFun X nu) : iIndepFun (fun i z => X i (project z)) rho
+'PaperFormalization.Manuscript.source_iIndepFun_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.source_final_original_marginal.{u_1, u_2, u_3} {O : Type u_1} {A : Type u_2}
+  {E : Type u_3} [MeasurableSpace O] [MeasurableSpace A] [MeasurableSpace E] (nu : Measure O) [IsProbabilityMeasure nu]
+  (lambda : Measure A) [IsProbabilityMeasure lambda] (f : O → E) (hf : Measurable f) (J : ℕ) :
+  Measure.map (fun z => f (sourceAuxiliaryOriginal J z)) (sourceAuxiliaryMeasure nu lambda J) = Measure.map f nu
+'PaperFormalization.Manuscript.source_final_original_marginal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.SourceVisitedEmpiricalSolutions.{u_2} {W : Type u_2} {N d : ℕ}
+  (f : SourceFiniteConfiguration N d → SourceFiniteConfiguration N d) (post : SourcePostMap W N d) (tau : ℕ → ℝ) (J : ℕ)
+  (T : ℝ) (h : Fin J → W × SourceStepNormal N d) (u : SourceFiniteConfiguration N d) : Prop
+'PaperFormalization.Manuscript.SourceVisitedEmpiricalSolutions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_visited_empirical_coordinate_odes.{u_2, u_3} {W : Type u_2} [MeasurableSpace W]
+  {N d : ℕ} {H : ℕ → Type u_3} [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)]
+  [∀ (m : ℕ), CompleteSpace (H m)] (c p : ℝ) (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (G : ↥(lp H 2) → ℝ)
+  (hf : ContDiff ℝ 1 (sourceExactEmpiricalDrift c p phi G)) (tau : ℕ → ℝ) (J : ℕ) (T : ℝ)
+  (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T) (post : SourcePostMap W N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (h : Fin J → W × SourceStepNormal N d) (u : SourceFiniteConfiguration N d)
+  (hSolutions : SourceVisitedEmpiricalSolutions (sourceExactEmpiricalDrift c p phi G) post tau J T h u) :
+  have flowX := sourceCanonicalEmpiricalFlow c p phi G tau J T htime hT;
+  have branches := sourceFiniteHorizonBranch post flowX flowY J h u;
+  ∀ k ≤ J,
+    ∀ (i : Fin N),
+      ∀ᵐ (t : ℝ) ∂ℙ.restrict (Ioo (tau k) (if k < J then tau (k + 1) else T)),
+        HasDerivAt (fun s => (branches k s).1.ofLp i) ((sourceExactEmpiricalDrift c p phi G (branches k t).1).ofLp i) t
+'PaperFormalization.Manuscript.source_visited_empirical_coordinate_odes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_final_reference_coordinate_odes.{u_1, u_2, u_3} {O : Type u_1} {W : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace W] {N d : ℕ} {H : ℕ → Type u_3} [(m : ℕ) → NormedAddCommGroup (H m)]
+  [(m : ℕ) → InnerProductSpace ℝ (H m)] [∀ (m : ℕ), CompleteSpace (H m)] (mu0 : Measure (EuclideanSpace ℝ (Fin d)))
+  [IsProbabilityMeasure mu0] (c p alpha : ℝ) (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (G : ↥(lp H 2) → ℝ)
+  (U : Set ↥(lp H 2)) (hU : IsOpen U) (hDomains : SourceAllMomentDomains (sourceWeightedFeatureMap c p phi) alpha U)
+  (hG : ContDiffOn ℝ 2 G U) (hN : 0 < N) (tau eta : ℕ → ℝ)
+  (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (J : ℕ) (T : ℝ)
+  (nu : Measure O) [IsProbabilityMeasure nu] (initial : O → SourceFiniteConfiguration N d) (innovation : ℕ → O → W)
+  (hinit : Measurable initial) (hInnovation : ∀ (n : ℕ), Measurable (innovation n))
+  (hind : (fun o n => innovation n o) ⟂ᵢ[nu] fun o i => (initial o).ofLp i)
+  (hlaw : ∀ (i : Fin N), Measure.map (fun o => (initial o).ofLp i) nu = mu0)
+  (hPopODE :
+    have F := sourceWeightedFeatureMap c p phi;
+    ∀ᵐ (z : (ℕ → W) × EuclideanSpace ℝ (Fin d)) ∂(Measure.map (fun o n => innovation n o) nu).prod mu0,
+      ∀ k ≤ J,
+        ∀ᵐ (t : ℝ) ∂ℙ.restrict (Ioo (tau k) (if k < J then tau (k + 1) else T)),
+          HasDerivAt (sourceOriginalCharacteristic tau eta flowY field k z.1 z.2)
+            (momentGradientField (fderiv ℝ F) (gradient G)
+              (∫ (x : EuclideanSpace ℝ (Fin d)),
+                  F x ∂Measure.map (fun u => sourceOriginalCharacteristic tau eta flowY field k z.1 u t) mu0,
+                sourceOriginalCharacteristic tau eta flowY field k z.1 z.2 t))
+            t) :
+  have post := sourceActualFinitePost mu0 c p alpha phi G U hU hDomains hG hN tau eta flowX flowY field;
+  have F := sourceWeightedFeatureMap c p phi;
+  ∀ᵐ (z :
+    SourceAuxiliarySpace O (SourceStepNormal N d) J) ∂sourceAuxiliaryMeasure nu (stdGaussian (SourceStepNormal N d)) J,
+    have branches := sourceFinalBranch post flowX flowY initial innovation J z;
+    have Z := sourceFiniteReferenceBranch tau eta flowY field J (sourceTowerPacked innovation J z);
+    ∀ k ≤ J,
+      ∀ (i : Fin N),
+        ∀ᵐ (t : ℝ) ∂ℙ.restrict (Ioo (tau k) (if k < J then tau (k + 1) else T)),
+          HasDerivAt (fun s => (branches k s).2.ofLp i)
+            ((frozenMomentConfigurationField (momentGradientField (fderiv ℝ F) (gradient G))
+                  (∫ (x : EuclideanSpace ℝ (Fin d)), F x ∂Measure.map (fun u => Z k u t) mu0) (branches k t).2).ofLp
+              i)
+            t
+'PaperFormalization.Manuscript.source_final_reference_coordinate_odes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.exists_source_scheduled_tracking_event.{u_1, u_2, u_3} {O : Type u_1} {W : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace W] {N d : ℕ} {H : ℕ → Type u_3} [(m : ℕ) → NormedAddCommGroup (H m)]
+  [(m : ℕ) → InnerProductSpace ℝ (H m)] [∀ (m : ℕ), CompleteSpace (H m)] (c C g p q alpha K0 D C3 : ℝ)
+  (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (hc : 0 < c) (hC : 0 ≤ C) (hp : 1 < p) (hq : q < p)
+  (halpha : 0 < alpha) (hK0 : 0 < K0) (hD : 1 ≤ D) (hphi : ∀ (m : ℕ), ContDiff ℝ 2 (phi m))
+  (hgrowth :
+    ∀ (m : ℕ) (x : EuclideanSpace ℝ (Fin d)),
+      ∀ k ≤ 2, ‖iteratedFDeriv ℝ k (phi m) x‖ ≤ featureGrowth C g q m * (1 + ‖x‖ ^ (m + 1 - k)))
+  (hthirdphi : ∀ (m : ℕ) (x : EuclideanSpace ℝ (Fin d)), DifferentiableAt ℝ (fderiv ℝ (fderiv ℝ (phi m))) x)
+  (hgrowth3 :
+    ∀ (m : ℕ) (x : EuclideanSpace ℝ (Fin d)),
+      ‖iteratedFDeriv ℝ 3 (phi m) x‖ ≤ featureGrowth C g q m * (1 + ‖x‖ ^ (m + 1 - 3)))
+  (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hDomains : SourceAllMomentDomains (sourceWeightedFeatureMap c p phi) alpha U) (hG : ContDiffOn ℝ 3 G U)
+  (hthirdG : ∀ theta ∈ U, ‖iteratedFDeriv ℝ 3 G theta‖ ≤ C3) (hN : 0 < N) (tau eta : ℕ → ℝ) (J : ℕ) (T : ℝ) (B : ℝ≥0)
+  (htau0 : tau 0 = 0) (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T) (pTotal : ℝ) (hpTotal : 0 < pTotal)
+  (hpTotal1 : pTotal < 1)
+  (hRadiusChoice :
+    2 * Real.exp 1 * K0 *
+        (1 + Real.log (2 * ↑N * (2 * (↑J + 1) + ↑B * T / (Real.exp 1 * K0)) / (pTotal / 8))) ^ (1 / alpha) ≤
+      D)
+  (L : ℝ≥0)
+  (hL : ↑L = sourceComparisonEnvelope c C g p q (sourceFinalMomentScale J T alpha K0 pTotal B) D alpha C3 phi G)
+  (nu : Measure O) [IsProbabilityMeasure nu] (mu0 : Measure (EuclideanSpace ℝ (Fin d))) [IsProbabilityMeasure mu0]
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hFY : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flowY n z.1 t z.2)
+  (hfield : ∀ (n : ℕ), Measurable fun z => field n z.1.1 z.1.2 z.2)
+  (hYstart : ∀ (n : ℕ) (past : Fin n → W) (x : EuclideanSpace ℝ (Fin d)), flowY n past (tau n) x = x)
+  (initial : O → SourceFiniteConfiguration N d) (innovation : ℕ → O → W) (hinit : Measurable initial)
+  (hInnovation : ∀ (n : ℕ), Measurable (innovation n)) (hiid : iIndepFun (fun i o => (initial o).ofLp i) nu)
+  (hPopIndependent : (fun o n => innovation n o) ⟂ᵢ[nu] fun o i => (initial o).ofLp i)
+  (hInitialLaw : ∀ (i : Fin N), Measure.map (fun o => (initial o).ofLp i) nu = mu0) (lambda : Fin J → Measure W)
+  [∀ (n : Fin J), IsProbabilityMeasure (lambda n)] (heta : ∀ (n : Fin J), 0 ≤ eta ↑n)
+  (hFresh : ∀ (n : Fin J), sourceOriginalPrehistory initial innovation ↑n ⟂ᵢ[nu] innovation ↑n)
+  (hInnovationLaw : ∀ (n : Fin J), Measure.map (innovation ↑n) nu = lambda n)
+  (Phi :
+    (ℕ → W) →
+      EuclideanSpace ℝ (Fin d) → SourceReferencePathSpace J d (sourceScheduleLeft tau J) (sourceScheduleRight tau J T))
+  (hPhi : Measurable fun z => Phi z.1 z.2)
+  (hVersion :
+    ∀ᵐ (z : (ℕ → W) × EuclideanSpace ℝ (Fin d)) ∂(Measure.map (fun o n => innovation n o) nu).prod mu0,
+      ∀ (j : Fin (J + 1)),
+        ∀ t ∈ Icc (sourceScheduleLeft tau J j) (sourceScheduleRight tau J T j),
+          sourceReferencePathEval (Phi z.1 z.2) j t = sourceOriginalCharacteristic tau eta flowY field (↑j) z.1 z.2 t) :
+  have flowX := sourceCanonicalEmpiricalFlow c p phi G tau J T htime hT;
+  have post := sourceActualFinitePost mu0 c p alpha phi G U hU hDomains ⋯ hN tau eta flowX flowY field;
+  have normal := stdGaussian (SourceStepNormal N d);
+  have finalLaw := sourceAuxiliaryMeasure nu normal J;
+  have branches := sourceFinalBranch post flowX flowY initial innovation J;
+  have paths := sourceFinalRight post flowX flowY tau initial innovation J;
+  have F := sourceWeightedFeatureMap c p phi;
+  have Kpop := sourceFinalMomentScale J T alpha K0 pTotal B;
+  have delta := sourceFinalGammaThreshold J N T alpha K0 D pTotal c C g p q B L;
+  have deltaTilde := sourcePrescribedCovarianceEnvelope J N d c C g p q alpha Kpop L pTotal;
+  have A := sourceFinalJumpCoefficient J d c C g p q D pTotal L;
+  have Z := fun z => sourceFiniteReferenceBranch tau eta flowY field J (sourceTowerPacked innovation J z);
+  have kappa := fun z t =>
+    PaperFormalization.Continuous.rayleighInf
+      (sampledMomentHessian F G
+        (∫ (x : EuclideanSpace ℝ (Fin d)), F x ∂Measure.map (fun u => sourceGlue tau J (fun k => Z z k u) t) mu0)
+        (paths z t).2);
+  (∀ (cloud : Fin 2),
+      ∀ t ∈ Icc 0 T,
+        Measure.map (fun z => (sourcePairCloud cloud (paths z t)).ofLp ⟨0, hN⟩) finalLaw ∈ sourceMomentClass alpha K0) →
+    (∀ᵐ (z : SourceAuxiliarySpace O (SourceStepNormal N d) J) ∂finalLaw,
+        ∀ (cloud : Fin 2) (i : Fin N) (j : Fin (J + 1)),
+          LipschitzOnWith B (fun t => (sourcePairCloud cloud (branches z (↑j) t)).ofLp i)
+            (Icc (sourceScheduleLeft tau J j) (sourceScheduleRight tau J T j))) →
+      (∀ᵐ (z : SourceAuxiliarySpace O (SourceStepNormal N d) J) ∂finalLaw,
+          SourceVisitedEmpiricalSolutions (sourceExactEmpiricalDrift c p phi G) post tau J T
+            (sourceTowerPacked innovation J z) (initial (sourceAuxiliaryOriginal J z))) →
+        (∀ᵐ (z : (ℕ → W) × EuclideanSpace ℝ (Fin d)) ∂(Measure.map (fun o n => innovation n o) nu).prod mu0,
+            ∀ k ≤ J,
+              ∀ᵐ (t : ℝ) ∂ℙ.restrict (Ioo (tau k) (if k < J then tau (k + 1) else T)),
+                HasDerivAt (sourceOriginalCharacteristic tau eta flowY field k z.1 z.2)
+                  (momentGradientField (fderiv ℝ F) (gradient G)
+                    (∫ (x : EuclideanSpace ℝ (Fin d)),
+                        F x ∂Measure.map (fun u => sourceOriginalCharacteristic tau eta flowY field k z.1 u t) mu0,
+                      sourceOriginalCharacteristic tau eta flowY field k z.1 z.2 t))
+                  t) →
+          (∀ (n : Fin J),
+              have hist := sourceAuxiliaryHistory (sourceOriginalPrehistory initial innovation ↑n) ↑n;
+              have Y := fun h => (sourceHistoryBranch post flowX flowY (↑n) h (tau (↑n + 1))).2;
+              have popLaw :=
+                characteristicKernel mu0 fun h u =>
+                  sourceReferencePre tau flowY (sourcePopulationFieldJump eta field) (↑n)
+                    (sourceHistoryPopulation (↑n) h) u;
+              ∀ᵐ (h : SourceRecurrentHistory W N d ↑n) ∂Measure.map hist (sourceAuxiliaryMeasure nu normal ↑n),
+                Measure.map (sourceRawFieldVector field (↑n) (sourceHistoryPopulation (↑n) h) (Y h)) (lambda n) =
+                  multivariateGaussian 0
+                    (populationGramCovariance (popLaw h) fun z =>
+                      stackedKernelMatrix fun i =>
+                        actualMomentKernelMatrix F G (∫ (x : EuclideanSpace ℝ (Fin d)), F x ∂popLaw h) ((Y h).ofLp i)
+                          z)) →
+            ∃ Good,
+              MeasurableSet Good ∧
+                finalLaw.real Good.compl ≤ 17 * pTotal / 32 ∧
+                  finalLaw.real Good.compl < pTotal ∧
+                    ∀ z ∈ Good,
+                      ∀ (A_sp : ℝ),
+                        1 ≤ A_sp →
+                          SourceRightAntiSpikiness (fun t => (paths z t).1) (fun t => (paths z t).2) T A_sp →
+                            SourceTrackingSmallness (kappa z) tau eta J T delta deltaTilde A
+                                (featureDisplacementLambda c C g p q D L + (2 + A_sp) * ↑L) →
+                              SourceTrackingConclusion (fun t => (paths z t).1) (fun t => (paths z t).2)
+                                (fun k => (branches z k (tau (k + 1))).1) (fun k => (branches z k (tau (k + 1))).2)
+                                (kappa z) tau eta J T delta deltaTilde A
+'PaperFormalization.Manuscript.exists_source_scheduled_tracking_event' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceActualFinitePost_finite_step.{u_1, u_2} {W : Type u_1} [MeasurableSpace W] {N d : ℕ}
+  {H : ℕ → Type u_2} [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)]
+  [∀ (m : ℕ), CompleteSpace (H m)] (mu0 : Measure (EuclideanSpace ℝ (Fin d))) (c p alpha : ℝ)
+  (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hDomains : SourceAllMomentDomains (sourceWeightedFeatureMap c p phi) alpha U) (hG : ContDiffOn ℝ 2 G U) (hN : 0 < N)
+  (tau eta : ℕ → ℝ) (flowX : ℕ → ℝ → SourceFiniteConfiguration N d → SourceFiniteConfiguration N d)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (J k : ℕ) (hk : k < J)
+  (h : Fin J → W × SourceStepNormal N d) (u : SourceFiniteConfiguration N d) :
+  have post := sourceActualFinitePost mu0 c p alpha phi G U hU hDomains hG hN tau eta flowX flowY field;
+  have past := sourceFinitePrefix h k ⋯;
+  have pop := sourcePopulationPrefix past;
+  have pre := sourceCoupledBranch post flowX flowY k past u (tau (k + 1));
+  have v := WithLp.toLp 2 fun i => field k pop (h ⟨k, hk⟩).1 (pre.2.ofLp i);
+  post (k + 1) (sourceFinitePrefix h (k + 1) ⋯) u =
+    sourceCanonicalCoupledStep (sourceEmpiricalKernelFactor c p phi G) ⋯ (eta k)
+      (sourceActualCovarianceVersion mu0 c p phi G U tau eta flowY field k pop pre.2) pre.1 pre.2 v (h ⟨k, hk⟩).2
+'PaperFormalization.Manuscript.sourceActualFinitePost_finite_step' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.SourceRawEmpiricalSchedule.{u_1, u_2} {W : Type u_1} [MeasurableSpace W] {N d : ℕ}
+  {H : ℕ → Type u_2} [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)]
+  [∀ (m : ℕ), CompleteSpace (H m)] (mu0 : Measure (EuclideanSpace ℝ (Fin d))) (c p alpha : ℝ)
+  (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hDomains : SourceAllMomentDomains (sourceWeightedFeatureMap c p phi) alpha U) (hG : ContDiffOn ℝ 2 G U) (hN : 0 < N)
+  (tau eta : ℕ → ℝ) (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (J : ℕ) (T : ℝ)
+  (h : Fin J → W × SourceStepNormal N d) (u : SourceFiniteConfiguration N d)
+  (XB : ℕ → ℝ → SourceFiniteConfiguration N d) : Prop
+'PaperFormalization.Manuscript.SourceRawEmpiricalSchedule' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.source_canonical_schedule_agrees_with_source.{u_1, u_2} {W : Type u_1} [MeasurableSpace W]
+  {N d : ℕ} {H : ℕ → Type u_2} [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)]
+  [∀ (m : ℕ), CompleteSpace (H m)] (mu0 : Measure (EuclideanSpace ℝ (Fin d))) (c p alpha : ℝ)
+  (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hDomains : SourceAllMomentDomains (sourceWeightedFeatureMap c p phi) alpha U) (hG : ContDiffOn ℝ 2 G U) (hN : 0 < N)
+  (tau eta : ℕ → ℝ) (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hf : ContDiff ℝ 1 (sourceExactEmpiricalDrift c p phi G)) (J : ℕ) (T : ℝ) (htime : ∀ k < J, tau k < tau (k + 1))
+  (hT : tau J ≤ T) (h : Fin J → W × SourceStepNormal N d) (u : SourceFiniteConfiguration N d)
+  (XB : ℕ → ℝ → SourceFiniteConfiguration N d)
+  (hRaw : SourceRawEmpiricalSchedule mu0 c p alpha phi G U hU hDomains hG hN tau eta flowY field J T h u XB) :
+  have flow := sourceCanonicalEmpiricalFlow c p phi G tau J T htime hT;
+  have post := sourceActualFinitePost mu0 c p alpha phi G U hU hDomains hG hN tau eta flow flowY field;
+  SourceVisitedEmpiricalSolutions (sourceExactEmpiricalDrift c p phi G) post tau J T h u ∧
+    ∀ k ≤ J,
+      EqOn (fun t => (sourceFiniteHorizonBranch post flow flowY J h u k t).1) (XB k)
+        (Icc (tau k) (if k < J then tau (k + 1) else T))
+'PaperFormalization.Manuscript.source_canonical_schedule_agrees_with_source' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_glued_paths_eq_of_closed_agreement.{u_3} {E : Type u_3} (tau : ℕ → ℝ) (J : ℕ)
+  (T : ℝ) (htau0 : tau 0 = 0) (htime : ∀ k < J, tau k < tau (k + 1)) (F G : ℕ → ℝ → E)
+  (hFG : ∀ k ≤ J, EqOn (F k) (G k) (Icc (tau k) (if k < J then tau (k + 1) else T))) :
+  EqOn (sourceGlue tau J F) (sourceGlue tau J G) (Icc 0 T)
+'PaperFormalization.Manuscript.source_glued_paths_eq_of_closed_agreement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.exists_source_tracking_for_raw_solution_branches.{u_1, u_2, u_3} {O : Type u_1}
+  {W : Type u_2} [MeasurableSpace O] [MeasurableSpace W] {N d : ℕ} {H : ℕ → Type u_3}
+  [(m : ℕ) → NormedAddCommGroup (H m)] [(m : ℕ) → InnerProductSpace ℝ (H m)] [∀ (m : ℕ), CompleteSpace (H m)]
+  (c C g p q alpha K0 D C3 : ℝ) (phi : (m : ℕ) → EuclideanSpace ℝ (Fin d) → H m) (hc : 0 < c) (hC : 0 ≤ C) (hp : 1 < p)
+  (hq : q < p) (halpha : 0 < alpha) (hK0 : 0 < K0) (hD : 1 ≤ D) (hphi : ∀ (m : ℕ), ContDiff ℝ 2 (phi m))
+  (hgrowth :
+    ∀ (m : ℕ) (x : EuclideanSpace ℝ (Fin d)),
+      ∀ k ≤ 2, ‖iteratedFDeriv ℝ k (phi m) x‖ ≤ featureGrowth C g q m * (1 + ‖x‖ ^ (m + 1 - k)))
+  (hthirdphi : ∀ (m : ℕ) (x : EuclideanSpace ℝ (Fin d)), DifferentiableAt ℝ (fderiv ℝ (fderiv ℝ (phi m))) x)
+  (hgrowth3 :
+    ∀ (m : ℕ) (x : EuclideanSpace ℝ (Fin d)),
+      ‖iteratedFDeriv ℝ 3 (phi m) x‖ ≤ featureGrowth C g q m * (1 + ‖x‖ ^ (m + 1 - 3)))
+  (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hDomains : SourceAllMomentDomains (sourceWeightedFeatureMap c p phi) alpha U) (hG : ContDiffOn ℝ 3 G U)
+  (hthirdG : ∀ theta ∈ U, ‖iteratedFDeriv ℝ 3 G theta‖ ≤ C3) (hN : 0 < N) (tau eta : ℕ → ℝ) (J : ℕ) (T : ℝ) (B : ℝ≥0)
+  (htau0 : tau 0 = 0) (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T) (pTotal : ℝ) (hpTotal : 0 < pTotal)
+  (hpTotal1 : pTotal < 1)
+  (hRadiusChoice :
+    2 * Real.exp 1 * K0 *
+        (1 + Real.log (2 * ↑N * (2 * (↑J + 1) + ↑B * T / (Real.exp 1 * K0)) / (pTotal / 8))) ^ (1 / alpha) ≤
+      D)
+  (L : ℝ≥0)
+  (hL : ↑L = sourceComparisonEnvelope c C g p q (sourceFinalMomentScale J T alpha K0 pTotal B) D alpha C3 phi G)
+  (nu : Measure O) [IsProbabilityMeasure nu] (mu0 : Measure (EuclideanSpace ℝ (Fin d))) [IsProbabilityMeasure mu0]
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hFY : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flowY n z.1 t z.2)
+  (hfield : ∀ (n : ℕ), Measurable fun z => field n z.1.1 z.1.2 z.2)
+  (hYstart : ∀ (n : ℕ) (past : Fin n → W) (x : EuclideanSpace ℝ (Fin d)), flowY n past (tau n) x = x)
+  (initial : O → SourceFiniteConfiguration N d) (innovation : ℕ → O → W) (hinit : Measurable initial)
+  (hInnovation : ∀ (n : ℕ), Measurable (innovation n)) (hiid : iIndepFun (fun i o => (initial o).ofLp i) nu)
+  (hPopIndependent : (fun o n => innovation n o) ⟂ᵢ[nu] fun o i => (initial o).ofLp i)
+  (hInitialLaw : ∀ (i : Fin N), Measure.map (fun o => (initial o).ofLp i) nu = mu0) (lambda : Fin J → Measure W)
+  [∀ (n : Fin J), IsProbabilityMeasure (lambda n)] (heta : ∀ (n : Fin J), 0 ≤ eta ↑n)
+  (hFresh : ∀ (n : Fin J), sourceOriginalPrehistory initial innovation ↑n ⟂ᵢ[nu] innovation ↑n)
+  (hInnovationLaw : ∀ (n : Fin J), Measure.map (innovation ↑n) nu = lambda n)
+  (Phi :
+    (ℕ → W) →
+      EuclideanSpace ℝ (Fin d) → SourceReferencePathSpace J d (sourceScheduleLeft tau J) (sourceScheduleRight tau J T))
+  (hPhi : Measurable fun z => Phi z.1 z.2)
+  (hVersion :
+    ∀ᵐ (z : (ℕ → W) × EuclideanSpace ℝ (Fin d)) ∂(Measure.map (fun o n => innovation n o) nu).prod mu0,
+      ∀ (j : Fin (J + 1)),
+        ∀ t ∈ Icc (sourceScheduleLeft tau J j) (sourceScheduleRight tau J T j),
+          sourceReferencePathEval (Phi z.1 z.2) j t = sourceOriginalCharacteristic tau eta flowY field (↑j) z.1 z.2 t)
+  (XB : SourceAuxiliarySpace O (SourceStepNormal N d) J → ℕ → ℝ → SourceFiniteConfiguration N d) :
+  have flowX := sourceCanonicalEmpiricalFlow c p phi G tau J T htime hT;
+  have post := sourceActualFinitePost mu0 c p alpha phi G U hU hDomains ⋯ hN tau eta flowX flowY field;
+  have normal := stdGaussian (SourceStepNormal N d);
+  have finalLaw := sourceAuxiliaryMeasure nu normal J;
+  have branches := sourceFinalBranch post flowX flowY initial innovation J;
+  have paths := sourceFinalRight post flowX flowY tau initial innovation J;
+  have F := sourceWeightedFeatureMap c p phi;
+  have Kpop := sourceFinalMomentScale J T alpha K0 pTotal B;
+  have delta := sourceFinalGammaThreshold J N T alpha K0 D pTotal c C g p q B L;
+  have deltaTilde := sourcePrescribedCovarianceEnvelope J N d c C g p q alpha Kpop L pTotal;
+  have A := sourceFinalJumpCoefficient J d c C g p q D pTotal L;
+  have Z := fun z => sourceFiniteReferenceBranch tau eta flowY field J (sourceTowerPacked innovation J z);
+  have kappa := fun z t =>
+    PaperFormalization.Continuous.rayleighInf
+      (sampledMomentHessian F G
+        (∫ (x : EuclideanSpace ℝ (Fin d)), F x ∂Measure.map (fun u => sourceGlue tau J (fun k => Z z k u) t) mu0)
+        (paths z t).2);
+  (∀ (cloud : Fin 2),
+      ∀ t ∈ Icc 0 T,
+        Measure.map (fun z => (sourcePairCloud cloud (sourceGlue tau J (XB z) t, (paths z t).2)).ofLp ⟨0, hN⟩)
+            finalLaw ∈
+          sourceMomentClass alpha K0) →
+    (∀ᵐ (z : SourceAuxiliarySpace O (SourceStepNormal N d) J) ∂finalLaw,
+        ∀ (cloud : Fin 2) (i : Fin N) (j : Fin (J + 1)),
+          LipschitzOnWith B (fun t => (sourcePairCloud cloud (XB z (↑j) t, (branches z (↑j) t).2)).ofLp i)
+            (Icc (sourceScheduleLeft tau J j) (sourceScheduleRight tau J T j))) →
+      (∀ᵐ (z : SourceAuxiliarySpace O (SourceStepNormal N d) J) ∂finalLaw,
+          SourceRawEmpiricalSchedule mu0 c p alpha phi G U hU hDomains ⋯ hN tau eta flowY field J T
+            (sourceTowerPacked innovation J z) (initial (sourceAuxiliaryOriginal J z)) (XB z)) →
+        (∀ᵐ (z : (ℕ → W) × EuclideanSpace ℝ (Fin d)) ∂(Measure.map (fun o n => innovation n o) nu).prod mu0,
+            ∀ k ≤ J,
+              ∀ᵐ (t : ℝ) ∂ℙ.restrict (Ioo (tau k) (if k < J then tau (k + 1) else T)),
+                HasDerivAt (sourceOriginalCharacteristic tau eta flowY field k z.1 z.2)
+                  (momentGradientField (fderiv ℝ F) (gradient G)
+                    (∫ (x : EuclideanSpace ℝ (Fin d)),
+                        F x ∂Measure.map (fun u => sourceOriginalCharacteristic tau eta flowY field k z.1 u t) mu0,
+                      sourceOriginalCharacteristic tau eta flowY field k z.1 z.2 t))
+                  t) →
+          (∀ (n : Fin J),
+              have hist := sourceAuxiliaryHistory (sourceOriginalPrehistory initial innovation ↑n) ↑n;
+              have Y := fun h => (sourceHistoryBranch post flowX flowY (↑n) h (tau (↑n + 1))).2;
+              have popLaw :=
+                characteristicKernel mu0 fun h u =>
+                  sourceReferencePre tau flowY (sourcePopulationFieldJump eta field) (↑n)
+                    (sourceHistoryPopulation (↑n) h) u;
+              ∀ᵐ (h : SourceRecurrentHistory W N d ↑n) ∂Measure.map hist (sourceAuxiliaryMeasure nu normal ↑n),
+                Measure.map (sourceRawFieldVector field (↑n) (sourceHistoryPopulation (↑n) h) (Y h)) (lambda n) =
+                  multivariateGaussian 0
+                    (populationGramCovariance (popLaw h) fun z =>
+                      stackedKernelMatrix fun i =>
+                        actualMomentKernelMatrix F G (∫ (x : EuclideanSpace ℝ (Fin d)), F x ∂popLaw h) ((Y h).ofLp i)
+                          z)) →
+            ∃ Good,
+              MeasurableSet Good ∧
+                finalLaw.real Good.compl ≤ 17 * pTotal / 32 ∧
+                  finalLaw.real Good.compl < pTotal ∧
+                    ∀ z ∈ Good,
+                      ∀ (A_sp : ℝ),
+                        1 ≤ A_sp →
+                          SourceRightAntiSpikiness (sourceGlue tau J (XB z)) (fun t => (paths z t).2) T A_sp →
+                            SourceTrackingSmallness (kappa z) tau eta J T delta deltaTilde A
+                                (featureDisplacementLambda c C g p q D L + (2 + A_sp) * ↑L) →
+                              SourceTrackingConclusion (sourceGlue tau J (XB z)) (fun t => (paths z t).2)
+                                (fun k => XB z k (tau (k + 1))) (fun k => (branches z k (tau (k + 1))).2) (kappa z) tau
+                                eta J T delta deltaTilde A
+'PaperFormalization.Manuscript.exists_source_tracking_for_raw_solution_branches' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.exists_source_final_characteristic_version.{u_1, u_2} {O : Type u_1} {W : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace W] {J d : ℕ} (nu : Measure O) (mu0 : Measure (EuclideanSpace ℝ (Fin d)))
+  (innovation : ℕ → O → W) (tau eta : ℕ → ℝ) (T : ℝ) (B : ℝ≥0) (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T)
+  (flowY : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (field : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hFY : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flowY n z.1 t z.2)
+  (hfield : ∀ (n : ℕ), Measurable fun z => field n z.1.1 z.1.2 z.2)
+  (hRawLip :
+    ∀ᵐ (z : (ℕ → W) × EuclideanSpace ℝ (Fin d)) ∂(Measure.map (fun o n => innovation n o) nu).prod mu0,
+      ∀ (j : Fin (J + 1)),
+        LipschitzOnWith B (sourceOriginalCharacteristic tau eta flowY field (↑j) z.1 z.2)
+          (Icc (sourceScheduleLeft tau J j) (sourceScheduleRight tau J T j))) :
+  ∃ Phi,
+    (Measurable fun z => Phi z.1 z.2) ∧
+      ∀ᵐ (z : (ℕ → W) × EuclideanSpace ℝ (Fin d)) ∂(Measure.map (fun o n => innovation n o) nu).prod mu0,
+        ∀ (j : Fin (J + 1)),
+          ∀ t ∈ Icc (sourceScheduleLeft tau J j) (sourceScheduleRight tau J T j),
+            sourceReferencePathEval (Phi z.1 z.2) j t = sourceOriginalCharacteristic tau eta flowY field (↑j) z.1 z.2 t
+'PaperFormalization.Manuscript.exists_source_final_characteristic_version' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_final_restricted_tracking_failure.{u_1} {S : Type u_1} [MeasurableSpace S]
+  (rho : Measure S) [IsProbabilityMeasure rho] (p : ℝ) (hp : 0 < p) (Good : Set S) (Restriction Conclusion : S → Prop)
+  (hBudget : rho.real Good.compl ≤ 17 * p / 32) (hResult : ∀ s ∈ Good, Restriction s → Conclusion s) :
+  rho.real {s | Restriction s ∧ ¬Conclusion s} ≤ 17 * p / 32 ∧ rho.real {s | Restriction s ∧ ¬Conclusion s} < p
+'PaperFormalization.Manuscript.source_final_restricted_tracking_failure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+checks/M13sChecks.lean:267:8: warning: This simp argument is unused:
+  sourceODESolutionSet
+
+Hint: Omit it from the simp argument list.
+  simp [sourceODES̵o̵l̵u̵t̵i̵o̵n̵S̵e̵t̵,̵s̵o̵u̵r̵c̵e̵O̵D̵E̵PathExtend]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+checks/M13sChecks.lean:267:29: warning: This simp argument is unused:
+  sourceODEPathExtend
+
+Hint: Omit it from the simp argument list.
+  simp [sourceODESolutionSet,̵s̵o̵u̵r̵c̵e̵O̵D̵E̵P̵a̵t̵h̵E̵x̵t̵e̵n̵d̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+checks/M13sChecks.lean:296:8: warning: This simp argument is unused:
+  sourceODEPathExtend
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵s̵o̵u̵r̵c̵e̵O̵D̵E̵P̵a̵t̵h̵E̵x̵t̵e̵n̵d̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

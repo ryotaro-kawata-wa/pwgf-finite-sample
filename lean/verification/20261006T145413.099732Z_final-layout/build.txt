@@ -1,0 +1,1059 @@
+⚠ [3956/4377] Replayed PaperFormalization.Manuscript.SourceScheduledCovariance
+warning: PaperFormalization/Manuscript/SourceScheduledCovariance.lean:89:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.source_causal_population_event_implies_eligibility`:
+  [MeasurableSpace O]
+  [MeasurableSpace Env]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace O] [MeasurableSpace Env] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3972/4377] Replayed PaperFormalization.Manuscript.SourceGlobalEmpiricalRegularity
+warning: PaperFormalization/Manuscript/SourceGlobalEmpiricalRegularity.lean:63:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.source_continuous_empiricalMomentMap`:
+  [∀ (n : ℕ), CompleteSpace (H n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (n : ℕ), CompleteSpace (H n)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3979/4377] Replayed PaperFormalization.Manuscript.SourceCanonicalWhitening
+warning: PaperFormalization/Manuscript/SourceCanonicalWhitening.lean:23:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourcePsdClip_pos`:
+  [Fintype I]
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceCanonicalWhitening.lean:30:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourcePsdClip_eq`:
+  [Fintype I]
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceCanonicalWhitening.lean:33:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourcePsdClip_measurable`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3983/4377] Replayed PaperFormalization.Manuscript.SourcePopulationGammaBridge
+warning: PaperFormalization/Manuscript/SourcePopulationGammaBridge.lean:59:5: Variable name `hPhi` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3985/4377] Replayed PaperFormalization.Manuscript.SourceFreshAuxiliaryHistories
+warning: PaperFormalization/Manuscript/SourceFreshAuxiliaryHistories.lean:34:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceAuxiliaryHistory_original`:
+  [MeasurableSpace O]
+  [MeasurableSpace S]
+  [MeasurableSpace A]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace A] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3989/4377] Replayed PaperFormalization.Manuscript.SourceRecurrentBranches
+warning: PaperFormalization/Manuscript/SourceRecurrentBranches.lean:125:28: This simp argument is unused:
+  sourceTowerPacked_last
+
+Hint: Omit it from the simp argument list.
+  simp only [sourceActualFinitePost, sourceCanonicalCoupledPost, sourceTowerPacked_init,
+  ̲  ̲ ̲ ̲s̵o̵u̵r̵c̵e̵T̵o̵w̵e̵r̵P̵a̵c̵k̵e̵d̵_̵l̵a̵s̵t̵,̵ ̵sourceAuxiliaryOriginal, sourceTowerBranch, sourceCoupledBranch, sourcePopulationPrefix,
+  ̲  ̲ ̲ ̲sourceTowerPacked, sourceAuxiliaryArray_last, Fin.val_last]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceRecurrentBranches.lean:126:44: This simp argument is unused:
+  sourcePopulationPrefix
+
+Hint: Omit it from the simp argument list.
+  simp only [sourceActualFinitePost, sourceCanonicalCoupledPost,
+  ̵  ̵ ̵ ̵sourceTowerPacked_init,
+  ̲  ̲ ̲ ̲sourceTowerPacked_last, sourceAuxiliaryOriginal,
+  ̵  ̵ ̵ ̵sourceTowerBranch, sourceCoupledBranch,
+  ̲ s̵o̵u̵r̵c̵e̵P̵o̵p̵u̵l̵a̵t̵i̵o̵n̵P̵r̵e̵f̵i̵x̵,̵  ̲ ̲sourceTowerPacked,
+  ̵  ̵ ̵ ̵sourceAuxiliaryArray_last, Fin.val_last]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3995/4377] Replayed PaperFormalization.Manuscript.SourceFiniteHorizonPaths
+warning: PaperFormalization/Manuscript/SourceFiniteHorizonPaths.lean:84:17: Variable name `initial` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [4002/4377] Replayed PaperFormalization.Manuscript.SourceClosedODEPaths
+warning: PaperFormalization/Manuscript/SourceClosedODEPaths.lean:38:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceODEPathExtend_continuous`:
+  [NormedSpace ℝ E]
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NormedSpace ℝ E] [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceClosedODEPaths.lean:103:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.source_c1_lipschitz_on_closedBall`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [4003/4377] Replayed PaperFormalization.Manuscript.SourceCanonicalODEFlow
+warning: PaperFormalization/Manuscript/SourceCanonicalODEFlow.lean:52:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceCanonicalODEPath_of_solution`:
+  [MeasurableSpace E]
+  [BorelSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace E] [BorelSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceCanonicalODEFlow.lean:58:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceCanonicalODEPath_of_not_mem`:
+  [CompleteSpace E]
+  [FiniteDimensional ℝ E]
+  [MeasurableSpace E]
+  [BorelSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceCanonicalODEFlow.lean:114:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceODESolutionSet_symmetry`:
+  [MeasurableSpace E]
+  [BorelSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace E] [BorelSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [4006/4377] Replayed PaperFormalization.Manuscript.SourceFinitePermutationEquivariance
+warning: PaperFormalization/Manuscript/SourceFinitePermutationEquivariance.lean:57:15: This simp argument is unused:
+  sourceCanonicalCoupledStep
+
+Hint: Omit it from the simp argument list.
+  simp only [sourceC̵a̵n̵o̵n̵i̵c̵a̵l̵C̵o̵u̵p̵l̵e̵d̵S̵t̵e̵p̵,̵s̵o̵u̵r̵c̵e̵PairPermute, ̲particleFlatten_sourceParticleUnflatten,
+        sourceParticlePermute_flatten, ̲hseed, ̲hMs X̵,̵X̲,̲ ̲source_matrixEuclideanOperator_eq_toEuclideanCLM,
+        source_toEuclideanCLM_permute]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceFinitePermutationEquivariance.lean:57:42: This simp argument is unused:
+  sourcePairPermute
+
+Hint: Omit it from the simp argument list.
+  simp only [sourceCanonicalCoupledStep,s̵o̵u̵r̵c̵e̵P̵a̵i̵r̵P̵e̵r̵m̵u̵t̵e̵,̵ ̲particleFlatten_sourceParticleUnflatten,
+        sourceParticlePermute_flatten, ̲hseed, ̲hMs X̵,̵X̲,̲ ̲source_matrixEuclideanOperator_eq_toEuclideanCLM,
+        source_toEuclideanCLM_permute]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceFinitePermutationEquivariance.lean:58:36: This simp argument is unused:
+  hseed
+
+Hint: Omit it from the simp argument list.
+  simp only [sourceCanonicalCoupledStep, ̲sourcePairPermute,
+  ̲ ̲ ̲ ̲ ̲ ̲ ̲particleFlatten_sourceParticleUnflatten,
+  ̵  ̵ ̵ ̵ ̵ ̵sourceParticlePermute_flatten, ̲hM̲se̵e̵d̵ ̲X̲,h̵M̵s̵
+  ̲ X̵,̵ ̲ ̲ ̲ ̲ ̲source_matrixEuclideanOperator_eq_toEuclideanCLM,
+  ̵  ̵ ̵ ̵ ̵ ̵source_toEuclideanCLM_permute]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [4007/4377] Replayed PaperFormalization.Manuscript.SourceRecurrentExchangeability
+warning: PaperFormalization/Manuscript/SourceRecurrentExchangeability.lean:84:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceInputFinalBranch_transform`:
+  [MeasurableSpace W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [4010/4377] Replayed PaperFormalization.Manuscript.SourceFinalReferenceTransport
+warning: PaperFormalization/Manuscript/SourceFinalReferenceTransport.lean:42:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceFiniteReferenceBranch_original`:
+  [MeasurableSpace O]
+  [MeasurableSpace W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace O] [MeasurableSpace W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceFinalReferenceTransport.lean:50:52: This simp argument is unused:
+  sourcePopulationPrefix
+
+Hint: Omit it from the simp argument list.
+  simp only [̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵R̵e̵f̵e̵r̵e̵n̵c̵e̵B̵r̵a̵n̵c̵h̵,̵d̵i̵f̵_̵p̵o̵s̵ ̵h̵k̵,̵s̵o̵u̵r̵c̵e̵P̵o̵p̵u̵l̵a̵t̵i̵o̵n̵P̵r̵e̵f̵i̵x̵,̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵P̵r̵e̵f̵i̵x̵,̵
+  ̵ ̵ ̵ ̵ ̵s̵o̵u̵r̵c̵e̵T̵o̵w̵e̵r̵P̵a̵c̵k̵e̵d̵,̵s̵o̵u̵r̵c̵e̵O̵r̵i̵g̵i̵n̵a̵l̵C̵h̵a̵r̵a̵c̵t̵e̵r̵i̵s̵t̵i̵c̵]̵[̲s̲o̲u̲r̲c̲e̲F̲i̲n̲i̲t̲e̲R̲e̲f̲e̲r̲e̲n̲c̲e̲B̲r̲a̲n̲c̲h̲,̲ ̲d̲i̲f̲_̲p̲o̲s̲ ̲h̲k̲,̲ ̲s̲o̲u̲r̲c̲e̲F̲i̲n̲i̲t̲e̲P̲r̲e̲f̲i̲x̲,̲ ̲s̲o̲u̲r̲c̲e̲T̲o̲w̲e̲r̲P̲a̲c̲k̲e̲d̲,̲
+  ̲ ̲ ̲ ̲ ̲s̲o̲u̲r̲c̲e̲O̲r̲i̲g̲i̲n̲a̲l̲C̲h̲a̲r̲a̲c̲t̲e̲r̲i̲s̲t̲i̲c̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceFinalReferenceTransport.lean:50:75: This simp argument is unused:
+  sourceFinitePrefix
+
+Hint: Omit it from the simp argument list.
+  simp only [̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵R̵e̵f̵e̵r̵e̵n̵c̵e̵B̵r̵a̵n̵c̵h̵,̵d̵i̵f̵_̵p̵o̵s̵ ̵h̵k̵,̵s̵o̵u̵r̵c̵e̵P̵o̵p̵u̵l̵a̵t̵i̵o̵n̵P̵r̵e̵f̵i̵x̵,̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵P̵r̵e̵f̵i̵x̵,̵
+  ̵ ̵ ̵ ̵ ̵s̵o̵u̵r̵c̵e̵T̵o̵w̵e̵r̵P̵a̵c̵k̵e̵d̵,̵s̵o̵u̵r̵c̵e̵O̵r̵i̵g̵i̵n̵a̵l̵C̵h̵a̵r̵a̵c̵t̵e̵r̵i̵s̵t̵i̵c̵]̵[̲s̲o̲u̲r̲c̲e̲F̲i̲n̲i̲t̲e̲R̲e̲f̲e̲r̲e̲n̲c̲e̲B̲r̲a̲n̲c̲h̲,̲ ̲d̲i̲f̲_̲p̲o̲s̲ ̲h̲k̲,̲ ̲s̲o̲u̲r̲c̲e̲P̲o̲p̲u̲l̲a̲t̲i̲o̲n̲P̲r̲e̲f̲i̲x̲,̲ ̲s̲o̲u̲r̲c̲e̲T̲o̲w̲e̲r̲P̲a̲c̲k̲e̲d̲,̲
+  ̲ ̲ ̲ ̲ ̲s̲o̲u̲r̲c̲e̲O̲r̲i̲g̲i̲n̲a̲l̲C̲h̲a̲r̲a̲c̲t̲e̲r̲i̲s̲t̲i̲c̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceFinalReferenceTransport.lean:51:4: This simp argument is unused:
+  sourceTowerPacked
+
+Hint: Omit it from the simp argument list.
+  simp only [̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵R̵e̵f̵e̵r̵e̵n̵c̵e̵B̵r̵a̵n̵c̵h̵,̵d̵i̵f̵_̵p̵o̵s̵ ̵h̵k̵,̵s̵o̵u̵r̵c̵e̵P̵o̵p̵u̵l̵a̵t̵i̵o̵n̵P̵r̵e̵f̵i̵x̵,̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵P̵r̵e̵f̵i̵x̵,̵
+  ̵ ̵ ̵ ̵ ̵s̵o̵u̵r̵c̵e̵T̵o̵w̵e̵r̵P̵a̵c̵k̵e̵d̵,̵s̵o̵u̵r̵c̵e̵O̵r̵i̵g̵i̵n̵a̵l̵C̵h̵a̵r̵a̵c̵t̵e̵r̵i̵s̵t̵i̵c̵]̵[̲s̲o̲u̲r̲c̲e̲F̲i̲n̲i̲t̲e̲R̲e̲f̲e̲r̲e̲n̲c̲e̲B̲r̲a̲n̲c̲h̲,̲ ̲d̲i̲f̲_̲p̲o̲s̲ ̲h̲k̲,̲ ̲s̲o̲u̲r̲c̲e̲P̲o̲p̲u̲l̲a̲t̲i̲o̲n̲P̲r̲e̲f̲i̲x̲,̲ ̲s̲o̲u̲r̲c̲e̲F̲i̲n̲i̲t̲e̲P̲r̲e̲f̲i̲x̲,̲
+  ̲ ̲ ̲ ̲ ̲s̲o̲u̲r̲c̲e̲O̲r̲i̲g̲i̲n̲a̲l̲C̲h̲a̲r̲a̲c̲t̲e̲r̲i̲s̲t̲i̲c̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceFinalReferenceTransport.lean:63:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceFinalBranch_reference_original`:
+  [MeasurableSpace O]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace O] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [4014/4377] Replayed PaperFormalization.Manuscript.SourceFinalTrajectoryRealization
+warning: PaperFormalization/Manuscript/SourceFinalTrajectoryRealization.lean:31:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.source_visited_empirical_coordinate_odes`:
+  [MeasurableSpace W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [4020/4377] Replayed PaperFormalization.Manuscript.SourceObjectivePathControl
+warning: PaperFormalization/Manuscript/SourceObjectivePathControl.lean:59:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.source_objective_conclusion_of_tracking`:
+  [∀ (n : ℕ), CompleteSpace (H n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (n : ℕ), CompleteSpace (H n)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [4023/4377] Replayed PaperFormalization.Manuscript.SourceFixedRadiusGammaRate
+warning: PaperFormalization/Manuscript/SourceFixedRadiusGammaRate.lean:24:5: Variable name `hc0` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [4024/4377] Replayed PaperFormalization.Manuscript.SourceRateScaleComparison
+warning: PaperFormalization/Manuscript/SourceRateScaleComparison.lean:31:8: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/SourceRateScaleComparison.lean:31:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/SourceRateScaleComparison.lean:116:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [4025/4377] Replayed PaperFormalization.Manuscript.SourceFinalCoefficientRates
+warning: PaperFormalization/Manuscript/SourceFinalCoefficientRates.lean:44:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.exists_source_final_coefficient_rates`:
+  [∀ (n : ℕ), CompleteSpace (H n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (n : ℕ), CompleteSpace (H n)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [4030/4377] Replayed PaperFormalization.Manuscript.SourceGrowingUniformDecay
+warning: PaperFormalization/Manuscript/SourceGrowingUniformDecay.lean:55:31: Variable name `hT` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [4031/4377] Replayed PaperFormalization.Manuscript.VarianceCosineFeatures
+warning: PaperFormalization/Manuscript/VarianceCosineFeatures.lean:202:62: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  simp [varianceCosineFeature, weightedCoordinateEmbedding,̵ ̵P̵i̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [4032/4377] Replayed PaperFormalization.Manuscript.VarianceCosineObjective
+warning: PaperFormalization/Manuscript/VarianceCosineObjective.lean:113:33: `MeasureTheory.measureReal_univ_eq_one` has been deprecated: Use `MeasureTheory.probReal_univ` instead
+⚠ [4033/4377] Replayed PaperFormalization.Manuscript.VarianceCosineDifferential
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:43:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:43:78: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:51:26: This simp argument is unused:
+  varianceCosineD1
+
+Hint: Omit it from the simp argument list.
+  simp [̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵D̵1̵,̵ ̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵M̵e̵a̵n̵D̵r̵i̵f̵t̵,̵[̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲M̲e̲a̲n̲D̲r̲i̲f̲t̲,̲ varianceCosineD2, varianceCosineKernel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:51:44: This simp argument is unused:
+  varianceCosineMeanDrift
+
+Hint: Omit it from the simp argument list.
+  simp [varianceCosineD1, v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵M̵e̵a̵n̵D̵r̵i̵f̵t̵,̵varianceCosineD2, varianceCosineKernel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:51:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:52:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:60:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:60:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:131:18: This simp argument is unused:
+  varianceCosineMeanDrift
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵M̵e̵a̵n̵D̵r̵i̵f̵t̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:131:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [4034/4377] Replayed PaperFormalization.Manuscript.VarianceCosineSourceFields
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:45:8: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:45:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:62:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:71:88: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  simp [̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵D̵e̵c̵o̵d̵e̵,̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵F̵e̵a̵t̵u̵r̵e̵D̵1̵,̵
+  ̵ ̵ ̵ ̵ ̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵P̵r̵o̵j̵e̵c̵t̵i̵o̵n̵,̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵E̵m̵b̵e̵d̵d̵i̵n̵g̵,̵l̵p̵.̵e̵v̵a̵l̵C̵L̵M̵,̵l̵p̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵P̵i̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵
+  ̵ ̵ ̵ ̵ ̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵W̵e̵i̵g̵h̵t̵,̵h̵w̵0̵,̵h̵w̵1̵,̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵]̵[̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲D̲e̲c̲o̲d̲e̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲F̲e̲a̲t̲u̲r̲e̲D̲1̲,̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲P̲r̲o̲j̲e̲c̲t̲i̲o̲n̲,̲
+  ̲ ̲ ̲ ̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲E̲m̲b̲e̲d̲d̲i̲n̲g̲,̲ ̲l̲p̲.̲e̲v̲a̲l̲C̲L̲M̲,̲ ̲l̲p̲.̲s̲i̲n̲g̲l̲e̲_̲a̲p̲p̲l̲y̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲W̲e̲i̲g̲h̲t̲,̲ ̲h̲w̲0̲,̲ ̲h̲w̲1̲,̲
+  ̲ ̲ ̲ ̲ ̲s̲m̲u̲l̲_̲e̲q̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:72:29: This simp argument is unused:
+  hw1
+
+Hint: Omit it from the simp argument list.
+  simp [̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵D̵e̵c̵o̵d̵e̵,̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵F̵e̵a̵t̵u̵r̵e̵D̵1̵,̵
+  ̵ ̵ ̵ ̵ ̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵P̵r̵o̵j̵e̵c̵t̵i̵o̵n̵,̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵E̵m̵b̵e̵d̵d̵i̵n̵g̵,̵l̵p̵.̵e̵v̵a̵l̵C̵L̵M̵,̵l̵p̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵P̵i̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵
+  ̵ ̵ ̵ ̵ ̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵W̵e̵i̵g̵h̵t̵,̵h̵w̵0̵,̵h̵w̵1̵,̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵]̵[̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲D̲e̲c̲o̲d̲e̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲F̲e̲a̲t̲u̲r̲e̲D̲1̲,̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲P̲r̲o̲j̲e̲c̲t̲i̲o̲n̲,̲
+  ̲ ̲ ̲ ̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲E̲m̲b̲e̲d̲d̲i̲n̲g̲,̲ ̲l̲p̲.̲e̲v̲a̲l̲C̲L̲M̲,̲ ̲l̲p̲.̲s̲i̲n̲g̲l̲e̲_̲a̲p̲p̲l̲y̲,̲ ̲P̲i̲.̲s̲i̲n̲g̲l̲e̲_̲a̲p̲p̲l̲y̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲W̲e̲i̲g̲h̲t̲,̲
+  ̲ ̲ ̲ ̲ ̲h̲w̲0̲,̲ ̲s̲m̲u̲l̲_̲e̲q̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:72:76: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:72:76: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:72:46: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:80:88: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  simp [varianceCosineDecode, ̲varianceCosineFeatureD2,
+  ̵  ̵ ̵ ̵weightedCoordinateProjection,
+  ̲ ̲ ̲ ̲ ̲weightedCoordinateEmbedding, ̲lp.evalCLM, ̲lp̵p̲.single_apply,P̵i̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵
+  ̵  ̵ ̵ ̵varianceCosineWeight, ̲hw, ̲smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:81:25: This simp argument is unused:
+  hw
+
+Hint: Omit it from the simp argument list.
+  simp [̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵D̵e̵c̵o̵d̵e̵,̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵F̵e̵a̵t̵u̵r̵e̵D̵2̵,̵
+  ̵ ̵ ̵ ̵ ̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵P̵r̵o̵j̵e̵c̵t̵i̵o̵n̵,̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵E̵m̵b̵e̵d̵d̵i̵n̵g̵,̵l̵p̵.̵e̵v̵a̵l̵C̵L̵M̵,̵l̵p̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵P̵i̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵
+  ̵ ̵ ̵ ̵ ̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵W̵e̵i̵g̵h̵t̵,̵h̵w̵,̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵]̵[̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲D̲e̲c̲o̲d̲e̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲F̲e̲a̲t̲u̲r̲e̲D̲2̲,̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲P̲r̲o̲j̲e̲c̲t̲i̲o̲n̲,̲
+  ̲ ̲ ̲ ̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲E̲m̲b̲e̲d̲d̲i̲n̲g̲,̲ ̲l̲p̲.̲e̲v̲a̲l̲C̲L̲M̲,̲ ̲l̲p̲.̲s̲i̲n̲g̲l̲e̲_̲a̲p̲p̲l̲y̲,̲ ̲P̲i̲.̲s̲i̲n̲g̲l̲e̲_̲a̲p̲p̲l̲y̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲W̲e̲i̲g̲h̲t̲,̲
+  ̲ ̲ ̲ ̲ ̲s̲m̲u̲l̲_̲e̲q̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:81:65: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:81:65: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:81:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:99:30: `ContinuousLinearMap.add_apply` has been deprecated: Use `_root_.add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `_root_.add_apply x`).
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:99:60: `ContinuousLinearMap.smul_apply` has been deprecated: Use `_root_.smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `_root_.smul_apply x`).
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:114:30: `ContinuousLinearMap.add_apply` has been deprecated: Use `_root_.add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `_root_.add_apply x`).
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:114:60: `ContinuousLinearMap.smul_apply` has been deprecated: Use `_root_.smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `_root_.smul_apply x`).
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:131:30: `ContinuousLinearMap.smul_apply` has been deprecated: Use `_root_.smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `_root_.smul_apply x`).
+⚠ [4035/4377] Replayed PaperFormalization.Manuscript.VarianceCosineGaussianMoments
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianMoments.lean:109:12: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+⚠ [4036/4377] Replayed PaperFormalization.Manuscript.VarianceCosineGaussianField
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianField.lean:64:30: This simp argument is unused:
+  PiLp.toLp_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [Real.inner_apply,̵P̵i̵L̵p̵.̵t̵o̵L̵p̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianField.lean:111:56: This simp argument is unused:
+  measure_univ
+
+Hint: Omit it from the simp argument list.
+  simp only [̵p̵o̵p̵u̵l̵a̵t̵i̵o̵n̵G̵r̵a̵m̵C̵o̵v̵a̵r̵i̵a̵n̵c̵e̵,̵h̵e̵,̵i̵n̵t̵e̵g̵r̵a̵l̵_̵c̵o̵n̵s̵t̵,̵m̵e̵a̵s̵u̵r̵e̵_̵u̵n̵i̵v̵,̵[̲p̲o̲p̲u̲l̲a̲t̲i̲o̲n̲G̲r̲a̲m̲C̲o̲v̲a̲r̲i̲a̲n̲c̲e̲,̲ ̲h̲e̲,̲ ̲i̲n̲t̲e̲g̲r̲a̲l̲_̲c̲o̲n̲s̲t̲,̲ ENNReal.toReal_one, p̵r̵o̵b̵R̵e̵a̵l̵_̵u̵n̵i̵v̵,̵o̵n̵e̵_̵s̵m̵u̵l̵,̵p̲r̲o̲b̲R̲e̲a̲l̲_̲u̲n̲i̲v̲,̲
+  ̲ ̲ ̲ ̲ ̲o̲n̲e̲_̲s̲m̲u̲l̲,̲ c]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianField.lean:112:4: This simp argument is unused:
+  ENNReal.toReal_one
+
+Hint: Omit it from the simp argument list.
+  simp only [̵p̵o̵p̵u̵l̵a̵t̵i̵o̵n̵G̵r̵a̵m̵C̵o̵v̵a̵r̵i̵a̵n̵c̵e̵,̵h̵e̵,̵i̵n̵t̵e̵g̵r̵a̵l̵_̵c̵o̵n̵s̵t̵,̵m̵e̵a̵s̵u̵r̵e̵_̵u̵n̵i̵v̵,̵
+  ̵ ̵ ̵ ̵ ̵E̵N̵N̵R̵e̵a̵l̵.̵t̵o̵R̵e̵a̵l̵_̵o̵n̵e̵,̵ ̵p̵r̵o̵b̵R̵e̵a̵l̵_̵u̵n̵i̵v̵,̵o̵n̵e̵_̵s̵m̵u̵l̵,̵[̲p̲o̲p̲u̲l̲a̲t̲i̲o̲n̲G̲r̲a̲m̲C̲o̲v̲a̲r̲i̲a̲n̲c̲e̲,̲ ̲h̲e̲,̲ ̲i̲n̲t̲e̲g̲r̲a̲l̲_̲c̲o̲n̲s̲t̲,̲ ̲m̲e̲a̲s̲u̲r̲e̲_̲u̲n̲i̲v̲,̲ ̲p̲r̲o̲b̲R̲e̲a̲l̲_̲u̲n̲i̲v̲,̲ ̲o̲n̲e̲_̲s̲m̲u̲l̲,̲ c]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [4037/4377] Replayed PaperFormalization.Manuscript.VarianceCosineMeanFlow
+warning: PaperFormalization/Manuscript/VarianceCosineMeanFlow.lean:101:69: Variable name `hst` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [4038/4377] Replayed PaperFormalization.Manuscript.VarianceCosineParticles
+warning: PaperFormalization/Manuscript/VarianceCosineParticles.lean:63:52: Variable name `hR` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineParticles.lean:93:81: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineParticles.lean:93:81: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineParticles.lean:146:31: Variable name `hk` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [4039/4377] Replayed PaperFormalization.Manuscript.VarianceCosineRegularity
+warning: PaperFormalization/Manuscript/VarianceCosineRegularity.lean:53:2: 'change _ ≤ 1 * _' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [4041/4377] Replayed PaperFormalization.Manuscript.VarianceCosinePopulation
+warning: PaperFormalization/Manuscript/VarianceCosinePopulation.lean:38:43: Variable name `hR` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosinePopulation.lean:134:32: This simp argument is unused:
+  PiLp.toLp_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [Function.comp_def, P̵i̵L̵p̵.̵t̵o̵L̵p̵_̵a̵p̵p̵l̵y̵,̵ ̵Measure.map_id']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [4042/4377] Replayed PaperFormalization.Manuscript.VarianceCosineSourceRealization
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:25:4: Variable name `n` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:83:36: This simp argument is unused:
+  PiLp.toLp_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [Nat.one_ne_zero, if_false, if_true, map_add, map_smul, smul_eq_mul, P̵i̵L̵p̵.̵p̵r̵o̵j̵_̵a̵p̵p̵l̵y̵,̵ ̵P̵i̵L̵p̵.̵t̵o̵L̵p̵_̵a̵p̵p̵l̵y̵]̵P̲i̲L̲p̲.̲p̲r̲o̲j̲_̲a̲p̲p̲l̲y̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:84:24: This simp argument is unused:
+  hexp
+
+Hint: Omit it from the simp argument list.
+  simp only [mul_add,̵ ̵h̵e̵x̵p̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:92:43: Variable name `hR` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:229:18: This simp argument is unused:
+  hV
+
+Hint: Omit it from the simp argument list.
+  simp only [hY,h̵V̵,̵ ̲varianceCosineTimes, ̲varianceCosineAmplitudes, ̲if_pos rfl]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:229:66: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  simp only [̵h̵Y̵,̵h̵V̵,̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵T̵i̵m̵e̵s̵,̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵A̵m̵p̵l̵i̵t̵u̵d̵e̵s̵,̵i̵f̵_̵p̵o̵s̵ ̵r̵f̵l̵]̵[̲h̲Y̲,̲ ̲h̲V̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲T̲i̲m̲e̲s̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲A̲m̲p̲l̲i̲t̲u̲d̲e̲s̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:251:8: Variable name `B` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [4043/4377] Replayed PaperFormalization.Manuscript.VarianceCosineComparisonAssumptions
+warning: PaperFormalization/Manuscript/VarianceCosineComparisonAssumptions.lean:118:33: Variable name `htau` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineComparisonAssumptions.lean:118:51: Variable name `hT` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [4044/4377] Replayed PaperFormalization.Manuscript.VarianceCosineCosineFlow
+warning: PaperFormalization/Manuscript/VarianceCosineCosineFlow.lean:43:62: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineCosineFlow.lean:49:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineCosineFlow.lean:79:84: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [4045/4377] Replayed PaperFormalization.Manuscript.VarianceCosineEscapeGeometry
+warning: PaperFormalization/Manuscript/VarianceCosineEscapeGeometry.lean:90:37: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineEscapeGeometry.lean:90:37: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineEscapeGeometry.lean:117:55: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [4046/4377] Replayed PaperFormalization.Manuscript.VarianceCosineGaussianEscape
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:81:18: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:67:18: Variable name `hr` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:98:18: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:84:18: Variable name `hr` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:133:16: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:225:19: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:225:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [4047/4377] Replayed PaperFormalization.Manuscript.VarianceCosineSpectralCurvature
+warning: PaperFormalization/Manuscript/VarianceCosineSpectralCurvature.lean:36:4: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: PaperFormalization/Manuscript/VarianceCosineSpectralCurvature.lean:101:19: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSpectralCurvature.lean:101:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [4048/4377] Replayed PaperFormalization.Manuscript.VarianceCosinePopulationDecay
+warning: PaperFormalization/Manuscript/VarianceCosinePopulationDecay.lean:27:15: This simp argument is unused:
+  W
+
+Hint: Omit it from the simp argument list.
+  simp only [W̵,̵ ̵id_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [4049/4377] Replayed PaperFormalization.Manuscript.CurvatureRecoveryResponse
+warning: PaperFormalization/Manuscript/CurvatureRecoveryResponse.lean:62:22: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  simp only [id_eq,̵ ̵m̵u̵l̵_̵o̵n̵e̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/CurvatureRecoveryResponse.lean:161:19: Variable name `hlam` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [4050/4377] Replayed PaperFormalization.Manuscript.VarianceCosineResponseControl
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:75:5: Variable name `ha` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:97:19: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:97:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:197:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:198:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:220:88: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:220:88: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [4052/4377] Replayed PaperFormalization.Manuscript.VarianceCosineRateAlgebra
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:44:5: Variable name `hd` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:44:37: Variable name `hA` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:45:5: Variable name `hcD` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:75:33: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:89:51: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:75:33: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:89:51: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:107:47: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:107:47: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [4053/4377] Replayed PaperFormalization.Manuscript.VarianceCosineLateWindow
+warning: PaperFormalization/Manuscript/VarianceCosineLateWindow.lean:34:62: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineLateWindow.lean:39:49: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineLateWindow.lean:34:62: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineLateWindow.lean:39:49: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineLateWindow.lean:68:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [4063/4377] Replayed PaperFormalization.Manuscript.VarianceCosineExampleRateTransfer
+warning: PaperFormalization/Manuscript/VarianceCosineExampleRateTransfer.lean:99:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9024/9317] Replayed PaperFormalization.MatrixFactorization.SphericalRegularizer
+warning: PaperFormalization/MatrixFactorization/SphericalRegularizer.lean:166:23: Variable name `hlambda` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9026/9317] Replayed PaperFormalization.MatrixFactorization.SphericalContraction
+warning: PaperFormalization/MatrixFactorization/SphericalContraction.lean:49:5: Variable name `hr` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9030/9317] Replayed PaperFormalization.MatrixFactorization.SphericalFeatureBounds
+warning: PaperFormalization/MatrixFactorization/SphericalFeatureBounds.lean:97:44: Variable name `hC` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9041/9317] Replayed PaperFormalization.MatrixFactorization.FittingEnergyBounds
+warning: PaperFormalization/MatrixFactorization/FittingEnergyBounds.lean:37:33: Variable name `hLy` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/MatrixFactorization/FittingEnergyBounds.lean:37:63: Variable name `hQy` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9042/9317] Replayed PaperFormalization.MatrixFactorization.SphericalFittingCurvature
+warning: PaperFormalization/MatrixFactorization/SphericalFittingCurvature.lean:22:24: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/MatrixFactorization/SphericalFittingCurvature.lean:22:66: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9046/9317] Replayed PaperFormalization.MatrixFactorization.TransverseFeatureSignal
+warning: PaperFormalization/MatrixFactorization/TransverseFeatureSignal.lean:61:75: Variable name `z` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9056/9317] Replayed PaperFormalization.MatrixFactorization.GaussianVisibilitySpectrum
+warning: PaperFormalization/MatrixFactorization/GaussianVisibilitySpectrum.lean:125:35: Try `simp at hsn` instead of `simpa using hsn`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [9059/9317] Replayed PaperFormalization.MatrixFactorization.TeacherImbalance
+warning: PaperFormalization/MatrixFactorization/TeacherImbalance.lean:26:33: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: PaperFormalization/MatrixFactorization/TeacherImbalance.lean:27:30: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: PaperFormalization/MatrixFactorization/TeacherImbalance.lean:36:33: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: PaperFormalization/MatrixFactorization/TeacherImbalance.lean:38:4: This simp argument is unused:
+  real_inner_self_eq_norm_sq
+
+Hint: Omit it from the simp argument list.
+  simp [teacherTransverseProjection, inner_sub_right, real_inner_smul_right, r̵e̵a̵l̵_̵i̵n̵n̵e̵r̵_̵s̵e̵l̵f̵_̵e̵q̵_̵n̵o̵r̵m̵_̵s̵q̵,̵ ̵hp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9063/9317] Replayed PaperFormalization.MatrixFactorization.GaussianMultivariateStein
+warning: PaperFormalization/MatrixFactorization/GaussianMultivariateStein.lean:152:17: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  simp only [̵i̵t̵e̵_̵t̵r̵u̵e̵,̵ ̵e̵q̵_̵s̵e̵l̵f̵]̵[̲e̲q̲_̲s̲e̲l̲f̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/GaussianMultivariateStein.lean:152:27: This simp argument is unused:
+  eq_self
+
+Hint: Omit it from the simp argument list.
+  simp only [ite_true,̵ ̵e̵q̵_̵s̵e̵l̵f̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9064/9317] Replayed PaperFormalization.MatrixFactorization.GaussianLinearPolynomial
+warning: PaperFormalization/MatrixFactorization/GaussianLinearPolynomial.lean:28:34: This simp argument is unused:
+  MvPolynomial.pderiv_C_mul
+
+Hint: Omit it from the simp argument list.
+  simp [gaussianLinearPolynomial, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵C̵_̵m̵u̵l̵,̵ ̵Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9067/9317] Replayed PaperFormalization.MatrixFactorization.GaussianHermiteAssembly
+warning: PaperFormalization/MatrixFactorization/GaussianHermiteAssembly.lean:146:43: This simp argument is unused:
+  Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [pointTransversePairing, transverseFeature, finiteHermiteActivation,
+      finiteHermiteActivationJet, sum_inner, inner_sum, real_inner_smul_left,
+  ̵  ̵ ̵ ̵real_inner_smul_right,
+  ̲ F̵i̵n̵s̵e̵t̵.̵m̵u̵l̵_̵s̵u̵m̵,̵  ̲ ̲Finset.m̲u̲l̲_̲sum_̵m̵u̵l̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9084/9317] Replayed PaperFormalization.MatrixFactorization.TeacherNeighborhoodGeometry
+warning: PaperFormalization/MatrixFactorization/TeacherNeighborhoodGeometry.lean:25:39: This simp argument is unused:
+  one_add_one_eq_two
+
+Hint: Omit it from the simp argument list.
+  simp only [unitSphere_norm, one_pow,̵ ̵o̵n̵e̵_̵a̵d̵d̵_̵o̵n̵e̵_̵e̵q̵_̵t̵w̵o̵] at hn
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9085/9317] Replayed PaperFormalization.MatrixFactorization.SphericalTransportContinuity
+warning: PaperFormalization/MatrixFactorization/SphericalTransportContinuity.lean:49:16: Variable name `hL` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9128/9317] Replayed PaperFormalization.MatrixFactorization.ScalarCapBarrier
+warning: PaperFormalization/MatrixFactorization/ScalarCapBarrier.lean:31:5: Variable name `hT` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9131/9317] Replayed PaperFormalization.MatrixFactorization.SphericalCharacteristicEnergy
+warning: PaperFormalization/MatrixFactorization/SphericalCharacteristicEnergy.lean:45:25: Variable name `i` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/MatrixFactorization/SphericalCharacteristicEnergy.lean:45:53: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9154/9317] Replayed PaperFormalization.MatrixFactorization.WeightedL4Average
+warning: PaperFormalization/MatrixFactorization/WeightedL4Average.lean:17:25: Variable name `hi` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9161/9317] Replayed PaperFormalization.MatrixFactorization.SourceRadialCoercivity
+warning: PaperFormalization/MatrixFactorization/SourceRadialCoercivity.lean:46:25: Variable name `hl` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9174/9317] Replayed PaperFormalization.MatrixFactorization.AntipodalPotentialSymmetry
+warning: PaperFormalization/MatrixFactorization/AntipodalPotentialSymmetry.lean:96:2: 'change
+  -sphericalFittingGradient O a (mu 0) (mu 1) teacher teacher i.rev w +
+      (lambda * (productAntipodalTransportSq pole (mu 0) (mu 1)) ^ (p / 2 - 1)) • (-(G i.rev).gradient w) =
+    _' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [9178/9317] Replayed PaperFormalization.MatrixFactorization.SphericalTransportPerturbation
+warning: PaperFormalization/MatrixFactorization/SphericalTransportPerturbation.lean:56:23: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/MatrixFactorization/SphericalTransportPerturbation.lean:173:21: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9182/9317] Replayed PaperFormalization.MatrixFactorization.IntegralTangentTesting
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:31:23: This simp argument is unused:
+  Real.norm_eq_abs
+
+Hint: Omit it from the simp argument list.
+  simp [norm_smul, R̵e̵a̵l̵.̵n̵o̵r̵m̵_̵e̵q̵_̵a̵b̵s̵,̵ ̵abs_of_pos hn, hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:31:41: This simp argument is unused:
+  abs_of_pos hn
+
+Hint: Omit it from the simp argument list.
+  simp [norm_smul, Real.norm_eq_abs, a̵b̵s̵_̵o̵f̵_̵p̵o̵s̵ ̵h̵n̵,̵ ̵hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:43:46: This simp argument is unused:
+  Real.norm_eq_abs
+
+Hint: Omit it from the simp argument list.
+  simp [excessTangentTest, hh, norm_smul, R̵e̵a̵l̵.̵n̵o̵r̵m̵_̵e̵q̵_̵a̵b̵s̵,̵ ̵abs_of_pos hn, hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:43:64: This simp argument is unused:
+  abs_of_pos hn
+
+Hint: Omit it from the simp argument list.
+  simp [excessTangentTest, hh, norm_smul, Real.norm_eq_abs, a̵b̵s̵_̵o̵f̵_̵p̵o̵s̵ ̵h̵n̵,̵ ̵hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:48:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:48:8: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [9191/9317] Replayed PaperFormalization.MatrixFactorization.ActiveMomentHilbert
+warning: PaperFormalization/MatrixFactorization/ActiveMomentHilbert.lean:51:8: Variable name `n` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9195/9317] Replayed PaperFormalization.MatrixFactorization.TensorJetBounds
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:22:12: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  simp [F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hkj, Ne.symm hkj, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:22:35: This simp argument is unused:
+  hkj
+
+Hint: Omit it from the simp argument list.
+  simp [Function.update_apply, h̵k̵j̵,̵ ̵Ne.symm hkj, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:22:53: This simp argument is unused:
+  hw
+
+Hint: Omit it from the simp argument list.
+  simp [Function.update_apply, hkj, Ne.symm hkj,̵ ̵h̵w̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:25:14: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  simp [F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hkj, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:25:42: This simp argument is unused:
+  hw
+
+Hint: Omit it from the simp argument list.
+  simp [Function.update_apply, hkj,̵ ̵h̵w̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:26:14: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  simp [F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hij, hik, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9196/9317] Replayed PaperFormalization.MatrixFactorization.SphericalTensorJets
+warning: PaperFormalization/MatrixFactorization/SphericalTensorJets.lean:62:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/MatrixFactorization/SphericalTensorJets.lean:76:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9202/9317] Replayed PaperFormalization.MatrixFactorization.ActiveMomentMapBounds
+warning: PaperFormalization/MatrixFactorization/ActiveMomentMapBounds.lean:20:35: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/MatrixFactorization/ActiveMomentMapBounds.lean:20:76: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9203/9317] Replayed PaperFormalization.MatrixFactorization.SphericalActiveMomentBounds
+warning: PaperFormalization/MatrixFactorization/SphericalActiveMomentBounds.lean:35:24: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/MatrixFactorization/SphericalActiveMomentBounds.lean:35:24: 'rfl' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [9205/9317] Replayed PaperFormalization.MatrixFactorization.RetractedTensorJets
+warning: PaperFormalization/MatrixFactorization/RetractedTensorJets.lean:62:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/MatrixFactorization/RetractedTensorJets.lean:71:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9215/9317] Replayed PaperFormalization.MatrixFactorization.TensorHermiteEvaluation
+warning: PaperFormalization/MatrixFactorization/TensorHermiteEvaluation.lean:47:38: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteEvaluation.lean:47:69: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteEvaluation.lean:67:38: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteEvaluation.lean:67:69: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+⚠ [9217/9317] Replayed PaperFormalization.MatrixFactorization.TensorHermiteBounds
+warning: PaperFormalization/MatrixFactorization/TensorHermiteBounds.lean:24:38: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteBounds.lean:25:4: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteBounds.lean:34:38: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteBounds.lean:35:4: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+⚠ [9218/9317] Replayed PaperFormalization.MatrixFactorization.ActiveGaussianFeature
+warning: PaperFormalization/MatrixFactorization/ActiveGaussianFeature.lean:68:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9219/9317] Replayed PaperFormalization.MatrixFactorization.GaussianActiveQuartic
+warning: PaperFormalization/MatrixFactorization/GaussianActiveQuartic.lean:23:26: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  simp [̵F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵i̵n̵n̵e̵r̵_̵a̵d̵d̵_̵l̵e̵f̵t̵,̵[̲i̲n̲n̲e̲r̲_̲a̲d̲d̲_̲l̲e̲f̲t̲,̲ inner_add_right, add_mul, mul_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/GaussianActiveQuartic.lean:28:26: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  s̵i̵m̵p̵ ̵[̵F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵r̵e̵a̵l̵_̵i̵n̵n̵e̵r̵_̵s̵m̵u̵l̵_̵l̵e̵f̵t̵,̵ ̵r̵e̵a̵l̵_̵i̵n̵n̵e̵r̵_̵s̵m̵u̵l̵_̵r̵i̵g̵h̵t̵,̵
+  ̵ ̵ ̵ ̵ ̵ ̵ ̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵ ̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵s̲i̲m̲p̲ ̲[̲r̲e̲a̲l̲_̲i̲n̲n̲e̲r̲_̲s̲m̲u̲l̲_̲l̲e̲f̲t̲,̲ ̲r̲e̲a̲l̲_̲i̲n̲n̲e̲r̲_̲s̲m̲u̲l̲_̲r̲i̲g̲h̲t̲,̲ ̲s̲m̲u̲l̲_̲e̲q̲_̲m̲u̲l̲,̲ ̲m̲u̲l̲_̲a̲s̲s̲o̲c̲,̲
+  ̲ ̲ ̲ ̲ ̲ ̲ ̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9220/9317] Replayed PaperFormalization.MatrixFactorization.ActiveGaussianFitPolynomial
+warning: PaperFormalization/MatrixFactorization/ActiveGaussianFitPolynomial.lean:85:77: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  simp only [activeGaussianQuartic_apply, Fin.isValue, Matrix.cons_val_zero,̵ ̵M̵a̵t̵r̵i̵x̵.̵c̵o̵n̵s̵_̵v̵a̵l̵_̵s̵u̵c̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9224/9317] Replayed PaperFormalization.MatrixFactorization.TensorPowerSeparation
+warning: PaperFormalization/MatrixFactorization/TensorPowerSeparation.lean:29:12: `EuclideanSpace.single_apply` has been deprecated: Use `PiLp.single_apply` instead
+
+Note: The updated constant has a different type:
+  ∀ (p : ENNReal) (𝕜 : Type u_1) {ι : Type u_2} [inst : DecidableEq ι] [inst_1 : Zero 𝕜] (i : ι) (a : 𝕜) (j : ι),
+    (PiLp.single p i a).ofLp j = if j = i then a else 0
+instead of
+  ∀ {ι : Type u_1} {𝕜 : Type u_3} [inst : RCLike 𝕜] [inst_1 : DecidableEq ι] (i : ι) (a : 𝕜) (j : ι),
+    (EuclideanSpace.single i a).ofLp j = if j = i then a else 0
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.single_apply` to `PiLp.single_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorPowerSeparation.lean:30:33: `EuclideanSpace.single_apply` has been deprecated: Use `PiLp.single_apply` instead
+
+Note: The updated constant has a different type:
+  ∀ (p : ENNReal) (𝕜 : Type u_1) {ι : Type u_2} [inst : DecidableEq ι] [inst_1 : Zero 𝕜] (i : ι) (a : 𝕜) (j : ι),
+    (PiLp.single p i a).ofLp j = if j = i then a else 0
+instead of
+  ∀ {ι : Type u_1} {𝕜 : Type u_3} [inst : RCLike 𝕜] [inst_1 : DecidableEq ι] (i : ι) (a : 𝕜) (j : ι),
+    (EuclideanSpace.single i a).ofLp j = if j = i then a else 0
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.single_apply` to `PiLp.single_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorPowerSeparation.lean:29:12: This simp argument is unused:
+  EuclideanSpace.single_apply
+
+Hint: Omit it from the simp argument list.
+  simp [E̵u̵c̵l̵i̵d̵e̵a̵n̵S̵p̵a̵c̵e̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hj, Ne.symm hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorPowerSeparation.lean:29:41: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  simp [EuclideanSpace.single_apply, h̵j̵,̵ ̵Ne.symm hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorPowerSeparation.lean:49:53: `ContinuousMultilinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+ℹ [9232/9317] Replayed PaperFormalization.MatrixFactorization.NormalizedChaosCoefficient
+info: PaperFormalization/MatrixFactorization/NormalizedChaosCoefficient.lean:55:14: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+⚠ [9255/9317] Replayed PaperFormalization.MatrixFactorization.SourceCharacteristicSupportClosure
+warning: PaperFormalization/MatrixFactorization/SourceCharacteristicSupportClosure.lean:42:20: Variable name `hzstar` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9263/9317] Replayed PaperFormalization.MatrixFactorization.PotentialCharacteristicConfinement
+warning: PaperFormalization/MatrixFactorization/PotentialCharacteristicConfinement.lean:27:5: Variable name `X` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9271/9317] Replayed PaperFormalization.MatrixFactorization.PrimalMetricFirstVariation
+warning: PaperFormalization/MatrixFactorization/PrimalMetricFirstVariation.lean:79:48: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/MatrixFactorization/PrimalMetricFirstVariation.lean:79:48: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/MatrixFactorization/PrimalMetricFirstVariation.lean:117:44: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/MatrixFactorization/PrimalMetricFirstVariation.lean:117:44: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [9290/9317] Replayed PaperFormalization.MatrixFactorization.PrimalACConfinement
+warning: PaperFormalization/MatrixFactorization/PrimalACConfinement.lean:22:5: Variable name `X` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9303/9317] Replayed PaperFormalization.MatrixFactorization.SphereL2Reflection
+warning: PaperFormalization/MatrixFactorization/SphereL2Reflection.lean:78:86: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Build completed successfully (9317 jobs).

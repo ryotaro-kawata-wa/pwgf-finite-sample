@@ -1,0 +1,407 @@
+{
+  "method": "Manual claim-by-claim review, separate from Lean kernel checking; original six-endpoint review plus the listed publication edits.",
+  "prior_audit_commit": "538013a73962b25a8bfdd06fb77cb83faf614921",
+  "claims": [
+    {
+      "title": "一般主定理・増大時間と目的関数誤差",
+      "label": "theorem-main-r_t",
+      "source": "arxiv/sections/03_curvature_tracking_theory.tex",
+      "line": 88,
+      "lean": "lean/PaperFormalization/Manuscript/SourceRawGrowingTracking.lean",
+      "lean_line": 31,
+      "name": "PaperFormalization.Manuscript.exists_source_raw_growing_tracking_event",
+      "checked": "同じ参照粒子・実目的関数、εと独立な共通事象と半径、N・scheduleより前の定数、controlled responsesからのsmallness導出、時刻の右値と真のpretraceを最終型・証明で照合。",
+      "boundary": "anti-spikinessと曲率responseは経路の制限。P*(制限∩失敗)の評価であり、P(失敗 | 制限)の評価ではない。deterministic common scheduleを使い、適応scheduleや一般のODE存在を結論にしない。"
+    },
+    {
+      "title": "variance-plus-cosineの具体例",
+      "label": "prop:canonical-model-assumptions",
+      "source": "arxiv/appendix_final_general/canonical_variance_cosine.tex",
+      "line": 31,
+      "lean": "lean/PaperFormalization/Manuscript/VarianceCosineGrowingExample.lean",
+      "lean_line": 153,
+      "name": "PaperFormalization.Manuscript.varianceCosine_printed_proposition",
+      "checked": "実モデルへの最終適用、共通事象、T=N^(1/8)、全時間・後期の2種類の誤差和と後期empirical目的値、成功確率≥1−N^(−1/16)を照合。",
+      "boundary": "原稿中のより鋭い中間密度定数 2f(0)+2 は監査外。形式証明の2f(0)+4で最終の存在定数と率は得られる。この中間表示までLean済みとは記載しない。"
+    },
+    {
+      "title": "MF (i)：反対称枝の局所吸引",
+      "label": "item:mf-local-attraction",
+      "source": "arxiv/sections/04_matrix_factorization_geometry.tex",
+      "line": 114,
+      "lean": "lean/PaperFormalization/MatrixFactorization/SourceLocalGeometry.lean",
+      "lean_line": 16,
+      "name": "PaperFormalization.MatrixFactorization.source_mf_local_attraction",
+      "checked": "λ>0, 2<p<3。初期法則より前の正の閾値、原稿の二つの鋭い初期条件、実supportのR₀、全時間cap、輸送距離減衰、元勾配のAE散逸・積分散逸とtensor収束を照合。",
+      "boundary": "著者が確認した決定論的・supportラベル連続なAC特性曲線とintrinsic L²第一変分のクラス。SourceL2ACLawUniqueは同じクラスの競合解を比較する。原稿のglobal well-posednessは前提であり、任意の弱PDE解の表現や存在一意性の無条件証明ではない。"
+    },
+    {
+      "title": "MF (ii)：反対称枝の環状領域の曲率",
+      "label": "item:mf-annular-curvature",
+      "source": "arxiv/sections/04_matrix_factorization_geometry.tex",
+      "line": 123,
+      "lean": "lean/PaperFormalization/MatrixFactorization/SourceLocalGeometry.lean",
+      "lean_line": 33,
+      "name": "PaperFormalization.MatrixFactorization.source_mf_annular_curvature",
+      "checked": "実際のGaussian fitとraw-active多項式の同一性、原稿のC_fit、状態・場に一様なλ閾値、EXPと正規化retractionの二次微分を照合。",
+      "boundary": "SphericalVariationは連続な球面接場。非零条件はproduct L² norm>0。原稿のsmoothな許容場を含むが、任意の可測L²場全体を量化していない。MF48_CLAIM_MAPと定義の説明コメントにある「all ... L2 directions」は表現の修正候補。"
+    },
+    {
+      "title": "MF (iii)：中心からの横断下降方向",
+      "label": "item:mf-transverse-descent",
+      "source": "arxiv/sections/04_matrix_factorization_geometry.tex",
+      "line": 132,
+      "lean": "lean/PaperFormalization/MatrixFactorization/SourceLocalGeometry.lean",
+      "lean_line": 44,
+      "name": "PaperFormalization.MatrixFactorization.source_mf_transverse_escape",
+      "checked": "原稿のteacher imbalanceと非零active係数からvisibility、同じsmooth半場・同密度曲線の構成、二次下降と正則化o(t²)への適用を照合。",
+      "boundary": "存在する下降方向の結論。任意のGaussian摂動がその方向に進む、あるいは実PWGFが必ず脱出する、という結論は含めない。"
+    },
+    {
+      "title": "MF (iv)：教師近傍での正曲率",
+      "label": "item:mf-teacher-curvature",
+      "source": "arxiv/sections/04_matrix_factorization_geometry.tex",
+      "line": 145,
+      "lean": "lean/PaperFormalization/MatrixFactorization/SourceLocalGeometry.lean",
+      "lean_line": 54,
+      "name": "PaperFormalization.MatrixFactorization.source_mf_teacher_curvature",
+      "checked": "正のteacher輸送距離、状態・方向より前の共通近傍と正のmargin、capクラスに相対的なproduct-Wasserstein近傍、実際の積分jetに接続。",
+      "boundary": "teacher点の全目的関数のstationarityは主張しない。四つの局所結論から、それらを順に結ぶPWGF軌道やsample curvature transferまでは導いていない。"
+    }
+  ],
+  "reviewed_publication_edits": [
+    "Author block, user-supplied institutional affiliations and Ryotaro Kawata's correspondence email; unchanged author order and A4 one-column article style.",
+    "Author-supplied funding acknowledgments, including the Singapore funding disclaimer; standard subsection spacing for the AI-use heading. The disclosure now explicitly names Astra and 6 Pro for Lean 4 implementation and compilation, kernel proof checking and axiom audits. Flush-left prose paragraphs and a 6pt paragraph gap match the preserved ICLR paragraph settings.",
+    "Main-text prose headings use consistent additional vertical space; removing the Local geometry minipage restores normal subsection spacing. The appendices begin on a fresh page after the bibliography. All heading text, mathematical statements and appendix source bodies are unchanged by these layout edits.",
+    "Citation roles: AGS background versus Yamamoto second variation; SVGD distinguished from ordinary WGF; PDA global convergence citation separated from propagation of chaos; Giunta used for its two-species energy structure.",
+    "Bibliographic metadata: PDA footnote marker removed, Boix-Adsera surname corrected, official Yamamoto proceedings volume/pages/DOI added.",
+    "The author-confirmed deterministic supported-label-continuous AC characteristic class is explicitly defined, including intrinsic tangent L2 first variation and law uniqueness within that same class. No unrestricted weak-PDE representation or unconditional WGF existence is asserted.",
+    "Formal verification scope is stated in the discussion; the count is registered declarations. Curvature directions are continuous tangent fields, including smooth fields, not arbitrary L2 directions.",
+    "Anonymous-package wording changed to reproducibility bundle. The original numerical figures and original reported values are retained, with fresh-run validation reported separately.",
+    "The discussion links the author-approved public repository ryotaro-kawata-wa/pwgf-finite-sample. This URL-only publication update does not change mathematical statements, Lean sources, or experimental code and results."
+  ],
+  "not_claimed": [
+    "Automatic semantic verification of TeX",
+    "Formal coverage of every one of the 105 theorem-like environments",
+    "Reproduction of numerical experiments",
+    "Unconditional WGF existence/uniqueness",
+    "A general weak-PDE-to-deterministic-AC representation"
+  ],
+  "source_mapping": [
+    {
+      "baseline": "arxiv/appendix_final_general/00_dependency_map.tex",
+      "baseline_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "paper/appendix_final_general/00_dependency_map.tex",
+      "publication_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/01_overview.tex",
+      "baseline_sha256": "7cb32f552533017b8acca58168cf3382c8127ce654257dbecdb83e2b2f3ef46c",
+      "publication": "paper/appendix_final_general/01_overview.tex",
+      "publication_sha256": "7cb32f552533017b8acca58168cf3382c8127ce654257dbecdb83e2b2f3ef46c",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/02_fixed_schedule_statement.tex",
+      "baseline_sha256": "9663222516bed8c58a4f4c0a4e0be7aa578ab520910f0abf9168d581dc3b7518",
+      "publication": "paper/appendix_final_general/02_fixed_schedule_statement.tex",
+      "publication_sha256": "9663222516bed8c58a4f4c0a4e0be7aa578ab520910f0abf9168d581dc3b7518",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/03_trigger_stability.tex",
+      "baseline_sha256": "d3adbed814f45f75668a20c9111c7c22659afd7592d35b7b4a09ef3617a40205",
+      "publication": "paper/appendix_final_general/03_trigger_stability.tex",
+      "publication_sha256": "d3adbed814f45f75668a20c9111c7c22659afd7592d35b7b4a09ef3617a40205",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/04_functional_gap.tex",
+      "baseline_sha256": "6e20c0d37a7c053ffb1921d87bfc1abe4d03de670b8fa53703bfe1ba8b8b02ba",
+      "publication": "paper/appendix_final_general/04_functional_gap.tex",
+      "publication_sha256": "6e20c0d37a7c053ffb1921d87bfc1abe4d03de670b8fa53703bfe1ba8b8b02ba",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/canonical_variance_cosine.tex",
+      "baseline_sha256": "5f829cbc93c171b50b82580c556438399dce0fad1d98e7d0733074fe9984721e",
+      "publication": "paper/appendix_final_general/canonical_variance_cosine.tex",
+      "publication_sha256": "5f829cbc93c171b50b82580c556438399dce0fad1d98e7d0733074fe9984721e",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/general_argument_reorg_v1_6.tex",
+      "baseline_sha256": "b55ba9e0e93a7f34ea8977c7a3a20df1958e43e5d4f82f01e4777ab480837dc2",
+      "publication": "paper/appendix_final_general/general_argument_reorg_v1_6.tex",
+      "publication_sha256": "b55ba9e0e93a7f34ea8977c7a3a20df1958e43e5d4f82f01e4777ab480837dc2",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/general_assumptions.tex",
+      "baseline_sha256": "e4aed3d04838635620f943740c3e460ef4916d1ec9ce10d3d6f3ee205cab9c3f",
+      "publication": "paper/appendix_final_general/general_assumptions.tex",
+      "publication_sha256": "e4aed3d04838635620f943740c3e460ef4916d1ec9ce10d3d6f3ee205cab9c3f",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/general_bound_r_t_bound_including_jump_bounded_by_gamma.tex",
+      "baseline_sha256": "5e43ee17678fd39198b5d11893242b7c50e382e5a5717cc33a864e6a612a8709",
+      "publication": "paper/appendix_final_general/general_bound_r_t_bound_including_jump_bounded_by_gamma.tex",
+      "publication_sha256": "5e43ee17678fd39198b5d11893242b7c50e382e5a5717cc33a864e6a612a8709",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/general_bound_r_t_bound_stochastic_errors.tex",
+      "baseline_sha256": "118e74cc4aacca42dfb3478ad8d7e19dd90d07c26e88b37c2f0ec62a78f8e95f",
+      "publication": "paper/appendix_final_general/general_bound_r_t_bound_stochastic_errors.tex",
+      "publication_sha256": "118e74cc4aacca42dfb3478ad8d7e19dd90d07c26e88b37c2f0ec62a78f8e95f",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/general_bound_r_t_bound_stochastic_errors_gamma.tex",
+      "baseline_sha256": "f4a9941ae51cb21e10a687598f540e856e4f060b869d49fdd55aef9d1f169247",
+      "publication": "paper/appendix_final_general/general_bound_r_t_bound_stochastic_errors_gamma.tex",
+      "publication_sha256": "f4a9941ae51cb21e10a687598f540e856e4f060b869d49fdd55aef9d1f169247",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/general_bound_r_t_tilde-gamma_rebuilt.tex",
+      "baseline_sha256": "076394ccceb72a3fd8aa206d125e1a1655d475ab375441c3b3e173d8b686bad9",
+      "publication": "paper/appendix_final_general/general_bound_r_t_tilde-gamma_rebuilt.tex",
+      "publication_sha256": "076394ccceb72a3fd8aa206d125e1a1655d475ab375441c3b3e173d8b686bad9",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/general_bound_r_t_v1_1.tex",
+      "baseline_sha256": "a323adc056898f1e99d38686f092e648ea5125f797f46ef0c4f1e957e9ecf829",
+      "publication": "paper/appendix_final_general/general_bound_r_t_v1_1.tex",
+      "publication_sha256": "a323adc056898f1e99d38686f092e648ea5125f797f46ef0c4f1e957e9ecf829",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/kappa_concentration_on_saddle_point.tex",
+      "baseline_sha256": "bfe1e043b5848a321ef3c1bad4d82c01ec70348ba8f10aae4f38b41e30f7d67b",
+      "publication": "paper/appendix_final_general/kappa_concentration_on_saddle_point.tex",
+      "publication_sha256": "bfe1e043b5848a321ef3c1bad4d82c01ec70348ba8f10aae4f38b41e30f7d67b",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_final_general/notations.tex",
+      "baseline_sha256": "dd72722e6e5f58febf80a1052746f572281a47b975291a0309c04b83bf04d1cd",
+      "publication": "paper/appendix_final_general/notations.tex",
+      "publication_sha256": "dd72722e6e5f58febf80a1052746f572281a47b975291a0309c04b83bf04d1cd",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/EMN_derivatives_ambient_v5.tex",
+      "baseline_sha256": "e33da70d0e58d5b8ef295a08c793d092ac77798726b86d51985d827f11950336",
+      "publication": "paper/appendix_mf_dirac/EMN_derivatives_ambient_v5.tex",
+      "publication_sha256": "e33da70d0e58d5b8ef295a08c793d092ac77798726b86d51985d827f11950336",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/EMN_problem_settings_v4.tex",
+      "baseline_sha256": "a63cefb42959ebb2e417291542bfd4508be4664e0029857fd327089566c32998",
+      "publication": "paper/appendix_mf_dirac/EMN_problem_settings_v4.tex",
+      "publication_sha256": "c8028b5afdf1ddaad6557b8b2d0103b4b88707b47e7d8adbe3cca5e4b67761dd",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/EMN_rewrite_active_ambient_reduction_v4.tex",
+      "baseline_sha256": "766d34ed369e2808baac175c3cbc13fcf657c8ec8e8da6296835e8ba8a1ad59a",
+      "publication": "paper/appendix_mf_dirac/EMN_rewrite_active_ambient_reduction_v4.tex",
+      "publication_sha256": "766d34ed369e2808baac175c3cbc13fcf657c8ec8e8da6296835e8ba8a1ad59a",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/EMN_rewrite_antisymmetric_branch_v10.tex",
+      "baseline_sha256": "c655c488326ed6b28f0afc68d8f1bbf583a3ea87832e3f9fce842c32475b065d",
+      "publication": "paper/appendix_mf_dirac/EMN_rewrite_antisymmetric_branch_v10.tex",
+      "publication_sha256": "85b3381eca9f42850ae0eb745d5ffa3a39befb33d8136e273cb1705977dba352",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/EMN_rewrite_curvature_v8.tex",
+      "baseline_sha256": "ddeef1f403ec742f8151c0538e9c76ceaca8092a2bac2b916100f6147765f977",
+      "publication": "paper/appendix_mf_dirac/EMN_rewrite_curvature_v8.tex",
+      "publication_sha256": "ddeef1f403ec742f8151c0538e9c76ceaca8092a2bac2b916100f6147765f977",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/EMN_rewrite_descent_v8.tex",
+      "baseline_sha256": "b8e2cf37c40e782649b23cb7e80668df50d5e5e21538e8d3253f8bb80f0353d5",
+      "publication": "paper/appendix_mf_dirac/EMN_rewrite_descent_v8.tex",
+      "publication_sha256": "b8e2cf37c40e782649b23cb7e80668df50d5e5e21538e8d3253f8bb80f0353d5",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/EMN_rewrite_overview_v3.tex",
+      "baseline_sha256": "b151a55076664f8c8049aef670eafd9cd84443b8fda7534a63f33336f371374d",
+      "publication": "paper/appendix_mf_dirac/EMN_rewrite_overview_v3.tex",
+      "publication_sha256": "b151a55076664f8c8049aef670eafd9cd84443b8fda7534a63f33336f371374d",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/EMN_rewrite_post_escape_convexity_v9.tex",
+      "baseline_sha256": "c471dae6415171b951bfa86c36ebc6564002a5d3787646feccbaa2f4044de185",
+      "publication": "paper/appendix_mf_dirac/EMN_rewrite_post_escape_convexity_v9.tex",
+      "publication_sha256": "c471dae6415171b951bfa86c36ebc6564002a5d3787646feccbaa2f4044de185",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/EMN_tensor_notations.tex",
+      "baseline_sha256": "d5b7f77499d1939720824048b543ab0e39f4466b0fac53ce22ee9c65691ecba0",
+      "publication": "paper/appendix_mf_dirac/EMN_tensor_notations.tex",
+      "publication_sha256": "d5b7f77499d1939720824048b543ab0e39f4466b0fac53ce22ee9c65691ecba0",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/examples_matrix_nonlinear_rewrite_v15.tex",
+      "baseline_sha256": "d427d65ff8fcf21d753240a7cc72d0ddbb52022190a0167f653e5246032b12d2",
+      "publication": "paper/appendix_mf_dirac/examples_matrix_nonlinear_rewrite_v15.tex",
+      "publication_sha256": "d427d65ff8fcf21d753240a7cc72d0ddbb52022190a0167f653e5246032b12d2",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/product_WGF.tex",
+      "baseline_sha256": "1df6c809dd2bef51f2a9dc8d272bf7c8af7fb0bd4dff972690c7f8851c19ce2b",
+      "publication": "paper/appendix_mf_dirac/product_WGF.tex",
+      "publication_sha256": "ddadbcd499c88a01c4e9b2cf6019d56e93afc55a119740ab1f26b9ddb7811926",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/appendix_mf_dirac/spherical_geometry.pdf",
+      "baseline_sha256": "407842028d317c39fad960fa7ad424c174cb74a1969fc0fd776d81390bbdce65",
+      "publication": "paper/appendix_mf_dirac/spherical_geometry.pdf",
+      "publication_sha256": "407842028d317c39fad960fa7ad424c174cb74a1969fc0fd776d81390bbdce65",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_numerical/20260926-023032JST_sanity_check.tex",
+      "baseline_sha256": "ef6e057a2fe64a208ac5755c6289973336c68b827e2d14428d9280632c5cbd38",
+      "publication": "paper/appendix_numerical/20260926-023032JST_sanity_check.tex",
+      "publication_sha256": "d6645294b851b19d2af8e180bfe4645f0054b17454b31bae2c853c9d5ec5cf91",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/appendix_numerical/figures/adaptive_K32768_instantaneous_spikiness_20260925-220740JST_e1f6acdcbae6.pdf",
+      "baseline_sha256": "e1f6acdcbae646d2d4f74bb879f93213ef3bba70c5df82b0aa0fbce7fb58e0ab",
+      "publication": "paper/appendix_numerical/figures/adaptive_K32768_instantaneous_spikiness_20260925-220740JST_e1f6acdcbae6.pdf",
+      "publication_sha256": "e1f6acdcbae646d2d4f74bb879f93213ef3bba70c5df82b0aa0fbce7fb58e0ab",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_numerical/figures/adaptive_K32768_objectives_20260925-220741JST_f5f6c2a2d261.pdf",
+      "baseline_sha256": "f5f6c2a2d26175776bd862da7f870bbb8b75aa2c64f6246f34f806be10827109",
+      "publication": "paper/appendix_numerical/figures/adaptive_K32768_objectives_20260925-220741JST_f5f6c2a2d261.pdf",
+      "publication_sha256": "f5f6c2a2d26175776bd862da7f870bbb8b75aa2c64f6246f34f806be10827109",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_numerical/figures/adaptive_K32768_schedules_20260925-220741JST_41bda0385c70.pdf",
+      "baseline_sha256": "41bda0385c70878636949f883817d6b0ceb2abe1b65dac5a71cfc0772c26c4de",
+      "publication": "paper/appendix_numerical/figures/adaptive_K32768_schedules_20260925-220741JST_41bda0385c70.pdf",
+      "publication_sha256": "41bda0385c70878636949f883817d6b0ceb2abe1b65dac5a71cfc0772c26c4de",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/appendix_numerical/figures/adaptive_K32768_time_tracking_20260925-220738JST_402967415f7c.pdf",
+      "baseline_sha256": "402967415f7cfc9d9aa3b9d50d1ac7d10c18ced3a7df003f58a96256fe8f19d0",
+      "publication": "paper/appendix_numerical/figures/adaptive_K32768_time_tracking_20260925-220738JST_402967415f7c.pdf",
+      "publication_sha256": "402967415f7cfc9d9aa3b9d50d1ac7d10c18ced3a7df003f58a96256fe8f19d0",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/macros.tex",
+      "baseline_sha256": "746708c0ec542bcae2c347153eebce62e881df5410b03c1d68ebf9c9603200c7",
+      "publication": "paper/macros.tex",
+      "publication_sha256": "746708c0ec542bcae2c347153eebce62e881df5410b03c1d68ebf9c9603200c7",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/main.tex",
+      "baseline_sha256": "5e43bd4145788afad07b24aafb86baeb326e5ebb0bfe90803fdb04005c0835cc",
+      "publication": "paper/main_arxiv.tex",
+      "publication_sha256": "726bdef419b5c169e82eed037c9940cb8f2c171f323fa0763c69e97fe4d74599",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/main_body.tex",
+      "baseline_sha256": "026c30443b01d019324db90984cf9eaeb9d0a99d65b1603ac52d1975810dce52",
+      "publication": "paper/main_body.tex",
+      "publication_sha256": "026c30443b01d019324db90984cf9eaeb9d0a99d65b1603ac52d1975810dce52",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/references.bib",
+      "baseline_sha256": "503ddf2e05ab6a3be853fd3184145c23f9f00bca9599493357c469f009d7d84b",
+      "publication": "paper/references.bib",
+      "publication_sha256": "ff2a0b9bdaec1f583f26790f3d75054783fb7e4bd607e48251baf833890e1c14",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/sections/01_introduction.tex",
+      "baseline_sha256": "74a3c7bd3eb8abc4bf8e1217df85a3734e38531b3e0dd61fb12bfa990f261bf2",
+      "publication": "paper/sections/01_introduction.tex",
+      "publication_sha256": "3432ccfb74889be56a8e1463c90add82707e03d26c98c68b690c94bff9bdf379",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/sections/02_pwgf_and_coupling.tex",
+      "baseline_sha256": "5c07ca449fa405929f34a9abf78ecf332ec153635a038bfaf6a2c74f9f9f2dad",
+      "publication": "paper/sections/02_pwgf_and_coupling.tex",
+      "publication_sha256": "91a292c9dc3cc579d8e1f537de8b8ce449858caade1d287628e3e8e3f7d2a654",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/sections/03_curvature_tracking_theory.tex",
+      "baseline_sha256": "7b09710014681b10ac76d389f488decb583507937f66027f23d7ec19487c0afb",
+      "publication": "paper/sections/03_curvature_tracking_theory.tex",
+      "publication_sha256": "ac2aef319332dae4d10b2beede88b45daf86444da453ac46df3e46f40925563e",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/sections/04_matrix_factorization_geometry.tex",
+      "baseline_sha256": "966acaeadb7d707459c3381b6a743993d17f4580af45206266fc1c842b5b74cc",
+      "publication": "paper/sections/04_matrix_factorization_geometry.tex",
+      "publication_sha256": "b1866296f1cae38d68d1ad2014ccf3979634e2815f826e98f4e666dc268d0ca7",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/sections/05_proof_overview.tex",
+      "baseline_sha256": "e30a3b431c3e1bc0cdee422fca16749ba58b81e07ff578fef9b40ba41ad18dd5",
+      "publication": "paper/sections/05_proof_overview.tex",
+      "publication_sha256": "69c821f241bcf10d17fdfb0b7f2dcb649286092baf32241eaaf8c5f869a4048b",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/sections/06_discussion.tex",
+      "baseline_sha256": "412e8253e1fbd9a70dcd0b45196b844480a138b9ffaf8e2e467153b83947f7b7",
+      "publication": "paper/sections/06_discussion.tex",
+      "publication_sha256": "0919c36a4b052e7de0485b0322b58e9315ba1649f322079f7cf48b271268d01c",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/sections/20260926-163335JST_eclair_transverse_arrows.pdf",
+      "baseline_sha256": "1ec12a8ba7723d4028e4a64aad370bbb1ae9c73ebc49950786ad3e8c50139010",
+      "publication": "paper/sections/20260926-163335JST_eclair_transverse_arrows.pdf",
+      "publication_sha256": "1ec12a8ba7723d4028e4a64aad370bbb1ae9c73ebc49950786ad3e8c50139010",
+      "identical": true
+    },
+    {
+      "baseline": "arxiv/sections/ai_use_statement.tex",
+      "baseline_sha256": "f9cd2322018b6745b423f78f19c743820d469f8116b884a8456b6877a14acc46",
+      "publication": "paper/sections/ai_use_statement.tex",
+      "publication_sha256": "a4878b73691d36264e82c23a36d7a69d8aa1c69a538fa1f8028f67af7c21287a",
+      "identical": false
+    },
+    {
+      "baseline": "arxiv/sections/curvature_response_horizontal.pdf",
+      "baseline_sha256": "a0396256155d92e51a9e6c6ed8a030422ca72fef677785b3c718ef1e065a2b65",
+      "publication": "paper/sections/curvature_response_horizontal.pdf",
+      "publication_sha256": "a0396256155d92e51a9e6c6ed8a030422ca72fef677785b3c718ef1e065a2b65",
+      "identical": true
+    }
+  ]
+}

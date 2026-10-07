@@ -1,0 +1,570 @@
+\subsection{A growing-horizon example: escape and curvature recovery}
+\label{subsec:canonical-variance-cosine}
+
+This example follows a single Gaussian jump from a negative-curvature
+mean to a positive-curvature region. Two lemmas verify the comparison
+assumptions and bound the curvature-response factors; the proposition then
+applies the general comparison theorem on a growing horizon.
+
+\paragraph{Model and fixed parameters.}
+In dimension one, let
+\begin{equation}
+ F(\mu)=\frac a2\operatorname{Var}(\mu)+\beta\cos(\pi m_\mu),
+ \qquad m_\mu:=\int x\,\mu(dx),\qquad a>0,\quad\beta>0.
+ \label{eq:canonical-objective}
+\end{equation}
+Fix $R_0\ge0$, a jump time $\tau>0$, and an amplitude $\eta>0$,
+independently of $N$ and $T$. Let the deterministic initial law $\mu_0$
+be supported in $[-R_0,R_0]$ with $m_{\mu_0}=0$, and set
+$X_0^i=Y_0^i=U_i$ for an i.i.d. sample $(U_i)_{i=1}^N$ from $\mu_0$.
+Use the population-first coupling of
+\cref{lem:population-first-finite-coupling}, with exactly one prescribed
+jump at $\tau$ of amplitude $\eta$, and no later jumps.
+Write $m_t=m_{\mu_t}$ and $b:=\beta\pi^2$.
+Below, $C$ depends only on $a,\beta,R_0,\tau,\eta$ and may increase
+between inequalities; $C_\varepsilon$ may also depend on $\varepsilon$.
+The minimum of $F$ over $\mathcal P_2(\mathbb R)$ is $-\beta$:
+variance is nonnegative, $\cos\ge-1$, and a Dirac mass at an odd integer
+attains equality.
+
+\begin{proposition}[Tracking after escape on a growing horizon]
+\label{prop:canonical-model-assumptions}
+For every fixed $\varepsilon>0$, there are $C_\varepsilon<\infty$ and
+$N_0$, depending only on the fixed model parameters and $\varepsilon$,
+such that for $N\ge N_0$ and $T=N^{1/8}$, the following hold on the
+same event of probability at least $1-N^{-1/16}$.
+Here $r_t$ is the discrepancy in \eqref{eq:tracking-metric}, and
+$\rho_{\mathbf X_t}=N^{-1}\sum_i\delta_{X_t^i}$.
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+ \item Uniformly over the growing horizon,
+ \begin{equation}
+ \sup_{0\le t\le T}
+ \left[r_t+|F(\rho_{\mathbf X_t})-F(\mu_t)|\right]
+ \le C_\varepsilon N^{-3/16+\varepsilon}.
+ \label{eq:canonical-growing-horizon-conclusion}
+ \end{equation}
+ \item After a time $C\log N<T$,
+ \begin{equation}
+ \sup_{C\log N\le t\le T}
+ \left[r_t+|F(\rho_{\mathbf X_t})-F(\mu_t)|
+             +F(\rho_{\mathbf X_t})+\beta\right]
+ \le C_\varepsilon N^{-1/2+\varepsilon}.
+ \label{eq:canonical-after-recovery-conclusion}
+ \end{equation}
+\end{enumerate}
+\end{proposition}
+
+\begin{lemma}[Verification of the comparison assumptions]
+\label{lem:canonical-comparison-assumptions}
+The model \eqref{eq:canonical-objective} with the initial law and
+single jump specified above satisfies:
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+ \item \cref{assumption-structured-moment-smoothness}, with structural
+ parameters independent of $N,T$;
+ \item \cref{assumption-common-seed}, with a spatially constant Gaussian field;
+ \item \cref{assumption-moment-growth}, with $\alpha=2$ and $K_0\le C$;
+ \item \cref{assumption-uniform-concentration-piecewise-lipschitz}, with $B\le C$;
+ \item \cref{assumption-anti-spikiness-event}, with $A_{\rm sp}=1$ and
+ $E_{T,\rm sp}(1)$ holding almost surely for every $T$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: moment structure and weighted smoothness, for (i).}
+Use scalar feature spaces with $\phi_1(x)=x$, $\phi_2(x)=x^2$, and
+$\phi_j=0$ for $j\ge3$, and set
+\[
+ G(\theta)=\frac a2(\theta_2-\theta_1^2)+\beta\cos(\pi\theta_1).
+\]
+The nonzero features have derivative triples
+$(\phi_1',\phi_1'',\phi_1''')=(1,0,0)$ and
+$(\phi_2',\phi_2'',\phi_2''')=(2x,2,0)$.
+They satisfy \eqref{eq:coordinate-feature-growth} with
+$C_\phi=c_{\rm gr}=1$, $\kappa_{\rm gr}=0$, and $L_j=ej$.
+Choose $a_j=e^{-j^2}$, so $c_a=1$ and $\kappa_{\rm dec}=2$.
+The weighted norm in \eqref{eq:weighted-moment-space} gives
+$|h_j|\le a_j^{-1}\|h\|_{\mathsf H_a}$; hence each coordinate projection
+is continuous and the finite-coordinate composition $G$ is $C^3$ on
+$\mathcal U=\mathsf H_a$. Its derivatives are
+\begin{equation}
+ \begin{aligned}
+ \fD G(\theta)[h]
+ &=(-a\theta_1-\beta\pi\sin(\pi\theta_1))h_1+\tfrac a2h_2,\\
+ \fD^2G(\theta)[h,k]&=(-a-b\cos(\pi\theta_1))h_1k_1,\\
+ \fD^3G(\theta)[h,k,r]&=\beta\pi^3\sin(\pi\theta_1)h_1k_1r_1.
+ \end{aligned}
+ \label{eq:canonical-moment-derivatives}
+\end{equation}
+In particular,
+\[
+ |\fD^3G(\theta)[h,k,r]|
+ \le\beta\pi^3|h_1k_1r_1|
+ \le\beta\pi^3a_1^{-3}
+       \|h\|_{\mathsf H_a}\|k\|_{\mathsf H_a}\|r\|_{\mathsf H_a}.
+\]
+Thus \eqref{eq:structured-moment-open-neighbourhood} holds with
+$C_3=\beta\pi^3a_1^{-3}$; the anchor $\theta_0=M(\delta_0)=0$ in
+\eqref{eq:moment-anchor} gives $g_0\le a/(2a_2)$ and
+$h_0\le(a+b)/a_1^2$.
+For $\nu\in\mathcal P_2(\mathbb R)$, the moment sequence has at most two
+nonzero coordinates and
+\[
+ \begin{aligned}
+ \|M(\nu)\|_{\mathsf H_a}^2
+ &=a_1^2\left|\int x\,\nu(dx)\right|^2
+       +a_2^2\left|\int x^2\,\nu(dx)\right|^2<\infty,\\
+ G(M(\nu))&=\tfrac a2\operatorname{Var}(\nu)+\beta\cos(\pi m_\nu).
+ \end{aligned}
+\]
+This verifies the objective identity of \cref{def:moment-objective}.
+
+\par\noindent\textbf{Step 2: Gaussian perturbations, for (ii).}
+In the chain-rule formulas of
+\cref{lemma-localized-moment-smoothness-consequences,eq:weighted-gradient-representation,eq:weighted-spatial-hessian-representation,eq:weighted-integral-hessian-representation},
+substitute \eqref{eq:canonical-moment-derivatives} and the feature derivatives:
+\[
+ \begin{aligned}
+ \nabla_WF(\mu,x)&=(-am_\mu-\beta\pi\sin(\pi m_\mu))\cdot1+\tfrac a2\cdot2x,\\
+ \nabla_x\nabla_WF(\mu,x)&=\tfrac a2\cdot2,\qquad
+ \nabla_W^2F(\mu;x,y)=(-a-b\cos(\pi m_\mu))\cdot1\cdot1.
+ \end{aligned}
+\]
+Consequently,
+\begin{equation}
+ \begin{split}
+ \nabla_WF(\mu,x)&=a(x-m_\mu)-\beta\pi\sin(\pi m_\mu),\\
+ \nabla_x\nabla_WF(\mu,x)&=a,\qquad
+ \nabla_W^2F(\mu;x,y)=c(m_\mu),\qquad c(u):=-a-b\cos(\pi u).
+ \end{split}
+ \label{eq:canonical-wasserstein-derivatives}
+\end{equation}
+The Hessian kernel is symmetric and $|c(u)|\le a+b$.
+Its covariance kernel is $K_\nu(x,y)=\int c(m_\nu)^2\,\nu(dz)=c(m_\nu)^2$.
+The corresponding operator sends $f$ to $c(m_\nu)^2\int f\,d\nu$;
+it has eigenvalue $c(m_\nu)^2$ on the constant unit function and zero
+on its orthogonal complement, so is positive and trace class.
+Take a fresh $Z\sim N(0,1)$ independent of the full pre-jump history
+$\mathcal H_{1-}$ of \cref{lem:population-first-finite-coupling}.
+The spatially constant field $\xi_{1,\mu_{\tau-}}(x)=c(m_{\tau-})Z$
+is jointly measurable and has the required conditional covariance.
+
+For $e_N=N^{-1/2}\mathbf1\in\mathbb R^N$ and
+$\overline x=N^{-1}\sum_i x_i$, the finite factor is
+\begin{equation}
+ \mathbf M^N(\rho_{\mathbf x},\mathbf x)=\sqrt N c(\overline x)e_Ne_N^\top,
+ \qquad \mathbf M^N(\rho_{\mathbf x},\mathbf x)g
+             =c(\overline x)\mathbf1(e_N^\top g).
+ \label{eq:canonical-finite-factor}
+\end{equation}
+Here $\mathbf1$ has all entries equal to one.
+Use the coordinate $\mathbf g_1^N$ constructed in
+\cref{lem:population-first-finite-coupling,eq:population-whitening-covariances}:
+conditional on $\mathcal H_{1-}$ it has law $N(0,I_N)$.
+Thus $\zeta:=e_N^\top\mathbf g_1^N$ has conditional law $N(0,1)$,
+since $e_N^\top e_N=1$.
+Writing $\overline X_t=N^{-1}\sum_iX_t^i$, the jumps are
+\begin{equation}
+ Y_\tau^i=Y_{\tau-}^i+\eta c(m_{\tau-})Z,\qquad
+ X_\tau^i=X_{\tau-}^i+\eta c(\overline X_{\tau-})\zeta.
+ \label{eq:canonical-jumps}
+\end{equation}
+The population pushforward and conditional-i.i.d. property follow from
+\cref{lemma-gp-jump-implies-conditional-iid} and
+\cref{lem:population-first-finite-coupling,eq:population-pushforward-product-law}.
+
+\par\noindent\textbf{Step 3: trajectories and unconditional moments, for (iii).}
+Averaging the negative gradient in \eqref{eq:canonical-wasserstein-derivatives}
+gives, on each ODE interval,
+\begin{equation}
+ \begin{aligned}
+ \dot m_t&=-a\int(x-m_t)\,\mu_t(dx)+\beta\pi\sin(\pi m_t)
+                =\beta\pi\sin(\pi m_t),\\
+ \dot{\overline X}_t&=-\frac aN\sum_i(X_t^i-\overline X_t)
+                +\beta\pi\sin(\pi\overline X_t)
+                =\beta\pi\sin(\pi\overline X_t).
+ \end{aligned}
+ \label{eq:canonical-mean-equations}
+\end{equation}
+These scalar ODEs are globally Lipschitz. Since $m_0=0$, uniqueness
+gives $m_t=0$ before the jump; hence \eqref{eq:canonical-jumps} yields
+\begin{equation}
+ m_\tau=-\eta(a+b)Z.
+ \label{eq:canonical-population-jump-mean}
+\end{equation}
+Subtracting the mean equations from the particle equations gives
+\[
+ \frac d{dt}(Y_t^i-m_t)=-a(Y_t^i-m_t),\qquad
+ \frac d{dt}(X_t^i-\overline X_t)=-a(X_t^i-\overline X_t).
+\]
+Each translation in \eqref{eq:canonical-jumps} also translates its mean,
+so $Y_\tau^i-m_\tau=Y_{\tau-}^i-m_{\tau-}$ and
+$X_\tau^i-\overline X_\tau=X_{\tau-}^i-\overline X_{\tau-}$.
+Solving the centered equations therefore gives global trajectories
+\begin{equation}
+ \begin{split}
+ Y_t^i&=m_t+e^{-at}U_i,\qquad
+ X_t^i=\overline X_t+e^{-at}(U_i-\overline X_0),\\
+ X_t^i-Y_t^i&=\overline X_t-m_t-e^{-at}\overline X_0.
+ \end{split}
+ \label{eq:canonical-trajectories}
+\end{equation}
+They hold also at both sides of the jump.
+For $\dot u=\beta\pi\sin(\pi u)$, the drift is positive on
+$(2k,2k+1)$ and negative on $(2k-1,2k)$.
+Uniqueness prevents crossing an integer equilibrium, so a mean moves
+at most one unit on each ODE interval. There are two intervals and one
+jump. Using $|c|\le a+b$ and $|U_i|,|\overline X_0|\le R_0$ gives
+\[
+ \sup_{t\ge0}|Y_t^i|\le3R_0+2+\eta(a+b)|Z|,\qquad
+ \sup_{t\ge0}|X_t^i|\le3R_0+2+\eta(a+b)|\zeta|.
+\]
+For a standard normal $Z$, integration by parts, with vanishing boundary
+term, gives
+\[
+ \mathbb E Z^{2k}
+ =-\frac1{\sqrt{2\pi}}\int z^{2k-1}\frac d{dz}e^{-z^2/2}\,dz
+ =(2k-1)\mathbb E Z^{2k-2}
+ =\prod_{j=1}^k(2j-1)\le(2k)^k.
+\]
+Taking $k=\lceil q/2\rceil$ for $q\ge1$ yields
+$\|Z\|_{L^q}\le\|Z\|_{L^{2k}}\le\sqrt{2k}\le2\sqrt q$;
+$\zeta$ has the same marginal bound.
+Minkowski's inequality now gives
+\[
+ \left\|\sup_{t\ge0}|Y_t^i|\right\|_{L^q}
+ \vee\left\|\sup_{t\ge0}|X_t^i|\right\|_{L^q}
+ \le3R_0+2+2\eta(a+b)\sqrt q\le C\sqrt q.
+\]
+This proves (iii) with $\alpha=2$ and a fixed $K_0\le C$.
+
+\par\noindent\textbf{Step 4: piecewise Lipschitz regularity, for (iv).}
+By \eqref{eq:canonical-trajectories}, the centered coordinates have
+absolute value at most $2R_0$.
+The gradient formula \eqref{eq:canonical-wasserstein-derivatives} gives
+$|\dot X_t^i|\vee|\dot Y_t^i|\le2aR_0+\beta\pi$.
+Integrating on an ODE interval gives
+$|X_t^i-X_s^i|\vee|Y_t^i-Y_s^i|\le C(t-s)$.
+The continuous ODE branches and the translations supply the required traces.
+
+\par\noindent\textbf{Step 5: anti-spikiness, for (v).}
+The difference in \eqref{eq:canonical-trajectories} is independent of $i$.
+Thus \eqref{eq:tracking-metric} gives
+$r_t=|\overline X_t-m_t-e^{-at}\overline X_0|$, and
+\[
+ \frac1N\sum_i|X_t^i-Y_t^i|^3
+ =|\overline X_t-m_t-e^{-at}\overline X_0|^3=r_t^3.
+\]
+This includes $r_t=0$ and both jump traces, proving
+\eqref{eq-cubic-antispike-bound} with $A_{\rm sp}=1$ almost surely.
+\end{proof}
+
+\begin{remark}[Local intuition for the coupled jump]
+\label{rem:canonical-jump-alignment}
+Recall $c(u)=-a-b\cos(\pi u)$ from
+\cref{lem:canonical-comparison-assumptions,eq:canonical-wasserstein-derivatives}
+and write $\overline Y_t=N^{-1}\sum_iY_t^i$.
+On the constant direction $e_N$ in
+\eqref{eq:canonical-finite-factor}, the alignment in
+\cref{lem:population-first-finite-coupling} gives
+\[
+ \zeta=-\operatorname{sign}_+(c(\overline Y_{\tau-}))Z,
+ \qquad c(u)=-(a+b)+O(u^2)\quad(u\to0),
+\]
+where $\operatorname{sign}_+(v)=-1$ for $v<0$ and $+1$ otherwise.
+When both empirical means are sufficiently near zero,
+$c(\overline Y_{\tau-})<0$, so $\zeta=Z$ and the jumps in
+\eqref{eq:canonical-jumps} satisfy
+\[
+ X_\tau^i-X_{\tau-}^i\simeq-\eta(a+b)Z=Y_\tau^i-Y_{\tau-}^i.
+\]
+This explains locally why the coupled translations agree to leading order;
+the comparison proof below uses the general theorem, not this approximation.
+\end{remark}
+
+\begin{lemma}[Curvature-response and population-objective bounds after escape]
+\label{lem:canonical-response-control}
+For $N\ge2$ sufficiently large, there is a population-measurable event
+$E_N^{\rm esc}$ with $\mathbb P(E_N^{\rm esc})\ge1-\tfrac12N^{-1/16}$
+on which the curvature-response factors in
+\cref{def:curvature-responses,eq:tracking-curvature-responses} satisfy
+\begin{equation}
+ \begin{aligned}
+ \sup_{t\ge0}(\mathfrak C_t^Y+\mathfrak J_t^Y)&\le CN^{1/16},\\
+ \mathfrak C_t^Y&\le C,\qquad
+ \mathfrak J_t^Y\le CN^{-1/4},\qquad
+ 0\le F(\mu_t)+\beta\le CN^{-1/2}\quad(t\ge C\log N).
+ \end{aligned}
+ \label{eq:canonical-response-bounds}
+\end{equation}
+The constants depend only on the fixed model parameters.
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: exclude landings close to unstable equilibria.}
+By \cref{lem:canonical-comparison-assumptions,eq:canonical-population-jump-mean},
+$m_\tau=-\sigma Z$ with $\sigma=\eta(a+b)>0$.
+Its density is $f_\sigma(x)=(2\pi\sigma^2)^{-1/2}e^{-x^2/(2\sigma^2)}$.
+For $0<\rho<1/2$, symmetry and monotonicity on $[0,\infty)$ give
+\[
+ \begin{aligned}
+ \mathbb P\{\operatorname{dist}(m_\tau,2\mathbb Z)<\rho\}
+ &=\sum_{k\in\mathbb Z}\int_{2k-\rho}^{2k+\rho}f_\sigma(x)\,dx\\
+ &\le2\rho f_\sigma(0)+4\rho\sum_{k\ge1}f_\sigma(2k-1)
+ \le2\rho\{f_\sigma(0)+1\}.
+ \end{aligned}
+\]
+For the last inequality,
+$\sum_{k\ge1}f_\sigma(2k-1)
+\le\sum_{k\ge1}\int_{2k-2}^{2k-1}f_\sigma(x)\,dx\le1/2$.
+Here $\operatorname{dist}(u,2\mathbb Z)=\inf_{k\in\mathbb Z}|u-2k|$.
+Choose $\rho_N$ to be a sufficiently small fixed positive multiple of
+$N^{-1/16}$. Then
+\begin{equation}
+ E_N^{\rm esc}:=\{\operatorname{dist}(m_\tau,2\mathbb Z)\ge\rho_N\},
+ \qquad \mathbb P((E_N^{\rm esc})^c)\le\tfrac12N^{-1/16}.
+ \label{eq:canonical-escape-probability}
+\end{equation}
+This event depends only on the population jump. Work on it below.
+
+\par\noindent\textbf{Step 2: compute the curvature and its recovery time.}
+Insert \cref{lem:canonical-comparison-assumptions,eq:canonical-wasserstein-derivatives}
+into the sampled full Hessian of \cref{def:curvature-responses,eq:curvature-main}.
+With $e_N=N^{-1/2}\mathbf1$ as in \eqref{eq:canonical-finite-factor},
+\begin{equation}
+ \begin{split}
+ \HessianMatrices_t^Y&=aI_N+c(m_t)e_Ne_N^\top,\\
+ \HessianMatrices_t^Ye_N&=-b\cos(\pi m_t)e_N,\qquad
+ \HessianMatrices_t^Yv=av\quad(e_N^\top v=0),\\
+ \kappa_t^{Y,N}&=\min\{a,-b\cos(\pi m_t)\}\ge-b.
+ \end{split}
+ \label{eq:canonical-sampled-curvature}
+\end{equation}
+The constant direction and its orthogonal complement are nontrivial since $N\ge2$.
+Also $|\kappa_t^{Y,N}|\le\max\{a,b\}$, so it is integrable on every
+finite horizon.
+Let $d_t=\operatorname{dist}(m_t,2\mathbb Z)\in[0,1]$ for $t\ge\tau$.
+On either branch $m_t=2k\pm d_t$,
+\cref{lem:canonical-comparison-assumptions,eq:canonical-mean-equations}
+gives $\dot d_t=\beta\pi\sin(\pi d_t)\ge0$.
+If $d_\tau=1$, the mean is an odd-integer equilibrium and remains there.
+Otherwise $0<d_\tau<1$ on $E_N^{\rm esc}$.
+We use the half-angle coordinate $\tan(\pi d_t/2)$ to turn the sine drift
+into a linear equation and obtain an explicit curvature-recovery time.
+Direct differentiation gives
+\begin{equation}
+ \begin{split}
+ \frac d{dt}\tan\frac{\pi d_t}{2}
+ &=\frac{\pi}{2\cos^2(\pi d_t/2)}\beta\pi\sin(\pi d_t)
+   =b\tan\frac{\pi d_t}{2},\\
+ \tan\frac{\pi d_t}{2}&=e^{b(t-\tau)}\tan\frac{\pi d_\tau}{2}.
+ \end{split}
+ \label{eq:canonical-mean-solution}
+\end{equation}
+Set $t_N=\tau+b^{-1}\log(2/\rho_N)$ and $\lambda=\min\{a,b/2\}>0$.
+Since $\tan(\pi\rho_N/2)\ge\rho_N$,
+$\tan(\pi d_{t_N}/2)\ge(2/\rho_N)\rho_N=2>\sqrt3=\tan(\pi/3)$.
+Hence $d_t\ge2/3$ for $t\ge t_N$, including the equilibrium case,
+and $\cos(\pi m_t)=\cos(\pi d_t)\le-1/2$.
+Consequently \eqref{eq:canonical-sampled-curvature} gives
+\begin{equation}
+ \kappa_t^{Y,N}\ge\lambda\quad(t\ge t_N),\qquad
+ e^{bt_N}=2e^{b\tau}/\rho_N\le CN^{1/16}.
+ \label{eq:canonical-curvature-recovery}
+\end{equation}
+
+\par\noindent\textbf{Step 3: split the curvature-response factors at the recovery time.}
+Recall from \eqref{eq:tracking-curvature-responses} that
+$G_\kappa^Y(t,s)=e^{-\int_s^t\kappa_u^{Y,N}\,du}$,
+$\mathfrak C_t^Y=\int_0^tG_\kappa^Y(t,s)\,ds$, and, for this one jump,
+$\mathfrak J_t^Y=0$ before $\tau$ and
+$\mathfrak J_t^Y=\eta G_\kappa^Y(t,\tau)$ after it.
+For $t\le t_N$, \cref{eq:canonical-sampled-curvature,eq:canonical-curvature-recovery} give
+\[
+ \mathfrak C_t^Y\le\int_0^te^{b(t-s)}\,ds=(e^{bt}-1)/b\le C/\rho_N,
+ \qquad
+ \mathfrak J_t^Y\le\eta e^{b(t-\tau)}\le C/\rho_N\quad(t\ge\tau).
+\]
+For $t\ge t_N$, split the integral and use
+$G_\kappa^Y(t,s)=G_\kappa^Y(t,t_N)G_\kappa^Y(t_N,s)$ when $s\le t_N$.
+By \eqref{eq:canonical-curvature-recovery},
+\begin{equation}
+ \begin{aligned}
+ \mathfrak C_t^Y
+ &=G_\kappa^Y(t,t_N)\mathfrak C_{t_N}^Y+\int_{t_N}^tG_\kappa^Y(t,s)\,ds
+ \le(C/\rho_N)e^{-\lambda(t-t_N)}+\lambda^{-1},\\
+ \mathfrak J_t^Y
+ &=G_\kappa^Y(t,t_N)\mathfrak J_{t_N}^Y
+ \le(C/\rho_N)e^{-\lambda(t-t_N)}.
+ \end{aligned}
+ \label{eq:canonical-integrated-responses}
+\end{equation}
+The integral over $[t_N,t]$ satisfies
+\[
+ \int_{t_N}^tG_\kappa^Y(t,s)\,ds
+ \le\int_{t_N}^te^{-\lambda(t-s)}\,ds
+ =\frac{1-e^{-\lambda(t-t_N)}}{\lambda}\le\lambda^{-1}.
+\]
+These bounds imply the all-time estimate in \eqref{eq:canonical-response-bounds}.
+We choose the waiting time so that the exponential decay cancels the factor
+$\rho_N^{-1}$ in the bound for $\mathfrak J_t^Y$ in
+\cref{eq:canonical-integrated-responses}, leaving a bound of order $N^{-1/4}$:
+\begin{equation}
+ t\ge t_N+\lambda^{-1}\log(\rho_N^{-1}N^{1/4})
+ \quad\Longrightarrow\quad e^{-\lambda(t-t_N)}\le\rho_NN^{-1/4}.
+ \label{eq:canonical-late-time}
+\end{equation}
+The threshold on the left is at most $C\log N$, because
+$\rho_N$ is a fixed multiple of $N^{-1/16}$.
+Substitution into \eqref{eq:canonical-integrated-responses} gives
+$\mathfrak C_t^Y\le CN^{-1/4}+\lambda^{-1}\le C$ and
+$\mathfrak J_t^Y\le CN^{-1/4}$ in this range.
+
+\par\noindent\textbf{Step 4: decay of the population objective.}
+The population trajectory in
+\cref{lem:canonical-comparison-assumptions,eq:canonical-trajectories}
+is the pushforward $u\mapsto m_t+e^{-at}u$, so
+$\operatorname{Var}(\mu_t)=e^{-2at}\operatorname{Var}(\mu_0)$.
+For $t\ge t_N$, we have $\cos(\pi m_t)\le-1/2$, whence
+$\sin^2(\pi m_t)=(1-\cos(\pi m_t))(1+\cos(\pi m_t))
+\ge1+\cos(\pi m_t)$.
+Differentiate \eqref{eq:canonical-objective} using
+\eqref{eq:canonical-mean-equations}, and recall $b=\beta\pi^2$:
+\[
+ \begin{aligned}
+ \frac d{dt}[F(\mu_t)+\beta]
+ &=\tfrac a2[-2a\operatorname{Var}(\mu_t)]
+   -\beta\pi\sin(\pi m_t)[\beta\pi\sin(\pi m_t)]\\
+ &=-a^2\operatorname{Var}(\mu_t)-b\beta\sin^2(\pi m_t)\\
+ &\le-\lambda a\operatorname{Var}(\mu_t)
+       -2\lambda\beta(1+\cos(\pi m_t))
+ =-2\lambda[F(\mu_t)+\beta],
+ \end{aligned}
+\]
+where $\lambda\le a$ and $2\lambda\le b$.
+Multiplying by $e^{2\lambda(t-t_N)}$ and integrating, with
+$F(\mu_{t_N})+\beta\le aR_0^2/2+2\beta\le C$, yields
+\[
+ 0\le F(\mu_t)+\beta\le Ce^{-2\lambda(t-t_N)}
+       \le C\rho_N^2N^{-1/2}\le CN^{-1/2}
+       \qquad(t\ge C\log N),
+\]
+where the second inequality is \eqref{eq:canonical-late-time} squared.
+\end{proof}
+
+\begin{proof}[Proof of \cref{prop:canonical-model-assumptions}]
+\noindent\textbf{Step 1: verify stability on the escape event.}
+\Cref{lem:canonical-comparison-assumptions} verifies all comparison
+assumptions with uniform constants.
+Take $T=N^{1/8}$ and $p=\tfrac12N^{-1/16}$, with $N$ large enough that
+$T\ge\tau$. For one jump, the scale in \eqref{eq:def-supXY-v15} satisfies
+\[
+ \Xi=16(1+B)N(e+T)/p\le CN^{1+1/8+1/16}=CN^{19/16}.
+\]
+The three powers used here have separate roles. The choice
+$\rho_N\asymp N^{-1/16}$ pays the escape failure probability in
+\cref{eq:canonical-escape-probability}; the recovery estimate
+\cref{eq:canonical-curvature-recovery} then bounds the transient curvature-response factor
+growth by $\rho_N^{-1}=O(N^{1/16})$; and the horizon $T=N^{1/8}$ leaves a
+strictly negative power in the nonlinear stability check below.
+Use the residual and coefficient bounds in the proof of
+\cref{cor:fixed-schedule-high-prob-r-rate-v15}, specifically
+\eqref{eq:main-rate-internal-envelopes}.
+Since $T/N=N^{-7/8}\le N^{-1/2}$ and those bounds hold for every
+positive exponent, applying them with exponent $16\theta/19$ gives,
+for any $\theta>0$,
+\begin{equation}
+ \begin{split}
+ \delta+\widetilde\delta&\le C_\theta N^{-1/2+\theta},\qquad
+ \sqrt\delta+\sqrt{\widetilde\delta}\le C_\theta N^{-1/4+\theta},\\
+ 1+c_D+c_J(D)q_p+\Lambda(D)+J_{N,T,p}&\le C_\theta N^\theta.
+ \end{split}
+ \label{eq:canonical-residual-envelopes}
+\end{equation}
+Here the square-root bound uses
+$\sqrt\delta+\sqrt{\widetilde\delta}\le\sqrt{2(\delta+\widetilde\delta)}$
+and $N^{\theta/2}\le N^\theta$.
+The one-jump product in \eqref{eq:def-jump-amplification-v15} is
+$J_{N,T,p}=1+\eta c_J(D)q_p$, which proves its bound with the same exponent.
+The other quantities retain the definitions in
+\cref{eq:def-delta-v15,eq:def-tdelta-v15,eq:def-supXY-v15}.
+
+Work on $E_N^{\rm esc}$ from
+\cref{lem:canonical-response-control,eq:canonical-escape-probability}.
+Insert its all-time curvature-response bound \eqref{eq:canonical-response-bounds}
+and \eqref{eq:canonical-residual-envelopes} into the forcing
+\eqref{eq:def-B-v15} and radius $R=2J_{N,T,p}\mathfrak B_*$:
+\[
+ \begin{aligned}
+ \mathfrak B_*
+ &\le\delta\sup_{t\le T}\mathfrak C_t^Y
+       +c_J(D)q_p(\sqrt\delta+\sqrt{\widetilde\delta})
+                          \sup_{t\le T}\mathfrak J_t^Y\\
+ &\le C_\theta\left[N^{-1/2+\theta+1/16}
+                    +N^{-1/4+2\theta+1/16}\right]
+ \le C_\theta N^{-3/16+2\theta},\\
+ R&\le C_\theta N^\theta N^{-3/16+2\theta}
+       =C_\theta N^{-3/16+3\theta},\\
+ T(\delta+c_DR)
+ &\le C_\theta\left[N^{-3/8+\theta}+N^{-1/16+4\theta}\right]
+ \le C_\theta N^{-1/16+4\theta}.
+ \end{aligned}
+\]
+Fix $4\theta<\min\{1/16,\varepsilon\}$.
+For sufficiently large $N$, the last bound is at most $1/4$, exactly
+as required by the nonlinear stability event \eqref{eq:smallness-v15}.
+Thus $E_N^{\rm esc}\subset\mathcal S_{N,T,p}$.
+
+\par\noindent\textbf{Step 2: apply comparison and prove (i).}
+By \cref{lem:canonical-comparison-assumptions}(v), anti-spikiness holds
+almost surely. Curvature integrability follows from
+\cref{lem:canonical-response-control,eq:canonical-sampled-curvature}.
+Apply \cref{thm:fixed-schedule-high-prob-r-v15} with the above $p$.
+Its proof constructs $\Omega_p$ so that $\sup_{t\le T}\Gamma_t^N\le\delta$
+and the population and localization events hold there.
+On $\Omega_p\cap E_N^{\rm esc}$,
+\cref{eq:high-prob-r-bound-v15,eq:def-B-v15,eq:canonical-residual-envelopes}
+give
+\[
+ \begin{aligned}
+ r_t&\le2J_{N,T,p}
+       [\delta\mathfrak C_t^Y
+        +c_J(D)q_p(\sqrt\delta+\sqrt{\widetilde\delta})\mathfrak J_t^Y]\\
+ &\le C_\theta N^{3\theta}
+       [N^{-1/2}\mathfrak C_t^Y+N^{-1/4}\mathfrak J_t^Y].
+ \end{aligned}
+\]
+Then \cref{lem:functional-gap-fixed-time-v15,eq:functional-gap-fixed-time-v15}
+implies
+\begin{equation}
+ \begin{split}
+ r_t+|F(\rho_{\mathbf X_t})-F(\mu_t)|
+ &\le(1+\Lambda(D))r_t+\delta\\
+ &\le C_\theta N^{4\theta}
+       [N^{-1/2}(1+\mathfrak C_t^Y)+N^{-1/4}\mathfrak J_t^Y].
+ \end{split}
+ \label{eq:canonical-response-tracking}
+\end{equation}
+The all-time bound in
+\cref{lem:canonical-response-control,eq:canonical-response-bounds}
+makes the last line at most
+$C_\theta N^{4\theta}[N^{-1/2}(1+N^{1/16})+N^{-1/4+1/16}]
+\le C_\varepsilon N^{-3/16+\varepsilon}$, proving (i).
+A union bound gives
+$\mathbb P(\Omega_p\cap E_N^{\rm esc})
+\ge1-p-\tfrac12N^{-1/16}=1-N^{-1/16}$.
+
+\par\noindent\textbf{Step 3: substitute the late-time bounds to prove (ii).}
+For $t\ge C\log N$, substitute
+$\mathfrak C_t^Y\le C$ and $\mathfrak J_t^Y\le CN^{-1/4}$ from
+\cref{lem:canonical-response-control,eq:canonical-response-bounds}
+into \eqref{eq:canonical-response-tracking}. Its right-hand side is
+at most $C_\theta N^{4\theta}[N^{-1/2}+N^{-1/4}N^{-1/4}]
+\le C_\varepsilon N^{-1/2+\varepsilon}$.
+Finally, on the same event,
+\[
+ 0\le F(\rho_{\mathbf X_t})+\beta
+ \le |F(\rho_{\mathbf X_t})-F(\mu_t)|+F(\mu_t)+\beta.
+\]
+The population bound in \eqref{eq:canonical-response-bounds} is
+$CN^{-1/2}$, so adding this inequality proves (ii), after increasing
+$C_\varepsilon$. Increase $N_0$ if needed so that $C\log N<N^{1/8}$.
+\end{proof}
+\pagebreak[3]

@@ -1,0 +1,882 @@
+\subsection{Bound of $r_t$ including jump errors}
+\label{subsec:general-argument-r_t-jump-errors}
+
+The jump analysis has one purpose: compare two Gaussian perturbation vectors
+using the same seed, so that the error is measured by covariance mismatch.
+
+At a jump time \(t_\ell\), the reference particles are defined by evaluating the
+population Gaussian field:
+\[
+Y_{t_\ell}^i
+=
+Y_{t_\ell-}^i
++
+\eta_\ell
+\xi_{\mu_{t_\ell-}}(Y_{t_\ell-}^i),
+\qquad
+\xi_{\mu_{t_\ell-}}\sim GP(0,K_{\mu_{t_\ell-}}).
+\]
+Thus, conditional on the population Gaussian fields and the jump schedule,
+the reference particles are deterministic pushforwards of their i.i.d. initial
+particles and remain conditionally i.i.d. with common law \(\mu_t\).
+
+We now pass from the Gaussian field to its finite evaluation vector at the
+reference particles.
+
+For the jump comparison only, we use the following finite-dimensional
+representation. Conditional on the full pre-jump history \(\mathcal H_{\ell-}\), the vector
+\[
+\big(\xi_{\mu_{t_\ell-}}(Y_{t_\ell-}^1),\dots,
+\xi_{\mu_{t_\ell-}}(Y_{t_\ell-}^N)\big)
+\]
+is a centered Gaussian vector with covariance
+\(C_{\mu_{t_\ell-}}(Y_{t_\ell-})\). Hence it can be represented as
+\(B_{\mu_{t_\ell-}}(Y_{t_\ell-})g_\ell^N\), where
+\(B_{\mu_{t_\ell-}}(Y_{t_\ell-})B_{\mu_{t_\ell-}}(Y_{t_\ell-})^\top
+= C_{\mu_{t_\ell-}}(Y_{t_\ell-})\).
+This representation is used only inside the covariance-mismatch estimate.
+
+Covariance-factor couplings have a Procrustes/Wasserstein precedent in
+\citet{masarotto2019procrustes}. Here we choose a factor that preserves the
+population covariance and admits a direct square-root bound. We do not
+need to solve the Procrustes minimization problem.
+\begin{lemma}[Aligned construction of the finite square root]
+\label{lemma-aligned-finite-square-root}
+Let $\mu$ be a law in the Gaussian perturbation model
+\cref{assumption-common-seed}, and let
+$\mathbf Y=(Y^1,\dots,Y^N)\in (\R^d)^N$ have finite covariance
+evaluations as in that model. Write
+$M:=\mathbf M^N(\rho_{\mathbf Y}^N,\mathbf Y)\in \R^{Nd\times Nd},\;
+M_{ij}
+:=
+\frac1{\sqrt N}\nabla_W^2F(\rho_{\mathbf Y}^N;Y^i,Y^j),$
+as well as
+$
+C:=\bigl[K_\mu(Y^i,Y^j)\bigr]_{i,j=1}^N\in \R^{Nd\times Nd}.
+$
+Then $M$ and $C$ are symmetric, $C$ is positive semidefinite, and there exists
+an orthogonal matrix $Q\in\R^{Nd\times Nd}$ such that
+\[
+M=|M|Q,
+\qquad
+|M|:=(M^2)^{1/2}.
+\]
+If we define
+\[
+B:=C^{1/2}Q,
+\]
+then
+\[
+BB^\top=C,
+\]
+and
+\[
+\|B-M\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}=\|C^{1/2}-|M|\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}.
+\]
+In particular,
+\[
+\|B-M\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}^2
+\le
+\|C-M^2\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}},
+\]
+where $\norm{\cdot}_*$ is the nuclear norm (sum of singular values).
+\end{lemma}
+
+\begin{proof}
+\noindent\textbf{Step 1: check symmetry and positivity.}
+Since each block of $M$ is given by
+\[
+M_{ij}=\frac1{\sqrt N}\nabla_W^2F(\rho_{\mathbf Y}^N;Y^i,Y^j),
+\]
+the assumed symmetry of $\nabla_W^2F$ yields symmetry of $M$.
+Similarly, the kernel matrix $C$ is also symmetric.
+
+Moreover, for any $v=(v_1,\dots,v_N)\in \R^{Nd}$,
+\[
+v^\top C v
+=
+\sum_{i,j=1}^N
+v_i^\top K_\mu(Y^i,Y^j)v_j.
+\]
+By the definition of $K_\mu$,
+\[
+v^\top C v
+=
+\int
+\sum_{i,j=1}^N
+v_i^\top
+\nabla_W^2F(\mu;Y^i,z)\nabla_W^2F(\mu;z,Y^j)
+v_j\,
+\mu(dz).
+\]
+Since $\nabla_W^2F(\mu;z,Y^j)=\nabla_W^2F(\mu;Y^j,z)^\top$, this becomes
+\[
+v^\top C v
+=
+\int
+\Bigl\|
+\sum_{i=1}^N
+\nabla_W^2F(\mu;Y^i,z)^\top v_i
+\Bigr\|_{\mathbb R^d}^2
+\mu(dz)
+\ge 0.
+\]
+Hence $C$ is positive semidefinite.
+
+
+\par\noindent\textbf{Step 2: construct the aligned factor.}
+For the spectral decomposition
+$M=U\operatorname{diag}(\lambda_j)U^\top$, define
+\[
+ Q:=U\operatorname{diag}(\operatorname{sign}_+(\lambda_j))U^\top,
+ \qquad
+ \operatorname{sign}_+(a):=
+ \begin{cases}-1,&a<0,\\1,&a\ge0.\end{cases}
+\]
+Then $QQ^\top=U\operatorname{diag}(1)U^\top=I$, including on the
+zero eigenspace, and
+\[
+ |M|Q=U\operatorname{diag}(|\lambda_j|\operatorname{sign}_+(\lambda_j))U^\top=M.
+\]
+Define
+\[
+B:=C^{1/2}Q.
+\]
+Then
+\[
+BB^\top
+=
+C^{1/2}QQ^\top C^{1/2}
+=
+C.
+\]
+On the other hand,
+\[
+B-M
+=
+C^{1/2}Q-|M|Q
+=
+(C^{1/2}-|M|)Q.
+\]
+Right orthogonal invariance follows from
+$\|(C^{1/2}-|M|)Q\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}^2
+=\operatorname{tr}((C^{1/2}-|M|)QQ^\top(C^{1/2}-|M|)^\top)
+=\|C^{1/2}-|M|\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}^2$. Therefore
+\[
+\|B-M\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+=
+\|(C^{1/2}-|M|)Q\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+=
+\|C^{1/2}-|M|\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}.
+\]
+
+\par\noindent\textbf{Step 3: bound the factor difference by the covariance difference.}
+The estimate proved in this step is the finite-dimensional
+Powers--St{\o}rmer inequality~\citep{powers1970free}; we include the calculation
+to keep the norms and constants explicit.
+For completeness, set $S=C^{1/2}-|M|$ in the following calculation, and
+write $S=\sum_js_je_je_j^\top$ in an orthonormal eigenbasis and define
+$\operatorname{sign}(S)=\sum_j\operatorname{sign}(s_j)e_je_j^\top$,
+where $\operatorname{sign}(a)$ is $1$, $0$, or $-1$ according as
+$a>0$, $a=0$, or $a<0$. This differs from
+$\operatorname{sign}_+(0)=1$ used to make $Q$ orthogonal.
+The product identity follows by cancellation:
+\[
+ C^{1/2}S+S|M|
+ =C-C^{1/2}|M|+C^{1/2}|M|-|M|^2=C-M^2.
+\]
+Thus
+\[
+ C-M^2=C^{1/2}S+S|M|,\qquad
+ \|\operatorname{sign}(S)\|_{\mathbb R^{dN}\to\mathbb R^{dN}}\le1,\qquad
+ S\operatorname{sign}(S)=\operatorname{sign}(S)S=|S|.
+\]
+For any symmetric matrix $A=\sum_j\lambda_je_je_j^\top$ and any
+matrix $J$ with $\|J\|_{\mathbb R^{dN}\to\mathbb R^{dN}}\le1$,
+$\operatorname{tr}(JA)=\sum_j\lambda_j\langle e_j,Je_j\rangle
+\le\sum_j|\lambda_j|=\|A\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}$. Apply this fact to $A=C-M^2$
+and $J=\operatorname{sign}(S)$, then use cyclicity of the trace:
+\[
+\begin{aligned}
+ \|C-M^2\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+ &\ge\operatorname{tr}(\operatorname{sign}(S)(C^{1/2}S+S|M|))\\
+ &=\operatorname{tr}(S\operatorname{sign}(S)C^{1/2})
+        +\operatorname{tr}(\operatorname{sign}(S)S|M|)\\
+ &=\operatorname{tr}(|S|(C^{1/2}+|M|)).
+\end{aligned}
+\]
+For each $e_j$, both $\langle e_j,C^{1/2}e_j\rangle$ and
+$\langle e_j,|M|e_j\rangle$ are nonnegative. The scalar inequality
+$a+b\ge|a-b|$ for $a,b\ge0$ therefore gives
+\[
+ \langle e_j,(C^{1/2}+|M|)e_j\rangle
+ \ge|\langle e_j,(C^{1/2}-|M|)e_j\rangle|=|s_j|.
+\]
+Consequently,
+\[
+\begin{aligned}
+ \|C-M^2\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+ &\ge\sum_j|s_j|\langle e_j,(C^{1/2}+|M|)e_j\rangle
+ \ge\sum_j|s_j|^2\\
+ &=\|C^{1/2}-|M|\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}^2
+ =\|B-M\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}^2.
+\end{aligned}
+\]
+No nonsingularity or optimality of the chosen factor is used.
+\end{proof}
+
+\begin{lemma}[Population-first finite coupling]
+\label{lem:population-first-finite-coupling}
+Fix a prescribed jump $t_\ell$ in
+\cref{definition-ode-and-jump,assumption-common-seed}. Recall that
+$\mathcal H_{\ell-}$ is the pre-jump history: it includes the initial
+sample, previous population innovations, previous auxiliary normals, and
+the pre-jump states, but not the current or future innovations.
+Generate the prescribed population field and define
+\[
+ v:=\bigl(\xi_{\mu_{t_\ell-}}(Y_{t_\ell-}^i)\bigr)_{i=1}^N,
+ \qquad
+ C:=\bigl[K_{\mu_{t_\ell-}}(Y_{t_\ell-}^i,Y_{t_\ell-}^j)\bigr]_{i,j=1}^N.
+\]
+Thus $v\mid\mathcal H_{\ell-}\sim N(0,C)$. Recall the Hessian factors:
+\[
+\begin{gathered}
+ (M_Z)_{ij}:=\frac1{\sqrt N}
+ \nabla_W^2F(\rho_{\mathbf Z_{t_\ell-}};Z_{t_\ell-}^i,Z_{t_\ell-}^j),
+ \quad Z\in\{X,Y\},\\
+ Q:=\operatorname{sign}_+(M_Y),\qquad B:=C^{1/2}Q.
+\end{gathered}
+\]
+This local factor \(B\) is denoted by \(B_{\rm pop}\) in the main text.
+On an extension of the probability space, take $h_\ell\sim N(0,I_{Nd})$
+independent of the original population system, the initial sample, and all
+other auxiliary normals. Define
+\[
+\mathbf g_\ell^N=B^\dagger v+(I-B^\dagger B)h_\ell,
+\]
+where $B^\dagger$ is the Moore--Penrose inverse, defined below. Then:
+\begin{enumerate}
+\item The finite coordinate is conditionally standard Gaussian and
+reproduces the original population evaluation:
+\[
+\mathbf g_\ell^N\mid\mathcal H_{\ell-}\sim N(0,I_{Nd}),\qquad
+B\mathbf g_\ell^N=v\quad\text{a.s.}
+\]
+\item The factor error satisfies
+\[
+\|B-M_Y\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}^2\le\|C-M_Y^2\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}.
+\]
+\item The perturbation $M_X\mathbf g_\ell^N$ has the prescribed empirical
+conditional covariance
+\[
+[K_{\rho_{\mathbf X_{t_\ell-}}}
+(X_{t_\ell-}^i,X_{t_\ell-}^j)]_{i,j}.
+\]
+Repeating the construction with
+fresh $h_\ell$ couples all prescribed jumps while retaining the original
+population path and the conditional product law for the reference particles.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: the pre-jump matrices and the inverse.}
+The evaluation points and $\mu_{t_\ell-}$ are fixed after conditioning on
+$\mathcal H_{\ell-}$. The fresh field therefore has the asserted finite
+Gaussian law by \cref{assumption-common-seed}; joint measurability is part
+of that model. All matrices $C,M_X,M_Y,Q,B$ are measurable before the
+jump. For $Q$ no measurable choice of eigenvectors is needed: the sign in
+\cref{lemma-aligned-finite-square-root} is the Borel map
+\[
+ Q=I-2\lim_{k\to\infty}
+ (|M_Y|-M_Y)(|M_Y|-M_Y+k^{-1}I)^{-1}.
+\]
+On an eigenvalue $\lambda$, the ratio tends to $1$ if $\lambda<0$ and
+to $0$ if $\lambda\ge0$. The positive square root is continuous.
+
+For a singular-value decomposition $B=U\operatorname{diag}(s_j)V^\top$,
+with $U,V$ orthogonal and $s_j\ge0$,
+define its Moore--Penrose inverse by replacing each positive $s_j$ with
+$s_j^{-1}$ and each zero $s_j$ with zero:
+\[
+ B^\dagger=V\operatorname{diag}(s_j^{-1}\mathbf1_{\{s_j>0\}})U^\top,
+ \qquad
+ P_B:=B^\dagger B
+ =V\operatorname{diag}(\mathbf1_{\{s_j>0\}})V^\top.
+\]
+The displayed diagonal convention avoids evaluating $0^{-1}$.
+It gives $P_B^\top=P_B$ and
+\[
+\begin{gathered}
+ P_B^2=V\operatorname{diag}(\mathbf1_{\{s_j>0\}}^2)V^\top=P_B,
+ \qquad BB^\dagger=U\operatorname{diag}(\mathbf1_{\{s_j>0\}})U^\top,\\
+ B(I-P_B)=U\operatorname{diag}(s_j\mathbf1_{\{s_j=0\}})V^\top=0,
+ \qquad (I-BB^\dagger)B=0.
+\end{gathered}
+\]
+The last equality has the same diagonal entries $s_j\mathbf1_{\{s_j=0\}}$. The inverse is Borel measurable even when the rank
+changes, because
+\[
+ B^\dagger=\lim_{k\to\infty}(B^\top B+k^{-1}I)^{-1}B^\top;
+\]
+the singular-value coefficient on the right is $s_j/(s_j^2+k^{-1})$.
+
+\par\noindent\textbf{Step 2: the conditional standard Gaussian law.}
+The preceding lemma gives $BB^\top=C$. Conditional on $\mathcal H_{\ell-}$,
+the terms $B^\dagger v$ and $(I-P_B)h_\ell$ are independent centered
+Gaussians, since $h_\ell$ is independent of $\sigma(\mathcal H_{\ell-},v)$.
+Since both conditional means are zero, their covariance matrices are
+\begin{equation}
+\label{eq:population-whitening-covariances}
+\begin{aligned}
+ \mathbb E[B^\dagger vv^\top(B^\dagger)^\top\mid\mathcal H_{\ell-}]
+ &=B^\dagger C(B^\dagger)^\top
+ =(B^\dagger B)(B^\dagger B)^\top=P_B,\\
+ \mathbb E[(I-P_B)h_\ell h_\ell^\top(I-P_B)^\top\mid\mathcal H_{\ell-}]
+ &=(I-P_B)I(I-P_B)^\top=I-2P_B+P_B^2=I-P_B.
+\end{aligned}
+\end{equation}
+Conditional independence makes the cross covariance zero, so the sum
+has covariance $P_B+(I-P_B)=I$.
+For every $\theta\in\mathbb R^{Nd}$, their characteristic functions give
+\[
+ \mathbb E[e^{i\theta^\top\mathbf g_\ell^N}\mid\mathcal H_{\ell-}]
+ =e^{-\theta^\top P_B\theta/2}
+    e^{-\theta^\top(I-P_B)\theta/2}
+ =e^{-\|\theta\|_{\mathbb R^{dN}}^2/2}.
+\]
+This proves the conditional $N(0,I_{Nd})$ law, including singular $C$.
+
+\par\noindent\textbf{Step 3: retain the original population update.}
+Since $(I-BB^\dagger)B=0$ and $C=BB^\top$,
+\[
+ \begin{aligned}
+ \mathbb E[\|(I-BB^\dagger)v\|_{\mathbb R^{dN}}^2\mid\mathcal H_{\ell-}]
+ &=\operatorname{tr}((I-BB^\dagger)BB^\top(I-BB^\dagger)^\top)\\
+ &=\operatorname{tr}([(I-BB^\dagger)B][(I-BB^\dagger)B]^\top)=0.
+\end{aligned}
+\]
+The squared norm is nonnegative, so $BB^\dagger v=v$ almost surely and
+\[
+ B\mathbf g_\ell^N=BB^\dagger v+B(I-P_B)h_\ell=v.
+\]
+If $C=0$, then $v=B=B^\dagger=0$ and $\mathbf g_\ell^N=h_\ell$,
+which verifies this case directly. The factor error is the bound in
+\cref{lemma-aligned-finite-square-root} with $M=M_Y$.
+
+\par\noindent\textbf{Step 4: the empirical transition.}
+Since $M_X$ is pre-jump measurable,
+$M_X\mathbf g_\ell^N\mid\mathcal H_{\ell-}\sim N(0,M_XM_X^\top)$.
+For this calculation write $X^i=X_{t_\ell-}^i$ and
+$\rho_X=N^{-1}\sum_k\delta_{X^k}$. Kernel symmetry and the definition of
+$K_\nu$ in \cref{assumption-common-seed} give
+\[
+\begin{aligned}
+ (M_XM_X^\top)_{ij}
+ &=\frac1N\sum_{k=1}^N
+ \nabla_W^2F(\rho_X;X^i,X^k)
+ \nabla_W^2F(\rho_X;X^j,X^k)^\top\\
+ &=\frac1N\sum_{k=1}^N
+ \nabla_W^2F(\rho_X;X^i,X^k)
+ \nabla_W^2F(\rho_X;X^k,X^j)\\
+ &=\int\nabla_W^2F(\rho_X;X^i,z)\nabla_W^2F(\rho_X;z,X^j)\rho_X(dz)
+ =K_{\rho_X}(X^i,X^j).
+\end{aligned}
+\]
+This is exactly the required empirical conditional law.
+
+\par\noindent\textbf{Step 5: iterate without changing the reference law.}
+Keep the original population innovations and iid initial sample
+$U_1,\ldots,U_N\sim\mu_0$, and add independent
+$h_1,\ldots,h_{\NofJ}$. Suppose the two pre-jump configurations at
+$t_\ell$ have been constructed from the initial sample and the first
+$\ell-1$ innovations and auxiliary normals. Steps 1--4 give the next
+coordinate, update $X$ by $\eta_\ell M_X\mathbf g_\ell^N$, and update
+$Y$ by its original field value $\eta_\ell v$. The ODEs then give
+configurations measurable with respect to the next pre-jump history.
+This is a finite induction over the prescribed schedule.
+
+The conditional standard Gaussian law is constant in the history. For
+$A\in\mathcal H_{\ell-}$ and a Borel set $D\subset\mathbb R^{Nd}$,
+\[
+ \mathbb P(A\cap\{\mathbf g_\ell^N\in D\})
+ =\mathbb E[\mathbf1_A\mathbb P(\mathbf g_\ell^N\in D\mid\mathcal H_{\ell-})]
+ =\mathbb P(A)\,N(0,I_{Nd})(D).
+\]
+Thus each coordinate is independent of its pre-jump history, which includes
+previous coordinates. Independence of the current field or post-jump
+reference particles is not asserted. The population system is unaltered:
+conditional on its fields, the ODE and jump maps compose into a common map
+$\mathcal T_t$ with
+\[
+ Y_t^i=\mathcal T_t(U_i),\qquad\mu_t=(\mathcal T_t)_\#\mu_0.
+\]
+The initial sample is independent of all population innovations, so
+$\operatorname{Law}((U_1,\ldots,U_N)\mid\mathcal G_{\rm pop})=\mu_0^{\otimes N}$.
+For bounded measurable $f_1,\ldots,f_N$, integration against this product
+law and the pushforward identity give
+\begin{equation}
+\label{eq:population-pushforward-product-law}
+\begin{aligned}
+ \mathbb E\left[\prod_i f_i(Y_t^i)\,\middle|\,\mathcal G_{\rm pop}\right]
+ &=\int\prod_i f_i(\mathcal T_t(u_i))\prod_i\mu_0(du_i)\\
+ &=\prod_i\int f_i(\mathcal T_t(u_i))\mu_0(du_i)
+ =\prod_i\int f_i(y)\mu_t(dy).
+\end{aligned}
+\end{equation}
+This is the product law used in \cref{lemma-gp-jump-implies-conditional-iid};
+$\mathbf g_\ell^N$ is not included in its conditioning sigma-field.
+
+\par\noindent\textbf{Step 6: preserve exchangeability of particle pairs.}
+Let $P$ be the orthogonal matrix of any permutation of the $N$ particle
+blocks. Permute the initial sample and every auxiliary normal by $P$,
+so $h_\ell'=Ph_\ell\sim N(0,PIP^\top)=N(0,I)$. These transformed
+inputs have the same joint law, with the population innovations held fixed. Under simultaneous permutation of $\mathbf X,\mathbf Y$, the
+empirical measures are unchanged and the evaluation vector becomes $Pv$.
+The covariance and Hessian factors therefore transform as
+\[
+\begin{gathered}
+ C'=PCP^\top,\qquad M_Z'=PM_ZP^\top,\qquad Q'=PQP^\top,\\
+ B'=PBP^\top,\qquad (B')^\dagger=PB^\dagger P^\top.
+\end{gathered}
+\]
+For the square root, $(PC^{1/2}P^\top)^2=PCP^\top$ and the first matrix
+is positive semidefinite; uniqueness of the positive square root gives the identity.
+The formulas for $Q$ and $B^\dagger$ in Step 1 give the other identities
+by conjugating each matrix and its inverse. Hence
+\[
+ (B')^\dagger Pv+[I-(B')^\dagger B']Ph_\ell
+ =P\{B^\dagger v+(I-B^\dagger B)h_\ell\}
+ =P\mathbf g_\ell^N.
+\]
+The empirical increment transforms to $PM_X\mathbf g_\ell^N$, and the
+reference increment to $Pv$. The drift formulas also commute with $P$.
+The iid initial sample and independent standard normals have
+permutation-invariant joint law, with the population innovations unchanged.
+Induction over ODE intervals and jumps therefore shows that
+$(X_t^i,Y_t^i)_{i=1}^N$ is exchangeable. This gives identical one-particle
+moment bounds; it does not assert independence of the empirical particles.
+\end{proof}
+
+With the square roots aligned, the Gaussian perturbation error reduces to a
+kernel covariance mismatch.
+
+\begin{lemma}[Reduction to kernel mismatch]
+\label{lemma-gaussian-error-to-kernel-mismatch}
+Recall $M=M_Y=\mathbf M^N(\rho_{\mathbf Y},\mathbf Y)$ and
+$B=C^{1/2}\operatorname{sign}_+(M_Y)$ from
+\cref{lemma-aligned-finite-square-root,lem:population-first-finite-coupling},
+where $\mathbf Y=\mathbf Y_{t_\ell-}$. Let $\mathbf g^N\mid\mathcal H_{\ell-}\sim N(0,I_{Nd})$ be the coordinate constructed above, with $B,M,C$ measurable before the jump.
+Then
+\[
+\mathbb E\bigl[\|(B-M)\mathbf g^N\|_N^2\mid\mathcal H_{\ell-}\bigr]
+=
+\frac1N\|B-M\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}^2
+\le
+\frac1N\|C-M^2\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}},
+\]
+where $\norm{\cdot}_N \coloneq \frac{1}{\sqrt{N}}\norm{\cdot}_{\R^{dN}}.$
+Equivalently,
+\[
+\mathbb E\bigl[\|(B-M)\mathbf g^N\|_N^2\mid\mathcal H_{\ell-}\bigr]
+\le
+\frac1N
+\left\|
+\bigl[
+K_\mu(Y^i,Y^j)-K_{\rho_{\mathbf Y}^N}(Y^i,Y^j)
+\bigr]_{i,j=1}^N
+\right\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}.
+\]
+\end{lemma}
+
+\begin{proof}
+Writing $A=B-M$ in this calculation, conditional standard Gaussianity gives
+\[
+\begin{aligned}
+ \mathbb E[\|A\mathbf g^N\|_N^2\mid\mathcal H_{\ell-}]
+ &=\frac1N\sum_{a,b,c}A_{ab}A_{ac}
+       \mathbb E[g_b^Ng_c^N\mid\mathcal H_{\ell-}]\\
+ &=\frac1N\sum_{a,b,c}A_{ab}A_{ac}\delta_{bc}
+ =\frac1N\sum_{a,b}A_{ab}^2=\frac1N\|A\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}^2.
+\end{aligned}
+\]
+Apply \cref{lemma-aligned-finite-square-root}. The block identity
+\[
+ (M^2)_{ij}=\frac1N\sum_k\nabla_W^2F(\rho_{\mathbf Y};Y^i,Y^k)
+ \nabla_W^2F(\rho_{\mathbf Y};Y^k,Y^j)
+ =K_{\rho_{\mathbf Y}}(Y^i,Y^j)
+\]
+then gives the stated kernel difference.
+\end{proof}
+
+The kernel mismatch is split into a smooth measure-dependence term and the
+empirical covariance fluctuation of the reference cloud.
+
+\begin{lemma}[Kernel mismatch bound]
+\label{lemma-kernel-mismatch-bound}
+Write $H_\nu(x,y)=\nabla_W^2F(\nu;x,y)$ for the kernel in this lemma.
+Work on $E_{\rm pop}\cap E_{T,D}$ from
+\cref{lem:population-moment-event,eq:sample-localization-event}, with
+$\mathrm L_D=\mathrm L_{K_{\rm pop},D}$ from \cref{def:localized-envelope}.
+By \cref{lemma-reachable-moment-tube}, the moments of $\mu_t,\rho_{\mathbf Y_t}$ and the segment between them lie in the
+reachable moment region. For $\|x\|_{\mathbb R^d},\|y\|_{\mathbb R^d}\le D$ and these measures,
+Lemma~\ref{lemma-localized-moment-smoothness-consequences} gives
+$\|H_\nu(x,y)\|_{\mathbb R^d\to\mathbb R^d}\le \mathrm L_D$. Then the block matrix
+\[
+\Delta K^N(\mu,\mathbf Y)
+:=
+\bigl[
+K_\mu(Y^i,Y^j)-K_{\rho_{\mathbf Y}^N}(Y^i,Y^j)
+\bigr]_{i,j=1}^N
+\in\R^{Nd\times Nd}
+\]
+satisfies
+\begin{align}
+\frac1N\|\Delta K^N(\mu_t,\mathbf Y)\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+\le{}&
+2d\,\mathrm L_D\Gamma_t^N(D)+\tilde{\Gamma}_t^N
+\label{eq:kernel-matrix-bound-good}
+\notag
+\end{align}
+where
+\[
+\mathbf U_\nu(z)
+:=
+\begin{pmatrix}
+H_\nu(Y^1,z)\\
+\vdots\\
+H_\nu(Y^N,z)
+\end{pmatrix}
+\in\R^{Nd\times d},
+\]
+\[
+\tilde{\Gamma}_t^N\coloneq 
+\frac1N\left\|
+\int \mathbf U_{\mu_t}(z)\mathbf U_{\mu_t}(z)^\top\,
+(\mu_t-\rho_{\mathbf Y_t})(dz)
+\right\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+\]
+The explicit factor $N$ cancels from the coefficient $2d\mathrm L_D$.
+Dependence through $\mathrm L_D=\mathrm L_{K_{\rm pop},D}$ is retained,
+as specified in \cref{def:localized-envelope}.
+\end{lemma}
+
+\begin{proof}
+\noindent\textbf{Step 1: separate the covariance and measure changes.}
+Fix $t$ and write $\mathbf Y=\mathbf Y_t$, $\mu=\mu_t$, and
+$\rho=\rho_{\mathbf Y_t}$. Since
+\[
+H_\mu(Y^i,z)^\top=H_\mu(z,Y^i),
+\]
+we may write
+\[
+K_\mu(Y^i,Y^j)
+=
+\int H_\mu(Y^i,z)H_\mu(z,Y^j)\,\mu(dz)
+=
+\int H_\mu(Y^i,z)H_\mu(Y^j,z)^\top\,\mu(dz).
+\]
+Therefore, with
+\[
+\mathbf U_\mu(z)
+=
+\begin{pmatrix}
+H_\mu(Y^1,z)\\
+\vdots\\
+H_\mu(Y^N,z)
+\end{pmatrix}
+\in\R^{Nd\times d},
+\]
+we have the matrix identity
+\[
+\bigl[K_\mu(Y^i,Y^j)\bigr]_{i,j=1}^N
+=
+\int \mathbf U_\mu(z)\mathbf U_\mu(z)^\top\,\mu(dz).
+\]
+Hence
+\begin{align*}
+\Delta K^N(\mu,\mathbf Y)
+&=
+\int \mathbf U_\mu(z)\mathbf U_\mu(z)^\top\,(\mu-\rho)(dz)\\
+&+
+\int \Bigl(\mathbf U_\mu(z)\mathbf U_\mu(z)^\top
+-
+\mathbf U_\rho(z)\mathbf U_\rho(z)^\top\Bigr)\,\rho(dz).
+\\
+\end{align*}
+Thus, by the triangle inequality,
+\[
+\|\Delta K^N(\mu,\mathbf Y)\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+\le I_1+I_2,
+\]
+where
+\[
+I_1:=
+\int
+\bigl\|
+\mathbf U_\mu(z)\mathbf U_\mu(z)^\top
+-
+\mathbf U_\rho(z)\mathbf U_\rho(z)^\top
+\bigr\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+\,\rho(dz),
+\]
+and
+\[
+I_2:=
+\left\|
+\int \mathbf U_\mu(z)\mathbf U_\mu(z)^\top\,(\mu-\rho)(dz)
+\right\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}.
+\]
+The two terms require different estimates. The measure in $I_1$ is the
+radius-$D$ empirical law $\rho$, so the localized kernel bounds apply to its
+integrand. The signed measure in $I_2$ contains the unbounded population law
+$\mu$; it is retained as the covariance residual
+$\widetilde\Gamma_t^N$ of
+\cref{eq:tilde-gamma-full-definition-weighted} and is controlled by the
+weighted-feature concentration argument.
+
+\par\noindent\textbf{Step 2: bound the sample-supported measure change.}
+For $X,Y\in\mathbb R^{dN\times d}$ with columns
+$X=[x_1\ \cdots\ x_d]$, $Y=[y_1\ \cdots\ y_d]$, the sole possible nonzero singular value of
+$x_ky_k^\top$ is $\|x_k\|_{\mathbb R^{dN}}\|y_k\|_{\mathbb R^{dN}}$. The triangle and Cauchy--Schwarz inequalities give
+\begin{equation}
+\label{eq:nuclear-hilbert-schmidt-product}
+\begin{aligned}
+ \|XY^\top\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+ &=\left\|\sum_{k=1}^d x_ky_k^\top\right\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+ \le\sum_{k=1}^d\|x_k\|_{\mathbb R^{dN}}\|y_k\|_{\mathbb R^{dN}}\\
+ &\le\left(\sum_k\|x_k\|_{\mathbb R^{dN}}^2\right)^{1/2}
+       \left(\sum_k\|y_k\|_{\mathbb R^{dN}}^2\right)^{1/2}
+ =\|X\|_{F;\,\mathbb R^d\to\mathbb R^{dN}}\|Y\|_{F;\,\mathbb R^d\to\mathbb R^{dN}}.
+\end{aligned}
+\end{equation}
+The same argument works for any number of columns. For Hilbert--Schmidt
+maps $X,Y:E\to F$ between Hilbert spaces, truncate the common input
+orthonormal basis. The nuclear norm
+of the omitted sum is at most the product of the two square-summable
+column tails, which tends to zero. Thus
+$\|XY^*\|_{*;\,F\to F}\le\|X\|_{\mathrm{HS};\,E\to F}\|Y\|_{\mathrm{HS};\,E\to F}$ also holds in that setting.
+For $I_1$, use this bound and
+$AA^\top-BB^\top=(A-B)A^\top+B(A-B)^\top$.
+Hence
+\begin{align*}
+ &\|\mathbf U_\mu(z)\mathbf U_\mu(z)^\top
+          -\mathbf U_\rho(z)\mathbf U_\rho(z)^\top
+    \|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}\\
+ &\quad\le\|\mathbf U_\mu(z)-\mathbf U_\rho(z)\|_{F;\,\mathbb R^d\to\mathbb R^{dN}}
+       \|\mathbf U_\mu(z)\|_{F;\,\mathbb R^d\to\mathbb R^{dN}}\\
+ &\qquad+\|\mathbf U_\rho(z)\|_{F;\,\mathbb R^d\to\mathbb R^{dN}}
+       \|\mathbf U_\mu(z)-\mathbf U_\rho(z)\|_{F;\,\mathbb R^d\to\mathbb R^{dN}}.
+\end{align*}
+For $\rho$-almost every $z$, \eqref{eq:sample-localization-event} gives
+$\|z\|_{\mathbb R^d}\le D$ and $\|Y^i\|_{\mathbb R^d}\le D$. The following local bounds therefore
+apply to the integrand of $I_1$:
+\[
+\|\mathbf U_\eta(z)\|_{F;\,\mathbb R^d\to\mathbb R^{dN}}^2
+=
+\sum_{i=1}^N \|H_\eta(Y^i,z)\|_{F;\,\mathbb R^d\to\mathbb R^d}^2
+\le
+d\sum_{i=1}^N \|H_\eta(Y^i,z)\|_{\mathbb R^d\to\mathbb R^d}^2
+\le
+Nd\,\mathrm L_D^2,
+\]
+so
+\[
+\|\mathbf U_\eta(z)\|_{F;\,\mathbb R^d\to\mathbb R^{dN}} \le \sqrt{Nd}\,\mathrm L_D
+\qquad
+(\eta\in\{\mu,\rho\}).
+\]
+Moreover, \cref{eq:local-two-hessians-moment-bound} gives the (weaker) bound
+\[
+\|H_\mu(Y^i,z)-H_\rho(Y^i,z)\|_{\mathbb R^d\to\mathbb R^d}
+\le
+\Gamma_t^N(D),
+\qquad
+\Gamma_t^N(D)=
+\sum_{m\ge1}\gamma_m(D)\|M_m(\mu)-M_m(\rho)\|_{\mathsf H_m},
+\]
+where the residual is defined in \eqref{eq:common-moment-residual-and-lipschitz-sum}; hence
+\[
+\|\mathbf U_\mu(z)-\mathbf U_\rho(z)\|_{F;\,\mathbb R^d\to\mathbb R^{dN}}^2
+\le
+d\sum_{i=1}^N
+\|H_\mu(Y^i,z)-H_\rho(Y^i,z)\|_{\mathbb R^d\to\mathbb R^d}^2
+\le
+Nd\,\Gamma_t^N(D)^2.
+\]
+Thus
+\[
+\|\mathbf U_\mu(z)-\mathbf U_\rho(z)\|_{F;\,\mathbb R^d\to\mathbb R^{dN}} \le \sqrt{Nd}\,\Gamma_t^N(D).
+\]
+Combining the above bounds,
+\[
+\bigl\|
+\mathbf U_\mu(z)\mathbf U_\mu(z)^\top
+-
+\mathbf U_\rho(z)\mathbf U_\rho(z)^\top
+\bigr\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+\le
+2Nd\,\mathrm L_D\,\Gamma_t^N(D).
+\]
+Integrating in \(z\) yields
+\[
+I_1 \le 2Nd\,\mathrm L_D\,\Gamma_t^N(D).
+\]
+Dividing by $N$ gives
+\[
+ N^{-1}I_1\le2d\mathrm L_D\Gamma_t^N(D).
+\]
+The remaining term is exactly $N^{-1}I_2=\widetilde\Gamma_t^N$.
+Its integral includes the population law $\mu_t$; no bound $\|z\|_{\mathbb R^d}\le D$
+is applied to that integral. This proves the claim.
+\end{proof}
+
+We now combine the Lipschitz comparison of empirical perturbations with the
+covariance mismatch bound to obtain the jump recursion for \(r_t\).
+
+\begin{lemma}[One-jump comparison]
+\label{lem:jump-bound-common-seed}
+Use the coupling of Lemma~\ref{lem:population-first-finite-coupling} at
+$t_\ell$, and let $u\in(0,1)$. Define
+\[
+\Lambda(D):=\sum_{m\ge1}\gamma_m(D)L_m(1+2D^{m-1}),\qquad
+q(u):=1+\sqrt{2\log(2/u)},
+\]
+\[
+c_J(D):=1+\sqrt d\{\Lambda(D)+2\mathrm L_D\}+\sqrt{2d\mathrm L_D}.
+\]
+There is an event $\Omega_{\ell,u}^{\rm jump}$ with
+$\mathbb P((\Omega_{\ell,u}^{\rm jump})^c\mid\mathcal H_{\ell-})\le u$
+such that, on this event intersected with the population moment and sample
+localization events,
+\[
+r_{t_\ell}\le (1+c_J(D)q(u)\eta_\ell)r_{t_\ell-}
++c_J(D)q(u)\eta_\ell
+  \bigl(\sqrt{\Gamma_{t_\ell-}^N(D)}+\sqrt{\widetilde\Gamma_{t_\ell-}^N}\bigr).
+\]
+All residuals and kernel covariances in this statement are evaluated before
+the jump. Constants may depend on the deterministic population moment scale
+as specified in the localized-envelope convention.
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: control the two conditional Gaussian errors.}
+By \cref{eq:jump-dynamics-XY,lem:population-first-finite-coupling},
+\[
+ \mathbf X_{t_\ell}-\mathbf Y_{t_\ell}
+ =\mathbf X_{t_\ell-}-\mathbf Y_{t_\ell-}
+   +\eta_\ell\{(M_X-M_Y)+(M_Y-B)\}\mathbf g_\ell^N.
+\]
+Divide its triangle inequality by $\sqrt N$ to get
+\begin{equation}
+\label{eq:jump-estimate-proof}
+r_{t_\ell}\le r_{t_\ell-}
++\frac{\eta_\ell}{\sqrt N}\|(M_X-M_Y)\mathbf g_\ell^N\|_{\mathbb R^{dN}}
++\frac{\eta_\ell}{\sqrt N}\|(M_Y-B)\mathbf g_\ell^N\|_{\mathbb R^{dN}}.
+\end{equation}
+For a pre-jump measurable matrix $A$, the conditional standard Gaussian
+law gives $\mathbb E[\|A\mathbf g_\ell^N\|_{\mathbb R^{dN}}^2\mid\mathcal H_{\ell-}]
+=\|A\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}^2$ as in \cref{lemma-gaussian-error-to-kernel-mismatch}.
+Hence its mean norm is at most $\|A\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}$ by Cauchy--Schwarz. Also
+\[
+ |\|Ag\|_{\mathbb R^{dN}}-\|Ag'\|_{\mathbb R^{dN}}|\le\|A(g-g')\|_{\mathbb R^{dN}}
+ \le\|A\|_{\mathbb R^{dN}\to\mathbb R^{dN}}\|g-g'\|_{\mathbb R^{dN}}.
+\]
+The Gaussian concentration inequality for a Lipschitz function
+\citep{BLM2013}, applied conditionally with deviation
+$\|A\|_{\mathbb R^{dN}\to\mathbb R^{dN}}\sqrt{2\log(2/u)}$, has failure probability
+$e^{-\log(2/u)}=u/2$. Using $\|A\|_{\mathbb R^{dN}\to\mathbb R^{dN}}\le\|A\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}$ gives
+\[
+\mathbb P\!\left(\|A\mathbf g_\ell^N\|_{\mathbb R^{dN}}>
+(1+\sqrt{2\log(2/u)})\|A\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}\,\middle|\,\mathcal H_{\ell-}\right)\le u/2.
+\]
+Apply this to the two matrices in \eqref{eq:jump-estimate-proof} and take
+a union bound. These Gaussian events are defined before imposing any sample
+localization event, so no conditional independence after localization is used.
+
+
+\par\noindent\textbf{Step 2: compare the two empirical Hessian factors.}
+Write $X^i=X_{t_\ell-}^i$, $Y^i=Y_{t_\ell-}^i$,
+$\rho_X=\rho_{\mathbf X_{t_\ell-}}$, $\rho_Y=\rho_{\mathbf Y_{t_\ell-}}$,
+and $\delta_i=X^i-Y^i$. Use the paired empirical moment calculation
+\eqref{eq:paired-empirical-moment-displacement} in
+\cref{lemma-directional-measure-slot-error}, with $s=1$ and the actual
+pre-jump configurations. On $E_{\rm pop}\cap E_{T,D}$ it gives
+\[
+ \sum_m\gamma_m(D)\|M_m(\rho_X)-M_m(\rho_Y)\|_{\mathsf H_m}
+ \le\sum_m\gamma_m(D)L_m(1+2D^{m-1})r_{t_\ell-}
+ =\Lambda(D)r_{t_\ell-},
+\]
+using \eqref{eq:common-moment-residual-and-lipschitz-sum}.
+Insert $\nabla_W^2F(\rho_Y;X^i,X^j)$ between
+$\nabla_W^2F(\rho_X;X^i,X^j)$ and
+$\nabla_W^2F(\rho_Y;Y^i,Y^j)$.
+Apply \eqref{eq:local-two-hessians-moment-bound} to the measure difference
+and \eqref{eq:local-kernel-spatial-bound} to the spatial difference.
+The two differences are bounded by
+$\tfrac12\Lambda(D)r_{t_\ell-}$ and
+$\mathrm L_D(\|\delta_i\|_{\mathbb R^d}+\|\delta_j\|_{\mathbb R^d})$, respectively.
+Loosening $1/2$ to $1$, for every $i,j$ this yields
+\[
+\|\nabla_W^2F(\rho_X;X^i,X^j)
+-\nabla_W^2F(\rho_Y;Y^i,Y^j)\|_{\mathbb R^d\to\mathbb R^d}
+\le\Lambda(D)r_{t_\ell-}+\mathrm L_D(\|\delta_i\|_{\mathbb R^d}+\|\delta_j\|_{\mathbb R^d}).
+\]
+Here the same $\mathrm L_D$ bounds each spatial slot, by \cref{eq:local-kernel-spatial-bound}.
+The block Frobenius norm is at most $\sqrt d$ times its operator norm.
+The $N^{-1/2}$ in each block gives exactly
+\[
+ \frac1N\|M_X-M_Y\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}^2
+ =\frac1{N^2}\sum_{i,j}
+ \|\nabla_W^2F(\rho_X;X^i,X^j)-\nabla_W^2F(\rho_Y;Y^i,Y^j)\|_{F;\,\mathbb R^d\to\mathbb R^d}^2.
+\]
+Minkowski's inequality for this normalized double sum gives
+\[
+\begin{aligned}
+ N^{-1/2}\|M_X-M_Y\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+ &\le\sqrt d\left[\frac1{N^2}\sum_{i,j}
+  \{\Lambda(D)r_{t_\ell-}+\mathrm L_D\|\delta_i\|_{\mathbb R^d}
+                              +\mathrm L_D\|\delta_j\|_{\mathbb R^d}\}^2\right]^{1/2}\\
+ &\le\sqrt d\,\Lambda(D)r_{t_\ell-}
+       +\sqrt d\,\mathrm L_D\left(\frac1{N^2}\sum_{i,j}\|\delta_i\|_{\mathbb R^d}^2\right)^{1/2}\\
+ &\quad+\sqrt d\,\mathrm L_D\left(\frac1{N^2}\sum_{i,j}\|\delta_j\|_{\mathbb R^d}^2\right)^{1/2}\\
+ &=\sqrt d\{\Lambda(D)+2\mathrm L_D\}r_{t_\ell-},
+\end{aligned}
+\]
+since each squared double average equals
+$N^{-1}\sum_i\|\delta_i\|_{\mathbb R^d}^2=r_{t_\ell-}^2$.
+
+\par\noindent\textbf{Step 3: use the population covariance residual.}
+For the second matrix, the aligned square-root bound and the kernel mismatch
+lemma give
+\[
+\begin{aligned}
+ N^{-1/2}\|M_Y-B\|_{F;\,\mathbb R^{dN}\to\mathbb R^{dN}}
+ &\le\sqrt{N^{-1}\|C-M_Y^2\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}}\\
+ &\le\sqrt{2d\mathrm L_D\Gamma_{t_\ell-}^N(D)+\widetilde\Gamma_{t_\ell-}^N}\\
+ &\le\sqrt{2d\mathrm L_D}\sqrt{\Gamma_{t_\ell-}^N(D)}
+       +\sqrt{\widetilde\Gamma_{t_\ell-}^N}.
+\end{aligned}
+\]
+The middle inequality is \cref{lemma-kernel-mismatch-bound}; the last
+uses $\sqrt{a+b}\le\sqrt a+\sqrt b$. Substitute into
+\eqref{eq:jump-estimate-proof} on the Gaussian event from Step 1:
+\[
+\begin{aligned}
+ r_{t_\ell}\le r_{t_\ell-}+\eta_\ell q(u)\bigl[
+ &\sqrt d\{\Lambda(D)+2\mathrm L_D\}r_{t_\ell-}\\
+ &+\sqrt{2d\mathrm L_D}\sqrt{\Gamma_{t_\ell-}^N(D)}
+       +\sqrt{\widetilde\Gamma_{t_\ell-}^N}\bigr].
+\end{aligned}
+\]
+The defined $c_J(D)$ bounds each of the three coefficients in brackets,
+which gives the asserted recursion. More explicitly, its leading $1$ bounds
+the coefficient of $\sqrt{\widetilde\Gamma_{t_\ell-}^N}$, while the other
+two summands bound the coefficients of $r_{t_\ell-}$ and
+$\sqrt{\Gamma_{t_\ell-}^N(D)}$, respectively.
+\end{proof}
+\begin{remark}
+The aligned matrix and the whitening coordinate are used to compare the
+empirical transition with a finite evaluation of the population field.
+Conditional i.i.d. of the reference particles is a separate population
+pushforward statement, proved in
+Lemma~\ref{lemma-gp-jump-implies-conditional-iid}; it does not condition on
+$\mathbf g_\ell^N$.
+\end{remark}

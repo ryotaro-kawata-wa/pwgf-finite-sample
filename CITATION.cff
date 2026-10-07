@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying paper when using these materials."
+title: "Reproducibility materials for Finite-Sample Approximation of Hessian-Guided Perturbed Wasserstein Gradient Flows"
+type: software
+version: "2026.10.07"
+repository-code: "https://github.com/ryotaro-kawata-wa/pwgf-finite-sample"
+authors:
+  - family-names: "Kawata"
+    given-names: "Ryotaro"
+    affiliation: "The University of Tokyo"
+    email: "kawata-ryotaro725@g.ecc.u-tokyo.ac.jp"
+  - family-names: "Nitanda"
+    given-names: "Atsushi"
+    affiliation: "Agency for Science, Technology and Research (A*STAR); Nanyang Technological University"
+  - family-names: "Suzuki"
+    given-names: "Taiji"
+    affiliation: "The University of Tokyo; RIKEN Center for Advanced Intelligence Project"
+license: MIT
+preferred-citation:
+  type: article
+  title: "Finite-Sample Approximation of Hessian-Guided Perturbed Wasserstein Gradient Flows"
+  authors:
+    - family-names: "Kawata"
+      given-names: "Ryotaro"
+      affiliation: "The University of Tokyo"
+      email: "kawata-ryotaro725@g.ecc.u-tokyo.ac.jp"
+    - family-names: "Nitanda"
+      given-names: "Atsushi"
+      affiliation: "Agency for Science, Technology and Research (A*STAR); Nanyang Technological University"
+    - family-names: "Suzuki"
+      given-names: "Taiji"
+      affiliation: "The University of Tokyo; RIKEN Center for Advanced Intelligence Project"
+  year: 2026

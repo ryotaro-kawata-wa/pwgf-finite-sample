@@ -1,0 +1,105 @@
+\subsection{Wasserstein gradient flow on product measures}
+\label{app:product-measure-wgf}
+
+Before analyzing the matrix-decomposition functional, we record a simple form of
+Wasserstein gradient flow restricted to product measures.  This is useful when the
+optimization variable is constrained to remain factorized across parameter blocks,
+so that admissible perturbations move each marginal separately.
+Related product-space Wasserstein gradient-flow structures appear in multi-species
+PDEs and multi-distribution optimization; see, e.g.,
+\citet{chen2016wassersteinProduct,giunta2024weaklynonlinear,conger2025coupled}.
+
+\paragraph{Product family and product metric.}
+Let $\Omega_i\subset\mathbb R^{d_i}$ and $\Omega=\prod_{i=1}^m\Omega_i$.  We consider the
+product family
+\begin{equation}
+    \mathcal M
+    \coloneqq
+    \left\{
+        \mu=\bigotimes_{i=1}^m\mu_i
+        \;\middle|\;
+        \mu_i\in\mathcal P_2(\Omega_i)
+    \right\}.
+\end{equation}
+For $\mu=\bigotimes_i\mu_i$ and $\nu=\bigotimes_i\nu_i$, we equip $\mathcal M$ with the
+product Wasserstein metric
+\begin{equation}
+    \label{eq:product-Wasserstein-metric}
+    W_{2,\mathcal M}(\mu,\nu)^2
+    \coloneqq
+    \sum_{i=1}^m W_2(\mu_i,\nu_i)^2 .
+\end{equation}
+An admissible tangent vector on $\mathcal M$ is a coordinate-wise vector field
+$v=(v_1,\ldots,v_m)$ with $v_i\in L^2(\mu_i;\mathbb R^{d_i})$, identified with
+$v(x)=(v_1(x_1),\ldots,v_m(x_m))$ for $x=(x_1,\ldots,x_m)$.  The product inner product is
+\begin{equation}
+    \langle u,v\rangle_{\mu,\mathcal M}
+    \coloneqq
+    \sum_{i=1}^m \int_{\Omega_i} \langle u_i(x_i),v_i(x_i)\rangle\,\mu_i(\dd x_i)
+    =
+    \int_{\Omega}\sum_{i=1}^m \langle u_i(x_i),v_i(x_i)\rangle\,\mu(\dd x).
+\end{equation}
+The corresponding product perturbation keeps the measure in $\mathcal M$:
+\begin{equation}
+    (\Id+h v)_\sharp\mu
+    =
+    \bigotimes_{i=1}^m (\Id_i+h v_i)_\sharp\mu_i .
+\end{equation}
+
+\paragraph{Restricted Wasserstein gradient.}
+Let $\overline F(\mu_1,\ldots,\mu_m)\coloneqq F(\bigotimes_i\mu_i)$.  For
+$\mu=\bigotimes_i\mu_i$, write $\mu_{-i}=\bigotimes_{j\neq i}\mu_j$ and
+$x_{-i}=(x_j)_{j\neq i}$.  If $F$ admits a first variation, then the partial first
+variation of $\overline F$ with respect to $\mu_i$ is, up to an additive constant,
+\begin{equation}
+    \frac{\delta \overline F}{\delta \mu_i}(\mu_1,\ldots,\mu_m;x_i)
+    =
+    \int_{\Omega_{-i}}
+    \frac{\delta F}{\delta\mu}(\mu;x_i,x_{-i})\,\mu_{-i}(\dd x_{-i}).
+\end{equation}
+Consequently, the product Wasserstein gradient is
+\begin{equation}
+    g_i^\mu(x_i)
+    \coloneqq
+    \nabla_{x_i}\frac{\delta \overline F}{\delta \mu_i}(\mu_1,\ldots,\mu_m;x_i)
+    =
+    \int_{\Omega_{-i}}
+    \left(\nabla_\mu F(\mu;x_i,x_{-i})\right)_i\,\mu_{-i}(\dd x_{-i}),
+    \qquad i=1,\ldots,m,
+\end{equation}
+whenever differentiation and integration can be interchanged.  Equivalently,
+$g^\mu=(g_1^\mu,\ldots,g_m^\mu)$ is the orthogonal projection of the full Wasserstein
+gradient $\nabla_\mu F(\mu)$ onto coordinate-wise product tangent directions.
+Indeed, for every admissible $v=(v_1,\ldots,v_m)$,
+\begin{equation}
+    \frac{\dd}{\dd h}\Big|_{h=0}F\bigl((\Id+h v)_\sharp\mu\bigr)
+    =
+    \sum_{i=1}^m \int_{\Omega_i}\langle g_i^\mu(x_i),v_i(x_i)\rangle\,\mu_i(\dd x_i).
+\end{equation}
+
+\paragraph{Restricted WGF.}
+The Wasserstein gradient flow of $F$ restricted to $\mathcal M$ is the product curve
+$\mu_t=\bigotimes_i\mu_{i,t}$ satisfying
+\begin{equation}
+    \partial_t\mu_{i,t}
+    + \nabla_{x_i}\cdot\left(v_{i,t}\mu_{i,t}\right)=0,
+    \qquad
+    v_{i,t}(x_i)=-g_i^{\mu_t}(x_i),
+    \qquad i=1,\ldots,m .
+\end{equation}
+Equivalently, as a continuity equation on $\Omega$, this reads
+\begin{equation}
+    \partial_t\mu_t
+    + \sum_{i=1}^m \nabla_{x_i}\cdot\left(v_{i,t}(x_i)\mu_t\right)=0.
+\end{equation}
+Formally, the characteristic chain rule gives the dissipation identity
+\begin{equation}
+    \frac{\dd}{\dd t}F(\mu_t)
+    =
+    -\sum_{i=1}^m \int_{\Omega_i}\|g_i^{\mu_t}(x_i)\|^2\,\mu_{i,t}(\dd x_i)
+    \le 0.
+\end{equation}
+In the local matrix-factorization result where this identity is used, its
+regularity premises are imposed on the characteristic solution and the
+identity is justified for almost every time in
+\cref{prop:reduced-dissipation-antisymmetric-branch,eq:mf-local-energy-dissipation}.

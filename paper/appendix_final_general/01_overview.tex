@@ -1,0 +1,208 @@
+\subsection{Overview of the finite-particle comparison}
+\label{subsec:general-argument-overview}
+
+This appendix expands the proof architecture summarized in
+\cref{sec:proof-overview}, especially the
+four-step sketch in \cref{subsec:proof-sketch-after-assumptions}.  The population PWGF mechanism itself is treated
+as the reference dynamics, in the sense of the Hessian-guided construction of
+\citet{yamamoto2025hessianguided}.  The purpose of the present appendix is the
+finite-particle empirical error analysis: we quantify how the implementable
+particle system tracks the prescribed mean-field PWGF path.
+
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.19\linewidth}
+                >{\raggedright\arraybackslash}p{0.22\linewidth}
+                >{\raggedright\arraybackslash}p{0.23\linewidth}
+                >{\raggedright\arraybackslash}p{0.25\linewidth}}
+\toprule
+Condition or conclusion & General comparison & Variance--cosine example & Matrix-factorization case study \\
+\midrule
+Moment structure and weighted smoothness
+& Assumed in \cref{assumption-structured-moment-smoothness}
+& Verified in \cref{lem:canonical-comparison-assumptions}(i)
+& Separate product-model conditions in \cref{assumption:mf-model-restrictions} \\
+Gaussian jumps and schedule
+& Prescribed by \cref{assumption-common-seed}
+& One prescribed common jump, verified in \cref{lem:canonical-comparison-assumptions}(ii)
+& --- \\
+Moment growth and ODE regularity
+& Assumed in \cref{assumption-moment-growth,assumption-uniform-concentration-piecewise-lipschitz}
+& Verified in \cref{lem:canonical-comparison-assumptions}(iii)--(iv)
+& --- \\
+Non-spikiness
+& Assumed in \cref{assumption-anti-spikiness-event}
+& Verified with $A_{\rm sp}=1$ in \cref{lem:canonical-comparison-assumptions}(v)
+& --- \\
+Curvature-response mechanism
+& Nonlinear stability in \cref{thm:fixed-schedule-high-prob-r-v15}; \(N^\upsilon\)-scaled curvature-response bounds in \cref{cor:fixed-schedule-high-prob-r-rate-v15}
+& High-probability response bounds in \cref{lem:canonical-response-control}; \cref{cor:fixed-schedule-high-prob-r-rate-v15} applies with \(\upsilon=\zeta=1/16\)
+& Population-level local geometry in \cref{prop:mf-local-geometry}: attraction, transverse descent, and positive spherical product pushforward second variation in two regions \\
+Finite-particle conclusion
+& Conditional tracking and objective comparison
+& Growing-horizon conclusion in \cref{prop:canonical-model-assumptions}
+& Open \\
+\bottomrule
+\end{tabular}
+\caption{Relation of the model sections to the comparison theory. The
+matrix-factorization column records a separate population curvature-response
+case study; --- denotes items outside its scope, and ``Open'' denotes the bridge
+to finite-particle tracking.}
+\label{tab:assumption-evidence-map}
+\end{table}
+
+Classical globally Lipschitz propagation-of-chaos arguments close the
+reference-particle stability estimate by Gronwall with a worst-case Lipschitz
+constant~\citep{sznitman1991}.
+Here the same architecture is driven instead by the curvature propagator
+associated with the sampled curvature.
+
+The comparison is organized through the auxiliary particle system
+$\bs Y_t=(Y_t^1,\dots,Y_t^N)$:
+\[
+    \rho_{\bs X_t}
+    \quad\longleftrightarrow\quad
+    \rho_{\bs Y_t}
+    \quad\longleftrightarrow\quad
+    \mu_t .
+\]
+Here $\bs X_t=(X_t^1,\dots,X_t^N)$ is the actual empirical system, whose drift
+and jump covariance are evaluated at $\rho_{\bs X_t}$; $\mu_t$ is the population
+PWGF path; and $\bs Y_t$ starts from the same initial sample and uses the
+population drift and the original population Gaussian field along $\mu_t$.
+Procrustes/Wasserstein comparisons of covariance factors provide related
+mathematical background \citep{masarotto2019procrustes}. The population-first
+conditional construction required here is proved in
+\cref{lem:population-first-finite-coupling}: it constructs the empirical
+Gaussian coordinates jointly with the field
+evaluations, preserving both marginal updates. The reference conditional
+product law conditions only on the population fields. Thus the comparison
+separates two effects: the pathwise stability of $\bs X_t$ relative to
+$\bs Y_t$, and the concentration of the conditionally i.i.d. reference cloud
+$\bs Y_t$ around $\mu_t$.
+
+\paragraph{How this appendix matches the main proof sketch.}
+The detailed proof follows the same four pieces as
+\cref{subsec:proof-sketch-after-assumptions}.
+First, \cref{subsec:general-argument-bound-settings} defines the common initial coupling, the common-seed Gaussian
+jump construction, the moment-Lipschitz smoothness assumptions, and the
+localization event.  Second,
+\cref{subsec:general-argument-bound-r_t-ode-continuous} proves the continuous-time contraction-versus-residual bound for
+\[
+    r_t
+    \coloneq
+    \frac1{\sqrt N}\norm{\bs X_t-\bs Y_t}_2 .
+\]
+Third, \cref{subsec:general-argument-r_t-jump-errors} controls the perturbation mismatch at prescribed jump times.  Fourth,
+\cref{subsec:general-argument-bound-stochastic-gamma-and-tilde-gamma}, together with
+\cref{subsubsec:general-argument-bound-gamma} and
+\cref{subsubsec:weighted-factorization-tilde-gamma}, supplies the concentration estimates needed to
+close the deterministic inequality.
+
+\paragraph{Core theorem: prescribed common jump schedule.}
+The core result of this appendix is the fixed-schedule comparison in
+\cref{subsec:fixed-schedule-package}.  In this
+layer the population and empirical systems are compared along a prescribed
+common jump schedule
+\(
+0=t_0<t_1<\cdots<t_{\NofJ}\le T
+\),
+
+with $\NofJ=O(1)$ in
+\Cref{cor:fixed-schedule-high-prob-r-rate-v15}. On the population moment
+and sample localization events, and under anti-spikiness, the ODE estimate is
+\[
+\dot r_t\le-\kappa_t^{Y,N}r_t+c_Dr_t^2+\Gamma_t^Nr_t+\Gamma_t^N.
+\]
+At each prescribed jump, the comparison uses only pre-jump residuals:
+\[
+r_{t_\ell}\le(1+a_\ell)r_{t_\ell-}
++a_\ell(\sqrt{\Gamma_{t_\ell-}^N}+\sqrt{\widetilde\Gamma_{t_\ell-}^N}),
+\qquad a_\ell=c_J(D)q_p\eta_\ell.
+\]
+The finite Gaussian coupling is constructed after generating the population
+field; the reference product law conditions only on the population fields.
+The exact result in \Cref{thm:fixed-schedule-high-prob-r-v15} retains the
+nonlinear condition $T(\delta+c_DR)\le1/4$. Its failure probability is bounded
+within that nonlinear stability event and the regularity event. The sufficient horizon
+$T\le N^{1/4-\upsilon-\zeta}$ in \cref{cor:fixed-schedule-high-prob-r-rate-v15}
+also specifies the curvature-response bounds and uniform structural constants it uses.
+
+\paragraph{The two stochastic residuals.}
+The continuous residual is
+\[
+    \Gamma_t^N
+    \coloneq
+    \sum_{m\ge1}\gamma_m\Delta_{m,t}^N,
+    \qquad
+    \Delta_{m,t}^N
+    \coloneq
+    \norm{M_m(\rho_{\bs Y_t})-M_m(\mu_t)} .
+\]
+It controls the population-to-reference empirical error in the drift, Hessian,
+and functional terms.  The jump covariance residual is
+\[
+    \widetilde\Gamma_t^N
+    \coloneq
+    \frac1N
+    \left\|
+    \int
+    \mathbf U_t(z)\mathbf U_t(z)^\top
+    (\mu_t-\rho_{\bs Y_t})(\dd z)
+    \right\|_* ,
+\]
+where
+\[
+    \mathbf U_t(z)
+    \coloneq
+    \bigl(
+    \HessW F(\mu_t;Y_t^1,z),\ldots,
+    \HessW F(\mu_t;Y_t^N,z)
+    \bigr)^\top .
+\]
+The first residual enters additively along ODE intervals, whereas the second
+enters through a square-root covariance perturbation at jumps.  Consequently,
+even when both residuals concentrate at nearly $N^{-1/2}$ scale, the jump
+contribution generally produces an $N^{-1/4}$ bottleneck.
+\Cref{subsubsec:general-argument-bound-gamma} and
+\cref{subsubsec:weighted-factorization-tilde-gamma} supply the concentration
+estimates for $\Gamma_t^N$ and $\widetilde\Gamma_t^N$, respectively.
+
+\paragraph{From particle tracking to functional error.}
+After the fixed-schedule $r_t$ estimate is proved,
+\cref{subsec:functional-gap} converts the
+tracking bound into a bound on
+\[
+    \bigl|F(\rho_{\bs X_t})-F(\mu_t)\bigr| .
+\]
+The key point is that no new stochastic object is introduced: the functional gap
+is bounded by the same pair $(r_t,\Gamma_t^N)$. The common weights
+\[
+ \gamma_m(D)=\mathrm L_{K_{\rm pop},D}a_m
+\]
+from \cref{lemma-localized-moment-smoothness-consequences} control both
+the dynamical comparison and the functional comparison.
+
+\paragraph{An example on a growing horizon.}
+\Cref{prop:canonical-model-assumptions} treats a variance-plus-cosine model
+with bounded mean-zero initialization and one prescribed Gaussian jump.
+Its proof computes the sampled curvature, bounds the probability of
+escape, and checks finite-$N$ stability. After positive curvature returns,
+the jump curvature-response factor decays, yielding tracking and a bound on the objective
+gap to the minimum for $C\log N\le t\le N^{1/8}$.
+
+\paragraph{Fixed-time supplements.}
+\Cref{lem:fixed-time-trigger-squared-gap} compares
+$\mathcal G_t=\int\|\nabla_WF(\mu_t,x)\|^2\,\mu_t(dx)$ and
+$\mathcal G_t^N=N^{-1}\sum_i\|\nabla_WF(\rho_{\mathbf X_t},X_t^i)\|^2$
+at one deterministic non-jump time. The margin condition
+\eqref{eq:trigger-margin-agreement} gives agreement of threshold decisions
+at that time. Separately,
+\cref{prop:finite-feature-negative-curvature} transfers negative
+population curvature to the reference sample for finite-feature
+objectives under a spatial-Hessian condition.
+These results are not inputs to the tracking proof and do not control
+whole-path curvature-response factors or synchronize adaptive jump times.

@@ -1,0 +1,123 @@
+{
+  "trial": 0,
+  "seconds": 770.9165620568674,
+  "population_sha256": "8e1507394f75cc598b09040742a166fc2aab739ea836ef64258384e3fda4a5d2",
+  "population": {
+    "status": "stopped",
+    "stop_time": 31.900000000000002,
+    "attempts": 2,
+    "actual": {
+      "objective": 0.00012082278744590277,
+      "gradient_rms": 0.0075489588798625515,
+      "target_relative_error": 0.019662983492514278
+    },
+    "returned": {
+      "objective": 0.00011112179606866784,
+      "gradient_rms": 0.009680337236661762,
+      "target_relative_error": 0.018857087458558842
+    }
+  },
+  "outputs": [
+    {
+      "n": 2048,
+      "status": "stopped",
+      "stop_time": 32.5,
+      "attempts": 1,
+      "actual": {
+        "objective": 7.501071710020592e-05,
+        "gradient_rms": 0.006019621819280112,
+        "target_relative_error": 0.015493040202641282
+      },
+      "returned": {
+        "objective": 0.00013985777185467765,
+        "gradient_rms": 0.009933052948302564,
+        "target_relative_error": 0.02115525631929258
+      },
+      "candidate_time": 22.5,
+      "return_tracking_rms": 2.296149324474717,
+      "return_spikiness": 1.0100187851053257,
+      "return_objective_gap": 2.8735975786009816e-05
+    },
+    {
+      "n": 4096,
+      "status": "stopped",
+      "stop_time": 32.6,
+      "attempts": 1,
+      "actual": {
+        "objective": 5.4864399298588696e-05,
+        "gradient_rms": 0.00541181233834143,
+        "target_relative_error": 0.013250135008953074
+      },
+      "returned": {
+        "objective": 0.00012489823935193903,
+        "gradient_rms": 0.009689890108942596,
+        "target_relative_error": 0.01999185749064366
+      },
+      "candidate_time": 22.6,
+      "return_tracking_rms": 2.3560952488628213,
+      "return_spikiness": 1.0107092983233854,
+      "return_objective_gap": 1.3776443283271199e-05
+    },
+    {
+      "n": 8192,
+      "status": "stopped",
+      "stop_time": 31.700000000000003,
+      "attempts": 2,
+      "actual": {
+        "objective": 0.00011882262447282468,
+        "gradient_rms": 0.007494679466487931,
+        "target_relative_error": 0.019499548669470252
+      },
+      "returned": {
+        "objective": 0.00012163610853960024,
+        "gradient_rms": 0.00987716928525469,
+        "target_relative_error": 0.019729053381414955
+      },
+      "candidate_time": 21.700000000000003,
+      "return_tracking_rms": 0.15296508270178272,
+      "return_spikiness": 1.0077473502356755,
+      "return_objective_gap": 1.0514312470932404e-05
+    },
+    {
+      "n": 16384,
+      "status": "stopped",
+      "stop_time": 30.700000000000003,
+      "attempts": 2,
+      "actual": {
+        "objective": 0.00011805648418578368,
+        "gradient_rms": 0.007466916761257788,
+        "target_relative_error": 0.019436582760210392
+      },
+      "returned": {
+        "objective": 0.00011743836903311049,
+        "gradient_rms": 0.009810557488791052,
+        "target_relative_error": 0.019385633363549246
+      },
+      "candidate_time": 20.700000000000003,
+      "return_tracking_rms": 0.1477489787048886,
+      "return_spikiness": 1.007376503503514,
+      "return_objective_gap": 6.316572964442654e-06
+    },
+    {
+      "n": 32768,
+      "status": "stopped",
+      "stop_time": 30.900000000000002,
+      "attempts": 2,
+      "actual": {
+        "objective": 0.00012104939865521874,
+        "gradient_rms": 0.007552451467786943,
+        "target_relative_error": 0.019681414473982813
+      },
+      "returned": {
+        "objective": 0.0001155097708547209,
+        "gradient_rms": 0.009781567165538303,
+        "target_relative_error": 0.019225796907673474
+      },
+      "candidate_time": 20.900000000000002,
+      "return_tracking_rms": 0.041267644443107994,
+      "return_spikiness": 1.0140671084448827,
+      "return_objective_gap": 4.3879747860530615e-06
+    }
+  ],
+  "population_replay_exact": true
+}

@@ -1,0 +1,108 @@
+{
+  "original_run_id": "20260925T120936Z_adaptive_K32768",
+  "original_figure_manifest_sha256": "d3cda927620d2c5902859bdd31650e8cbfc67af90b1046a9ea01d76a71a8e0b7",
+  "anonymization": [
+    {
+      "path": "source/README.md",
+      "original_sha256": "e5eb5b24a72fbab859280496b82c1320fea84cd78c15b3d4afb7e4e2003aa92b",
+      "packaged_sha256": "0bbf8e2e73caf8160669072e105671f06e2829b780da513d81979374864e951b",
+      "change": "Replaced historical notes and private execution route with runnable package instructions; manuscript and protocol notes are excluded from the submission."
+    },
+    {
+      "path": "source/adaptive.py",
+      "original_sha256": "55d5586184edf76fd5ef985d7d250bc16b5de711cdb936ccc70a94832ca196f7",
+      "packaged_sha256": "9ef0332bf530a9711f833502cf7cb1c0d7daca53249245be239333f758c3f5a8",
+      "change": "Removed hostname collection from metadata and excluded protocol notes from source_hashes(); model, coupling, controller, seeds, and integration are unchanged."
+    },
+    {
+      "path": "runs/integration_half/trial_000/metadata.json",
+      "original_sha256": "76883b119ed9cc79e97d3a87c5ba02308065beca7df6989fef8a5490ad996bc2",
+      "packaged_sha256": "89736cd03a4116854285e512f0e7bc5ab033a6c069fa3118a7cc18931cb74f66",
+      "change": "Removed hostname only; numerical results and historical source hashes unchanged."
+    },
+    {
+      "path": "runs/integration_half/trial_001/metadata.json",
+      "original_sha256": "71445d27c33fa5a8374f834f73eb6be6aa3f95f5e2e0789af69f2619322dcc89",
+      "packaged_sha256": "04ca75a32b23e90f2592582bf5ebdac74a0df9f1b37524341db5ddc1c7b26f06",
+      "change": "Removed hostname only; numerical results and historical source hashes unchanged."
+    },
+    {
+      "path": "runs/integration_half/trial_002/metadata.json",
+      "original_sha256": "eb8dbf7811a58fe46b5b3c7d0ba0f98bafcb8f257cafb844e00245e1a092bf63",
+      "packaged_sha256": "c5aef30625dea5899dbf25523f8864300fca39f6c42a733afaedeea5e6761b55",
+      "change": "Removed hostname only; numerical results and historical source hashes unchanged."
+    },
+    {
+      "path": "runs/main/trial_000/metadata.json",
+      "original_sha256": "a7d3f75a01f52fff03e6a88d237484eea434e7939d24a5b8bf46390d2402e7d3",
+      "packaged_sha256": "39d0ccb6ef407c7c745d8383bf8bf385885d4907a311c72c2f4e0c298fdc991d",
+      "change": "Removed hostname only; numerical results and historical source hashes unchanged."
+    },
+    {
+      "path": "runs/main/trial_001/metadata.json",
+      "original_sha256": "6ad86d92b9df1c605af5d3601b63ba5367575b0f8cf9aaca696a8016ff50652b",
+      "packaged_sha256": "dc621791f142372241742ab0a8a8c4e0783dd2d1f1c16bf4c38a5f52fae7e076",
+      "change": "Removed hostname only; numerical results and historical source hashes unchanged."
+    },
+    {
+      "path": "runs/main/trial_002/metadata.json",
+      "original_sha256": "d6b3cd3d1aaeaecdb8d4c698443e4f11ba28fd1422ab296d0ba1990bef91defd",
+      "packaged_sha256": "1df062b8907edadeea73fd2fc0bb19d768142e1ab2b44bca4e51f4d0bbc6b17f",
+      "change": "Removed hostname only; numerical results and historical source hashes unchanged."
+    },
+    {
+      "path": "runs/trigger_half/trial_000/metadata.json",
+      "original_sha256": "86409072f959f804dd7b7f421f7009b6b79185fc7c5394fa19e12b6f33a28b29",
+      "packaged_sha256": "342ae340eacbdb6a1f09b62b756b98f150a1424c6fbb49bf2ab2d6723dd8bb4a",
+      "change": "Removed hostname only; numerical results and historical source hashes unchanged."
+    },
+    {
+      "path": "runs/trigger_half/trial_001/metadata.json",
+      "original_sha256": "5622fc135136884250ed8315dc08d44409a699383b306099c766e31e021e0f32",
+      "packaged_sha256": "25821068c589b8ab2f361e4b563896852471015fc2c0fa73a0aa297ee7e1c155",
+      "change": "Removed hostname only; numerical results and historical source hashes unchanged."
+    },
+    {
+      "path": "runs/trigger_half/trial_002/metadata.json",
+      "original_sha256": "49bdaf652fb3d664ba47a7e2baddae4f90fae5f2e5ce7a7c8b90da42a4fe4c91",
+      "packaged_sha256": "9d3851e7b00deccdd18425a4b16f29d6ecb7359e88e13371ace6f9d9392409f5",
+      "change": "Removed hostname only; numerical results and historical source hashes unchanged."
+    },
+    {
+      "path": "report/render_source.py",
+      "original_sha256": "6a352474055c25ec506bbd8b1b8790358c7467e16c99599b9f9f8b06012921fa",
+      "packaged_sha256": "1d4da9776da550d85903dba0419d078b9bb3b0ea17ec612a506a278cd9969d4e",
+      "change": "Replaced report() text generation with an English version and removed its paper-citation sentence. Every module-level statement and function outside report() has an identical AST, including analysis, audits, and figure generation."
+    }
+  ],
+  "states": {
+    "storage": "Optional state snapshots are omitted from the lightweight distribution. Regenerate with a full rerun, or add verified original snapshots using tools/package.py --states-root.",
+    "total_original_bytes": 2547767593,
+    "sha256": {
+      "runs/integration_half/trial_000/states.npz": "31eb854db3444659b0c97e0291f482785c6e30d55d8d7fbc92f8b0bbb88b3202",
+      "runs/integration_half/trial_001/states.npz": "80a54efe7efa5987433a1630816ae3a0ebac362caee8ba615a38bc76eb3cee4b",
+      "runs/integration_half/trial_002/states.npz": "8e8e594e8fdbab59d06d93f73b5e6414870ffacc45c2ab6fb34c5e9fa8776419",
+      "runs/main/trial_000/states.npz": "d8b6c868a46212d22adc2cabf363b0669c36e1ffed2d7ebcde50d5d52329fd3c",
+      "runs/main/trial_001/states.npz": "5e8185dfa0dd1962f95f99f0c4c0b2c3b466613a1744652b7bf448650eaaa55c",
+      "runs/main/trial_002/states.npz": "11d26015a009bfa2e5082069646018e79bb61f13d24e6a46d560cf046f9c009d",
+      "runs/trigger_half/trial_000/states.npz": "e498928f84014c62b83d399f3c62bf1cdb6ab78b0486efcf4b1660036ebfaa13",
+      "runs/trigger_half/trial_001/states.npz": "f832f54d80029411221d2d424625a6c76da050022d62c5ba69b7dc85195312ac",
+      "runs/trigger_half/trial_002/states.npz": "49f82cfd32c7de5cceac90a034e8c4e8139b3edcb202ec01d812bca697640559"
+    }
+  },
+  "hash_semantics": "report/figure_manifest.json and recorded source_sha256 refer to ORIGINAL execution inputs. This file maps the anonymized derivatives. MANIFEST.json authenticates PACKAGED files. Figure bytes and analysis.json are unchanged.",
+  "omitted_original_files": {
+    "source/summarize_adaptive.py": {
+      "sha256": "f52a4b445db892c7f8a83e507f3d47899a025edf8920fbb229300cdd55cce769",
+      "reason": "Obsolete launch-time plotting snapshot; the exact final renderer is report/render_source.py."
+    },
+    "source/ADAPTIVE.md": {
+      "sha256": "7ef886eeb6d1bb7c4f3adb2b9c9489e136a049fca8a04bebb18505c33eeffd01",
+      "reason": "Protocol notes with paper references are retained locally and excluded from the code submission; no runtime dependency remains."
+    }
+  },
+  "excluded_from_submission": [
+    "APPENDIX.md",
+    "source/ADAPTIVE.md"
+  ]
+}

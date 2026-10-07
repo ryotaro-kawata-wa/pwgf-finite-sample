@@ -1,0 +1,1643 @@
+✔ [3503/3565] Built PaperFormalization.Affine.Expansion (5.6s)
+✔ [3504/3565] Built PaperFormalization.Piecewise.JumpWeight (5.1s)
+✔ [3507/3577] Built PaperFormalization.Continuous.Propagator (5.8s)
+✔ [3508/3577] Built PaperFormalization.Continuous.IntegralComparison (5.8s)
+✔ [3509/3577] Built PaperFormalization.Continuous.AbsoluteContinuity (5.8s)
+✔ [3510/3577] Built PaperFormalization.Manuscript.FirstExit (5.7s)
+✔ [3511/3577] Built PaperFormalization.Continuous.WeightedSeries (5.4s)
+✔ [3512/3577] Built PaperFormalization.Continuous.FiniteBranchIntegrability (5.4s)
+✔ [3520/3579] Built PaperFormalization.Manuscript.CoordinateMoments (5.7s)
+✔ [3522/3587] Built PaperFormalization.Continuous.RayleighStability (5.8s)
+✔ [3526/3587] Built PaperFormalization.Manuscript.SupremumScaling (6.0s)
+✔ [3527/3587] Built PaperFormalization.Manuscript.GrowthSummability (6.3s)
+✔ [3529/3593] Built PaperFormalization.Affine.Comparison (1.5s)
+✔ [3539/3622] Built PaperFormalization.Piecewise.WeightedIntegral (3.3s)
+✔ [3540/3622] Built PaperFormalization.Piecewise.SchedulePrefix (3.6s)
+✔ [3541/3622] Built PaperFormalization.Continuous.IntegratingFactor (3.3s)
+✔ [3542/3622] Built PaperFormalization.Continuous.PropagatorProducts (3.2s)
+✔ [3548/3622] Built PaperFormalization.Manuscript.MomentResidual (3.4s)
+✔ [3549/3662] Built PaperFormalization.Continuous.SeriesDerivatives (4.1s)
+✔ [3692/3821] Built PaperFormalization.Manuscript.ConfigurationMeanValue (4.6s)
+✔ [3703/3821] Built PaperFormalization.Continuous.BlockOperator (4.8s)
+✔ [3704/3823] Built PaperFormalization.Manuscript.FeatureWeights (4.5s)
+✔ [3706/3823] Built PaperFormalization.Manuscript.EnergyDerivative (5.1s)
+✔ [3707/3832] Built PaperFormalization.Manuscript.UniformFeatureWeights (4.4s)
+✔ [3710/3832] Built PaperFormalization.Manuscript.WeightedHilbert (5.8s)
+✔ [3711/3832] Built PaperFormalization.Continuous.Duhamel (3.8s)
+✔ [3714/3832] Built PaperFormalization.Continuous.ForcingResponse (3.8s)
+✔ [3716/3832] Built PaperFormalization.Manuscript.SourceMomentClass (4.6s)
+✔ [3717/3832] Built PaperFormalization.Manuscript.AlignedCovarianceFactor (4.0s)
+✔ [3718/3832] Built PaperFormalization.Manuscript.FiniteHilbertSchmidt (5.5s)
+✔ [3719/3832] Built PaperFormalization.Manuscript.RadialClip (4.4s)
+✔ [3720/3832] Built PaperFormalization.Manuscript.HilbertSampleMean (5.2s)
+✔ [3721/3832] Built PaperFormalization.Manuscript.GaussianSquareMoment (5.6s)
+✔ [3722/3832] Built PaperFormalization.Manuscript.FeatureResidual (4.8s)
+✔ [3723/3832] Built PaperFormalization.Manuscript.EmpiricalFieldDerivative (5.4s)
+✔ [3724/3832] Built PaperFormalization.Manuscript.UniformFeatureEnvelope (4.8s)
+✔ [3725/3832] Built PaperFormalization.Manuscript.ODEDiscrepancy (5.1s)
+✔ [3726/3832] Built PaperFormalization.Manuscript.BranchTrace (3.8s)
+✔ [3727/3832] Built PaperFormalization.Manuscript.WeightedSampleSensitivity (4.2s)
+✔ [3728/3832] Built PaperFormalization.Piecewise.Step (3.7s)
+✔ [3729/3832] Built PaperFormalization.Manuscript.StoppedCoefficient (3.9s)
+✔ [3730/3832] Built PaperFormalization.Manuscript.SourceMomentClassLimit (4.3s)
+✔ [3731/3834] Built PaperFormalization.Manuscript.SourceMomentClassEquivalence (4.2s)
+✔ [3732/3834] Built PaperFormalization.Manuscript.SpectralTraceBounds (4.3s)
+✔ [3733/3834] Built PaperFormalization.Manuscript.OrthogonalHilbertColumns (4.1s)
+✔ [3734/3834] Built PaperFormalization.Manuscript.EmpiricalFactorNorm (4.2s)
+✔ [3735/3834] Built PaperFormalization.Manuscript.FeatureRegularityBounds (4.8s)
+✔ [3736/3835] Built PaperFormalization.Manuscript.SourceMomentPathRegularity (4.0s)
+✔ [3737/3835] Built PaperFormalization.Manuscript.ClippedFeatures (5.0s)
+✔ [3739/3838] Built PaperFormalization.Manuscript.GrowingHorizonAlgebra (4.8s)
+✔ [3754/3930] Built PaperFormalization.Manuscript.SubpolynomialEnvelope (5.0s)
+✔ [3755/3930] Built PaperFormalization.Manuscript.HilbertTensorCovariance (7.1s)
+✔ [3756/3930] Built PaperFormalization.Manuscript.UniformFeatureSeries (4.7s)
+✔ [3757/3930] Built PaperFormalization.Manuscript.ParticleDiscrepancy (4.4s)
+✔ [3758/3950] Built PaperFormalization.Piecewise.Finite (4.1s)
+✔ [3759/3950] Built PaperFormalization.Manuscript.ObservationBranch (4.9s)
+✔ [3763/3950] Built PaperFormalization.Manuscript.MomentGradientField (7.9s)
+✔ [3764/3968] Built PaperFormalization.Manuscript.ZeroDiscrepancy (4.5s)
+✔ [3765/3968] Built PaperFormalization.Manuscript.ConditionalCharacteristicProduct (2.7s)
+✔ [3766/3968] Built PaperFormalization.Manuscript.SourceMomentLeftTrace (4.5s)
+✔ [3769/3968] Built PaperFormalization.Manuscript.SpectralPseudoInverse (4.9s)
+✔ [3770/3968] Built PaperFormalization.Manuscript.PowersStormer (4.0s)
+✔ [3771/3968] Built PaperFormalization.Manuscript.ConditionalPathMarginal (2.6s)
+✔ [3773/3968] Built PaperFormalization.Manuscript.TensorCovarianceExpectation (4.8s)
+✔ [3775/3968] Built PaperFormalization.Manuscript.FiniteTimeGrid (4.9s)
+✔ [3776/3969] Built PaperFormalization.Manuscript.WeightedClippedSampleMean (5.0s)
+✔ [3777/3969] Built PaperFormalization.Manuscript.PairedDisplacement (4.4s)
+✔ [3778/3969] Built PaperFormalization.Manuscript.PolylogFeatureEnvelope (4.9s)
+✔ [3779/3969] Built PaperFormalization.Piecewise.Expansion (3.0s)
+✔ [3780/3969] Built PaperFormalization.Manuscript.ExponentialMomentClass (5.1s)
+✔ [3781/3969] Built PaperFormalization.Manuscript.DirectionalHessianError (4.0s)
+✔ [3782/3969] Built PaperFormalization.Manuscript.OriginalCharacteristicEvent (3.1s)
+✔ [3784/3969] Built PaperFormalization.Manuscript.SourceBranchGluing (4.3s)
+✔ [3785/3970] Built PaperFormalization.Manuscript.WeightedFeatureMap (5.5s)
+✔ [3787/3970] Built PaperFormalization.Manuscript.CharacteristicEvaluation (2.9s)
+✔ [3788/3970] Built PaperFormalization.Manuscript.SourceMomentClosedBranch (4.8s)
+✔ [3789/3970] Built PaperFormalization.Manuscript.MomentObjectiveBounds (6.5s)
+✔ [3790/4067] Built PaperFormalization.Manuscript.SpectralResolventLimit (5.3s)
+✔ [3792/4067] Built PaperFormalization.Manuscript.LocalMomentHessian (7.3s)
+✔ [3793/4067] Built PaperFormalization.Manuscript.SymmetricNuclearBounds (4.9s)
+✔ [3794/4067] Built PaperFormalization.Manuscript.AdaptiveRadiusGrid (4.8s)
+✔ [3796/4067] Built PaperFormalization.Manuscript.EligibleBranchEvent (4.6s)
+✔ [3798/4067] Built PaperFormalization.Manuscript.FiniteBranchConcentration (4.6s)
+✔ [3800/4067] Built PaperFormalization.Manuscript.ActualTensorSampleMean (6.1s)
+✔ [3801/4068] Built PaperFormalization.Piecewise.Observation (3.8s)
+✔ [3804/4068] Built PaperFormalization.Manuscript.FeatureDisplacement (4.8s)
+✔ [3805/4068] Built PaperFormalization.Manuscript.ClippedResidualPathRegularity (5.6s)
+✔ [3806/4069] Built PaperFormalization.Manuscript.HessianQuadraticBridge (4.1s)
+✔ [3807/4069] Built PaperFormalization.Manuscript.PopulationExponentialFlow (4.7s)
+✔ [3809/4073] Built PaperFormalization.Manuscript.EmpiricalWeightedMoment (4.8s)
+✔ [3810/4073] Built PaperFormalization.Manuscript.OriginalConditionalPathLaw (3.9s)
+✔ [3814/4073] Built PaperFormalization.Manuscript.MeasurableAlignedFactors (4.7s)
+✔ [3817/4075] Built PaperFormalization.Piecewise.KernelPartition (3.9s)
+✔ [3819/4075] Built PaperFormalization.Manuscript.CovarianceMismatch (5.3s)
+✔ [3821/4118] Built PaperFormalization.Manuscript.PopulationTimeGrid (4.7s)
+✔ [4024/4320] Built PaperFormalization.Manuscript.BoundedDifferenceHoeffding (4.7s)
+✔ [4097/4365] Built PaperFormalization.Manuscript.WeightedFeatureDerivatives (6.8s)
+✔ [4112/4365] Built PaperFormalization.Manuscript.PopulationExponentialMarginal (5.1s)
+⚠ [4113/4365] Built PaperFormalization.Manuscript.SourceClosedODEPaths (5.6s)
+warning: PaperFormalization/Manuscript/SourceClosedODEPaths.lean:38:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceODEPathExtend_continuous`:
+  [NormedSpace ℝ E]
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NormedSpace ℝ E] [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceClosedODEPaths.lean:103:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.source_c1_lipschitz_on_closedBall`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [4114/4365] Built PaperFormalization.Manuscript.BlockODE (5.8s)
+✔ [4115/4371] Built PaperFormalization.Manuscript.SourceReferencePathLaw (4.6s)
+✔ [4117/4371] Built PaperFormalization.Manuscript.WeightedBochnerMoment (10s)
+✔ [4118/4371] Built PaperFormalization.Manuscript.EmpiricalMeasureMoment (5.3s)
+✔ [4120/4372] Built PaperFormalization.Manuscript.MeasurableCovarianceRepresentatives (5.0s)
+✔ [4122/4372] Built PaperFormalization.Piecewise.Gronwall (4.1s)
+✔ [4123/4373] Built PaperFormalization.Manuscript.BoundedDifferenceProduct (4.8s)
+✔ [4127/4373] Built PaperFormalization.Manuscript.SourceDerivativeHilbertSchmidt (5.8s)
+✔ [4128/4374] Built PaperFormalization.Manuscript.SourceKernelIntegrability (6.6s)
+✔ [4131/4374] Built PaperFormalization.Manuscript.MomentKernelMatrix (7.5s)
+✔ [4132/4374] Built PaperFormalization.Manuscript.MomentRegionGeometry (5.5s)
+✔ [4134/4374] Built PaperFormalization.Manuscript.HilbertMomentResidual (5.9s)
+✔ [4135/4374] Built PaperFormalization.Manuscript.PrehistoryPopulationEligibility (5.1s)
+✔ [4138/4394] Built PaperFormalization.Manuscript.SourceFreshInnovationLaw (5.2s)
+⚠ [4286/4611] Built PaperFormalization.Manuscript.SourceCanonicalODEFlow (5.9s)
+warning: PaperFormalization/Manuscript/SourceCanonicalODEFlow.lean:52:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceCanonicalODEPath_of_solution`:
+  [MeasurableSpace E]
+  [BorelSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace E] [BorelSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceCanonicalODEFlow.lean:58:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceCanonicalODEPath_of_not_mem`:
+  [CompleteSpace E]
+  [FiniteDimensional ℝ E]
+  [MeasurableSpace E]
+  [BorelSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceCanonicalODEFlow.lean:114:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceODESolutionSet_symmetry`:
+  [MeasurableSpace E]
+  [BorelSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace E] [BorelSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [4473/4805] Built PaperFormalization.Manuscript.WeightedFeatureSpatial (6.8s)
+✔ [4611/4907] Built PaperFormalization.Manuscript.PopulationCovariance (5.7s)
+✔ [4726/4960] Built PaperFormalization.Manuscript.StoppedComparison (4.6s)
+✔ [4727/4960] Built PaperFormalization.Manuscript.SourceExponentialMoment (6.2s)
+✔ [4730/4960] Built PaperFormalization.Manuscript.BoundedDifferenceFinite (4.8s)
+✔ [4731/4960] Built PaperFormalization.Manuscript.SourceFeatureSecondMoment (5.4s)
+✔ [4732/4960] Built PaperFormalization.Manuscript.EmpiricalPopulationResidual (4.8s)
+✔ [4733/4960] Built PaperFormalization.Manuscript.MeasureMomentRegion (5.6s)
+✔ [4734/4960] Built PaperFormalization.Manuscript.SourceDerivativeFourthMoment (6.0s)
+✔ [4735/4960] Built PaperFormalization.Manuscript.PreJumpComparison (4.1s)
+✔ [4736/4962] Built PaperFormalization.Manuscript.BoundaryCases (4.1s)
+✔ [4737/4962] Built PaperFormalization.Manuscript.SourceRegionObjective (6.6s)
+✔ [4738/4964] Built PaperFormalization.Manuscript.FullSchedule (4.9s)
+✔ [4739/4964] Built PaperFormalization.Manuscript.SourceFeatureRadius (5.4s)
+✔ [4741/4964] Built PaperFormalization.Manuscript.SourceFiniteConditionalScale (4.9s)
+✔ [4742/4968] Built PaperFormalization.Manuscript.HilbertTensorCompression (6.7s)
+✔ [4745/4968] Built PaperFormalization.Manuscript.SourcePopulationGram (7.5s)
+✔ [4746/4968] Built PaperFormalization.Manuscript.PopulationKernelExponentialGrid (5.0s)
+✔ [4747/4968] Built PaperFormalization.Manuscript.SourceClippedSeries (4.9s)
+✔ [4748/4969] Built PaperFormalization.Manuscript.WeightedClippedConcentration (5.2s)
+✔ [4751/4969] Built PaperFormalization.Manuscript.ClippingBias (4.0s)
+✔ [4752/4972] Built PaperFormalization.Manuscript.SourceTensorCovarianceIntegrability (5.2s)
+✔ [4754/4972] Built PaperFormalization.Manuscript.UniformSourceCoefficients (4.8s)
+✔ [4755/4972] Built PaperFormalization.Manuscript.SourceHilbertSchmidtFourthMoment (5.7s)
+✔ [4759/4972] Built PaperFormalization.Manuscript.MeasureRegionObjective (5.4s)
+✔ [4760/4972] Built PaperFormalization.Manuscript.SourceSegmentRegularity (6.8s)
+✔ [4763/4977] Built PaperFormalization.Manuscript.StoppedEnvelope (5.1s)
+✔ [4765/5016] Built PaperFormalization.Manuscript.NonlinearComparison (4.9s)
+✔ [5104/5321] Built PaperFormalization.Manuscript.ExitAttainment (4.8s)
+✔ [5115/5345] Built PaperFormalization.Manuscript.SourceLocalField (6.7s)
+✔ [5136/5428] Built PaperFormalization.Manuscript.SourceOriginalCoefficientMixture (4.9s)
+✔ [5483/5732] Built PaperFormalization.Manuscript.PopulationKernelLocalization (5.2s)
+✔ [5629/5958] Built PaperFormalization.Manuscript.ClippedConcentrationThreshold (5.3s)
+✔ [6595/6854] Built PaperFormalization.Manuscript.PopulationTail (4.7s)
+✔ [7237/7512] Built PaperFormalization.Manuscript.ClippedTensorCovariance (5.8s)
+✔ [7340/7607] Built PaperFormalization.Manuscript.UniformSourceFourthMoment (5.1s)
+✔ [7901/8175] Built PaperFormalization.Manuscript.UniformGammaCoefficients (6.1s)
+✔ [8436/8687] Built PaperFormalization.Manuscript.SourceEmpiricalPopulationField (5.5s)
+✔ [8538/8797] Built PaperFormalization.Manuscript.ZeroForcingTracking (4.5s)
+✔ [8808/9317] Built PaperFormalization.Manuscript.BootstrapMargin (5.1s)
+✔ [8809/9317] Built PaperFormalization.Manuscript.OriginalPopulationEvent (4.5s)
+✔ [8810/9317] Built PaperFormalization.Manuscript.SourceEmpiricalKernelDifference (7.2s)
+✔ [8811/9317] Built PaperFormalization.Manuscript.SourceMomentTail (4.6s)
+✔ [8812/9317] Built PaperFormalization.Manuscript.WeightedClippingBias (4.8s)
+✔ [8813/9317] Built PaperFormalization.Manuscript.SourceSampleEnvelope (5.6s)
+✔ [8814/9317] Built PaperFormalization.Manuscript.ClippedTensorConcentration (6.1s)
+✔ [8815/9317] Built PaperFormalization.MatrixFactorization.GaussianFourthHolder (3.8s)
+✔ [8816/9317] Built PaperFormalization.Manuscript.SourceGammaSubpolynomial (5.1s)
+✔ [8817/9317] Built PaperFormalization.MatrixFactorization.SignedIntegralFubini (3.8s)
+✔ [8818/9317] Built PaperFormalization.Manuscript.SourceODEDrift (7.8s)
+✔ [8819/9317] Built PaperFormalization.Manuscript.NonlinearTracking (4.2s)
+✔ [8820/9317] Built PaperFormalization.Manuscript.SourcePopulationPathSpace (4.3s)
+✔ [8821/9317] Built PaperFormalization.Manuscript.SourceEmpiricalFactor (4.5s)
+✔ [8822/9317] Built PaperFormalization.Manuscript.SourceUniformRadius (4.7s)
+✔ [8823/9317] Built PaperFormalization.Manuscript.SourceWeightedPopulationBias (4.3s)
+✔ [8824/9317] Built PaperFormalization.Manuscript.TensorCovarianceRestoration (4.5s)
+✔ [8825/9317] Built PaperFormalization.Manuscript.SourceSampleMaxTail (4.8s)
+✔ [8826/9317] Built PaperFormalization.Manuscript.SourceClippingBiasRate (4.6s)
+✔ [8827/9317] Built PaperFormalization.Manuscript.SourceGammaRateAlgebra (6.9s)
+✔ [8828/9317] Built PaperFormalization.Manuscript.EnvelopeSupremum (4.4s)
+✔ [8829/9317] Built PaperFormalization.Manuscript.SourceCurvaturePath (5.5s)
+✔ [8830/9317] Built PaperFormalization.Manuscript.JumpForcing (4.4s)
+✔ [8831/9317] Built PaperFormalization.Manuscript.SourceConstructedPopulationEvent (4.5s)
+✔ [8832/9317] Built PaperFormalization.Manuscript.SourceKernelCovarianceBounds (5.6s)
+✔ [8833/9317] Built PaperFormalization.Manuscript.SourceUniformGamma (6.2s)
+✔ [8834/9317] Built PaperFormalization.Manuscript.SourceSampleSubpolynomial (7.1s)
+✔ [8835/9317] Built PaperFormalization.Manuscript.SourceRadiusChoice (7.0s)
+✔ [8836/9317] Built PaperFormalization.Manuscript.SourcePopulationScaleRates (7.5s)
+⚠ [8837/9317] Built PaperFormalization.Manuscript.SourceFixedRadiusGammaRate (6.1s)
+warning: PaperFormalization/Manuscript/SourceFixedRadiusGammaRate.lean:24:5: Variable name `hc0` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8838/9317] Built PaperFormalization.Manuscript.SourceTrackingScale (5.5s)
+✔ [8839/9317] Built PaperFormalization.Manuscript.SourceScheduleRegularity (4.7s)
+✔ [8840/9317] Built PaperFormalization.Manuscript.SourceODEBranch (6.1s)
+✔ [8841/9317] Built PaperFormalization.Manuscript.SourceGammaConvenientRate (7.1s)
+✔ [8842/9317] Built PaperFormalization.Manuscript.SourceJumpForcingRates (4.8s)
+✔ [8843/9317] Built PaperFormalization.Manuscript.JumpComparison (4.1s)
+✔ [8844/9317] Built PaperFormalization.Manuscript.EnvelopeLeftTrace (3.0s)
+✔ [8845/9317] Built PaperFormalization.Manuscript.SourceEnvelope (3.0s)
+✔ [8846/9317] Built PaperFormalization.Manuscript.SourceTensorCovarianceResidual (4.7s)
+✔ [8847/9317] Built PaperFormalization.Manuscript.SourceUniformGammaComplete (5.1s)
+✔ [8848/9317] Built PaperFormalization.Manuscript.SourceNuclearEnvelopeRate (4.9s)
+✔ [8849/9317] Built PaperFormalization.Manuscript.OriginalLocalizedCharacteristicEvent (4.6s)
+✔ [8850/9317] Built PaperFormalization.Manuscript.SourceScheduleMarginals (4.3s)
+✔ [8851/9317] Built PaperFormalization.Manuscript.SourceODETraceBranch (4.8s)
+✔ [8852/9317] Built PaperFormalization.Manuscript.SourceContinuousBranch (5.4s)
+✔ [8853/9317] Built PaperFormalization.Manuscript.UniformDriftJumpCoefficients (5.3s)
+✔ [8854/9317] Built PaperFormalization.Manuscript.GaussianNormTail (5.4s)
+✔ [8855/9317] Built PaperFormalization.Manuscript.SourceCurvatureResponseRates (7.1s)
+⚠ [8856/9317] Built PaperFormalization.Manuscript.CurvatureRecoveryResponse (5.8s)
+warning: PaperFormalization/Manuscript/CurvatureRecoveryResponse.lean:62:22: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  simp only [id_eq,̵ ̵m̵u̵l̵_̵o̵n̵e̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/CurvatureRecoveryResponse.lean:161:19: Variable name `hlam` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8857/9317] Built PaperFormalization.Manuscript.SourceTracking (6.4s)
+✔ [8858/9317] Built PaperFormalization.Manuscript.ActualNuclearResidualMeasurability (6.3s)
+✔ [8859/9317] Built PaperFormalization.Manuscript.SourceWeightedTensorResidual (6.5s)
+✔ [8860/9317] Built PaperFormalization.Manuscript.SourceGammaTraceTransfer (5.3s)
+✔ [8861/9317] Built PaperFormalization.MatrixFactorization.ScalarRadialSupport (49s)
+✔ [8862/9317] Built PaperFormalization.MatrixFactorization.SphereMoments (47s)
+⚠ [8863/9317] Built PaperFormalization.MatrixFactorization.ScalarCapBarrier (49s)
+warning: PaperFormalization/MatrixFactorization/ScalarCapBarrier.lean:31:5: Variable name `hT` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8864/9317] Built PaperFormalization.MatrixFactorization.FiniteMeasureFourthMean (50s)
+✔ [8865/9317] Built PaperFormalization.MatrixFactorization.ProbabilityFourthMean (51s)
+✔ [8866/9317] Built PaperFormalization.MatrixFactorization.ScalarCapContinuation (51s)
+✔ [8867/9317] Built PaperFormalization.MatrixFactorization.HilbertC2Chain (51s)
+✔ [8868/9317] Built PaperFormalization.Manuscript.SourceODESchedule (5.6s)
+✔ [8869/9317] Built PaperFormalization.Manuscript.SourceJumpRateCoefficients (5.0s)
+✔ [8870/9317] Built PaperFormalization.Manuscript.GaussianMatrixTail (5.2s)
+✔ [8871/9317] Built PaperFormalization.Manuscript.SourceTrackingAllCases (4.8s)
+✔ [8872/9317] Built PaperFormalization.Manuscript.SourcePreJumpTracking (4.8s)
+✔ [8873/9317] Built PaperFormalization.Manuscript.SourceNuclearExpectation (5.6s)
+✔ [8874/9317] Built PaperFormalization.Manuscript.SourceCovarianceConcentration (6.3s)
+✔ [8875/9317] Built PaperFormalization.Manuscript.KernelNuclearResidual (6.5s)
+✔ [8876/9317] Built PaperFormalization.Manuscript.SourceBootstrapSmallness (8.2s)
+✔ [8877/9317] Built PaperFormalization.Manuscript.GaussianWhitening (5.9s)
+✔ [8878/9317] Built PaperFormalization.Manuscript.SourceGaussianJump (5.3s)
+✔ [8879/9317] Built PaperFormalization.Manuscript.ConditionalGaussianTail (4.0s)
+✔ [8880/9317] Built PaperFormalization.Manuscript.SourceTrackingAllCasesWithPre (4.7s)
+✔ [8881/9317] Built PaperFormalization.Manuscript.SourceSharpNuclearExpectation (4.7s)
+⚠ [8882/9317] Built PaperFormalization.Manuscript.SourceGlobalEmpiricalRegularity (5.6s)
+warning: PaperFormalization/Manuscript/SourceGlobalEmpiricalRegularity.lean:63:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.source_continuous_empiricalMomentMap`:
+  [∀ (n : ℕ), CompleteSpace (H n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (n : ℕ), CompleteSpace (H n)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8883/9317] Built PaperFormalization.Manuscript.SourceCovarianceJumpBudget (6.3s)
+✔ [8884/9317] Built PaperFormalization.Manuscript.SourceActualCoefficientSmallness (5.8s)
+✔ [8885/9317] Built PaperFormalization.Manuscript.SourceActualJump (6.3s)
+✔ [8886/9317] Built PaperFormalization.Manuscript.AlignedGaussianWhitening (7.0s)
+✔ [8887/9317] Built PaperFormalization.Manuscript.JointWhitenedSeed (6.5s)
+✔ [8888/9317] Built PaperFormalization.Manuscript.SourceParticleUnflatten (5.5s)
+✔ [8889/9317] Built PaperFormalization.Manuscript.SourceActualJumpComplete (5.5s)
+✔ [8890/9317] Built PaperFormalization.Manuscript.SourcePopulationCoefficientSmallness (7.6s)
+✔ [8891/9317] Built PaperFormalization.Manuscript.SourceActualGramRegularity (7.6s)
+✔ [8892/9317] Built PaperFormalization.Manuscript.PopulationGaussianExtension (5.4s)
+✔ [8893/9317] Built PaperFormalization.Manuscript.KernelClippedResidual (5.6s)
+✔ [8894/9317] Built PaperFormalization.Manuscript.SourceConditionalCovariance (6.1s)
+✔ [8895/9317] Built PaperFormalization.Manuscript.FiniteJumpEvents (5.6s)
+✔ [8896/9317] Built PaperFormalization.Manuscript.SourceConditionalActualJump (6.1s)
+✔ [8897/9317] Built PaperFormalization.MatrixFactorization.OuterProduct (30s)
+✔ [8898/9317] Built PaperFormalization.MatrixFactorization.ScalarPowerDecay (34s)
+✔ [8899/9317] Built PaperFormalization.MatrixFactorization.ScalarSupportBarrier (34s)
+✔ [8900/9317] Built PaperFormalization.MatrixFactorization.FiniteMeasureL4Average (34s)
+✔ [8901/9317] Built PaperFormalization.MatrixFactorization.TensorHilbertNorm (33s)
+✔ [8902/9317] Built PaperFormalization.MatrixFactorization.HermiteFeatures (31s)
+✔ [8903/9317] Built PaperFormalization.MatrixFactorization.SphericalDistance (32s)
+✔ [8904/9317] Built PaperFormalization.Manuscript.ConditionalPopulationExtension (5.7s)
+✔ [8905/9317] Built PaperFormalization.Manuscript.SourceObjectiveResidual (6.8s)
+✔ [8906/9317] Built PaperFormalization.Manuscript.ConditionalUniformGamma (6.3s)
+✔ [8907/9317] Built PaperFormalization.Manuscript.KernelRawResidual (5.6s)
+✔ [8908/9317] Built PaperFormalization.Manuscript.SourceConditionalCovarianceBudget (6.3s)
+✔ [8909/9317] Built PaperFormalization.Manuscript.SourceJumpTraceRecursion (4.8s)
+✔ [8910/9317] Built PaperFormalization.Manuscript.KernelActualJumpEvent (5.2s)
+✔ [8911/9317] Built PaperFormalization.Manuscript.ConditionalAlignedSeed (7.2s)
+✔ [8912/9317] Built PaperFormalization.Manuscript.ConditionalUniformGammaComplete (5.1s)
+✔ [8913/9317] Built PaperFormalization.Manuscript.SourceObservedCovarianceSchedule (6.2s)
+✔ [8914/9317] Built PaperFormalization.Manuscript.SourceMeasurableActualJump (5.7s)
+✔ [8915/9317] Built PaperFormalization.Manuscript.ConditionalAlignedSeedAE (5.0s)
+✔ [8916/9317] Built PaperFormalization.Manuscript.CharacteristicUniformGamma (5.6s)
+✔ [8917/9317] Built PaperFormalization.Manuscript.SourceOriginalCovarianceView (5.4s)
+✔ [8918/9317] Built PaperFormalization.Manuscript.SourceObservedJumpSchedule (6.8s)
+✔ [8919/9317] Built PaperFormalization.Manuscript.SourceCausalReference (5.1s)
+✔ [8920/9317] Built PaperFormalization.Manuscript.SourceOriginalObservationExtension (5.1s)
+✔ [8921/9317] Built PaperFormalization.Manuscript.CharacteristicGammaRate (5.2s)
+✔ [8922/9317] Built PaperFormalization.Manuscript.SourceObservedTrackingSchedule (5.4s)
+✔ [8923/9317] Built PaperFormalization.Manuscript.SourceActualTrackingInputs (6.1s)
+✔ [8924/9317] Built PaperFormalization.Manuscript.SourceAuxiliaryTower (4.7s)
+⚠ [8925/9317] Built PaperFormalization.Manuscript.SourceScheduledCovariance (5.0s)
+warning: PaperFormalization/Manuscript/SourceScheduledCovariance.lean:89:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.source_causal_population_event_implies_eligibility`:
+  [MeasurableSpace O]
+  [MeasurableSpace Env]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace O] [MeasurableSpace Env] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8926/9317] Built PaperFormalization.Manuscript.SourceOriginalJumpView (6.8s)
+✔ [8927/9317] Built PaperFormalization.Manuscript.SourceReferencePathIdentification (8.5s)
+✔ [8928/9317] Built PaperFormalization.Manuscript.SourceGluedTrackingPaths (5.7s)
+✔ [8929/9317] Built PaperFormalization.Manuscript.SourceActualTracking (6.4s)
+✔ [8930/9317] Built PaperFormalization.MatrixFactorization.GaussianIntegrability (44s)
+⚠ [8931/9317] Built PaperFormalization.MatrixFactorization.WeightedL4Average (44s)
+warning: PaperFormalization/MatrixFactorization/WeightedL4Average.lean:17:25: Variable name `hi` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8932/9317] Built PaperFormalization.MatrixFactorization.SourceInitialMargin (44s)
+✔ [8933/9317] Built PaperFormalization.MatrixFactorization.PowerDecayAsymptotics (44s)
+✔ [8934/9317] Built PaperFormalization.MatrixFactorization.MixedTensorHilbert (44s)
+✔ [8935/9317] Built PaperFormalization.MatrixFactorization.CapAssignment (43s)
+✔ [8936/9317] Built PaperFormalization.MatrixFactorization.SphericalTransport (44s)
+✔ [8937/9317] Built PaperFormalization.MatrixFactorization.HermiteDerivatives (44s)
+⚠ [8938/9317] Built PaperFormalization.MatrixFactorization.ActiveMomentHilbert (44s)
+warning: PaperFormalization/MatrixFactorization/ActiveMomentHilbert.lean:51:8: Variable name `n` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8939/9317] Built PaperFormalization.Manuscript.SourceFreshAuxiliaryHistories (5.5s)
+warning: PaperFormalization/Manuscript/SourceFreshAuxiliaryHistories.lean:34:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceAuxiliaryHistory_original`:
+  [MeasurableSpace O]
+  [MeasurableSpace S]
+  [MeasurableSpace A]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace A] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8940/9317] Built PaperFormalization.Manuscript.SourceCausalReferenceVersion (4.6s)
+✔ [8941/9317] Built PaperFormalization.Manuscript.SourceAEJumpConstruction (6.1s)
+✔ [8942/9317] Built PaperFormalization.Manuscript.SourceOriginalReferenceGamma (5.4s)
+✔ [8943/9317] Built PaperFormalization.Manuscript.SourceObservedActualTracking (5.9s)
+✔ [8944/9317] Built PaperFormalization.Manuscript.SourceAuxiliaryCoordinates (4.7s)
+⚠ [8945/9317] Built PaperFormalization.Manuscript.SourceCanonicalWhitening (5.1s)
+warning: PaperFormalization/Manuscript/SourceCanonicalWhitening.lean:23:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourcePsdClip_pos`:
+  [Fintype I]
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceCanonicalWhitening.lean:30:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourcePsdClip_eq`:
+  [Fintype I]
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceCanonicalWhitening.lean:33:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourcePsdClip_measurable`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8946/9317] Built PaperFormalization.Manuscript.SourceAnalyticJumpConstruction (5.0s)
+⚠ [8947/9317] Built PaperFormalization.Manuscript.SourcePopulationGammaBridge (5.5s)
+warning: PaperFormalization/Manuscript/SourcePopulationGammaBridge.lean:59:5: Variable name `hPhi` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8948/9317] Built PaperFormalization.Manuscript.SourceFiniteParticleRecursion (5.2s)
+✔ [8949/9317] Built PaperFormalization.Manuscript.SourceWhiteningPermutation (5.4s)
+✔ [8950/9317] Built PaperFormalization.Manuscript.SourceOriginalFreshJump (4.0s)
+✔ [8951/9317] Built PaperFormalization.Manuscript.SourcePopulationGammaRadius (5.1s)
+✔ [8952/9317] Built PaperFormalization.Manuscript.SourceParticlePermutation (6.3s)
+✔ [8953/9317] Built PaperFormalization.Manuscript.SourceActualFiniteConstruction (6.5s)
+✔ [8954/9317] Built PaperFormalization.Manuscript.SourceOriginalCanonicalJump (6.4s)
+✔ [8955/9317] Built PaperFormalization.Manuscript.SourcePopulationEventRetention (5.4s)
+✔ [8956/9317] Built PaperFormalization.Manuscript.SourceRecurrentCoordinates (7.9s)
+✔ [8957/9317] Built PaperFormalization.Manuscript.SourceCombinedEventBudget (8.9s)
+✔ [8958/9317] Built PaperFormalization.Manuscript.SourceCanonicalEmpiricalFlow (8.9s)
+✔ [8959/9317] Built PaperFormalization.Manuscript.SourceFixedCanonicalJumpView (8.2s)
+✔ [8960/9317] Built PaperFormalization.MatrixFactorization.GaussianPolynomialStein (32s)
+✔ [8961/9317] Built PaperFormalization.MatrixFactorization.FittingEnergy (32s)
+✔ [8962/9317] Built PaperFormalization.MatrixFactorization.FixedAssignment (32s)
+⚠ [8963/9317] Built PaperFormalization.MatrixFactorization.GaussianLinearPolynomial (32s)
+warning: PaperFormalization/MatrixFactorization/GaussianLinearPolynomial.lean:28:34: This simp argument is unused:
+  MvPolynomial.pderiv_C_mul
+
+Hint: Omit it from the simp argument list.
+  simp [gaussianLinearPolynomial, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵C̵_̵m̵u̵l̵,̵ ̵Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [8964/9317] Built PaperFormalization.MatrixFactorization.GaussianPairJetIntegrability (32s)
+✔ [8965/9317] Built PaperFormalization.MatrixFactorization.TensorCurveJets (32s)
+✔ [8966/9317] Built PaperFormalization.MatrixFactorization.TensorTrace (32s)
+✔ [8967/9317] Built PaperFormalization.MatrixFactorization.ActiveMomentCoordinates (34s)
+⚠ [8968/9317] Built PaperFormalization.Manuscript.SourceRecurrentBranches (5.6s)
+warning: PaperFormalization/Manuscript/SourceRecurrentBranches.lean:125:28: This simp argument is unused:
+  sourceTowerPacked_last
+
+Hint: Omit it from the simp argument list.
+  simp only [sourceActualFinitePost, sourceCanonicalCoupledPost, sourceTowerPacked_init,
+  ̲  ̲ ̲ ̲s̵o̵u̵r̵c̵e̵T̵o̵w̵e̵r̵P̵a̵c̵k̵e̵d̵_̵l̵a̵s̵t̵,̵ ̵sourceAuxiliaryOriginal, sourceTowerBranch, sourceCoupledBranch, sourcePopulationPrefix,
+  ̲  ̲ ̲ ̲sourceTowerPacked, sourceAuxiliaryArray_last, Fin.val_last]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceRecurrentBranches.lean:126:44: This simp argument is unused:
+  sourcePopulationPrefix
+
+Hint: Omit it from the simp argument list.
+  simp only [sourceActualFinitePost, sourceCanonicalCoupledPost,
+  ̵  ̵ ̵ ̵sourceTowerPacked_init,
+  ̲  ̲ ̲ ̲sourceTowerPacked_last, sourceAuxiliaryOriginal,
+  ̵  ̵ ̵ ̵sourceTowerBranch, sourceCoupledBranch,
+  ̲ s̵o̵u̵r̵c̵e̵P̵o̵p̵u̵l̵a̵t̵i̵o̵n̵P̵r̵e̵f̵i̵x̵,̵  ̲ ̲sourceTowerPacked,
+  ̵  ̵ ̵ ̵sourceAuxiliaryArray_last, Fin.val_last]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [8969/9317] Built PaperFormalization.Manuscript.SourceInputPermutationLaw (5.7s)
+⚠ [8970/9317] Built PaperFormalization.Manuscript.SourceFiniteHorizonPaths (4.4s)
+warning: PaperFormalization/Manuscript/SourceFiniteHorizonPaths.lean:84:17: Variable name `initial` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8971/9317] Built PaperFormalization.Manuscript.SourceReferenceMarginalTransfer (4.6s)
+✔ [8972/9317] Built PaperFormalization.Manuscript.SourceRecurrentStepView (5.5s)
+⚠ [8973/9317] Built PaperFormalization.Manuscript.SourceFinitePermutationEquivariance (4.9s)
+warning: PaperFormalization/Manuscript/SourceFinitePermutationEquivariance.lean:57:15: This simp argument is unused:
+  sourceCanonicalCoupledStep
+
+Hint: Omit it from the simp argument list.
+  simp only [sourceC̵a̵n̵o̵n̵i̵c̵a̵l̵C̵o̵u̵p̵l̵e̵d̵S̵t̵e̵p̵,̵s̵o̵u̵r̵c̵e̵PairPermute, ̲particleFlatten_sourceParticleUnflatten,
+        sourceParticlePermute_flatten, ̲hseed, ̲hMs X̵,̵X̲,̲ ̲source_matrixEuclideanOperator_eq_toEuclideanCLM,
+        source_toEuclideanCLM_permute]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceFinitePermutationEquivariance.lean:57:42: This simp argument is unused:
+  sourcePairPermute
+
+Hint: Omit it from the simp argument list.
+  simp only [sourceCanonicalCoupledStep,s̵o̵u̵r̵c̵e̵P̵a̵i̵r̵P̵e̵r̵m̵u̵t̵e̵,̵ ̲particleFlatten_sourceParticleUnflatten,
+        sourceParticlePermute_flatten, ̲hseed, ̲hMs X̵,̵X̲,̲ ̲source_matrixEuclideanOperator_eq_toEuclideanCLM,
+        source_toEuclideanCLM_permute]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceFinitePermutationEquivariance.lean:58:36: This simp argument is unused:
+  hseed
+
+Hint: Omit it from the simp argument list.
+  simp only [sourceCanonicalCoupledStep, ̲sourcePairPermute,
+  ̲ ̲ ̲ ̲ ̲ ̲ ̲particleFlatten_sourceParticleUnflatten,
+  ̵  ̵ ̵ ̵ ̵ ̵sourceParticlePermute_flatten, ̲hM̲se̵e̵d̵ ̲X̲,h̵M̵s̵
+  ̲ X̵,̵ ̲ ̲ ̲ ̲ ̲source_matrixEuclideanOperator_eq_toEuclideanCLM,
+  ̵  ̵ ̵ ̵ ̵ ̵source_toEuclideanCLM_permute]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [8974/9317] Built PaperFormalization.Manuscript.SourceRecurrentPathRealization (5.3s)
+✔ [8975/9317] Built PaperFormalization.Manuscript.SourceRecurrentSchedule (4.6s)
+⚠ [8976/9317] Built PaperFormalization.Manuscript.SourceRecurrentExchangeability (4.4s)
+warning: PaperFormalization/Manuscript/SourceRecurrentExchangeability.lean:84:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceInputFinalBranch_transform`:
+  [MeasurableSpace W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8977/9317] Built PaperFormalization.Manuscript.SourceFinalRecurrentViews (4.5s)
+✔ [8978/9317] Built PaperFormalization.Manuscript.SourceRecurrentHorizonCompatibility (6.4s)
+✔ [8979/9317] Built PaperFormalization.Manuscript.SourceRecurrentMomentCompletion (7.4s)
+✔ [8980/9317] Built PaperFormalization.Manuscript.SourceRecurrentCovarianceViews (6.6s)
+✔ [8981/9317] Built PaperFormalization.MatrixFactorization.FittingRays (23s)
+✔ [8982/9317] Built PaperFormalization.MatrixFactorization.CapPushforward (23s)
+✔ [8983/9317] Built PaperFormalization.MatrixFactorization.GaussianHermiteOrthogonality (23s)
+⚠ [8984/9317] Built PaperFormalization.MatrixFactorization.GaussianMultivariateStein (23s)
+warning: PaperFormalization/MatrixFactorization/GaussianMultivariateStein.lean:152:17: This simp argument is unused:
+  ite_true
+
+Hint: Omit it from the simp argument list.
+  simp only [̵i̵t̵e̵_̵t̵r̵u̵e̵,̵ ̵e̵q̵_̵s̵e̵l̵f̵]̵[̲e̲q̲_̲s̲e̲l̲f̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/GaussianMultivariateStein.lean:152:27: This simp argument is unused:
+  eq_self
+
+Hint: Omit it from the simp argument list.
+  simp only [ite_true,̵ ̵e̵q̵_̵s̵e̵l̵f̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8985/9317] Built PaperFormalization.MatrixFactorization.TensorJetBounds (23s)
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:22:12: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  simp [F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hkj, Ne.symm hkj, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:22:35: This simp argument is unused:
+  hkj
+
+Hint: Omit it from the simp argument list.
+  simp [Function.update_apply, h̵k̵j̵,̵ ̵Ne.symm hkj, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:22:53: This simp argument is unused:
+  hw
+
+Hint: Omit it from the simp argument list.
+  simp [Function.update_apply, hkj, Ne.symm hkj,̵ ̵h̵w̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:25:14: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  simp [F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hkj, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:25:42: This simp argument is unused:
+  hw
+
+Hint: Omit it from the simp argument list.
+  simp [Function.update_apply, hkj,̵ ̵h̵w̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorJetBounds.lean:26:14: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  simp [F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hij, hik, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [8986/9317] Built PaperFormalization.MatrixFactorization.FittingDifferential (23s)
+✔ [8987/9317] Built PaperFormalization.MatrixFactorization.IteratedTensorTrace (24s)
+✔ [8988/9317] Built PaperFormalization.MatrixFactorization.ActiveC2Suprema (25s)
+⚠ [8989/9317] Built PaperFormalization.Manuscript.SourceFinalReferenceTransport (5.4s)
+warning: PaperFormalization/Manuscript/SourceFinalReferenceTransport.lean:42:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceFiniteReferenceBranch_original`:
+  [MeasurableSpace O]
+  [MeasurableSpace W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace O] [MeasurableSpace W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: PaperFormalization/Manuscript/SourceFinalReferenceTransport.lean:50:52: This simp argument is unused:
+  sourcePopulationPrefix
+
+Hint: Omit it from the simp argument list.
+  simp only [̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵R̵e̵f̵e̵r̵e̵n̵c̵e̵B̵r̵a̵n̵c̵h̵,̵d̵i̵f̵_̵p̵o̵s̵ ̵h̵k̵,̵s̵o̵u̵r̵c̵e̵P̵o̵p̵u̵l̵a̵t̵i̵o̵n̵P̵r̵e̵f̵i̵x̵,̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵P̵r̵e̵f̵i̵x̵,̵
+  ̵ ̵ ̵ ̵ ̵s̵o̵u̵r̵c̵e̵T̵o̵w̵e̵r̵P̵a̵c̵k̵e̵d̵,̵s̵o̵u̵r̵c̵e̵O̵r̵i̵g̵i̵n̵a̵l̵C̵h̵a̵r̵a̵c̵t̵e̵r̵i̵s̵t̵i̵c̵]̵[̲s̲o̲u̲r̲c̲e̲F̲i̲n̲i̲t̲e̲R̲e̲f̲e̲r̲e̲n̲c̲e̲B̲r̲a̲n̲c̲h̲,̲ ̲d̲i̲f̲_̲p̲o̲s̲ ̲h̲k̲,̲ ̲s̲o̲u̲r̲c̲e̲F̲i̲n̲i̲t̲e̲P̲r̲e̲f̲i̲x̲,̲ ̲s̲o̲u̲r̲c̲e̲T̲o̲w̲e̲r̲P̲a̲c̲k̲e̲d̲,̲
+  ̲ ̲ ̲ ̲ ̲s̲o̲u̲r̲c̲e̲O̲r̲i̲g̲i̲n̲a̲l̲C̲h̲a̲r̲a̲c̲t̲e̲r̲i̲s̲t̲i̲c̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceFinalReferenceTransport.lean:50:75: This simp argument is unused:
+  sourceFinitePrefix
+
+Hint: Omit it from the simp argument list.
+  simp only [̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵R̵e̵f̵e̵r̵e̵n̵c̵e̵B̵r̵a̵n̵c̵h̵,̵d̵i̵f̵_̵p̵o̵s̵ ̵h̵k̵,̵s̵o̵u̵r̵c̵e̵P̵o̵p̵u̵l̵a̵t̵i̵o̵n̵P̵r̵e̵f̵i̵x̵,̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵P̵r̵e̵f̵i̵x̵,̵
+  ̵ ̵ ̵ ̵ ̵s̵o̵u̵r̵c̵e̵T̵o̵w̵e̵r̵P̵a̵c̵k̵e̵d̵,̵s̵o̵u̵r̵c̵e̵O̵r̵i̵g̵i̵n̵a̵l̵C̵h̵a̵r̵a̵c̵t̵e̵r̵i̵s̵t̵i̵c̵]̵[̲s̲o̲u̲r̲c̲e̲F̲i̲n̲i̲t̲e̲R̲e̲f̲e̲r̲e̲n̲c̲e̲B̲r̲a̲n̲c̲h̲,̲ ̲d̲i̲f̲_̲p̲o̲s̲ ̲h̲k̲,̲ ̲s̲o̲u̲r̲c̲e̲P̲o̲p̲u̲l̲a̲t̲i̲o̲n̲P̲r̲e̲f̲i̲x̲,̲ ̲s̲o̲u̲r̲c̲e̲T̲o̲w̲e̲r̲P̲a̲c̲k̲e̲d̲,̲
+  ̲ ̲ ̲ ̲ ̲s̲o̲u̲r̲c̲e̲O̲r̲i̲g̲i̲n̲a̲l̲C̲h̲a̲r̲a̲c̲t̲e̲r̲i̲s̲t̲i̲c̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceFinalReferenceTransport.lean:51:4: This simp argument is unused:
+  sourceTowerPacked
+
+Hint: Omit it from the simp argument list.
+  simp only [̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵R̵e̵f̵e̵r̵e̵n̵c̵e̵B̵r̵a̵n̵c̵h̵,̵d̵i̵f̵_̵p̵o̵s̵ ̵h̵k̵,̵s̵o̵u̵r̵c̵e̵P̵o̵p̵u̵l̵a̵t̵i̵o̵n̵P̵r̵e̵f̵i̵x̵,̵s̵o̵u̵r̵c̵e̵F̵i̵n̵i̵t̵e̵P̵r̵e̵f̵i̵x̵,̵
+  ̵ ̵ ̵ ̵ ̵s̵o̵u̵r̵c̵e̵T̵o̵w̵e̵r̵P̵a̵c̵k̵e̵d̵,̵s̵o̵u̵r̵c̵e̵O̵r̵i̵g̵i̵n̵a̵l̵C̵h̵a̵r̵a̵c̵t̵e̵r̵i̵s̵t̵i̵c̵]̵[̲s̲o̲u̲r̲c̲e̲F̲i̲n̲i̲t̲e̲R̲e̲f̲e̲r̲e̲n̲c̲e̲B̲r̲a̲n̲c̲h̲,̲ ̲d̲i̲f̲_̲p̲o̲s̲ ̲h̲k̲,̲ ̲s̲o̲u̲r̲c̲e̲P̲o̲p̲u̲l̲a̲t̲i̲o̲n̲P̲r̲e̲f̲i̲x̲,̲ ̲s̲o̲u̲r̲c̲e̲F̲i̲n̲i̲t̲e̲P̲r̲e̲f̲i̲x̲,̲
+  ̲ ̲ ̲ ̲ ̲s̲o̲u̲r̲c̲e̲O̲r̲i̲g̲i̲n̲a̲l̲C̲h̲a̲r̲a̲c̲t̲e̲r̲i̲s̲t̲i̲c̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/SourceFinalReferenceTransport.lean:63:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.sourceFinalBranch_reference_original`:
+  [MeasurableSpace O]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace O] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8990/9317] Built PaperFormalization.Manuscript.SourceRecurrentObservationEvent (5.8s)
+✔ [8991/9317] Built PaperFormalization.Manuscript.SourceScheduledClosureSupport (16s)
+✔ [8992/9317] Built PaperFormalization.Manuscript.SourceFinalTrackingStatement (16s)
+✔ [8993/9317] Built PaperFormalization.Manuscript.SourceFiniteTrackingApplication (11s)
+⚠ [8994/9317] Built PaperFormalization.Manuscript.SourceObjectivePathControl (11s)
+warning: PaperFormalization/Manuscript/SourceObjectivePathControl.lean:59:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.source_objective_conclusion_of_tracking`:
+  [∀ (n : ℕ), CompleteSpace (H n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (n : ℕ), CompleteSpace (H n)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8995/9317] Built PaperFormalization.Manuscript.VarianceCosineFeatures (12s)
+warning: PaperFormalization/Manuscript/VarianceCosineFeatures.lean:202:62: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  simp [varianceCosineFeature, weightedCoordinateEmbedding,̵ ̵P̵i̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8996/9317] Built PaperFormalization.Manuscript.SourceRateScaleComparison (13s)
+warning: PaperFormalization/Manuscript/SourceRateScaleComparison.lean:31:8: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/SourceRateScaleComparison.lean:31:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/SourceRateScaleComparison.lean:116:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8997/9317] Built PaperFormalization.Manuscript.SourceFinalTrajectoryRealization (10s)
+warning: PaperFormalization/Manuscript/SourceFinalTrajectoryRealization.lean:31:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.source_visited_empirical_coordinate_odes`:
+  [MeasurableSpace W]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [MeasurableSpace W] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8998/9317] Built PaperFormalization.Manuscript.VarianceCosineObjective (9.4s)
+warning: PaperFormalization/Manuscript/VarianceCosineObjective.lean:113:33: `MeasureTheory.measureReal_univ_eq_one` has been deprecated: Use `MeasureTheory.probReal_univ` instead
+⚠ [8999/9317] Built PaperFormalization.Manuscript.VarianceCosineGaussianMoments (9.4s)
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianMoments.lean:109:12: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+✔ [9000/9317] Built PaperFormalization.Manuscript.SourceScheduledObjectiveEvent (9.9s)
+✔ [9001/9317] Built PaperFormalization.Manuscript.SourcePointwiseRateLift (18s)
+⚠ [9002/9317] Built PaperFormalization.Manuscript.VarianceCosineDifferential (9.9s)
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:43:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:43:78: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:51:26: This simp argument is unused:
+  varianceCosineD1
+
+Hint: Omit it from the simp argument list.
+  simp [̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵D̵1̵,̵ ̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵M̵e̵a̵n̵D̵r̵i̵f̵t̵,̵[̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲M̲e̲a̲n̲D̲r̲i̲f̲t̲,̲ varianceCosineD2, varianceCosineKernel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:51:44: This simp argument is unused:
+  varianceCosineMeanDrift
+
+Hint: Omit it from the simp argument list.
+  simp [varianceCosineD1, v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵M̵e̵a̵n̵D̵r̵i̵f̵t̵,̵varianceCosineD2, varianceCosineKernel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:51:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:52:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:60:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:60:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:131:18: This simp argument is unused:
+  varianceCosineMeanDrift
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵M̵e̵a̵n̵D̵r̵i̵f̵t̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineDifferential.lean:131:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9003/9317] Built PaperFormalization.Manuscript.SourceFinalCoefficientRates (12s)
+warning: PaperFormalization/Manuscript/SourceFinalCoefficientRates.lean:44:0: automatically included section variable(s) unused in theorem `PaperFormalization.Manuscript.exists_source_final_coefficient_rates`:
+  [∀ (n : ℕ), CompleteSpace (H n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [∀ (n : ℕ), CompleteSpace (H n)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [9004/9317] Built PaperFormalization.Manuscript.VarianceCosineMeanFlow (11s)
+warning: PaperFormalization/Manuscript/VarianceCosineMeanFlow.lean:101:69: Variable name `hst` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9005/9317] Built PaperFormalization.Manuscript.SourceUniformCorollaryRates (9.5s)
+✔ [9006/9317] Built PaperFormalization.MatrixFactorization.TensorAccelerationBound (66s)
+✔ [9007/9317] Built PaperFormalization.MatrixFactorization.ModelEndpoints (67s)
+✔ [9008/9317] Built PaperFormalization.MatrixFactorization.FittingBounds (66s)
+✔ [9009/9317] Built PaperFormalization.MatrixFactorization.GaussianTwoPolynomialStein (66s)
+✔ [9010/9317] Built PaperFormalization.MatrixFactorization.SphericalCapSymmetry (66s)
+✔ [9011/9317] Built PaperFormalization.MatrixFactorization.ContinuousCapAssignment (66s)
+⚠ [9012/9317] Built PaperFormalization.MatrixFactorization.TensorHermiteEvaluation (66s)
+warning: PaperFormalization/MatrixFactorization/TensorHermiteEvaluation.lean:47:38: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteEvaluation.lean:47:69: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteEvaluation.lean:67:38: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteEvaluation.lean:67:69: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+✔ [9013/9317] Built PaperFormalization.MatrixFactorization.SphericalExponential (67s)
+✔ [9014/9317] Built PaperFormalization.Manuscript.SourceScheduledTrackingClosure (13s)
+⚠ [9015/9317] Built PaperFormalization.Manuscript.VarianceCosineSourceFields (14s)
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:45:8: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:45:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:62:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:71:88: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  simp [̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵D̵e̵c̵o̵d̵e̵,̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵F̵e̵a̵t̵u̵r̵e̵D̵1̵,̵
+  ̵ ̵ ̵ ̵ ̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵P̵r̵o̵j̵e̵c̵t̵i̵o̵n̵,̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵E̵m̵b̵e̵d̵d̵i̵n̵g̵,̵l̵p̵.̵e̵v̵a̵l̵C̵L̵M̵,̵l̵p̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵P̵i̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵
+  ̵ ̵ ̵ ̵ ̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵W̵e̵i̵g̵h̵t̵,̵h̵w̵0̵,̵h̵w̵1̵,̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵]̵[̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲D̲e̲c̲o̲d̲e̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲F̲e̲a̲t̲u̲r̲e̲D̲1̲,̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲P̲r̲o̲j̲e̲c̲t̲i̲o̲n̲,̲
+  ̲ ̲ ̲ ̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲E̲m̲b̲e̲d̲d̲i̲n̲g̲,̲ ̲l̲p̲.̲e̲v̲a̲l̲C̲L̲M̲,̲ ̲l̲p̲.̲s̲i̲n̲g̲l̲e̲_̲a̲p̲p̲l̲y̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲W̲e̲i̲g̲h̲t̲,̲ ̲h̲w̲0̲,̲ ̲h̲w̲1̲,̲
+  ̲ ̲ ̲ ̲ ̲s̲m̲u̲l̲_̲e̲q̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:72:29: This simp argument is unused:
+  hw1
+
+Hint: Omit it from the simp argument list.
+  simp [̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵D̵e̵c̵o̵d̵e̵,̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵F̵e̵a̵t̵u̵r̵e̵D̵1̵,̵
+  ̵ ̵ ̵ ̵ ̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵P̵r̵o̵j̵e̵c̵t̵i̵o̵n̵,̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵E̵m̵b̵e̵d̵d̵i̵n̵g̵,̵l̵p̵.̵e̵v̵a̵l̵C̵L̵M̵,̵l̵p̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵P̵i̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵
+  ̵ ̵ ̵ ̵ ̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵W̵e̵i̵g̵h̵t̵,̵h̵w̵0̵,̵h̵w̵1̵,̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵]̵[̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲D̲e̲c̲o̲d̲e̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲F̲e̲a̲t̲u̲r̲e̲D̲1̲,̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲P̲r̲o̲j̲e̲c̲t̲i̲o̲n̲,̲
+  ̲ ̲ ̲ ̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲E̲m̲b̲e̲d̲d̲i̲n̲g̲,̲ ̲l̲p̲.̲e̲v̲a̲l̲C̲L̲M̲,̲ ̲l̲p̲.̲s̲i̲n̲g̲l̲e̲_̲a̲p̲p̲l̲y̲,̲ ̲P̲i̲.̲s̲i̲n̲g̲l̲e̲_̲a̲p̲p̲l̲y̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲W̲e̲i̲g̲h̲t̲,̲
+  ̲ ̲ ̲ ̲ ̲h̲w̲0̲,̲ ̲s̲m̲u̲l̲_̲e̲q̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:72:76: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:72:76: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:72:46: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:80:88: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  simp [varianceCosineDecode, ̲varianceCosineFeatureD2,
+  ̵  ̵ ̵ ̵weightedCoordinateProjection,
+  ̲ ̲ ̲ ̲ ̲weightedCoordinateEmbedding, ̲lp.evalCLM, ̲lp̵p̲.single_apply,P̵i̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵
+  ̵  ̵ ̵ ̵varianceCosineWeight, ̲hw, ̲smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:81:25: This simp argument is unused:
+  hw
+
+Hint: Omit it from the simp argument list.
+  simp [̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵D̵e̵c̵o̵d̵e̵,̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵F̵e̵a̵t̵u̵r̵e̵D̵2̵,̵
+  ̵ ̵ ̵ ̵ ̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵P̵r̵o̵j̵e̵c̵t̵i̵o̵n̵,̵w̵e̵i̵g̵h̵t̵e̵d̵C̵o̵o̵r̵d̵i̵n̵a̵t̵e̵E̵m̵b̵e̵d̵d̵i̵n̵g̵,̵l̵p̵.̵e̵v̵a̵l̵C̵L̵M̵,̵l̵p̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵P̵i̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵
+  ̵ ̵ ̵ ̵ ̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵W̵e̵i̵g̵h̵t̵,̵h̵w̵,̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵]̵[̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲D̲e̲c̲o̲d̲e̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲F̲e̲a̲t̲u̲r̲e̲D̲2̲,̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲P̲r̲o̲j̲e̲c̲t̲i̲o̲n̲,̲
+  ̲ ̲ ̲ ̲ ̲w̲e̲i̲g̲h̲t̲e̲d̲C̲o̲o̲r̲d̲i̲n̲a̲t̲e̲E̲m̲b̲e̲d̲d̲i̲n̲g̲,̲ ̲l̲p̲.̲e̲v̲a̲l̲C̲L̲M̲,̲ ̲l̲p̲.̲s̲i̲n̲g̲l̲e̲_̲a̲p̲p̲l̲y̲,̲ ̲P̲i̲.̲s̲i̲n̲g̲l̲e̲_̲a̲p̲p̲l̲y̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲W̲e̲i̲g̲h̲t̲,̲
+  ̲ ̲ ̲ ̲ ̲s̲m̲u̲l̲_̲e̲q̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:81:65: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:81:65: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:81:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:99:30: `ContinuousLinearMap.add_apply` has been deprecated: Use `_root_.add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `_root_.add_apply x`).
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:99:60: `ContinuousLinearMap.smul_apply` has been deprecated: Use `_root_.smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `_root_.smul_apply x`).
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:114:30: `ContinuousLinearMap.add_apply` has been deprecated: Use `_root_.add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `_root_.add_apply x`).
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:114:60: `ContinuousLinearMap.smul_apply` has been deprecated: Use `_root_.smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `_root_.smul_apply x`).
+warning: PaperFormalization/Manuscript/VarianceCosineSourceFields.lean:131:30: `ContinuousLinearMap.smul_apply` has been deprecated: Use `_root_.smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `_root_.smul_apply x`).
+✔ [9016/9317] Built PaperFormalization.Manuscript.SourceMainRateStatement (5.1s)
+⚠ [9017/9317] Built PaperFormalization.Manuscript.VarianceCosineCosineFlow (6.1s)
+warning: PaperFormalization/Manuscript/VarianceCosineCosineFlow.lean:43:62: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineCosineFlow.lean:49:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineCosineFlow.lean:79:84: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [9018/9317] Built PaperFormalization.Manuscript.SourceRawScheduleCorrespondence (4.6s)
+⚠ [9019/9317] Built PaperFormalization.Manuscript.VarianceCosineGaussianField (4.5s)
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianField.lean:64:30: This simp argument is unused:
+  PiLp.toLp_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [Real.inner_apply,̵P̵i̵L̵p̵.̵t̵o̵L̵p̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianField.lean:111:56: This simp argument is unused:
+  measure_univ
+
+Hint: Omit it from the simp argument list.
+  simp only [̵p̵o̵p̵u̵l̵a̵t̵i̵o̵n̵G̵r̵a̵m̵C̵o̵v̵a̵r̵i̵a̵n̵c̵e̵,̵h̵e̵,̵i̵n̵t̵e̵g̵r̵a̵l̵_̵c̵o̵n̵s̵t̵,̵m̵e̵a̵s̵u̵r̵e̵_̵u̵n̵i̵v̵,̵[̲p̲o̲p̲u̲l̲a̲t̲i̲o̲n̲G̲r̲a̲m̲C̲o̲v̲a̲r̲i̲a̲n̲c̲e̲,̲ ̲h̲e̲,̲ ̲i̲n̲t̲e̲g̲r̲a̲l̲_̲c̲o̲n̲s̲t̲,̲ ENNReal.toReal_one, p̵r̵o̵b̵R̵e̵a̵l̵_̵u̵n̵i̵v̵,̵o̵n̵e̵_̵s̵m̵u̵l̵,̵p̲r̲o̲b̲R̲e̲a̲l̲_̲u̲n̲i̲v̲,̲
+  ̲ ̲ ̲ ̲ ̲o̲n̲e̲_̲s̲m̲u̲l̲,̲ c]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianField.lean:112:4: This simp argument is unused:
+  ENNReal.toReal_one
+
+Hint: Omit it from the simp argument list.
+  simp only [̵p̵o̵p̵u̵l̵a̵t̵i̵o̵n̵G̵r̵a̵m̵C̵o̵v̵a̵r̵i̵a̵n̵c̵e̵,̵h̵e̵,̵i̵n̵t̵e̵g̵r̵a̵l̵_̵c̵o̵n̵s̵t̵,̵m̵e̵a̵s̵u̵r̵e̵_̵u̵n̵i̵v̵,̵
+  ̵ ̵ ̵ ̵ ̵E̵N̵N̵R̵e̵a̵l̵.̵t̵o̵R̵e̵a̵l̵_̵o̵n̵e̵,̵ ̵p̵r̵o̵b̵R̵e̵a̵l̵_̵u̵n̵i̵v̵,̵o̵n̵e̵_̵s̵m̵u̵l̵,̵[̲p̲o̲p̲u̲l̲a̲t̲i̲o̲n̲G̲r̲a̲m̲C̲o̲v̲a̲r̲i̲a̲n̲c̲e̲,̲ ̲h̲e̲,̲ ̲i̲n̲t̲e̲g̲r̲a̲l̲_̲c̲o̲n̲s̲t̲,̲ ̲m̲e̲a̲s̲u̲r̲e̲_̲u̲n̲i̲v̲,̲ ̲p̲r̲o̲b̲R̲e̲a̲l̲_̲u̲n̲i̲v̲,̲ ̲o̲n̲e̲_̲s̲m̲u̲l̲,̲ c]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9020/9317] Built PaperFormalization.Manuscript.VarianceCosineParticles (6.6s)
+warning: PaperFormalization/Manuscript/VarianceCosineParticles.lean:63:52: Variable name `hR` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineParticles.lean:93:81: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineParticles.lean:93:81: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineParticles.lean:146:31: Variable name `hk` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9021/9317] Built PaperFormalization.Manuscript.VarianceCosineEscapeGeometry (4.6s)
+warning: PaperFormalization/Manuscript/VarianceCosineEscapeGeometry.lean:90:37: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineEscapeGeometry.lean:90:37: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineEscapeGeometry.lean:117:55: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9022/9317] Built PaperFormalization.Manuscript.SourceGrowingUniformDecay (6.3s)
+warning: PaperFormalization/Manuscript/SourceGrowingUniformDecay.lean:55:31: Variable name `hT` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9023/9317] Built PaperFormalization.Manuscript.SourceRawScheduledTracking (5.2s)
+✔ [9024/9317] Built PaperFormalization.Manuscript.SourceRawObjectiveTracking (5.2s)
+⚠ [9025/9317] Built PaperFormalization.Manuscript.VarianceCosineRegularity (4.5s)
+warning: PaperFormalization/Manuscript/VarianceCosineRegularity.lean:53:2: 'change _ ≤ 1 * _' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9026/9317] Built PaperFormalization.Manuscript.SourceRawCharacteristicVersion (3.7s)
+✔ [9027/9317] Built PaperFormalization.Manuscript.VarianceCosineCoupling (4.8s)
+✔ [9028/9317] Built PaperFormalization.MatrixFactorization.SphericalLogarithm (17s)
+✔ [9029/9317] Built PaperFormalization.MatrixFactorization.GaussianHermiteCrossCovariance (18s)
+✔ [9030/9317] Built PaperFormalization.MatrixFactorization.ActiveHermiteFeature (18s)
+✔ [9031/9317] Built PaperFormalization.MatrixFactorization.SymmetricTensorProjection (18s)
+⚠ [9032/9317] Built PaperFormalization.MatrixFactorization.SphericalTensorJets (18s)
+warning: PaperFormalization/MatrixFactorization/SphericalTensorJets.lean:62:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/MatrixFactorization/SphericalTensorJets.lean:76:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [9033/9317] Built PaperFormalization.Manuscript.SourceRawGrowingTracking (5.2s)
+⚠ [9034/9317] Built PaperFormalization.Manuscript.VarianceCosinePopulation (4.1s)
+warning: PaperFormalization/Manuscript/VarianceCosinePopulation.lean:38:43: Variable name `hR` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosinePopulation.lean:134:32: This simp argument is unused:
+  PiLp.toLp_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [Function.comp_def, P̵i̵L̵p̵.̵t̵o̵L̵p̵_̵a̵p̵p̵l̵y̵,̵ ̵Measure.map_id']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9035/9317] Built PaperFormalization.Manuscript.VarianceCosineGaussianEscape (4.3s)
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:81:18: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:67:18: Variable name `hr` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:98:18: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:84:18: Variable name `hr` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:133:16: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:225:19: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineGaussianEscape.lean:225:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [9036/9317] Built PaperFormalization.Manuscript.VarianceCosineSpectralCurvature (4.5s)
+warning: PaperFormalization/Manuscript/VarianceCosineSpectralCurvature.lean:36:4: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: PaperFormalization/Manuscript/VarianceCosineSpectralCurvature.lean:101:19: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineSpectralCurvature.lean:101:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [9037/9317] Built PaperFormalization.Manuscript.VarianceCosineSourceRealization (4.7s)
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:25:4: Variable name `n` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:83:36: This simp argument is unused:
+  PiLp.toLp_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [Nat.one_ne_zero, if_false, if_true, map_add, map_smul, smul_eq_mul, P̵i̵L̵p̵.̵p̵r̵o̵j̵_̵a̵p̵p̵l̵y̵,̵ ̵P̵i̵L̵p̵.̵t̵o̵L̵p̵_̵a̵p̵p̵l̵y̵]̵P̲i̲L̲p̲.̲p̲r̲o̲j̲_̲a̲p̲p̲l̲y̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:84:24: This simp argument is unused:
+  hexp
+
+Hint: Omit it from the simp argument list.
+  simp only [mul_add,̵ ̵h̵e̵x̵p̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:92:43: Variable name `hR` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:229:18: This simp argument is unused:
+  hV
+
+Hint: Omit it from the simp argument list.
+  simp only [hY,h̵V̵,̵ ̲varianceCosineTimes, ̲varianceCosineAmplitudes, ̲if_pos rfl]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:229:66: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  simp only [̵h̵Y̵,̵h̵V̵,̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵T̵i̵m̵e̵s̵,̵v̵a̵r̵i̵a̵n̵c̵e̵C̵o̵s̵i̵n̵e̵A̵m̵p̵l̵i̵t̵u̵d̵e̵s̵,̵i̵f̵_̵p̵o̵s̵ ̵r̵f̵l̵]̵[̲h̲Y̲,̲ ̲h̲V̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲T̲i̲m̲e̲s̲,̲ ̲v̲a̲r̲i̲a̲n̲c̲e̲C̲o̲s̲i̲n̲e̲A̲m̲p̲l̲i̲t̲u̲d̲e̲s̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/Manuscript/VarianceCosineSourceRealization.lean:251:8: Variable name `B` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9038/9317] Built PaperFormalization.MatrixFactorization.SphericalGeodesicShift (11s)
+⚠ [9039/9317] Built PaperFormalization.MatrixFactorization.TensorHermiteBounds (11s)
+warning: PaperFormalization/MatrixFactorization/TensorHermiteBounds.lean:24:38: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteBounds.lean:25:4: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteBounds.lean:34:38: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorHermiteBounds.lean:35:4: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+⚠ [9040/9317] Built PaperFormalization.MatrixFactorization.TensorPowerSeparation (11s)
+warning: PaperFormalization/MatrixFactorization/TensorPowerSeparation.lean:29:12: `EuclideanSpace.single_apply` has been deprecated: Use `PiLp.single_apply` instead
+
+Note: The updated constant has a different type:
+  ∀ (p : ENNReal) (𝕜 : Type u_1) {ι : Type u_2} [inst : DecidableEq ι] [inst_1 : Zero 𝕜] (i : ι) (a : 𝕜) (j : ι),
+    (PiLp.single p i a).ofLp j = if j = i then a else 0
+instead of
+  ∀ {ι : Type u_1} {𝕜 : Type u_3} [inst : RCLike 𝕜] [inst_1 : DecidableEq ι] (i : ι) (a : 𝕜) (j : ι),
+    (EuclideanSpace.single i a).ofLp j = if j = i then a else 0
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.single_apply` to `PiLp.single_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorPowerSeparation.lean:30:33: `EuclideanSpace.single_apply` has been deprecated: Use `PiLp.single_apply` instead
+
+Note: The updated constant has a different type:
+  ∀ (p : ENNReal) (𝕜 : Type u_1) {ι : Type u_2} [inst : DecidableEq ι] [inst_1 : Zero 𝕜] (i : ι) (a : 𝕜) (j : ι),
+    (PiLp.single p i a).ofLp j = if j = i then a else 0
+instead of
+  ∀ {ι : Type u_1} {𝕜 : Type u_3} [inst : RCLike 𝕜] [inst_1 : DecidableEq ι] (i : ι) (a : 𝕜) (j : ι),
+    (EuclideanSpace.single i a).ofLp j = if j = i then a else 0
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.single_apply` to `PiLp.single_apply x`).
+warning: PaperFormalization/MatrixFactorization/TensorPowerSeparation.lean:29:12: This simp argument is unused:
+  EuclideanSpace.single_apply
+
+Hint: Omit it from the simp argument list.
+  simp [E̵u̵c̵l̵i̵d̵e̵a̵n̵S̵p̵a̵c̵e̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hj, Ne.symm hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorPowerSeparation.lean:29:41: This simp argument is unused:
+  hj
+
+Hint: Omit it from the simp argument list.
+  simp [EuclideanSpace.single_apply, h̵j̵,̵ ̵Ne.symm hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/TensorPowerSeparation.lean:49:53: `ContinuousMultilinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+✔ [9041/9317] Built PaperFormalization.MatrixFactorization.TensorContraction (12s)
+⚠ [9042/9317] Built PaperFormalization.Manuscript.VarianceCosineComparisonAssumptions (4.4s)
+warning: PaperFormalization/Manuscript/VarianceCosineComparisonAssumptions.lean:118:33: Variable name `htau` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineComparisonAssumptions.lean:118:51: Variable name `hT` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9043/9317] Built PaperFormalization.MatrixFactorization.RawMomentExpVariation (12s)
+⚠ [9044/9317] Built PaperFormalization.Manuscript.VarianceCosinePopulationDecay (4.0s)
+warning: PaperFormalization/Manuscript/VarianceCosinePopulationDecay.lean:27:15: This simp argument is unused:
+  W
+
+Hint: Omit it from the simp argument list.
+  simp only [W̵,̵ ̵id_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9045/9317] Built PaperFormalization.Manuscript.VarianceCosineResponseControl (4.3s)
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:75:5: Variable name `ha` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:97:19: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:97:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:197:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:198:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:220:88: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineResponseControl.lean:220:88: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [9046/9317] Built PaperFormalization.Manuscript.VarianceCosineResponseEvent (3.9s)
+✔ [9047/9317] Built PaperFormalization.MatrixFactorization.SphericalRadialWeight (11s)
+✔ [9048/9317] Built PaperFormalization.MatrixFactorization.UnitTensorPowerSpan (10s)
+✔ [9049/9317] Built PaperFormalization.MatrixFactorization.SphericalFeatureDifferential (11s)
+✔ [9050/9317] Built PaperFormalization.MatrixFactorization.TensorContractionBounds (10s)
+⚠ [9051/9317] Built PaperFormalization.MatrixFactorization.ActiveGaussianFeature (11s)
+warning: PaperFormalization/MatrixFactorization/ActiveGaussianFeature.lean:68:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9052/9317] Built PaperFormalization.Manuscript.VarianceCosineRateAlgebra (4.7s)
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:44:5: Variable name `hd` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:44:37: Variable name `hA` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:45:5: Variable name `hcD` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:75:33: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:89:51: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:75:33: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:89:51: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:107:47: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineRateAlgebra.lean:107:47: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [9053/9317] Built PaperFormalization.Manuscript.VarianceCosineLateWindow (3.8s)
+warning: PaperFormalization/Manuscript/VarianceCosineLateWindow.lean:34:62: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineLateWindow.lean:39:49: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineLateWindow.lean:34:62: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineLateWindow.lean:39:49: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/Manuscript/VarianceCosineLateWindow.lean:68:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [9054/9317] Built PaperFormalization.Manuscript.VarianceCosineExampleParameters (4.4s)
+✔ [9055/9317] Built PaperFormalization.MatrixFactorization.SphericalCostGeometry (11s)
+✔ [9056/9317] Built PaperFormalization.MatrixFactorization.TensorGaussianPairing (11s)
+⚠ [9057/9317] Built PaperFormalization.MatrixFactorization.SphericalFeatureBounds (11s)
+warning: PaperFormalization/MatrixFactorization/SphericalFeatureBounds.lean:97:44: Variable name `hC` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [9058/9317] Built PaperFormalization.MatrixFactorization.NormalizedChaosCoefficient (11s)
+info: PaperFormalization/MatrixFactorization/NormalizedChaosCoefficient.lean:55:14: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+⚠ [9059/9317] Built PaperFormalization.MatrixFactorization.GaussianActiveQuartic (12s)
+warning: PaperFormalization/MatrixFactorization/GaussianActiveQuartic.lean:23:26: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  simp [̵F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵i̵n̵n̵e̵r̵_̵a̵d̵d̵_̵l̵e̵f̵t̵,̵[̲i̲n̲n̲e̲r̲_̲a̲d̲d̲_̲l̲e̲f̲t̲,̲ inner_add_right, add_mul, mul_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/GaussianActiveQuartic.lean:28:26: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  s̵i̵m̵p̵ ̵[̵F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵r̵e̵a̵l̵_̵i̵n̵n̵e̵r̵_̵s̵m̵u̵l̵_̵l̵e̵f̵t̵,̵ ̵r̵e̵a̵l̵_̵i̵n̵n̵e̵r̵_̵s̵m̵u̵l̵_̵r̵i̵g̵h̵t̵,̵
+  ̵ ̵ ̵ ̵ ̵ ̵ ̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵ ̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵s̲i̲m̲p̲ ̲[̲r̲e̲a̲l̲_̲i̲n̲n̲e̲r̲_̲s̲m̲u̲l̲_̲l̲e̲f̲t̲,̲ ̲r̲e̲a̲l̲_̲i̲n̲n̲e̲r̲_̲s̲m̲u̲l̲_̲r̲i̲g̲h̲t̲,̲ ̲s̲m̲u̲l̲_̲e̲q̲_̲m̲u̲l̲,̲ ̲m̲u̲l̲_̲a̲s̲s̲o̲c̲,̲
+  ̲ ̲ ̲ ̲ ̲ ̲ ̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9060/9317] Built PaperFormalization.Manuscript.VarianceCosineExampleSourceData (3.8s)
+✔ [9061/9317] Built PaperFormalization.Manuscript.VarianceCosineExamplePathIdentities (3.6s)
+✔ [9062/9317] Built PaperFormalization.MatrixFactorization.SphericalCostDifferential (11s)
+✔ [9063/9317] Built PaperFormalization.MatrixFactorization.NormalizedHermiteTensor (11s)
+✔ [9064/9317] Built PaperFormalization.Manuscript.VarianceCosineExampleSourceInputs (4.2s)
+✔ [9065/9317] Built PaperFormalization.MatrixFactorization.SphericalFeatureIntegral (11s)
+⚠ [9066/9317] Built PaperFormalization.MatrixFactorization.ActiveGaussianFitPolynomial (13s)
+warning: PaperFormalization/MatrixFactorization/ActiveGaussianFitPolynomial.lean:85:77: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  simp only [activeGaussianQuartic_apply, Fin.isValue, Matrix.cons_val_zero,̵ ̵M̵a̵t̵r̵i̵x̵.̵c̵o̵n̵s̵_̵v̵a̵l̵_̵s̵u̵c̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9067/9317] Built PaperFormalization.Manuscript.VarianceCosineExampleScales (4.2s)
+✔ [9068/9317] Built PaperFormalization.Manuscript.VarianceCosineExampleResponses (4.3s)
+✔ [9069/9317] Built PaperFormalization.MatrixFactorization.TensorHermiteParseval (12s)
+✔ [9070/9317] Built PaperFormalization.MatrixFactorization.HermiteTensorLowOrder (12s)
+✔ [9071/9317] Built PaperFormalization.MatrixFactorization.SphericalCostIntegral (12s)
+✔ [9072/9317] Built PaperFormalization.MatrixFactorization.SphericalCurveCostDifferential (12s)
+✔ [9073/9317] Built PaperFormalization.MatrixFactorization.SphericalFeatureGaussian (12s)
+✔ [9074/9317] Built PaperFormalization.Manuscript.VarianceCosineExampleSourceApplication (4.9s)
+✔ [9075/9317] Built PaperFormalization.Manuscript.VarianceCosineExampleThresholds (4.6s)
+✔ [9076/9317] Built PaperFormalization.Manuscript.VarianceCosineExampleFunctional (4.2s)
+⚠ [9077/9317] Built PaperFormalization.MatrixFactorization.SphericalRegularizer (15s)
+warning: PaperFormalization/MatrixFactorization/SphericalRegularizer.lean:166:23: Variable name `hlambda` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9078/9317] Built PaperFormalization.MatrixFactorization.VectorHermiteParseval (15s)
+✔ [9079/9317] Built PaperFormalization.MatrixFactorization.HermiteTensorExplicit (15s)
+✔ [9080/9317] Built PaperFormalization.MatrixFactorization.FirstChaosProduct (15s)
+✔ [9081/9317] Built PaperFormalization.MatrixFactorization.GaussianDirectionalRodrigues (15s)
+✔ [9082/9317] Built PaperFormalization.MatrixFactorization.SymmetricMultilinearTensor (15s)
+⚠ [9083/9317] Built PaperFormalization.Manuscript.VarianceCosineExampleRateTransfer (7.3s)
+warning: PaperFormalization/Manuscript/VarianceCosineExampleRateTransfer.lean:99:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [9084/9317] Built PaperFormalization.MatrixFactorization.FittingEnvelope (18s)
+✔ [9085/9317] Built PaperFormalization.Manuscript.VarianceCosineExampleCommonEvent (3.6s)
+✔ [9086/9317] Built PaperFormalization.Manuscript.VarianceCosineGrowingExample (3.8s)
+✔ [9087/9317] Built PaperFormalization.MatrixFactorization.HermiteTensorRodrigues (11s)
+✔ [9088/9317] Built PaperFormalization.MatrixFactorization.SphericalRegularizerFlat (11s)
+✔ [9089/9317] Built PaperFormalization.Manuscript.VarianceCosineExampleVanishingBounds (3.7s)
+✔ [9090/9317] Built PaperFormalization.MatrixFactorization.SourceChaosCoefficients (13s)
+✔ [9091/9317] Built PaperFormalization.MatrixFactorization.SphericalFittingModel (10s)
+✔ [9092/9317] Built PaperFormalization.MatrixFactorization.HermiteGeneratingFunction (10s)
+⚠ [9093/9317] Built PaperFormalization.MatrixFactorization.SphericalContraction (10s)
+warning: PaperFormalization/MatrixFactorization/SphericalContraction.lean:49:5: Variable name `hr` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9094/9317] Built PaperFormalization.MatrixFactorization.SphericalFittingVariation (10s)
+✔ [9095/9317] Built PaperFormalization.MatrixFactorization.SphericalTransportSymmetry (11s)
+✔ [9096/9317] Built PaperFormalization.MatrixFactorization.SphericalRegularizerClosure (11s)
+⚠ [9097/9317] Built PaperFormalization.MatrixFactorization.TeacherNeighborhoodGeometry (11s)
+warning: PaperFormalization/MatrixFactorization/TeacherNeighborhoodGeometry.lean:25:39: This simp argument is unused:
+  one_add_one_eq_two
+
+Hint: Omit it from the simp argument list.
+  simp only [unitSphere_norm, one_pow,̵ ̵o̵n̵e̵_̵a̵d̵d̵_̵o̵n̵e̵_̵e̵q̵_̵t̵w̵o̵] at hn
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9098/9317] Built PaperFormalization.MatrixFactorization.PoleContractionFeatureRemainder (11s)
+✔ [9099/9317] Built PaperFormalization.MatrixFactorization.MixedDirectionalDerivatives (11s)
+✔ [9100/9317] Built PaperFormalization.MatrixFactorization.AssignedPoleContraction (11s)
+✔ [9101/9317] Built PaperFormalization.MatrixFactorization.SphericalObjective (11s)
+✔ [9102/9317] Built PaperFormalization.MatrixFactorization.GeneratingProductDerivatives (11s)
+✔ [9103/9317] Built PaperFormalization.MatrixFactorization.SphericalCurveCostAtPole (11s)
+✔ [9104/9317] Built PaperFormalization.MatrixFactorization.SphericalObjectiveCenter (10s)
+✔ [9105/9317] Built PaperFormalization.MatrixFactorization.HermiteProductPowers (10s)
+✔ [9106/9317] Built PaperFormalization.MatrixFactorization.AntipodalPotentialGeometry (10s)
+✔ [9107/9317] Built PaperFormalization.MatrixFactorization.SphericalObjectiveTeacher (10s)
+✔ [9108/9317] Built PaperFormalization.MatrixFactorization.HermiteTensorProduct (10s)
+✔ [9109/9317] Built PaperFormalization.MatrixFactorization.AntipodalPotentialDuality (10s)
+⚠ [9110/9317] Built PaperFormalization.MatrixFactorization.SphericalTransportPerturbation (10s)
+warning: PaperFormalization/MatrixFactorization/SphericalTransportPerturbation.lean:56:23: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/MatrixFactorization/SphericalTransportPerturbation.lean:173:21: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9111/9317] Built PaperFormalization.MatrixFactorization.FittingEnergyBounds (10s)
+warning: PaperFormalization/MatrixFactorization/FittingEnergyBounds.lean:37:33: Variable name `hLy` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/MatrixFactorization/FittingEnergyBounds.lean:37:63: Variable name `hQy` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9112/9317] Built PaperFormalization.MatrixFactorization.AntipodalPotentialGradient (10s)
+⚠ [9113/9317] Built PaperFormalization.MatrixFactorization.SphericalFittingCurvature (10s)
+warning: PaperFormalization/MatrixFactorization/SphericalFittingCurvature.lean:22:24: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/MatrixFactorization/SphericalFittingCurvature.lean:22:66: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9114/9317] Built PaperFormalization.MatrixFactorization.AntipodalPotentialBoundary (10s)
+✔ [9115/9317] Built PaperFormalization.MatrixFactorization.SphericalObjectiveAnnulus (10s)
+✔ [9116/9317] Built PaperFormalization.MatrixFactorization.TransverseCenterField (9.9s)
+✔ [9117/9317] Built PaperFormalization.MatrixFactorization.TransverseCenterGeometry (9.7s)
+⚠ [9118/9317] Built PaperFormalization.MatrixFactorization.TransverseFeatureSignal (10s)
+warning: PaperFormalization/MatrixFactorization/TransverseFeatureSignal.lean:61:75: Variable name `z` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9119/9317] Built PaperFormalization.MatrixFactorization.GaussianHermiteCovariance (10s)
+✔ [9120/9317] Built PaperFormalization.MatrixFactorization.TransverseObjectiveExpansion (11s)
+✔ [9121/9317] Built PaperFormalization.MatrixFactorization.GaussianVisibility (11s)
+⚠ [9122/9317] Built PaperFormalization.MatrixFactorization.TeacherImbalance (11s)
+warning: PaperFormalization/MatrixFactorization/TeacherImbalance.lean:26:33: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: PaperFormalization/MatrixFactorization/TeacherImbalance.lean:27:30: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: PaperFormalization/MatrixFactorization/TeacherImbalance.lean:36:33: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: PaperFormalization/MatrixFactorization/TeacherImbalance.lean:38:4: This simp argument is unused:
+  real_inner_self_eq_norm_sq
+
+Hint: Omit it from the simp argument list.
+  simp [teacherTransverseProjection, inner_sub_right, real_inner_smul_right, r̵e̵a̵l̵_̵i̵n̵n̵e̵r̵_̵s̵e̵l̵f̵_̵e̵q̵_̵n̵o̵r̵m̵_̵s̵q̵,̵ ̵hp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9123/9317] Built PaperFormalization.MatrixFactorization.TeacherImbalanceTransport (10s)
+✔ [9124/9317] Built PaperFormalization.MatrixFactorization.GaussianOrthogonalPair (10s)
+✔ [9125/9317] Built PaperFormalization.MatrixFactorization.WeightedTransverseMoment (10s)
+✔ [9126/9317] Built PaperFormalization.MatrixFactorization.TransverseVisibility (10s)
+✔ [9127/9317] Built PaperFormalization.MatrixFactorization.SphericalRetraction (11s)
+✔ [9128/9317] Built PaperFormalization.MatrixFactorization.TransverseRetractionTime (46s)
+✔ [9129/9317] Built PaperFormalization.MatrixFactorization.GaussianVisibilityMatrix (46s)
+✔ [9130/9317] Built PaperFormalization.MatrixFactorization.GaussianTransversePairing (47s)
+✔ [9131/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionTime (46s)
+⚠ [9132/9317] Built PaperFormalization.MatrixFactorization.SphericalTransportContinuity (46s)
+warning: PaperFormalization/MatrixFactorization/SphericalTransportContinuity.lean:49:16: Variable name `hL` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9133/9317] Built PaperFormalization.MatrixFactorization.GaussianFeatureL4Transfer (47s)
+✔ [9134/9317] Built PaperFormalization.MatrixFactorization.GeodesicGaussianPair (47s)
+✔ [9135/9317] Built PaperFormalization.MatrixFactorization.GaussianMeanFourthBound (47s)
+✔ [9136/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionDifferential (46s)
+⚠ [9137/9317] Built PaperFormalization.MatrixFactorization.GaussianHermiteAssembly (47s)
+warning: PaperFormalization/MatrixFactorization/GaussianHermiteAssembly.lean:146:43: This simp argument is unused:
+  Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [pointTransversePairing, transverseFeature, finiteHermiteActivation,
+      finiteHermiteActivationJet, sum_inner, inner_sum, real_inner_smul_left,
+  ̵  ̵ ̵ ̵real_inner_smul_right,
+  ̲ F̵i̵n̵s̵e̵t̵.̵m̵u̵l̵_̵s̵u̵m̵,̵  ̲ ̲Finset.m̲u̲l̲_̲sum_̵m̵u̵l̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9138/9317] Built PaperFormalization.MatrixFactorization.RawMomentJetNorms (47s)
+✔ [9139/9317] Built PaperFormalization.MatrixFactorization.TransverseRetractionObjective (29s)
+⚠ [9140/9317] Built PaperFormalization.MatrixFactorization.GaussianVisibilitySpectrum (29s)
+warning: PaperFormalization/MatrixFactorization/GaussianVisibilitySpectrum.lean:125:35: Try `simp at hsn` instead of `simpa using hsn`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [9141/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionFeatures (29s)
+✔ [9142/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionCost (29s)
+✔ [9143/9317] Built PaperFormalization.MatrixFactorization.GaussianFeatureWasserstein (29s)
+✔ [9144/9317] Built PaperFormalization.MatrixFactorization.SourceGaussianL4 (29s)
+✔ [9145/9317] Built PaperFormalization.MatrixFactorization.RawMomentTransportBounds (29s)
+⚠ [9146/9317] Built PaperFormalization.MatrixFactorization.RetractedTensorJets (29s)
+warning: PaperFormalization/MatrixFactorization/RetractedTensorJets.lean:62:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PaperFormalization/MatrixFactorization/RetractedTensorJets.lean:71:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [9147/9317] Built PaperFormalization.MatrixFactorization.ActiveMomentExpVariation (29s)
+✔ [9148/9317] Built PaperFormalization.MatrixFactorization.TransverseVisibilityDescent (38s)
+✔ [9149/9317] Built PaperFormalization.MatrixFactorization.TransverseImbalanceDescent (38s)
+✔ [9150/9317] Built PaperFormalization.MatrixFactorization.TransverseSourcePath (38s)
+✔ [9151/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionFeatureIntegral (38s)
+✔ [9152/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionCostIntegral (38s)
+✔ [9153/9317] Built PaperFormalization.MatrixFactorization.GaussianOutputL4Bounds (38s)
+✔ [9154/9317] Built PaperFormalization.MatrixFactorization.ContractionPointL4 (38s)
+✔ [9155/9317] Built PaperFormalization.MatrixFactorization.RawMomentRetractVariation (38s)
+✔ [9156/9317] Built PaperFormalization.MatrixFactorization.SphericalFittingGradient (38s)
+✔ [9157/9317] Built PaperFormalization.MatrixFactorization.ActiveMomentJetBounds (39s)
+✔ [9158/9317] Built PaperFormalization.MatrixFactorization.SourceImbalanceDescent (21s)
+✔ [9159/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionFeatureGaussian (21s)
+✔ [9160/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionTransport (21s)
+✔ [9161/9317] Built PaperFormalization.MatrixFactorization.SphericalFittingGradientSymmetry (21s)
+✔ [9162/9317] Built PaperFormalization.MatrixFactorization.SourceBasinExistence (21s)
+✔ [9163/9317] Built PaperFormalization.MatrixFactorization.ActiveMomentMapJets (19s)
+✔ [9164/9317] Built PaperFormalization.MatrixFactorization.RawMomentRetractionJets (26s)
+✔ [9165/9317] Built PaperFormalization.MatrixFactorization.SphericalObjectiveSymmetry (10s)
+✔ [9166/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionFittingModel (11s)
+✔ [9167/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionRegularizerFlat (11s)
+⚠ [9168/9317] Built PaperFormalization.MatrixFactorization.ActiveMomentMapBounds (11s)
+warning: PaperFormalization/MatrixFactorization/ActiveMomentMapBounds.lean:20:35: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/MatrixFactorization/ActiveMomentMapBounds.lean:20:76: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9169/9317] Built PaperFormalization.MatrixFactorization.ActiveMomentRetractVariation (12s)
+✔ [9170/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionFittingVariation (10s)
+⚠ [9171/9317] Built PaperFormalization.MatrixFactorization.SphericalActiveMomentBounds (10s)
+warning: PaperFormalization/MatrixFactorization/SphericalActiveMomentBounds.lean:35:24: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/MatrixFactorization/SphericalActiveMomentBounds.lean:35:24: 'rfl' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9172/9317] Built PaperFormalization.MatrixFactorization.GeneralRetractionObjective (10s)
+✔ [9173/9317] Built PaperFormalization.MatrixFactorization.ActiveRetractionJetEquality (11s)
+✔ [9174/9317] Built PaperFormalization.MatrixFactorization.SphericalMetricGradient (10s)
+✔ [9175/9317] Built PaperFormalization.MatrixFactorization.TeacherCurvatureMargin (11s)
+✔ [9176/9317] Built PaperFormalization.MatrixFactorization.TeacherResidualCurvature (11s)
+✔ [9177/9317] Built PaperFormalization.MatrixFactorization.SphericalFittingGradientVariation (11s)
+✔ [9178/9317] Built PaperFormalization.MatrixFactorization.ActiveC2RetractionCurvature (17s)
+✔ [9179/9317] Built PaperFormalization.MatrixFactorization.ContractionFeatureIntegral (12s)
+✔ [9180/9317] Built PaperFormalization.MatrixFactorization.BoundedTangentTests (12s)
+✔ [9181/9317] Built PaperFormalization.MatrixFactorization.AssignedGradientContinuity (12s)
+✔ [9182/9317] Built PaperFormalization.MatrixFactorization.TeacherNeighborhoodCurvature (13s)
+✔ [9183/9317] Built PaperFormalization.MatrixFactorization.SphericalObjectiveGradient (13s)
+✔ [9184/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricFittingForce (13s)
+✔ [9185/9317] Built PaperFormalization.MatrixFactorization.MeasurableFeatureVelocity (13s)
+✔ [9186/9317] Built PaperFormalization.MatrixFactorization.ActiveFittingRetractionCurvature (15s)
+✔ [9187/9317] Built PaperFormalization.MatrixFactorization.SourceChaosFitPolynomial (16s)
+✔ [9188/9317] Built PaperFormalization.MatrixFactorization.OneSidedDerivativeBounds (16s)
+✔ [9189/9317] Built PaperFormalization.MatrixFactorization.ContractionMeanRemainder (18s)
+✔ [9190/9317] Built PaperFormalization.MatrixFactorization.SphericalObjectiveGradientSymmetry (23s)
+✔ [9191/9317] Built PaperFormalization.MatrixFactorization.SphericalCapStateBounds (23s)
+✔ [9192/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricFittingL4 (22s)
+✔ [9193/9317] Built PaperFormalization.MatrixFactorization.AntipodalPotentialField (23s)
+✔ [9194/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricFittingVariation (27s)
+✔ [9195/9317] Built PaperFormalization.MatrixFactorization.SphericalRadialPairing (28s)
+✔ [9196/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricFittingGradientBounds (19s)
+✔ [9197/9317] Built PaperFormalization.MatrixFactorization.ActiveFittingAnnulus (18s)
+✔ [9198/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristics (28s)
+✔ [9199/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricRadialFittingPairing (28s)
+✔ [9200/9317] Built PaperFormalization.MatrixFactorization.SourceChaosReconstruction (15s)
+✔ [9201/9317] Built PaperFormalization.MatrixFactorization.FirstChaosFittingIdentity (14s)
+✔ [9202/9317] Built PaperFormalization.MatrixFactorization.MeasurableExpTransport (12s)
+✔ [9203/9317] Built PaperFormalization.MatrixFactorization.ContractionRadialFittingBound (13s)
+✔ [9204/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricRetractionPath (12s)
+✔ [9205/9317] Built PaperFormalization.MatrixFactorization.CoarseRadialMargin (12s)
+✔ [9206/9317] Built PaperFormalization.MatrixFactorization.SphericalRadialCauchy (13s)
+✔ [9207/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicSymmetry (13s)
+✔ [9208/9317] Built PaperFormalization.MatrixFactorization.PotentialCharacteristicFlow (13s)
+✔ [9209/9317] Built PaperFormalization.MatrixFactorization.AssignedCostCurveDifferential (13s)
+✔ [9210/9317] Built PaperFormalization.MatrixFactorization.SourceCoefficientFittingIdentity (12s)
+✔ [9211/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricRadialLower (12s)
+⚠ [9212/9317] Built PaperFormalization.MatrixFactorization.IntegralTangentTesting (12s)
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:31:23: This simp argument is unused:
+  Real.norm_eq_abs
+
+Hint: Omit it from the simp argument list.
+  simp [norm_smul, R̵e̵a̵l̵.̵n̵o̵r̵m̵_̵e̵q̵_̵a̵b̵s̵,̵ ̵abs_of_pos hn, hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:31:41: This simp argument is unused:
+  abs_of_pos hn
+
+Hint: Omit it from the simp argument list.
+  simp [norm_smul, Real.norm_eq_abs, a̵b̵s̵_̵o̵f̵_̵p̵o̵s̵ ̵h̵n̵,̵ ̵hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:43:46: This simp argument is unused:
+  Real.norm_eq_abs
+
+Hint: Omit it from the simp argument list.
+  simp [excessTangentTest, hh, norm_smul, R̵e̵a̵l̵.̵n̵o̵r̵m̵_̵e̵q̵_̵a̵b̵s̵,̵ ̵abs_of_pos hn, hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:43:64: This simp argument is unused:
+  abs_of_pos hn
+
+Hint: Omit it from the simp argument list.
+  simp [excessTangentTest, hh, norm_smul, Real.norm_eq_abs, a̵b̵s̵_̵o̵f̵_̵p̵o̵s̵ ̵h̵n̵,̵ ̵hn.ne']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:48:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/MatrixFactorization/IntegralTangentTesting.lean:48:8: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9213/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricRadialL4 (12s)
+✔ [9214/9317] Built PaperFormalization.MatrixFactorization.CoarseSupportMargin (11s)
+✔ [9215/9317] Built PaperFormalization.MatrixFactorization.SphericalStationaryCharacteristics (11s)
+⚠ [9216/9317] Built PaperFormalization.MatrixFactorization.AntipodalPotentialSymmetry (11s)
+warning: PaperFormalization/MatrixFactorization/AntipodalPotentialSymmetry.lean:96:2: 'change
+  -sphericalFittingGradient O a (mu 0) (mu 1) teacher teacher i.rev w +
+      (lambda * (productAntipodalTransportSq pole (mu 0) (mu 1)) ^ (p / 2 - 1)) • (-(G i.rev).gradient w) =
+    _' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9217/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicTransport (11s)
+✔ [9218/9317] Built PaperFormalization.MatrixFactorization.PotentialCharacteristicRegularity (11s)
+✔ [9219/9317] Built PaperFormalization.MatrixFactorization.SourceAnnularCurvature (11s)
+✔ [9220/9317] Built PaperFormalization.MatrixFactorization.CoarseRadialPositivity (10s)
+✔ [9221/9317] Built PaperFormalization.MatrixFactorization.SphereFirstVariation (10s)
+✔ [9222/9317] Built PaperFormalization.MatrixFactorization.PotentialCharacteristicSymmetry (10s)
+✔ [9223/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicRadialDecay (10s)
+✔ [9224/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricGradientEnergy (11s)
+✔ [9225/9317] Built PaperFormalization.MatrixFactorization.SphereFirstVariationAlgebra (11s)
+✔ [9226/9317] Built PaperFormalization.MatrixFactorization.PrimalReflectionTests (11s)
+✔ [9227/9317] Built PaperFormalization.MatrixFactorization.CoarseRadialOuterMargin (11s)
+✔ [9228/9317] Built PaperFormalization.MatrixFactorization.SphereTangentL2 (11s)
+✔ [9229/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicContinuity (10s)
+✔ [9230/9317] Built PaperFormalization.MatrixFactorization.SphereL2ExpPush (10s)
+✔ [9231/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicPersistence (10s)
+✔ [9232/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicFeatures (11s)
+✔ [9233/9317] Built PaperFormalization.MatrixFactorization.SphereL2FirstVariation (11s)
+✔ [9234/9317] Built PaperFormalization.MatrixFactorization.CharacteristicPointwiseRadial (10s)
+✔ [9235/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicFittingEnergy (10s)
+✔ [9236/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicJointContinuity (10s)
+✔ [9237/9317] Built PaperFormalization.MatrixFactorization.SphericalSupportRadius (11s)
+✔ [9238/9317] Built PaperFormalization.MatrixFactorization.TwoCapRadiusRefinement (11s)
+✔ [9239/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicSupportBarrier (11s)
+✔ [9240/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricMeanL4 (11s)
+✔ [9241/9317] Built PaperFormalization.MatrixFactorization.ContractionMeanL4 (12s)
+⚠ [9242/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicEnergy (11s)
+warning: PaperFormalization/MatrixFactorization/SphericalCharacteristicEnergy.lean:45:25: Variable name `i` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: PaperFormalization/MatrixFactorization/SphericalCharacteristicEnergy.lean:45:53: Variable name `w` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9243/9317] Built PaperFormalization.MatrixFactorization.ExactSupportRadius (10s)
+✔ [9244/9317] Built PaperFormalization.MatrixFactorization.CompactRadiusContinuity (10s)
+✔ [9245/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricSourceFittingBound (10s)
+✔ [9246/9317] Built PaperFormalization.MatrixFactorization.AntisymmetricSourceRadialBound (10s)
+✔ [9247/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicIntegratedEnergy (10s)
+✔ [9248/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicDecayClosure (10s)
+✔ [9249/9317] Built PaperFormalization.MatrixFactorization.SupportedFlowRadiusBounds (10s)
+✔ [9250/9317] Built PaperFormalization.MatrixFactorization.MeasurableAssignedTransport (11s)
+✔ [9251/9317] Built PaperFormalization.MatrixFactorization.PotentialCharacteristicFirstCap (11s)
+⚠ [9252/9317] Built PaperFormalization.MatrixFactorization.SourceRadialCoercivity (11s)
+warning: PaperFormalization/MatrixFactorization/SourceRadialCoercivity.lean:46:25: Variable name `hl` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9253/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicIntegratedBounds (10s)
+✔ [9254/9317] Built PaperFormalization.MatrixFactorization.SphericalCharacteristicSupportClosure (11s)
+✔ [9255/9317] Built PaperFormalization.MatrixFactorization.CapPrimalFirstVariation (10s)
+✔ [9256/9317] Built PaperFormalization.MatrixFactorization.SourceCharacteristicRadial (10s)
+⚠ [9257/9317] Built PaperFormalization.MatrixFactorization.PrimalMetricFirstVariation (11s)
+warning: PaperFormalization/MatrixFactorization/PrimalMetricFirstVariation.lean:79:48: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/MatrixFactorization/PrimalMetricFirstVariation.lean:79:48: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PaperFormalization/MatrixFactorization/PrimalMetricFirstVariation.lean:117:44: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PaperFormalization/MatrixFactorization/PrimalMetricFirstVariation.lean:117:44: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9258/9317] Built PaperFormalization.MatrixFactorization.BoundedFeatureVariation (11s)
+✔ [9259/9317] Built PaperFormalization.MatrixFactorization.KnownBranchCharacteristicBounds (10s)
+✔ [9260/9317] Built PaperFormalization.MatrixFactorization.SourceCharacteristicPersistence (11s)
+✔ [9261/9317] Built PaperFormalization.MatrixFactorization.BoundedFittingFirstVariation (11s)
+✔ [9262/9317] Built PaperFormalization.MatrixFactorization.SourceCharacteristicIntegratedBounds (10s)
+✔ [9263/9317] Built PaperFormalization.MatrixFactorization.SourceCharacteristicSupport (11s)
+✔ [9264/9317] Built PaperFormalization.MatrixFactorization.KnownBranchCharacteristicDecay (11s)
+✔ [9265/9317] Built PaperFormalization.MatrixFactorization.PrimalObjectiveGradient (10s)
+⚠ [9266/9317] Built PaperFormalization.MatrixFactorization.SourceCharacteristicSupportClosure (10s)
+warning: PaperFormalization/MatrixFactorization/SourceCharacteristicSupportClosure.lean:42:20: Variable name `hzstar` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9267/9317] Built PaperFormalization.MatrixFactorization.PrimalProductGradient (10s)
+✔ [9268/9317] Built PaperFormalization.MatrixFactorization.SourceExactSupportBarrier (10s)
+✔ [9269/9317] Built PaperFormalization.MatrixFactorization.SourceL2GradientBounds (11s)
+✔ [9270/9317] Built PaperFormalization.MatrixFactorization.PrimalTimeLabelBounds (11s)
+✔ [9271/9317] Built PaperFormalization.MatrixFactorization.PrimalFirstVariationSymmetry (11s)
+✔ [9272/9317] Built PaperFormalization.MatrixFactorization.KnownBranchCharacteristicSupport (11s)
+✔ [9273/9317] Built PaperFormalization.MatrixFactorization.SupportedEndpointBounds (10s)
+⚠ [9274/9317] Built PaperFormalization.MatrixFactorization.SphereL2Reflection (10s)
+warning: PaperFormalization/MatrixFactorization/SphereL2Reflection.lean:78:86: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9275/9317] Built PaperFormalization.MatrixFactorization.PotentialCharacteristicConfinement (10s)
+warning: PaperFormalization/MatrixFactorization/PotentialCharacteristicConfinement.lean:27:5: Variable name `X` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9276/9317] Built PaperFormalization.MatrixFactorization.SphereL2ReflectionInverse (10s)
+✔ [9277/9317] Built PaperFormalization.MatrixFactorization.CharacteristicIntegralBounds (11s)
+✔ [9278/9317] Built PaperFormalization.MatrixFactorization.PotentialCharacteristicGlobalEstimates (10s)
+✔ [9279/9317] Built PaperFormalization.MatrixFactorization.PotentialCharacteristicLimits (10s)
+✔ [9280/9317] Built PaperFormalization.MatrixFactorization.IntegralCharacteristicRegularity (10s)
+✔ [9281/9317] Built PaperFormalization.MatrixFactorization.PrimalACCharacteristics (11s)
+✔ [9282/9317] Built PaperFormalization.MatrixFactorization.NonnegativeIntegralCharacteristics (11s)
+✔ [9283/9317] Built PaperFormalization.MatrixFactorization.ACWeightedTestIdentity (10s)
+✔ [9284/9317] Built PaperFormalization.MatrixFactorization.PotentialCharacteristicMomentLimits (11s)
+✔ [9285/9317] Built PaperFormalization.MatrixFactorization.PrimalACFirstCap (10s)
+✔ [9286/9317] Built PaperFormalization.MatrixFactorization.PrimalACIntegralReplacement (10s)
+✔ [9287/9317] Built PaperFormalization.MatrixFactorization.PrimalACIntegralForm (10s)
+✔ [9288/9317] Built PaperFormalization.MatrixFactorization.PrimalACRegularityClosure (9.0s)
+✔ [9289/9317] Built PaperFormalization.MatrixFactorization.PrimalACContinuousTests (10s)
+✔ [9290/9317] Built PaperFormalization.MatrixFactorization.PrimalACFittingContinuity (10s)
+✔ [9291/9317] Built PaperFormalization.MatrixFactorization.PrimalACSmoothTests (10s)
+✔ [9292/9317] Built PaperFormalization.MatrixFactorization.PrimalACCanonicalContinuity (10s)
+✔ [9293/9317] Built PaperFormalization.MatrixFactorization.PrimalACTestFlux (10s)
+✔ [9294/9317] Built PaperFormalization.MatrixFactorization.SupportedPrefixIntegral (10s)
+✔ [9295/9317] Built PaperFormalization.MatrixFactorization.PrimalACWeakContinuity (10s)
+✔ [9296/9317] Built PaperFormalization.MatrixFactorization.PrimalACCanonicalIntegral (10s)
+✔ [9297/9317] Built PaperFormalization.MatrixFactorization.SphericalTestGradient (10s)
+✔ [9298/9317] Built PaperFormalization.MatrixFactorization.PrimalACSpacetimeTests (10s)
+✔ [9299/9317] Built PaperFormalization.MatrixFactorization.PrimalACCapRestriction (10s)
+✔ [9300/9317] Built PaperFormalization.MatrixFactorization.PrimalACReflection (10s)
+✔ [9301/9317] Built PaperFormalization.MatrixFactorization.IntegralL2PrimalBridge (10s)
+✔ [9302/9317] Built PaperFormalization.MatrixFactorization.PrimalACGlobalSymmetry (9.6s)
+⚠ [9303/9317] Built PaperFormalization.MatrixFactorization.PrimalACConfinement (10s)
+warning: PaperFormalization/MatrixFactorization/PrimalACConfinement.lean:22:5: Variable name `X` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9304/9317] Built PaperFormalization.MatrixFactorization.IntrinsicACSourceClass (10s)
+✔ [9305/9317] Built PaperFormalization.MatrixFactorization.PrimalACGlobalEstimates (9.9s)
+✔ [9306/9317] Built PaperFormalization.MatrixFactorization.PrimalACOriginalEnergy (10s)
+✔ [9307/9317] Built PaperFormalization.MatrixFactorization.PrimalACPotentialReconstruction (10s)
+✔ [9308/9317] Built PaperFormalization.MatrixFactorization.PrimalACGlobalAttraction (9.9s)
+✔ [9309/9317] Built PaperFormalization.MatrixFactorization.PrimalACIntegratedEnergy (10s)
+✔ [9310/9317] Built PaperFormalization.MatrixFactorization.PrimalACKnownBranch (9.7s)
+✔ [9311/9317] Built PaperFormalization.MatrixFactorization.IntrinsicACGlobalAttraction (10s)
+✔ [9312/9317] Built PaperFormalization.MatrixFactorization.IntrinsicACIntegratedEnergy (11s)
+✔ [9313/9317] Built PaperFormalization.MatrixFactorization.IntrinsicIntegralSource (11s)
+✔ [9314/9317] Built PaperFormalization.MatrixFactorization.SourceLocalGeometryStatements (10s)
+✔ [9315/9317] Built PaperFormalization.MatrixFactorization.SourceLocalGeometry (9.7s)
+✔ [9316/9317] Built PaperFormalization (9.8s)
+Build completed successfully (9317 jobs).

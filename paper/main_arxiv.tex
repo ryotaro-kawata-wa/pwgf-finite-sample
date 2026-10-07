@@ -1,0 +1,103 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=25mm]{geometry}
+
+\usepackage[utf8]{inputenc}                    
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[authoryear,round]{natbib}
+\setcitestyle{authoryear,round,citesep={;},aysep={,},yysep={;}}                        
+\usepackage{hyperref}                   
+\usepackage{url}                                    
+\usepackage{booktabs}                                    
+\usepackage{array}
+\usepackage{amsfonts}                                
+\usepackage{nicefrac}                                      
+\usepackage{microtype,needspace}                       
+\usepackage[dvipsnames]{xcolor}                 
+\def\PhaseOneClean{1}
+\input{macros}
+\hypersetup{hidelinks,bookmarksdepth=section,pdftitle={Finite-Sample Approximation of Hessian-Guided Perturbed Wasserstein Gradient Flows},pdfauthor={Ryotaro Kawata, Atsushi Nitanda, Taiji Suzuki},pdfsubject={Finite-particle approximation of perturbed Wasserstein gradient flows},pdfkeywords={Wasserstein gradient flow, mean-field optimization, finite-particle approximation, formal verification}}
+\pagestyle{plain}
+\tolerance=200
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+% Please use this for prose headings in the main text; appendix styles are independent.
+\newcommand{\maintextheading}[1]{%
+  \par\addvspace{0.5\baselineskip}%
+  \Needspace{3\baselineskip}%
+  \noindent\textbf{#1}\enspace\ignorespaces
+}
+
+\title{Finite-Sample Approximation of Hessian-Guided Perturbed Wasserstein Gradient Flows}
+
+\author{%
+  Ryotaro Kawata\textsuperscript{1}\thanks{Correspondence to:
+    \href{mailto:kawata-ryotaro725@g.ecc.u-tokyo.ac.jp}{\nolinkurl{kawata-ryotaro725@g.ecc.u-tokyo.ac.jp}}.}%
+  \quad Atsushi Nitanda\textsuperscript{2,3}%
+  \quad Taiji Suzuki\textsuperscript{1,4}\\[0.5em]
+  \normalsize\textsuperscript{1} The University of Tokyo\\
+  \normalsize\textsuperscript{2} Agency for Science, Technology and Research (A*STAR)\\
+  \normalsize\textsuperscript{3} Nanyang Technological University\\
+  \normalsize\textsuperscript{4} RIKEN Center for Advanced Intelligence Project
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\setlength{\parindent}{0pt}
+\noindent
+Wasserstein gradient flow extends gradient descent to probability measures.
+Its Hessian-guided perturbed variant (PWGF) adds Gaussian perturbations to
+escape saddle points in nonconvex problems.
+We investigate when its approximation by finitely many interacting particles
+remains accurate over growing time horizons. Our analysis retains the curvature accumulated along
+the population-driven reference path: negative curvature can amplify approximation
+errors, while subsequent positive curvature can damp their influence. This
+captures favorable scenarios in which temporary instability is compatible with
+accurate tracking over growing horizons. Under regularity assumptions and a
+prescribed common perturbation schedule, we prove particle and objective-value
+tracking bounds on a high-probability event for reference paths satisfying
+explicit conditions on accumulated curvature. To handle state-dependent Gaussian
+jumps, we construct a population-first coupling that preserves the reference
+particles' conditional independence and reduces jump errors to covariance
+comparison. We verify the conditions in a variance-plus-cosine model, where
+curvature recovery yields a growing-horizon tracking guarantee. We also establish local attraction, transverse
+descent, and positive second variation in two regions of a regularized
+matrix-factorization model, motivating a positive--negative--positive curvature
+pattern.
+\end{abstract}
+
+\input{main_body}
+
+\subsection*{Acknowledgments}
+RK was partially supported by JSPS KAKENHI (24K02905) and JST BOOST (JPMJBS2418).
+TS was partially supported by JST CREST (JPMJCR2115) and JSPS KAKENHI (25H01107).
+This work was partially supported by JST ERATO Grant Number JPMJER2601.
+
+This research is supported by the National Research Foundation, Singapore and
+the Ministry of Digital Development and Information under the AI Visiting
+Professorship Programme (award number AIVP-2024-004). Any opinions, findings and
+conclusions or recommendations expressed in this material are those of the
+author(s) and do not reflect the views of National Research Foundation, Singapore
+and the Ministry of Digital Development and Information.
+
+\input{sections/ai_use_statement}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\clearpage
+\appendix
+
+\input{appendix_final_general/general_argument_reorg_v1_6}
+
+\input{appendix_mf_dirac/examples_matrix_nonlinear_rewrite_v15}
+
+\input{appendix_numerical/20260926-023032JST_sanity_check}
+
+\end{document}

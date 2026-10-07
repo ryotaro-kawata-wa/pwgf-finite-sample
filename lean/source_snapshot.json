@@ -1,0 +1,44 @@
+{
+  "manuscript_baseline_commit": "7870f86c7511a15869f5d8c3c9b7c95d9f7e5ed2",
+  "source_path": "arxiv/appendix_final_general/02_fixed_schedule_statement.tex",
+  "sha256": "9663222516bed8c58a4f4c0a4e0be7aa578ab520910f0abf9168d581dc3b7518",
+  "label": "lem:piecewise-gronwall-forced-jumps",
+  "supporting_sources": [
+    {
+      "source_path": "arxiv/appendix_final_general/general_assumptions.tex",
+      "sha256": "e4aed3d04838635620f943740c3e460ef4916d1ec9ce10d3d6f3ee205cab9c3f"
+    },
+    {
+      "source_path": "arxiv/appendix_final_general/general_bound_r_t_v1_1.tex",
+      "sha256": "a323adc056898f1e99d38686f092e648ea5125f797f46ef0c4f1e957e9ecf829"
+    },
+    {
+      "source_path": "arxiv/appendix_final_general/general_bound_r_t_bound_stochastic_errors_gamma.tex",
+      "sha256": "f4a9941ae51cb21e10a687598f540e856e4f060b869d49fdd55aef9d1f169247"
+    },
+    {
+      "source_path": "arxiv/sections/03_curvature_tracking_theory.tex",
+      "sha256": "7b09710014681b10ac76d389f488decb583507937f66027f23d7ec19487c0afb"
+    },
+    {
+      "source_path": "arxiv/appendix_final_general/general_bound_r_t_bound_including_jump_bounded_by_gamma.tex",
+      "sha256": "5e43ee17678fd39198b5d11893242b7c50e382e5a5717cc33a864e6a612a8709",
+      "label": "lem:jump-bound-common-seed; covariance-alignment and Gaussian tail proofs"
+    },
+    {
+      "source_path": "arxiv/appendix_final_general/general_bound_r_t_tilde-gamma_rebuilt.tex",
+      "sha256": "076394ccceb72a3fd8aa206d125e1a1655d475ab375441c3b3e173d8b686bad9",
+      "label": "weighted-factorization-tilde-gamma; actual full feature covariance and concentration"
+    },
+    {
+      "source_path": "arxiv/appendix_final_general/04_functional_gap.tex",
+      "sha256": "6e20c0d37a7c053ffb1921d87bfc1abe4d03de670b8fa53703bfe1ba8b8b02ba",
+      "label": "lem:functional-gap-fixed-time-v15; thm:functional-gap-fixed-schedule-v15; eq:functional-rate-simplified"
+    },
+    {
+      "source_path": "arxiv/appendix_final_general/canonical_variance_cosine.tex",
+      "sha256": "5f829cbc93c171b50b82580c556438399dce0fad1d98e7d0733074fe9984721e",
+      "label": "lem:canonical-comparison-assumptions; lem:canonical-response-control; final prop:canonical-model-assumptions application remains open"
+    }
+  ]
+}

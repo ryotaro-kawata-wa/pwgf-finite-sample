@@ -1,0 +1,166 @@
+\section{Coupled population and particle PWGF}
+\label{sec:pwgf-coupling}
+
+We define the population and finite-particle dynamics and the coupling used to
+compare them along a prescribed population PWGF path.
+
+\subsection{Population WGF and Hessian-guided perturbations}
+\label{subsec:population-pwgf}
+
+Let \(F:\operatorname{dom}F\to\R\) be the objective functional.
+Between perturbation times, the
+population curve \((\mu_t)_{t\ge 0}\) follows the Wasserstein gradient flow
+\begin{equation}
+    \partial_t \mu_t + \nabla\cdot(v_t\mu_t)=0,
+    \qquad
+    v_t(x):=-\dW F(\mu_t,x).
+    \label{eq:population-wgf}
+\end{equation}
+The original population PWGF triggers perturbations adaptively when
+\(\|\dW F(\mu_t)\|_{L^2(\mu_t)}\) falls below a prescribed first-order threshold;
+our finite-sample comparison uses deterministic jump times
+$0<t_1<\cdots<t_{\NofJ}\le T$, fixed in advance and common to both systems.
+At each such time, \citet{yamamoto2025hessianguided} perturb the measure by pushing it forward along a Hessian-guided Gaussian vector field.  The idea parallels perturbed
+gradient methods in Euclidean space~\citep{GeHuangJinYuan2015,pmlr-v75-jin18a}: near a saddle,
+randomness should reach negative-curvature directions.  In
+\(\mathcal P_2(\mathbb R^d)\), (i) the definition of such perturbations and (ii) their
+alignment with descent directions are both nontrivial, motivating the
+Hessian-induced covariance.
+In Wasserstein space, the second variation
+along the pushforward \((\Id+hv)_\#\mu\) is represented by
+\(\mathcal H_\mu=H_\mu+H_\mu'\), where
+\[
+    (H_\mu v)(x):=\int \HessW F(\mu;x,y)v(y)\,\mu(dy),
+    \qquad
+    (H_\mu'v)(x):=\xHessW F(\mu,x)v(x).
+\]
+For general Wasserstein gradient-flow background, see
+\citet{ambrosio2005gradient}; the above second-variation decomposition is given
+in \citet[Propositions~3.2 and~C.7]{yamamoto2025hessianguided}.
+The perturbation studied here uses the squared integral
+Hessian $H_\mu^2$ as covariance. The tracking curvature uses the full operator
+$\mathcal H_\mu$; first-order stationarity alone does not imply $H_\mu'=0$.
+The covariance kernel of \(H_\mu^2\) is
+\[
+    K_\mu(x,y)
+    :=
+    \int
+        \HessW F(\mu;x,z)\HessW F(\mu;z,y)\,\mu(\dd z).
+    \label{eq:hessian-kernel}
+\]
+This covariance preserves the eigenspaces of $H_\mu$ and assigns variance proportional to its squared eigenvalues. Relating this covariance to descent directions of the full Hessian requires additional structural assumptions. The population jump is
+\begin{equation}
+    \mu_{t_\ell}
+    =
+    (\Id+\eta_\ell \xi_{\mu_{t_\ell-}})_\#\mu_{t_\ell-},
+    \qquad
+    \xi_{\mu_{t_\ell-}}\sim \GP(0,K_{\mu_{t_\ell-}}),
+    \label{eq:population-jump}
+\end{equation}
+with perturbation size \(\eta_\ell>0\).
+
+\subsection{Empirical particle dynamics}
+\label{subsec:particle-pwgf}
+
+For \(\bs{X}=(X^1,\ldots,X^N)\in(\R^d)^N\), write $\rho_{\bs{X}}\coloneq \frac1N\sum_{i=1}^N \delta_{X^i}.$
+The empirical PWGF evolves by the particle ODE
+\begin{equation}
+    \frac{\dd}{\dd t}X^i_t
+    =
+    -\dW F(\rho_{\mathbf X_t},X^i_t),
+    \qquad i=1,\ldots,N,
+    \label{eq:particle-flow}
+\end{equation}
+between jump times.  At \(t_\ell\), the particles are updated by
+\begin{equation}
+    X^i_{t_\ell}
+    =
+    X^i_{t_\ell-}+\eta_\ell\xi_{\rho_{\mathbf X_{t_\ell-}}}(X^i_{t_\ell-}),
+    \qquad i=1,\ldots,N,
+    \label{eq:particle-jump}
+\end{equation}
+where \(\xi_{\rho_{\mathbf X_{t_\ell-}}} \sim \GP(0,K_{\rho_{\mathbf X_{t_\ell-}}})\) is a Gaussian process induced by the empirical Hessian-guided kernel.  The covariance of \(\xi_{\rho_{\mathbf X}}(X^1),\ldots,\xi_{\rho_{\mathbf X}}(X^N)\) is
+a block matrix whose \((i,j)\)-block is \(K_{\rho_{\mathbf X}}(X^i,X^j)\).
+For a fixed configuration, this jump is finite dimensional: one applies an
+\(Nd\times Nd\) covariance factor to a standard Gaussian vector in
+\(\mathbb R^{Nd}\). It can therefore be simulated without access to the
+population path.
+
+\subsection{The auxiliary reference particles}
+\label{subsec:auxiliary-particles}
+
+The comparison is cleaner if we introduce a reference particle system
+\(Y_t=(Y^1_t,\ldots,Y^N_t)\). Conditional on the population fields,
+\(Y_t^1,\ldots,Y_t^N\) are i.i.d. with law \(\mu_t\). The reference particles
+start from the same initial positions as the empirical particles and evolve
+with the population drift and jump covariance. Their Gaussian increments are
+coupled to the empirical increments through the common Gaussian vector
+described below.
+Specifically, we set
+\begin{equation}
+    X^i_0=Y^i_0,
+    \qquad
+    Y^i_0\stackrel{\mathrm{i.i.d.}}\sim \mu_0.
+    \label{eq:same-initial-particles}
+\end{equation}
+Between jumps,
+\begin{equation}
+    \frac{\dd}{\dd t}Y^i_t
+    =
+    -\dW F(\mu_t,Y^i_t),
+    \qquad i=1,\ldots,N.
+    \label{eq:reference-flow}
+\end{equation}
+At \(t_\ell\), the reference jump is
+\begin{equation}
+    Y^i_{t_\ell}
+    =
+    Y^i_{t_\ell-}+\eta_\ell\xi_{\mu_{t_\ell-}}(Y^i_{t_\ell-}),
+    \qquad i=1,\ldots,N,
+    \label{eq:reference-jump}
+\end{equation}
+
+At each jump, the population Gaussian field is generated from a fresh
+innovation independent of the initial sample and the previous innovations.
+Conditional on these fields, the flow and jump maps are deterministic;
+applying their common composition to the independent initial positions
+preserves the reference particles' conditional i.i.d. law
+(\Cref{lem:population-first-finite-coupling,eq:population-pushforward-product-law}).
+For the comparison, \Cref{lem:population-first-finite-coupling} constructs a common
+standard Gaussian vector \(\mathbf g_\ell^N\in\mathbb R^{Nd}\) from the given
+population-field evaluations and independent auxiliary Gaussian noise,
+leaving the population path unchanged. If
+\(B_{\rm pop}\) denotes the aligned factor reproducing the population-field
+values at the reference particles and \(M_X\) denotes the empirical Hessian
+factor, then
+\[
+    \bigl(\xi_{\mu_{t_\ell-}}(Y^i_{t_\ell-})\bigr)_{i=1}^N
+    =B_{\rm pop}\mathbf g_\ell^N,
+    \qquad
+    \bigl(\xi_{\rho_{\mathbf X_{t_\ell-}}}(X^i_{t_\ell-})\bigr)_{i=1}^N
+    =M_X\mathbf g_\ell^N.
+\]
+Both jumps have the prescribed conditional laws, and the Gaussian
+field-value vectors differ by \((M_X-B_{\rm pop})\mathbf g_\ell^N\).
+The precise construction, including
+singular covariances, and the conditional i.i.d. law of the reference particles
+are given in
+\Cref{lem:population-first-finite-coupling,lemma-gp-jump-implies-conditional-iid}.
+
+\subsection{Tracking metric and decomposition}
+\label{subsec:tracking-metric}
+
+We measure the pathwise discrepancy by
+$r_t
+    \coloneq 
+    \left(\frac1N\sum_{i=1}^N \|X^i_t-Y^i_t\|^2\right)^{1/2}
+    =
+    \frac1{\sqrt N}\|X_t-Y_t\|_2.
+    \label{eq:tracking-metric}
+$
+Since the empirical coupling \(N^{-1}\sum_i\delta_{(X^i_t,Y^i_t)}\) is admissible, $\Wtwo(\rho_{\mathbf X_t},\rho_{\mathbf Y_t})\le r_t$.
+To compare objective values with the population flow, we combine the
+paired-particle estimate with concentration of the reference cloud's feature
+moments (\Cref{subsec:functional-gap}).
+The next section gives joint tracking and objective bounds under a prescribed
+common schedule.

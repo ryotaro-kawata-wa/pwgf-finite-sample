@@ -1,0 +1,923 @@
+\subsubsection{Assumptions}
+
+The following assumptions specify the moment representation, Gaussian
+perturbations, and pathwise regularity used in the comparison. The feature
+parameters and the anchor norms below are fixed independently of $N,T,p$.
+The localization radius and conditional population scale will be chosen
+from $N,T,p$; their dependence remains in every local comparison coefficient.
+
+\paragraph{Weighted moments and derivative norms.}
+Fix $\alpha\in(0,2]$. For Hilbert spaces $\mathsf H_m$ and features
+$\phi_m:\mathbb R^d\to\mathsf H_m$, write
+\begin{equation}
+\label{eq:weighted-moment-space}
+\begin{gathered}
+ M_m(\nu):=\int\phi_m(x)\,\nu(dx)\in\mathsf H_m,\qquad M(\nu):=(M_m(\nu))_{m\ge1},\\
+ a_m:=e^{-c_am^{\kappa_{\rm dec}}},\qquad
+ \|h\|_{\mathsf H_a}^2:=\sum_{m\ge1}a_m^2\|h_m\|_{\mathsf H_m}^2,\qquad
+ \mathsf H_a:=\{h:\|h\|_{\mathsf H_a}<\infty\},
+\end{gathered}
+\end{equation}
+where $c_a>0$, $\kappa_{\rm dec}>1$, and each feature integral is a
+Bochner integral whenever it exists. Scalar features are included by
+taking $\mathsf H_m=\mathbb R$ for every $m$. For finite $K>0$ and $D\ge1$, set
+\begin{equation}
+\label{eq:moment-classes}
+\begin{aligned}
+ \mathcal P_{\alpha,K}
+ &:=\left\{\nu\in\mathcal P_2(\mathbb R^d):
+   \sup_{q\ge1}q^{-1/\alpha}
+       \left(\int\|x\|_{\mathbb R^d}^q\,\nu(dx)\right)^{1/q}\le K\right\},\\
+ \mathcal P_D&:=\{\nu\in\mathcal P_2(\mathbb R^d):
+                     \nu(\{x:\|x\|_{\mathbb R^d}\le D\})=1\}.
+\end{aligned}
+\end{equation}
+Here $K$ is a variable class scale; $K_0$ in
+\cref{assumption-moment-growth} will bound unconditional particle moments.
+
+\begin{definition}[Localized moment region]
+\label{def:localized-moment-region}
+For finite $K>0$ and $D\ge1$, the feasible moment region is
+\begin{equation}
+\label{eq:localized-feasible-moment-region}
+ \mathcal V_{K,D}:=\operatorname{conv}
+     \{M(\nu):\nu\in\mathcal P_{\alpha,K}\cup\mathcal P_D\}.
+\end{equation}
+The feature condition below makes these moment vectors elements of
+$\mathsf H_a$, as shown in \cref{lem:moment-integral-formulas}(i).
+The convex hull here consists of finite convex combinations.
+\end{definition}
+
+For an $r$-linear map $A:E_1\times\cdots\times E_r\to E$, use the norm
+\[
+ \|A\|_{E_1\times\cdots\times E_r\to E}
+ :=\sup_{\|v_j\|_{E_j}\le1,\ 1\le j\le r}
+                  \|A[v_1,\ldots,v_r]\|_E.
+\]
+All Fr\'echet derivatives of $G$ below are with respect to the
+weighted Hilbert norm in \eqref{eq:weighted-moment-space}.
+If $\mathbf e_m u$ inserts $u\in\mathsf H_m$ in coordinate $m$ and
+zero in the other coordinates, define the coordinate derivatives by
+\begin{equation}
+\label{eq:moment-coordinate-derivatives}
+\begin{aligned}
+ \langle\partial_mG(\theta),u\rangle_{\mathsf H_m}
+   &:=\fD G(\theta)[\mathbf e_m u],\\
+ \langle u,\partial_{mn}^2G(\theta)v\rangle_{\mathsf H_m}
+   &:=\fD^2G(\theta)[\mathbf e_m u,\mathbf e_n v].
+\end{aligned}
+\end{equation}
+Thus $\partial_mG(\theta)\in\mathsf H_m$ and
+$\partial_{mn}^2G(\theta):\mathsf H_n\to\mathsf H_m$.
+
+\begin{assumption}[Structured moments and weighted smoothness]
+\label{assumption-structured-moment-smoothness}
+The following conditions hold, with fixed structural parameters
+independent of $N,T,p$.
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item \textbf{Coordinate feature growth.}
+There are $C_\phi,c_{\rm gr}>0$ and $\kappa_{\rm gr}\ge0$ with
+$\kappa_{\rm dec}>\max\{1,\kappa_{\rm gr}\}$. Set
+$L_m:=C_\phi m\exp(c_{\rm gr}m^{\kappa_{\rm gr}})$.
+Each $\phi_m$ is $C^2$, its third Fr\'echet derivative exists, and
+\begin{equation}
+\label{eq:coordinate-feature-growth}
+\begin{aligned}
+ \|\phi_m(x)\|_{\mathsf H_m}&\le L_m(1+\|x\|_{\mathbb R^d}^m),\\
+ \|\fD^r\phi_m(x)\|_{(\mathbb R^d)^r\to\mathsf H_m}
+ &\le L_m(1+\|x\|_{\mathbb R^d}^{(m-r)_+}),\qquad r=1,2,3.
+\end{aligned}
+\end{equation}
+Here $(m-r)_+:=\max\{m-r,0\}$, and $\fD^0\phi_m=\phi_m$.
+For $r\ge1$ the displayed norm is the multilinear operator norm.
+Continuity of $\fD^3\phi_m$ is not required.
+\item \textbf{Weighted smoothness of the moment functional.}
+There is one deterministic open set $\mathcal U\subset\mathsf H_a$
+and one $G\in C^3(\mathcal U;\mathbb R)$ such that
+\begin{equation}
+\label{eq:structured-moment-open-neighbourhood}
+ \bigcup_{K>0,\ D\ge1}\mathcal V_{K,D}\subset\mathcal U,\qquad
+ \sup_{\theta\in\mathcal U}
+ \|\fD^3G(\theta)\|_{\mathsf H_a\times\mathsf H_a\times\mathsf H_a\to\mathbb R}
+ \le C_3<\infty.
+\end{equation}
+The set $\mathcal U$, the functional $G$, and $C_3$ do not vary with
+$K,D,N,T,p$. Convexity of $\mathcal U$ is not required:
+the moment segments used below lie in $\mathcal V_{K,D}$.
+\end{enumerate}
+\end{assumption}
+
+\begin{definition}[Objective induced by weighted moments]
+\label{def:moment-objective}
+For $\nu\in\mathcal P_2(\mathbb R^d)$ whose feature integrals exist and
+whose moment vector belongs to $\mathcal U$, define
+\begin{equation}
+\label{eq:moment-objective}
+ F(\nu):=G(M(\nu)).
+\end{equation}
+This domain includes every $\mathcal P_{\alpha,K}$ with finite $K$ and
+every $\mathcal P_D$ by \cref{lem:moment-integral-formulas}(i) and
+\eqref{eq:structured-moment-open-neighbourhood}.
+\end{definition}
+Local bounds on $\fD G,\fD^2G$ and their coordinate derivatives will
+follow from a fixed anchor and $C_3$ in
+\cref{lem:moment-integral-formulas,lem:conditional-local-coefficient-growth};
+no uniform bound on these lower derivatives over all of $\mathcal U$
+is imposed.
+
+\paragraph{Jump notation.}
+We use the population and empirical jump models in
+\eqref{eq:population-jump} and \eqref{eq:particle-jump}.
+Let $\mathcal H_{\ell-}$ be the full pre-jump history and
+$\mathcal G_{\rm pop}$ the population-field sigma-field. For a law $\nu$
+and a particle configuration $\mathbf Z$, set
+\begin{align*}
+ K_\nu(x,y)&:=\int\nabla_W^2F(\nu;x,z)\nabla_W^2F(\nu;z,y)\,\nu(dz),\\
+ \mathbf M^N(\rho_{\mathbf Z},\mathbf Z)_{ij}
+ &:=N^{-1/2}\nabla_W^2F(\rho_{\mathbf Z};Z^i,Z^j).
+\end{align*}
+\begin{assumption}[Gaussian perturbation model]
+\label{assumption-common-seed}
+The population and empirical jumps follow the models specified above.
+At each prescribed jump, the population field is generated from a fresh
+innovation independent of the initial sample and all earlier innovations.
+Conditional on $\mathcal H_{\ell-}$, it is centered Gaussian with covariance
+$K_{\mu_{t_\ell-}}$. For every population law $\mu_t$ and empirical law
+$\rho_{\mathbf X_t},\rho_{\mathbf Y_t}$ used in the comparison,
+including pre-jump laws, the Hessian kernel is symmetric under transposition
+of its two spatial slots, and the operator with kernel $K_\nu$ on
+$L^2(\nu;\mathbb R^d)$ is positive and trace class.
+A jointly measurable version of the field is used in the population pushforward.
+\end{assumption}
+\paragraph{Finite representation and comparison coupling.}
+Kernel symmetry gives the covariance identity
+\[
+ [K_{\rho_{\mathbf Z}}(Z^i,Z^j)]_{i,j}
+ =\mathbf M^N(\rho_{\mathbf Z},\mathbf Z)
+       \mathbf M^N(\rho_{\mathbf Z},\mathbf Z)^\top.
+\]
+This is the finite representation of the prescribed empirical Gaussian
+transition. Lemma~\ref{lem:population-first-finite-coupling} constructs a
+coordinate that is standard Gaussian conditional on $\mathcal H_{\ell-}$
+and realizes this transition together with the population evaluation vector.
+This is a construction, rather than an additional independence assumption
+on the coordinate and the reference system. Reference conditional
+independence is established under $\mathcal G_{\rm pop}$ in
+Lemma~\ref{lemma-gp-jump-implies-conditional-iid}.
+The covariance uses the integral Hessian term; the drift curvature uses
+the full Hessian.
+
+The following tail condition ensures that the reference and empirical particles remain in a common sub-Weibull class throughout the fixed time horizon.
+
+\begin{assumption}[Unconditional moment growth]
+\label{assumption-moment-growth}
+There are deterministic $K_0>0$ and $\alpha\in(0,2]$ such that
+\[
+\sup_{0\le t\le T}\sup_{q\ge1}q^{-1/\alpha}
+\max\{(\mathbb E\|X_t^1\|_{\mathbb R^d}^q)^{1/q},
+       (\mathbb E\|Y_t^1\|_{\mathbb R^d}^q)^{1/q}\}\le K_0.
+\]
+\end{assumption}
+\paragraph{Marginal and conditional bounds.}
+The coupled construction is invariant under simultaneous particle
+permutations, as proved in Step 6 of
+\cref{lem:population-first-finite-coupling}; hence the same bound holds
+for every particle. Bounds at left
+limits follow by Fatou's lemma. The class scale $K$ in
+\cref{assumption-structured-moment-smoothness} ranges over all finite
+values, including $K_0$. Conditional bounds with a deterministic
+enlarged scale $K_{\rm pop}$ hold on the population-measurable event of
+Lemma~\ref{lem:population-moment-event}; they are not assumed almost surely
+with scale $K_0$. In asymptotic statements a uniform bound on $K_0$ is
+specified explicitly.
+
+We separately assume a common deterministic Lipschitz bound on each ODE
+branch. This pathwise condition is used for time-grid interpolation in
+\cref{lemma-uniform-sup-gamma-bound-localized-conditional} and for the statistics in \cref{subsec:trigger-stability}; it is not a consequence
+of the moment assumption. The two traces at a jump belong to different
+branches, so the bound does not constrain the jump increment.
+
+\paragraph{ODE intervals.}
+For fixed $T>0$, write $I_\ell=(t_\ell,t_{\ell+1})$, with $t_0=0$
+and $t_{\NofJ+1}=T$. Empty intervals, including a terminal interval
+after a jump at $T$, impose no condition.
+\begin{assumption}[Piecewise-Lipschitz flow]
+\label{assumption-uniform-concentration-piecewise-lipschitz}
+There is a deterministic constant $B\ge0$ such that
+\begin{equation}
+\sup_{1\le i\le N}\sup_{0\le \ell\le \NofJ}\sup_{\substack{s<t\\ s,t\in I_\ell}}
+\max\Bigl\{
+    \frac{\norm{Y_t^i-Y_s^i}_{\mathbb R^d}}{|t-s|},
+     \frac{\norm{X_t^i-X_s^i}_{\mathbb R^d}}{|t-s|},
+\Bigr\}
+\le
+B
+\qquad\text{a.s.}
+\end{equation}
+\end{assumption}
+
+The final pathwise condition rules out the degenerate case where the coupling error is carried by only a few particles.
+
+\paragraph{Discrepancy and the anti-spikiness event.}
+For
+\[
+    \delta_{t,i}\coloneq X_t^i-Y_t^i,
+    \qquad
+    r_t^2\coloneq \frac1N\sum_{i=1}^N\norm{\delta_{t,i}}_{\mathbb R^d}^2,
+\]
+and a constant \(A_{\mathrm{sp}}\ge 1\), define $E_{T,\mathrm{sp}}(A_{\mathrm{sp}})
+    \coloneq
+    \left\{
+    \sup_{0\le t\le T:\,r_t>0}
+    \frac{\frac1N\sum_{i=1}^N\norm{\delta_{t,i}}_{\mathbb R^d}^3}{r_t^3}
+    \le
+    A_{\mathrm{sp}}
+    \right\}.$
+
+\begin{assumption}[Anti-spikiness on comparison paths]
+\label{assumption-anti-spikiness-event}
+For a fixed $A_{\mathrm{sp}}\ge1$, the pathwise comparison is restricted
+to $E_{T,\mathrm{sp}}(A_{\mathrm{sp}})$. The almost-sure anti-spikiness
+condition in \cref{assumption-main-coupled-particle-regularity} is the special case where this
+event has probability one; no such probability bound is asserted here.
+\end{assumption}
+If $r_t=0$, every discrepancy is zero. Thus, including these times,
+the event is equivalently specified by
+\begin{equation}
+\label{eq-cubic-antispike-bound}
+    \frac1N\sum_{i=1}^N\norm{X_t^i-Y_t^i}_{\mathbb R^d}^3
+    \le
+    A_{\mathrm{sp}}r_t^3
+    \qquad(0\le t\le T).
+\end{equation}
+
+\subsubsection{Local consequences used in the comparison}
+
+We first establish summability of the moment vectors and the integral
+formulas on the regions $\mathcal V_{K,D}$ in
+\cref{def:localized-moment-region}. These formulas then give one common
+envelope for the localized comparison.
+
+\paragraph{A common weighted-series estimate.}
+Define
+\begin{equation}
+\label{eq:weighted-series-growth-function}
+ \chi(u):=[\log(e+u)]^{\kappa_{\rm dec}/(\kappa_{\rm dec}-1)}\qquad(u\ge0).
+\end{equation}
+\begin{lemma}[Weighted-series estimate]
+\label{lem:weighted-series-estimate}
+With $a_m,L_m$ from \cref{assumption-structured-moment-smoothness}(i),
+there is a constant $C$ depending only on the fixed feature parameters
+and $\alpha$ such that, for $K>0$, $D\ge1$, and $m\ge1$,
+\begin{equation}
+\label{eq:weighted-series-summand-bound}
+ a_mL_m\{2+D^m+K^m m^{m/\alpha}\}
+ \le C\exp\{C\chi(K+D)-(c_a/4)m^{\kappa_{\rm dec}}\}.
+\end{equation}
+In particular,
+\begin{equation}
+\label{eq:weighted-series-sum-bound}
+ \sum_{m\ge1}a_mL_m\{2+D^m+K^m m^{m/\alpha}\}
+ \le Ce^{C\chi(K+D)}.
+\end{equation}
+For each fixed $c>0$ there is also a constant $C_c$ such that
+\begin{equation}
+\label{eq:weighted-series-scale-comparison}
+ \chi(c(1+u)+1)\le C_c\chi(u)\qquad(u\ge0).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $\kappa=\kappa_{\rm dec}$ and $s=\kappa/(\kappa-1)$ in this proof.
+For $u,v\ge0$ and $\varepsilon>0$, Young's inequality with conjugate
+exponents $\kappa,s$ gives
+\begin{equation}
+\label{eq:young-weighted-series}
+ uv\le\varepsilon u^\kappa+
+       \frac{\kappa-1}{\kappa}(\kappa\varepsilon)^{-1/(\kappa-1)}v^s.
+\end{equation}
+Indeed, substitute $a=(\kappa\varepsilon)^{1/\kappa}u$ and
+$b=(\kappa\varepsilon)^{-1/\kappa}v$ into
+$ab\le a^\kappa/\kappa+b^s/s$.
+Taking $u=m$, $v=\log(e+K+D)$, and $\varepsilon=c_a/4$ yields
+\[
+ m\log(e+K+D)\le\tfrac{c_a}{4}m^\kappa+C\chi(K+D).
+\]
+The two remaining growth terms satisfy
+\[
+ c_{\rm gr}m^{\kappa_{\rm gr}}\le\tfrac{c_a}{4}m^\kappa+C,
+ \qquad (m/\alpha)\log m+\log(4C_\phi m)
+                  \le\tfrac{c_a}{4}m^\kappa+C.
+\]
+These inequalities hold for all $m\ge1$ after increasing the fixed $C$:
+the ratios $m^{\kappa_{\rm gr}}/m^\kappa$ and
+$m\log m/m^\kappa$ tend to zero, and the finitely many remaining values
+have a finite maximum.
+Since
+$2+D^m+K^m m^{m/\alpha}\le4(e+K+D)^m m^{m/\alpha}$, substitution of
+these three bounds gives
+\[
+\begin{aligned}
+ &\log\!\left[a_mL_m\{2+D^m+K^m m^{m/\alpha}\}\right]\\
+ &\quad\le-c_am^\kappa+c_{\rm gr}m^{\kappa_{\rm gr}}
+       +m\log(e+K+D)+(m/\alpha)\log m+\log(4C_\phi m)\\
+ &\quad\le(-c_a+c_a/4+c_a/4+c_a/4)m^\kappa+C\chi(K+D)+C\\
+ &\quad=-(c_a/4)m^\kappa+C\chi(K+D)+C.
+\end{aligned}
+\]
+Exponentiating and absorbing the fixed factor $e^C$ yields
+\eqref{eq:weighted-series-summand-bound}.
+
+Summing leaves $\sum_{m\ge1}e^{-(c_a/4)m^\kappa}<\infty$, proving
+\eqref{eq:weighted-series-sum-bound}. Finally,
+\[
+ \log(e+c(1+u)+1)\le\log(c+2)+\log(e+u)
+ \le(1+\log(c+2))\log(e+u).
+\]
+Raising to the power $s$ proves \eqref{eq:weighted-series-scale-comparison}.
+The constants here do not depend on the anchor norms or on $K,D,N,T,p$.
+\end{proof}
+
+\paragraph{Fixed anchor.}
+Let $\delta_0$ be the Dirac measure at the origin. Since
+$\delta_0\in\mathcal P_D$, set
+\begin{equation}
+\label{eq:moment-anchor}
+\begin{gathered}
+ \theta_0:=M(\delta_0)=(\phi_m(0))_{m\ge1}\in\mathcal V_{K,D}\subset\mathcal U,\\
+ g_0:=\|\fD G(\theta_0)\|_{\mathsf H_a\to\mathbb R},\qquad
+ h_0:=\|\fD^2G(\theta_0)\|_{\mathsf H_a\times\mathsf H_a\to\mathbb R}.
+\end{gathered}
+\end{equation}
+Moment summability in the next lemma justifies $\theta_0\in\mathsf H_a$.
+The $C^3$ property in \cref{assumption-structured-moment-smoothness}(ii)
+makes $g_0,h_0$ finite; they are fixed independently of $K,D,N,T,p$.
+
+\begin{lemma}[Moment summability and integral formulas]
+\label{lem:moment-integral-formulas}
+Under \cref{assumption-structured-moment-smoothness}, for finite $K>0$
+and $D\ge1$ the following statements hold.
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item \textbf{Moment vectors.}
+All feature integrals exist for $\nu\in\mathcal P_{\alpha,K}\cup\mathcal P_D$,
+and
+\begin{equation}
+\label{eq:weighted-population-moment-summability}
+\begin{aligned}
+ \|M(\nu)\|_{\mathsf H_a}
+ &\le\sum_{m\ge1}a_mL_m(1+K^m m^{m/\alpha})<\infty
+       &&(\nu\in\mathcal P_{\alpha,K}),\\
+ \|M(\nu)\|_{\mathsf H_a}
+ &\le\sum_{m\ge1}a_mL_m(1+D^m)<\infty
+       &&(\nu\in\mathcal P_D).
+\end{aligned}
+\end{equation}
+\item \textbf{Integral formulas.}
+For $\theta,\vartheta\in\mathcal V_{K,D}$, put
+$\Delta:=\vartheta-\theta$ and $\theta_s:=(1-s)\theta+s\vartheta$.
+Then
+\begin{align}
+ G(\vartheta)-G(\theta)
+ &=\int_0^1\fD G(\theta_s)[\Delta]\,ds,
+ \label{eq:moment-value-integral}\\
+ \fD G(\vartheta)-\fD G(\theta)
+ &=\int_0^1\fD^2G(\theta_s)[\Delta,\cdot]\,ds,
+ \label{eq:moment-gradient-integral}\\
+ \|\fD^2G(\vartheta)-\fD^2G(\theta)\|_{\mathsf H_a\times\mathsf H_a\to\mathbb R}
+ &\le C_3\|\vartheta-\theta\|_{\mathsf H_a}.
+ \label{eq:moment-hessian-lipschitz}
+\end{align}
+\item \textbf{Bounds from the anchor.}
+With $\theta_0,g_0,h_0$ from \eqref{eq:moment-anchor}, for
+$\theta\in\mathcal V_{K,D}$,
+\begin{equation}
+\label{eq:anchored-weighted-derivative-bounds}
+\begin{aligned}
+ \|\fD^2G(\theta)\|_{\mathsf H_a\times\mathsf H_a\to\mathbb R}
+ &\le h_0+C_3\|\theta-\theta_0\|_{\mathsf H_a},\\
+ \|\fD G(\theta)\|_{\mathsf H_a\to\mathbb R}
+ &\le g_0+h_0\|\theta-\theta_0\|_{\mathsf H_a}
+          +\tfrac12C_3\|\theta-\theta_0\|_{\mathsf H_a}^2.
+\end{aligned}
+\end{equation}
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: sum the weighted coordinate moments.}
+For $\nu\in\mathcal P_{\alpha,K}$, the $q=m$ case of
+\eqref{eq:moment-classes} and the feature bound
+\eqref{eq:coordinate-feature-growth} give
+\[
+ \int\|\phi_m(x)\|_{\mathsf H_m}\,\nu(dx)
+ \le L_m\left(1+\int\|x\|_{\mathbb R^d}^m\,\nu(dx)\right)
+ \le L_m(1+K^m m^{m/\alpha}).
+\]
+Thus the Bochner integrals exist and obey the same bound in norm.
+For their sum, apply \cref{lem:weighted-series-estimate},
+\eqref{eq:weighted-series-sum-bound}, with $D=1$ and the given $K$.
+For every integer $n$,
+\[
+ \sum_{m\le n}a_m^2\|M_m(\nu)\|_{\mathsf H_m}^2
+ \le\left(\sum_{m\le n}a_m\|M_m(\nu)\|_{\mathsf H_m}\right)^2
+ \le\left(\sum_{m\ge1}a_mL_m(1+K^m m^{m/\alpha})\right)^2.
+\]
+Letting $n\to\infty$ proves the first line of
+\eqref{eq:weighted-population-moment-summability}.
+For $\nu\in\mathcal P_D$, replace the moment bound by
+$\int\|x\|_{\mathbb R^d}^m\,\nu(dx)\le D^m$; apply \eqref{eq:weighted-series-sum-bound} with $K=1$ and the
+given $D$ to get a finite weighted sum. The same finite-partial-sum
+inequality proves the second line of \eqref{eq:weighted-population-moment-summability}.
+
+\par\noindent\textbf{Step 2: integrate on a feasible moment segment.}
+By \cref{def:localized-moment-region} and
+\eqref{eq:structured-moment-open-neighbourhood},
+$\theta_s\in\mathcal V_{K,D}\subset\mathcal U$ for every $s\in[0,1]$.
+Since $\dot\theta_s=\Delta$, the chain rule gives
+$\frac{d}{ds}G(\theta_s)=\fD G(\theta_s)[\Delta]$ and
+$\frac{d}{ds}\fD G(\theta_s)=\fD^2G(\theta_s)[\Delta,\cdot]$.
+Integrating gives
+\cref{eq:moment-value-integral,eq:moment-gradient-integral}.
+For $u,v\in\mathsf H_a$, the same calculation and assumption (ii) give
+\[
+\begin{aligned}
+ (\fD^2G(\vartheta)-\fD^2G(\theta))[u,v]
+ &=\int_0^1\fD^3G(\theta_s)[\Delta,u,v]\,ds,\\
+ |(\fD^2G(\vartheta)-\fD^2G(\theta))[u,v]|
+ &\le C_3\|\Delta\|_{\mathsf H_a}\|u\|_{\mathsf H_a}\|v\|_{\mathsf H_a}.
+\end{aligned}
+\]
+The supremum over unit $u,v$ is
+\eqref{eq:moment-hessian-lipschitz}.
+
+\par\noindent\textbf{Step 3: integrate from the fixed anchor.}
+Both $\theta_0$ and $\theta$ lie in $\mathcal V_{K,D}$.
+Equation \eqref{eq:moment-hessian-lipschitz} first gives
+$\|\fD^2G(\theta)\|_{\mathsf H_a\times\mathsf H_a\to\mathbb R}\le h_0+C_3\|\theta-\theta_0\|_{\mathsf H_a}$.
+Apply this bound at $\theta_0+s(\theta-\theta_0)$ in
+\eqref{eq:moment-gradient-integral}:
+\[
+\begin{aligned}
+ \|\fD G(\theta)\|_{\mathsf H_a\to\mathbb R}
+ &\le g_0+\|\theta-\theta_0\|_{\mathsf H_a}
+       \int_0^1(h_0+C_3s\|\theta-\theta_0\|_{\mathsf H_a})\,ds\\
+ &=g_0+h_0\|\theta-\theta_0\|_{\mathsf H_a}
+          +\tfrac12 C_3\|\theta-\theta_0\|_{\mathsf H_a}^2.
+\end{aligned}
+\]
+This proves \eqref{eq:anchored-weighted-derivative-bounds}.
+\end{proof}
+
+\paragraph{Particle localization and the conditional population scale.}
+For $D\ge1$, define
+\begin{equation}
+\label{eq:sample-localization-event}
+ E_{T,D}:=\left\{\max_{1\le i\le N}\sup_{0\le t\le T}
+                    (\|X_t^i\|_{\mathbb R^d}\vee\|Y_t^i\|_{\mathbb R^d})\le D\right\}.
+\end{equation}
+The population quantities used next are supplied by
+\cref{lem:population-moment-event}:
+\begin{itemize}[leftmargin=*]
+\item $K_{\rm pop}$ is the deterministic conditional moment scale in
+\eqref{eq:population-exponential-scale}. It depends on the probability
+budget and horizon, and need not equal the unconditional scale $K_0$.
+\item $E_{\rm pop}\in\mathcal G_{\rm pop}$ is the population-measurable
+event constructed there. For a budget $p_0\in(0,1)$ it has probability
+at least $1-p_0$, and \eqref{eq:population-uniform-conditional-moments}
+gives $\mu_t\in\mathcal P_{\alpha,K_{\rm pop}}$ on this event.
+\end{itemize}
+All time statements include pre-jump and post-jump values. The next
+lemma records how these conclusions place the comparison paths in
+the domain of $G$; the quantitative construction of $K_{\rm pop}$
+and $E_{\rm pop}$ remains in \cref{lem:population-moment-event}.
+
+\begin{lemma}[Moment points of the population, particle clouds, and interpolations]
+\label{lemma-reachable-moment-tube}
+With $K=K_{\rm pop}$ in \cref{def:localized-moment-region}:
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item \textbf{Population.} On $E_{\rm pop}$, for every $t\le T$,
+\[
+ \sup_{q\ge1}q^{-1/\alpha}
+       \left(\int\|x\|_{\mathbb R^d}^q\mu_t(dx)\right)^{1/q}\le K,
+ \qquad \mu_t\in\mathcal P_{\alpha,K}.
+\]
+\item \textbf{Empirical measures and particle interpolation.}
+On $E_{T,D}$, set $Z_t^{(s),i}:=(1-s)Y_t^i+sX_t^i$. Then
+\[
+ \rho_{\mathbf X_t},\quad \rho_{\mathbf Y_t},\quad
+ \rho_{\mathbf Z_t^{(s)}}\in\mathcal P_D
+ \qquad(t\le T,\ 0\le s\le1).
+\]
+\item \textbf{Segments in moment space.}
+On $E_{\rm pop}\cap E_{T,D}$, let $\rho,\nu$ be any two measures in
+\[
+ \{\mu_t,\rho_{\mathbf X_t},\rho_{\mathbf Y_t}\}
+       \cup\{\rho_{\mathbf Z_t^{(s)}}:0\le s\le1\}.
+\]
+For every $u\in[0,1]$,
+\[
+ (1-u)M(\rho)+uM(\nu)
+ \in\mathcal V_{K,D}\subset\mathcal U.
+\]
+Thus the integral formulas and Hessian-difference bound in
+\cref{lem:moment-integral-formulas} apply on this segment.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+For (i), use $\mu_t=\operatorname{Law}(Y_t^1\mid\mathcal G_{\rm pop})$
+and the conditional moment bound
+\eqref{eq:population-uniform-conditional-moments} of
+\cref{lem:population-moment-event}.
+For (ii), $E_{T,D}$ gives
+\[
+ \|Z_t^{(s),i}\|_{\mathbb R^d}\le(1-s)\|Y_t^i\|_{\mathbb R^d}+s\|X_t^i\|_{\mathbb R^d}\le D.
+\]
+Each stated empirical measure is therefore supported in the closed ball.
+The same holds for left limits because that ball is closed.
+For (iii), each endpoint belongs to \eqref{eq:localized-feasible-moment-region}
+by (i)--(ii), and
+\[
+ (1-u)M(\rho)+uM(\nu)=M((1-u)\rho+u\nu)\in\mathcal V_{K,D}.
+\]
+The inclusion $\mathcal V_{K,D}\subset\mathcal U$ is exactly
+\eqref{eq:structured-moment-open-neighbourhood}; no passage to a
+closure is needed.
+The particle interpolation in (ii) is handled by its support bound;
+it is not identified with the measure mixture in the last display.
+\end{proof}
+
+\begin{definition}[One local comparison envelope]
+\label{def:localized-envelope}
+For $K>0$, $D\ge1$, with $a_m,L_m$ from
+\cref{eq:weighted-moment-space,eq:coordinate-feature-growth} and the
+anchor norms $g_0,h_0$ from \eqref{eq:moment-anchor}, define
+\begin{equation}
+\label{eq:conditional-comparison-envelope}
+ \mathrm L_{K,D}:=4(1+g_0+h_0+C_3)
+ \left[1+\sum_{m\ge1}a_mL_m
+       \{2+D^m+K^m m^{m/\alpha}\}\right]^3.
+\end{equation}
+In the localized comparison $K=K_{\rm pop}$ is deterministic, and we write
+$\mathrm L_D:=\mathrm L_{K_{\rm pop},D}$. This abbreviation retains the
+dependence of $K_{\rm pop}$ on $N,T,p$; $\mathrm L_D$ is not assumed $O(1)$.
+\end{definition}
+
+\begin{lemma}[Growth and derivative bounds for the local envelope]
+\label{lem:conditional-local-coefficient-growth}
+Assume \cref{assumption-structured-moment-smoothness}. For $K>0$, $D\ge1$:
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item \textbf{Growth in the localization scales.} There is a constant $C$
+depending only on the fixed feature parameters, $\alpha$, $g_0,h_0,C_3$,
+and the fixed dimension, such that
+\begin{equation}
+\label{eq:local-envelope-growth}
+ 1\le\mathrm L_{K,D}\le C\exp\{C\chi(K+D)\}.
+\end{equation}
+In particular $C$ is independent of $K,D,N,T,p$.
+\item \textbf{Moment derivatives on the feasible region.} For
+$\theta\in\mathcal V_{K,D}$,
+\begin{equation}
+\label{eq:local-moment-derivative-bound}
+ \|\fD G(\theta)\|_{\mathsf H_a\to\mathbb R}
+ \vee\|\fD^2G(\theta)\|_{\mathsf H_a\times\mathsf H_a\to\mathbb R}
+ \le\mathrm L_{K,D}.
+\end{equation}
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Use the following quantities only within this proof:
+\[
+ R:=1+\sum_{m\ge1}a_mL_m\{2+D^m+K^m m^{m/\alpha}\},
+ \qquad Q:=1+g_0+h_0+C_3.
+\]
+Thus $\mathrm L_{K,D}=4QR^3$.
+
+\noindent\textbf{Step 1: apply the common series estimate.}
+By \cref{lem:weighted-series-estimate}, \eqref{eq:weighted-series-sum-bound},
+$R\le Ce^{C\chi(K+D)}$. Substitution into
+\eqref{eq:conditional-comparison-envelope} gives
+$\mathrm L_{K,D}=4QR^3\le Ce^{C\chi(K+D)}$, with the fixed anchor
+factor absorbed into $C$. This proves (i) without changing the defined
+finite-sample coefficient $\mathrm L_{K,D}$.
+
+\noindent\textbf{Step 2: apply the anchor estimates on the specified region.}
+By \eqref{eq:coordinate-feature-growth}, $\|\phi_m(0)\|_{\mathsf H_m}\le L_m$.
+For either class in \eqref{eq:moment-classes},
+\[
+\begin{aligned}
+ \|M_m(\nu)-\phi_m(0)\|_{\mathsf H_m}
+ &\le\int\|\phi_m(x)\|_{\mathsf H_m}\,\nu(dx)+\|\phi_m(0)\|_{\mathsf H_m}\\
+ &\le L_m\left(2+\int\|x\|_{\mathbb R^d}^m\,\nu(dx)\right)\\
+ &\le
+ \begin{cases}
+ L_m(2+D^m),&\nu\in\mathcal P_D,\\
+ L_m(2+K^m m^{m/\alpha}),&\nu\in\mathcal P_{\alpha,K}.
+ \end{cases}
+\end{aligned}
+\]
+For $\theta\in\mathcal V_{K,D}$, the finite-convex-hull definition
+\eqref{eq:localized-feasible-moment-region} gives
+$\theta=\sum_{j=1}^J\lambda_jM(\nu_j)$, where
+$\lambda_j\ge0$, $\sum_j\lambda_j=1$, and
+$\nu_j\in\mathcal P_{\alpha,K}\cup\mathcal P_D$.
+Using the weighted $\ell^2\le\ell^1$ estimate from
+\cref{lem:moment-integral-formulas}(i), we get
+\[
+\begin{aligned}
+ \|\theta-\theta_0\|_{\mathsf H_a}
+ &\le\sum_{j=1}^J\lambda_j
+           \sum_{m\ge1}a_m\|M_m(\nu_j)-\phi_m(0)\|_{\mathsf H_m}\\
+ &\le\sum_{j=1}^J\lambda_j
+           \sum_{m\ge1}a_mL_m\{2+D^m+K^m m^{m/\alpha}\}\\
+ &=R-1\le R.
+\end{aligned}
+\]
+Substitute this bound into
+\eqref{eq:anchored-weighted-derivative-bounds}. Since $R\ge1$,
+$h_0+C_3R\le(h_0+C_3)R\le QR$ and
+$g_0+h_0R+(C_3/2)R^2\le(g_0+h_0+C_3)R^2\le QR^2$.
+Thus
+\begin{equation}
+\label{eq:local-anchor-intermediate}
+\begin{aligned}
+ \sup_{\theta\in\mathcal V_{K,D}}
+     \|\fD G(\theta)\|_{\mathsf H_a\to\mathbb R}&\le QR^2,\\
+ \sup_{\theta\in\mathcal V_{K,D}}
+     \|\fD^2G(\theta)\|_{\mathsf H_a\times\mathsf H_a\to\mathbb R}&\le QR.
+\end{aligned}
+\end{equation}
+Both are at most $4QR^3=\mathrm L_{K,D}$, proving (ii).
+To obtain coordinate decay, recall
+\eqref{eq:moment-coordinate-derivatives} and
+$\|\mathbf e_m u\|_{\mathsf H_a}=a_m\|u\|_{\mathsf H_m}$.
+For unit $u\in\mathsf H_m$, $v\in\mathsf H_n$,
+\[
+\begin{aligned}
+ |\langle\partial_mG(\theta),u\rangle|
+ &=|\fD G(\theta)[\mathbf e_m u]|
+   \le\mathrm L_{K,D}a_m,\\
+ |\langle u,\partial_{mn}^2G(\theta)v\rangle|
+ &=|\fD^2G(\theta)[\mathbf e_m u,\mathbf e_n v]|
+   \le\mathrm L_{K,D}a_ma_n.
+\end{aligned}
+\]
+Taking the unit suprema gives
+$\|\partial_mG(\theta)\|_{\mathsf H_m}\le\mathrm L_{K,D}a_m$ and
+$\|\partial_{mn}^2G(\theta)\|_{\mathsf H_n\to\mathsf H_m}
+\le\mathrm L_{K,D}a_ma_n$.
+\end{proof}
+
+\begin{lemma}[Weighted feature regularity from coordinate bounds]
+\label{lem:localized-weighted-feature-envelopes}
+Under item (i) of \cref{assumption-structured-moment-smoothness}, the map
+$J_0(x):=(\phi_m(x))_{m\ge1}$ is a $C^2$ map from $\mathbb R^d$ to
+$\mathsf H_a$, with
+\[
+ \fD J_0(x)[h]=(\fD\phi_m(x)[h])_{m\ge1},\qquad
+ \fD^2J_0(x)[h,v]=(\fD^2\phi_m(x)[h,v])_{m\ge1}.
+\]
+For $D\ge1$,
+\begin{align}
+ \sup_{\|x\|_{\mathbb R^d}\le D}\|\fD^rJ_0(x)\|_{(\mathbb R^d)^r\to\mathsf H_a}
+ &\le\sum_{m\ge1}a_mL_m(1+D^m)<\infty
+       \quad(r=0,1,2),\label{eq:weighted-feature-derivative-bound}\\
+ \|\fD^rJ_0(x)-\fD^rJ_0(y)\|_{(\mathbb R^d)^r\to\mathsf H_a}
+ &\le\left(\sum_{m\ge1}a_mL_m(1+D^m)\right)\|x-y\|_{\mathbb R^d}
+       \quad(r=1,2).
+ \label{eq:weighted-feature-spatial-difference}
+\end{align}
+The difference bound holds for $\|x\|_{\mathbb R^d},\|y\|_{\mathbb R^d}\le D$.
+The $r=0$ subscript denotes the $\mathsf H_a$ norm; for $r=1,2$ it is the
+multilinear operator norm from $(\mathbb R^d)^r$ to $\mathsf H_a$.
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: bound the coordinate maps and their differences.}
+For fixed $D$, summability of
+$\sum_m a_mL_m(1+D^m)$ is
+\eqref{eq:weighted-population-moment-summability} for bounded support.
+For $r=0,1,2$, \eqref{eq:coordinate-feature-growth} and $D\ge1$ give, for unit directions,
+\[
+ \|(\fD^r\phi_m(x)[v_1,\ldots,v_r])_m\|_{\mathsf H_a}
+ \le\left(\sum_m a_m^2L_m^2(1+D^m)^2\right)^{1/2}
+ \le\sum_m a_mL_m(1+D^m).
+\]
+For $r=0$ the left-hand side means $\|J_0(x)\|_{\mathsf H_a}$.
+Thus the first- and second-derivative candidate sequences define bounded
+linear and bilinear maps, respectively.
+If $\|x\|_{\mathbb R^d},\|y\|_{\mathbb R^d}\le D$, then
+$\|(1-s)y+sx\|_{\mathbb R^d}\le(1-s)\|y\|_{\mathbb R^d}+s\|x\|_{\mathbb R^d}\le D$.
+The mean-value inequality, applied to $\fD^r\phi_m$ for $r=1,2$, gives
+\begin{equation}
+\label{eq:coordinate-feature-spatial-difference}
+\begin{aligned}
+ \|\fD^r\phi_m(x)-\fD^r\phi_m(y)\|_{(\mathbb R^d)^r\to\mathsf H_m}
+ &\le\sup_{\|z\|_{\mathbb R^d}\le D}\|\fD^{r+1}\phi_m(z)\|_{(\mathbb R^d)^{r+1}\to\mathsf H_m}\,\|x-y\|_{\mathbb R^d}
+ \\ &\le L_m(1+D^m)\|x-y\|_{\mathbb R^d}.
+\end{aligned}
+\end{equation}
+The norms here are from $(\mathbb R^d)^r$ to $\mathsf H_m$.
+To apply the scalar mean-value theorem, evaluate on unit directions
+and pair the output with a unit vector of $\mathsf H_m$; then take the
+supremum. This uses the bound in \eqref{eq:coordinate-feature-growth},
+including $r=3$, but no continuity of $\fD^3\phi_m$.
+
+\par\noindent\textbf{Step 2: sum the coordinate Taylor remainders.}
+Fix $D>\max\{1,\|x\|_{\mathbb R^d}\}$ and $\|h\|_{\mathbb R^d}<D-\|x\|_{\mathbb R^d}$; the segment $x+sh$
+is in the ball by the convexity calculation in Step 1.
+Coordinate-wise integration gives
+\[
+\begin{aligned}
+ \phi_m(x+h)-\phi_m(x)-\fD\phi_m(x)[h]
+ &=\int_0^1\{\fD\phi_m(x+sh)-\fD\phi_m(x)\}[h]\,ds,\\
+ \{\fD\phi_m(x+h)-\fD\phi_m(x)\}[v]-\fD^2\phi_m(x)[h,v]
+ &=\int_0^1\{\fD^2\phi_m(x+sh)-\fD^2\phi_m(x)\}[h,v]\,ds.
+\end{aligned}
+\]
+Apply \eqref{eq:coordinate-feature-spatial-difference} with points $x+sh,x$,
+whose distance is $s\|h\|_{\mathbb R^d}$. For unit $v$, each right-hand side has norm
+at most $L_m(1+D^m)\|h\|_{\mathbb R^d}^2\int_0^1s\,ds
+=\tfrac12 L_m(1+D^m)\|h\|_{\mathbb R^d}^2$.
+The weighted norm of a sequence is at most the weighted sum of its
+coordinate norms, by the finite-partial-sum inequality
+$(\sum_{m\le n}b_m^2)^{1/2}\le\sum_{m\le n}b_m$ for $b_m\ge0$
+and then $n\to\infty$. Consequently,
+\[
+\begin{aligned}
+ &\|J_0(x+h)-J_0(x)-(\fD\phi_m(x)[h])_m\|_{\mathsf H_a}\\
+ &\qquad\le\tfrac12\left(\sum_m a_mL_m(1+D^m)\right)\|h\|_{\mathbb R^d}^2,\\
+ &\sup_{\|v\|_{\mathbb R^d}\le1}
+ \|(\{\fD\phi_m(x+h)-\fD\phi_m(x)\}[v]-\fD^2\phi_m(x)[h,v])_m\|_{\mathsf H_a}\\
+ &\qquad\le\tfrac12\left(\sum_m a_mL_m(1+D^m)\right)\|h\|_{\mathbb R^d}^2.
+\end{aligned}
+\]
+Dividing by $\|h\|_{\mathbb R^d}$ proves the two derivative identities. Summing
+\eqref{eq:coordinate-feature-spatial-difference} in the same weighted
+norm gives \eqref{eq:weighted-feature-spatial-difference}, so these
+derivatives are continuous and $J_0$ is $C^2$.
+\end{proof}
+
+\begin{lemma}[Local comparison bounds with common moment weights]
+\label{lemma-localized-moment-smoothness-consequences}
+Assume \cref{assumption-structured-moment-smoothness}. Fix $K>0$, $D\ge1$,
+and define
+\begin{equation}
+\label{eq:common-local-moment-weights}
+ \gamma_m(K,D):=\mathrm L_{K,D}a_m
+              =\mathrm L_{K,D}e^{-c_am^{\kappa_{\rm dec}}}.
+\end{equation}
+Let $\rho,\nu$ be in the domain of $F$ in
+\cref{eq:moment-objective}, with
+$M(\rho),M(\nu)\in\mathcal V_{K,D}$, and let $x,x',y,y'$ be in
+the ball of radius $D$. Write
+$\Delta_m:=\|M_m(\rho)-M_m(\nu)\|_{\mathsf H_m}$.
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item \textbf{Dependence on the measure.}
+\begin{align}
+ |F(\rho)-F(\nu)|\vee
+ \|\nabla_WF(\rho,x)-\nabla_WF(\nu,x)\|_{\mathbb R^d}
+ &\le\sum_m\gamma_m(K,D)\Delta_m,
+ \label{eq:local-value-gradient-moment-bound}\\
+ \max\bigl\{\|\nabla_x\nabla_WF(\rho,x)-\nabla_x\nabla_WF(\nu,x)\|_{\mathbb R^d\to\mathbb R^d},
+ &\notag\\[-0.5ex]
+ \|\nabla_W^2F(\rho;x,y)-\nabla_W^2F(\nu;x,y)\|_{\mathbb R^d\to\mathbb R^d}\bigr\}
+ &\le\tfrac12\sum_m\gamma_m(K,D)\Delta_m.
+ \label{eq:local-two-hessians-moment-bound}
+\end{align}
+In particular the \emph{sum} of the two Hessian differences in
+\eqref{eq:local-two-hessians-moment-bound} is at most
+$\sum_m\gamma_m(K,D)\Delta_m$.
+\item \textbf{Magnitude and spatial dependence.}
+\begin{equation}
+\label{eq:local-field-magnitude-bound}
+ \|\nabla_WF(\nu,x)\|_{\mathbb R^d}\vee
+ \|\nabla_x\nabla_WF(\nu,x)\|_{\mathbb R^d\to\mathbb R^d}\vee
+ \|\nabla_W^2F(\nu;x,y)\|_{\mathbb R^d\to\mathbb R^d}\le\mathrm L_{K,D}.
+\end{equation}
+The spatial differences satisfy
+\begin{align}
+ \|\nabla_WF(\nu,x)-\nabla_WF(\nu,x')\|_{\mathbb R^d}
+ &\le\mathrm L_{K,D}\|x-x'\|_{\mathbb R^d},
+ \label{eq:local-gradient-spatial-bound}\\
+ \|\nabla_x\nabla_WF(\nu,x)-\nabla_x\nabla_WF(\nu,x')\|_{\mathbb R^d\to\mathbb R^d}
+ &\le\mathrm L_{K,D}\|x-x'\|_{\mathbb R^d},
+ \label{eq:local-jacobian-spatial-bound}\\
+ \|\nabla_W^2F(\nu;x,y)-\nabla_W^2F(\nu;x',y')\|_{\mathbb R^d\to\mathbb R^d}
+ &\le\mathrm L_{K,D}(\|x-x'\|_{\mathbb R^d}+\|y-y'\|_{\mathbb R^d}).
+ \label{eq:local-kernel-spatial-bound}
+\end{align}
+\end{enumerate}
+For the localized comparison we abbreviate
+$\gamma_m(D):=\gamma_m(K_{\rm pop},D)=\mathrm L_Da_m$.
+\end{lemma}
+
+\begin{proof}
+\noindent\textbf{Step 1: recall the derivative representations and their bounds.}
+Within this proof set
+\[
+ Q:=1+g_0+h_0+C_3,\qquad
+ R:=1+\sum_m a_mL_m\{2+D^m+K^m m^{m/\alpha}\},
+ \qquad \mathrm L_{K,D}=4QR^3.
+\]
+On the stated moment and spatial regions,
+\cref{eq:local-anchor-intermediate,eq:weighted-feature-derivative-bound} give
+\begin{equation}
+\label{eq:local-proof-bounds}
+\begin{gathered}
+ \|\fD G\|_{\mathsf H_a\to\mathbb R}\le QR^2,\qquad
+ \|\fD^2G\|_{\mathsf H_a\times\mathsf H_a\to\mathbb R}\le QR,\\
+ \|\fD^rJ_0(x)\|_{(\mathbb R^d)^r\to\mathsf H_a}\le R
+       \qquad(r=1,2).
+\end{gathered}
+\end{equation}
+For $\theta_\nu:=M(\nu)$ and $u,v\in\mathbb R^d$, the moment chain rule for
+\cref{eq:moment-objective} is
+\begin{align}
+ \langle\nabla_WF(\nu,x),v\rangle
+ &=\fD G(\theta_\nu)[\fD J_0(x)v],
+ \label{eq:weighted-gradient-representation}\\
+ \langle u,\nabla_x\nabla_WF(\nu,x)v\rangle
+ &=\fD G(\theta_\nu)[\fD^2J_0(x)[u,v]],
+ \label{eq:weighted-spatial-hessian-representation}\\
+ \langle u,\nabla_W^2F(\nu;x,y)v\rangle
+ &=\fD^2G(\theta_\nu)[\fD J_0(x)u,\fD J_0(y)v].
+ \label{eq:weighted-integral-hessian-representation}
+\end{align}
+These are the coordinate chain-rule sums, with the directions collected
+in $\mathsf H_a$. For example the first sum is
+$\sum_m\langle\partial_mG(\theta_\nu),\fD\phi_m(x)v\rangle$.
+Finite coordinate sums converge to the displayed forms because the
+directions converge in $\mathsf H_a$ by
+\cref{lem:localized-weighted-feature-envelopes}, and $\fD G,\fD^2G$ are
+bounded forms on $\mathsf H_a$ by
+\cref{assumption-structured-moment-smoothness}(ii).
+
+\noindent\textbf{Step 2: change the measure along its moment segment.}
+Set $\theta_\rho:=M(\rho)$, $\Delta:=\theta_\rho-\theta_\nu$, and
+$\theta_s:=\theta_\nu+s\Delta\in\mathcal V_{K,D}$. By
+\cref{eq:moment-value-integral,eq:moment-gradient-integral,eq:local-proof-bounds},
+\begin{align*}
+ |F(\rho)-F(\nu)|
+ &\le\int_0^1QR^2\|\Delta\|_{\mathsf H_a}\,ds
+  =QR^2\|\Delta\|_{\mathsf H_a},\\
+ \|\fD G(\theta_\rho)-\fD G(\theta_\nu)\|_{\mathsf H_a\to\mathbb R}
+ &\le\int_0^1QR\|\Delta\|_{\mathsf H_a}\,ds
+  =QR\|\Delta\|_{\mathsf H_a}.
+\end{align*}
+Substituting the second inequality in
+\cref{eq:weighted-gradient-representation,eq:weighted-spatial-hessian-representation}
+and taking suprema over unit directions gives
+\[
+\begin{aligned}
+ \|\nabla_WF(\rho,x)-\nabla_WF(\nu,x)\|_{\mathbb R^d}
+ &\le QR\|\Delta\|_{\mathsf H_a}\|\fD J_0(x)\|_{\mathbb R^d\to\mathsf H_a}
+  \le QR^2\|\Delta\|_{\mathsf H_a},\\
+ \|\nabla_x\nabla_WF(\rho,x)-\nabla_x\nabla_WF(\nu,x)\|_{\mathbb R^d\to\mathbb R^d}
+ &\le QR\|\Delta\|_{\mathsf H_a}\|\fD^2J_0(x)\|_{\mathbb R^d\times\mathbb R^d\to\mathsf H_a}
+  \le QR^2\|\Delta\|_{\mathsf H_a}.
+\end{aligned}
+\]
+For the integral Hessian, use
+\cref{eq:moment-hessian-lipschitz,eq:weighted-integral-hessian-representation}:
+\[
+\begin{aligned}
+ &\|\nabla_W^2F(\rho;x,y)-\nabla_W^2F(\nu;x,y)\|_{\mathbb R^d\to\mathbb R^d}\\
+ &\quad\le C_3\|\Delta\|_{\mathsf H_a}
+       \|\fD J_0(x)\|_{\mathbb R^d\to\mathsf H_a}
+       \|\fD J_0(y)\|_{\mathbb R^d\to\mathsf H_a}
+ \le QR^2\|\Delta\|_{\mathsf H_a}.
+\end{aligned}
+\]
+Finally,
+\[
+ \|\Delta\|_{\mathsf H_a}\le\sum_m a_m\Delta_m,
+ \qquad QR^2\le\tfrac12\mathrm L_{K,D}
+ \quad\text{because }\mathrm L_{K,D}=4QR^3,\ R\ge1.
+\]
+This proves both inequalities in (i), with room to sum the two Hessian errors.
+
+\noindent\textbf{Step 3: change the spatial variables.}
+The three representations and \eqref{eq:local-proof-bounds} give
+\[
+\begin{aligned}
+ \|\nabla_WF(\nu,x)\|_{\mathbb R^d}&\le QR^2R,\\
+ \|\nabla_x\nabla_WF(\nu,x)\|_{\mathbb R^d\to\mathbb R^d}&\le QR^2R,\\
+ \|\nabla_W^2F(\nu;x,y)\|_{\mathbb R^d\to\mathbb R^d}&\le QRR^2.
+\end{aligned}
+\]
+All three are at most $QR^3\le\mathrm L_{K,D}$.
+Equation \eqref{eq:weighted-feature-spatial-difference} gives
+$\|\fD^rJ_0(x)-\fD^rJ_0(x')\|_{(\mathbb R^d)^r\to\mathsf H_a}\le R\|x-x'\|_{\mathbb R^d}$ for $r=1,2$.
+Inserting these bounds in the first two representations gives
+\cref{eq:local-gradient-spatial-bound,eq:local-jacobian-spatial-bound},
+since $QR^2R\le\mathrm L_{K,D}$.
+For the kernel, change one slot at a time:
+\[
+\begin{aligned}
+ &\fD^2G(\theta_\nu)[\fD J_0(x)u,\fD J_0(y)v]
+      -\fD^2G(\theta_\nu)[\fD J_0(x')u,\fD J_0(y')v]\\
+ &=\fD^2G(\theta_\nu)[(\fD J_0(x)-\fD J_0(x'))u,\fD J_0(y)v]\\
+ &\quad+\fD^2G(\theta_\nu)[\fD J_0(x')u,(\fD J_0(y)-\fD J_0(y'))v].
+\end{aligned}
+\]
+For unit $u,v$, its absolute value is at most
+$QR\{R^2\|x-x'\|_{\mathbb R^d}+R^2\|y-y'\|_{\mathbb R^d}\}$.
+Taking the supremum proves \eqref{eq:local-kernel-spatial-bound}.
+\end{proof}

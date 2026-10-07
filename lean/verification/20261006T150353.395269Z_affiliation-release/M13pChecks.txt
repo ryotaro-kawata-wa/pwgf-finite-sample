@@ -1,0 +1,696 @@
+PaperFormalization.Manuscript.source_compProd_auxiliary_associate.{u_2, u_3, u_4} {S : Type u_2} {V : Type u_3}
+  {A : Type u_4} [MeasurableSpace S] [MeasurableSpace V] [MeasurableSpace A] (ρ : Measure S) [IsProbabilityMeasure ρ]
+  (k : Kernel S V) [IsMarkovKernel k] (lambda : Measure A) [IsProbabilityMeasure lambda] :
+  Measure.map (fun z => (z.1.1, z.1.2, z.2)) ((ρ ⊗ₘ k).prod lambda) = ρ ⊗ₘ (k ×ₖ Kernel.const S lambda)
+'PaperFormalization.Manuscript.source_compProd_auxiliary_associate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_original_auxiliary_observation_law.{u_1, u_2, u_3, u_4} {O : Type u_1}
+  {S : Type u_2} {V : Type u_3} {A : Type u_4} [MeasurableSpace O] [MeasurableSpace S] [MeasurableSpace V]
+  [MeasurableSpace A] [StandardBorelSpace V] [Nonempty V] (nu : Measure O) [IsProbabilityMeasure nu] (history : O → S)
+  (population : O → V) (hhistory : Measurable history) (hpopulation : Measurable population) (lambda : Measure A)
+  [IsProbabilityMeasure lambda] :
+  Measure.map (fun z => (history z.1, population z.1, z.2)) (nu.prod lambda) =
+    Measure.map history nu ⊗ₘ (condDistrib population history nu ×ₖ Kernel.const S lambda)
+'PaperFormalization.Manuscript.source_original_auxiliary_observation_law' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_original_auxiliary_preserves.{u_1, u_4} {O : Type u_1} {A : Type u_4}
+  [MeasurableSpace O] [MeasurableSpace A] (nu : Measure O) [IsProbabilityMeasure nu] (lambda : Measure A)
+  [IsProbabilityMeasure lambda] : Measure.map Prod.fst (nu.prod lambda) = nu
+'PaperFormalization.Manuscript.source_original_auxiliary_preserves' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCovarianceView_lift_auxiliary.{u_1, u_4, u_5, u_6} {O : Type u_1} {A : Type u_4}
+  [MeasurableSpace O] [MeasurableSpace A] {N d : ℕ} {alpha K : ℝ} {E : Type u_5} {W : Type u_6} [MeasurableSpace E]
+  [MeasurableSpace W] (nu : Measure O) [IsProbabilityMeasure nu] (lambda : Measure A) [IsProbabilityMeasure lambda]
+  (view : SourceObservedCovarianceView N d alpha K nu E W) :
+  SourceObservedCovarianceView N d alpha K (nu.prod lambda) E W
+'PaperFormalization.Manuscript.sourceCovarianceView_lift_auxiliary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.SourceAuxiliarySpace.{u, v} (O : Type u) (A : Type v) : ℕ → Type (max u v)
+'PaperFormalization.Manuscript.SourceAuxiliarySpace' does not depend on any axioms
+PaperFormalization.Manuscript.sourceAuxiliaryMeasurable.{u, v} (O : Type u) (A : Type v) [MeasurableSpace O]
+  [MeasurableSpace A] (n : ℕ) : MeasurableSpace (SourceAuxiliarySpace O A n)
+'PaperFormalization.Manuscript.sourceAuxiliaryMeasurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceAuxiliaryMeasure.{u_1, u_2} {O : Type u_1} {A : Type u_2} [MeasurableSpace O]
+  [MeasurableSpace A] (nu : Measure O) (lambda : Measure A) (n : ℕ) : Measure (SourceAuxiliarySpace O A n)
+'PaperFormalization.Manuscript.sourceAuxiliaryMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceAuxiliaryMeasure_probability.{u_1, u_2} {O : Type u_1} {A : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace A] (nu : Measure O) [IsProbabilityMeasure nu] (lambda : Measure A)
+  [IsProbabilityMeasure lambda] (n : ℕ) : IsProbabilityMeasure (sourceAuxiliaryMeasure nu lambda n)
+'PaperFormalization.Manuscript.sourceAuxiliaryMeasure_probability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceAuxiliaryProjection.{u_1, u_2} {O : Type u_1} {A : Type u_2} (n m : ℕ) :
+  SourceAuxiliarySpace O A (n + m) → SourceAuxiliarySpace O A n
+'PaperFormalization.Manuscript.sourceAuxiliaryProjection' does not depend on any axioms
+PaperFormalization.Manuscript.sourceAuxiliaryProjection_preserving.{u_1, u_2} {O : Type u_1} {A : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace A] (nu : Measure O) [IsProbabilityMeasure nu] (lambda : Measure A)
+  [IsProbabilityMeasure lambda] (n m : ℕ) :
+  MeasurePreserving (sourceAuxiliaryProjection n m) (sourceAuxiliaryMeasure nu lambda (n + m))
+    (sourceAuxiliaryMeasure nu lambda n)
+'PaperFormalization.Manuscript.sourceAuxiliaryProjection_preserving' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceAuxiliaryOriginal.{u, v} {O : Type u} {A : Type v} (n : ℕ) :
+  SourceAuxiliarySpace O A n → O
+'PaperFormalization.Manuscript.sourceAuxiliaryOriginal' does not depend on any axioms
+PaperFormalization.Manuscript.sourceAuxiliaryOriginal_preserving.{u_1, u_2} {O : Type u_1} {A : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace A] (nu : Measure O) [IsProbabilityMeasure nu] (lambda : Measure A)
+  [IsProbabilityMeasure lambda] (n : ℕ) :
+  MeasurePreserving (sourceAuxiliaryOriginal n) (sourceAuxiliaryMeasure nu lambda n) nu
+'PaperFormalization.Manuscript.sourceAuxiliaryOriginal_preserving' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceAuxiliaryProjection_original.{u_1, u_2} {O : Type u_1} {A : Type u_2} (n m : ℕ)
+  (z : SourceAuxiliarySpace O A (n + m)) :
+  sourceAuxiliaryOriginal (n + m) z = sourceAuxiliaryOriginal n (sourceAuxiliaryProjection n m z)
+'PaperFormalization.Manuscript.sourceAuxiliaryProjection_original' does not depend on any axioms
+PaperFormalization.Manuscript.exists_source_auxiliary_prefix.{u_1, u_2} {O : Type u_1} {A : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace A] (nu : Measure O) [IsProbabilityMeasure nu] (lambda : Measure A)
+  [IsProbabilityMeasure lambda] (n J : ℕ) (hn : n ≤ J) :
+  ∃ project,
+    MeasurePreserving project (sourceAuxiliaryMeasure nu lambda J) (sourceAuxiliaryMeasure nu lambda n) ∧
+      ∀ (z : SourceAuxiliarySpace O A J), sourceAuxiliaryOriginal J z = sourceAuxiliaryOriginal n (project z)
+'PaperFormalization.Manuscript.exists_source_auxiliary_prefix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCovarianceView_on_auxiliaryTower.{u_1, u_2, u_3, u_4} {O : Type u_1} {A : Type u_2}
+  {S : Type u_3} {V : Type u_4} [MeasurableSpace O] [MeasurableSpace A] [MeasurableSpace S] [MeasurableSpace V]
+  {N d : ℕ} {alpha K : ℝ} (nu : Measure O) [IsProbabilityMeasure nu] (lambda : Measure A) [IsProbabilityMeasure lambda]
+  (view : SourceObservedCovarianceView N d alpha K nu S V) (J : ℕ) :
+  SourceObservedCovarianceView N d alpha K (sourceAuxiliaryMeasure nu lambda J) S V
+'PaperFormalization.Manuscript.sourceCovarianceView_on_auxiliaryTower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCovarianceView_on_auxiliaryTower_observation.{u_1, u_2, u_3, u_4} {O : Type u_1}
+  {A : Type u_2} {S : Type u_3} {V : Type u_4} [MeasurableSpace O] [MeasurableSpace A] [MeasurableSpace S]
+  [MeasurableSpace V] {N d : ℕ} {alpha K : ℝ} (nu : Measure O) [IsProbabilityMeasure nu] (lambda : Measure A)
+  [IsProbabilityMeasure lambda] (view : SourceObservedCovarianceView N d alpha K nu S V) (J : ℕ) :
+  (sourceCovarianceView_on_auxiliaryTower nu lambda view J).observation = view.observation ∘ sourceAuxiliaryOriginal J
+'PaperFormalization.Manuscript.sourceCovarianceView_on_auxiliaryTower_observation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceJumpView_pullback.{u_1, u_2, u_3, u_4, u_5} {O : Type u_1} {O' : Type u_2}
+  {S : Type u_3} {V : Type u_4} [MeasurableSpace O] [MeasurableSpace O'] [MeasurableSpace S] [MeasurableSpace V]
+  {N d : ℕ} {H : ℕ → Type u_5} [(n : ℕ) → NormedAddCommGroup (H n)] [(n : ℕ) → InnerProductSpace ℝ (H n)]
+  [∀ (n : ℕ), CompleteSpace (H n)] {c p K D alpha : ℝ} {phi : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n}
+  {G : ↥(lp H 2) → ℝ} {U : Set ↥(lp H 2)} {hU : IsOpen U}
+  {hSU : measureMomentRegion (sourceWeightedFeatureMap c p phi) (sourceMomentClass alpha K) D ⊆ U}
+  {hG : ContDiffOn ℝ 2 G U} {hN : 0 < N} {nu : Measure O} {nu' : Measure O'} (project : O' → O)
+  (hp : MeasurePreserving project nu' nu) (view : SourceObservedJumpView c p K D alpha phi G U hU hSU hG hN nu S V) :
+  SourceObservedJumpView c p K D alpha phi G U hU hSU hG hN nu' S V
+'PaperFormalization.Manuscript.sourceJumpView_pullback' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.exists_source_jump_views_on_common_auxiliary_tower.{u_1, u_5, u_6, u_7, u_8}
+  {O : Type u_1} [MeasurableSpace O] {N d : ℕ} {H : ℕ → Type u_5} [(n : ℕ) → NormedAddCommGroup (H n)]
+  [(n : ℕ) → InnerProductSpace ℝ (H n)] [∀ (n : ℕ), CompleteSpace (H n)] {c p K D alpha : ℝ}
+  {phi : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n} {G : ↥(lp H 2) → ℝ} {U : Set ↥(lp H 2)} {hU : IsOpen U}
+  {hSU : measureMomentRegion (sourceWeightedFeatureMap c p phi) (sourceMomentClass alpha K) D ⊆ U}
+  {hG : ContDiffOn ℝ 2 G U} {hN : 0 < N} {A : Type u_6} [MeasurableSpace A] (nu : Measure O) [IsProbabilityMeasure nu]
+  (lambda : Measure A) [IsProbabilityMeasure lambda] (J : ℕ) (S : Fin J → Type u_7) (V : Fin J → Type u_8)
+  [(j : Fin J) → MeasurableSpace (S j)] [(j : Fin J) → MeasurableSpace (V j)]
+  (views :
+    (j : Fin J) →
+      SourceObservedJumpView c p K D alpha phi G U hU hSU hG hN (sourceAuxiliaryMeasure nu lambda (↑j + 1)) (S j)
+        (V j)) :
+  ∃ lifted,
+    ∀ (j : Fin J),
+      ∃ project,
+        MeasurePreserving project (sourceAuxiliaryMeasure nu lambda J) (sourceAuxiliaryMeasure nu lambda (↑j + 1)) ∧
+          (lifted j).observation = (views j).observation ∘ project ∧
+            (lifted j).κ = (views j).κ ∧
+              ∀ (z : SourceAuxiliarySpace O A J),
+                sourceAuxiliaryOriginal J z = sourceAuxiliaryOriginal (↑j + 1) (project z)
+'PaperFormalization.Manuscript.exists_source_jump_views_on_common_auxiliary_tower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceGlue.{u_1} {E : Type u_1} (tau : ℕ → ℝ) (J : ℕ) (branch : ℕ → ℝ → E) (t : ℝ) : E
+'PaperFormalization.Manuscript.sourceGlue' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.source_jumpCount_on_branch (tau : ℕ → ℝ) (J k : ℕ) (htime : ∀ n < J, tau n < tau (n + 1))
+  (hk : k ≤ J) (t : ℝ) (ht : tau k ≤ t) (hn : k < J → t < tau (k + 1)) :
+  PaperFormalization.Piecewise.jumpCount tau J t = k
+'PaperFormalization.Manuscript.source_jumpCount_on_branch' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceGlue_on_branch.{u_1} {E : Type u_1} (tau : ℕ → ℝ) (J : ℕ) (branch : ℕ → ℝ → E)
+  (htime : ∀ n < J, tau n < tau (n + 1)) (k : ℕ) (hk : k ≤ J) (t : ℝ) (ht : tau k ≤ t) (hn : k < J → t < tau (k + 1)) :
+  sourceGlue tau J branch t = branch k t
+'PaperFormalization.Manuscript.sourceGlue_on_branch' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceGlue_at_jump.{u_1} {E : Type u_1} (tau : ℕ → ℝ) (J : ℕ) (branch : ℕ → ℝ → E)
+  (htime : ∀ n < J, tau n < tau (n + 1)) (k : ℕ) (hk : k ≤ J) : sourceGlue tau J branch (tau k) = branch k (tau k)
+'PaperFormalization.Manuscript.sourceGlue_at_jump' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceGlue_eventuallyEq.{u_1} {E : Type u_1} (tau : ℕ → ℝ) (J : ℕ) (branch : ℕ → ℝ → E)
+  (htime : ∀ n < J, tau n < tau (n + 1)) (k : ℕ) (hk : k ≤ J) (T t : ℝ)
+  (ht : t ∈ Ioo (tau k) (if k < J then tau (k + 1) else T)) : sourceGlue tau J branch =ᶠ[𝓝 t] branch k
+'PaperFormalization.Manuscript.sourceGlue_eventuallyEq' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceGlue_hasDerivAt.{u_1} {E : Type u_1} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  (tau : ℕ → ℝ) (J : ℕ) (branch : ℕ → ℝ → E) (htime : ∀ n < J, tau n < tau (n + 1)) (k : ℕ) (hk : k ≤ J) (T t : ℝ)
+  (ht : t ∈ Ioo (tau k) (if k < J then tau (k + 1) else T)) (v : E) (hv : HasDerivAt (branch k) v t) :
+  HasDerivAt (sourceGlue tau J branch) v t
+'PaperFormalization.Manuscript.sourceGlue_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceGlue_lipschitzOn.{u_1} {E : Type u_1} [PseudoMetricSpace E] (tau : ℕ → ℝ) (J : ℕ)
+  (branch : ℕ → ℝ → E) (htime : ∀ n < J, tau n < tau (n + 1)) (k : ℕ) (hk : k ≤ J) (s : Set ℝ)
+  (hstart : ∀ t ∈ s, tau k ≤ t) (hend : ∀ t ∈ s, k < J → t < tau (k + 1)) (B : ℝ≥0)
+  (hB : LipschitzOnWith B (branch k) s) : LipschitzOnWith B (sourceGlue tau J branch) s
+'PaperFormalization.Manuscript.sourceGlue_lipschitzOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceGlue_traces.{u_1} {E : Type u_1} [TopologicalSpace E] (tau : ℕ → ℝ) (J : ℕ)
+  (branch : ℕ → ℝ → E) (htime : ∀ n < J, tau n < tau (n + 1)) (k : ℕ) (hk : k < J)
+  (hcont : ContinuousOn (branch k) (Icc (tau k) (tau (k + 1)))) :
+  Tendsto (sourceGlue tau J branch) (𝓝[>] tau k) (𝓝 (sourceGlue tau J branch (tau k))) ∧
+    Tendsto (sourceGlue tau J branch) (𝓝[<] tau (k + 1)) (𝓝 (branch k (tau (k + 1))))
+'PaperFormalization.Manuscript.sourceGlue_traces' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceOriginalCovarianceView.{u_1, u_2, u_3} {O : Type u_1} {Env : Type u_2}
+  {Seed : Type u_3} [MeasurableSpace O] [MeasurableSpace Env] [MeasurableSpace Seed] {N d : ℕ} (nu : Measure O)
+  [IsProbabilityMeasure nu] (mu0 : Measure Seed) [IsProbabilityMeasure mu0] (environment : O → Env)
+  (initial : Fin N → O → Seed) (henv : Measurable environment) (hinit : ∀ (i : Fin N), Measurable (initial i))
+  (hiid : iIndepFun initial nu) (hind : environment ⟂ᵢ[nu] fun w i => initial i w)
+  (hlaw : ∀ (i : Fin N), Measure.map (initial i) nu = mu0) (Phi : Env → Seed → EuclideanSpace ℝ (Fin d))
+  (hPhi : Measurable fun z => Phi z.1 z.2) (alpha scale : ℝ) (halpha : 0 < alpha) (hscale : 0 < scale) :
+  SourceObservedCovarianceView N d alpha (sourceExponentialMomentCoefficient alpha * scale) nu Env
+    (Fin N → EuclideanSpace ℝ (Fin d))
+'PaperFormalization.Manuscript.sourceOriginalCovarianceView' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceOriginalCovarianceView_sample.{u_1, u_2, u_3} {O : Type u_1} {Env : Type u_2}
+  {Seed : Type u_3} [MeasurableSpace O] [MeasurableSpace Env] [MeasurableSpace Seed] {N d : ℕ} (nu : Measure O)
+  [IsProbabilityMeasure nu] (mu0 : Measure Seed) [IsProbabilityMeasure mu0] (environment : O → Env)
+  (initial : Fin N → O → Seed) (henv : Measurable environment) (hinit : ∀ (i : Fin N), Measurable (initial i))
+  (hiid : iIndepFun initial nu) (hind : environment ⟂ᵢ[nu] fun w i => initial i w)
+  (hlaw : ∀ (i : Fin N), Measure.map (initial i) nu = mu0) (Phi : Env → Seed → EuclideanSpace ℝ (Fin d))
+  (hPhi : Measurable fun z => Phi z.1 z.2) (alpha scale : ℝ) (halpha : 0 < alpha) (hscale : 0 < scale) (w : O) :
+  have view :=
+    sourceOriginalCovarianceView nu mu0 environment initial henv hinit hiid hind hlaw Phi hPhi alpha scale halpha
+      hscale;
+  view.X (view.observation w) = fun i => Phi (environment w) (initial i w)
+'PaperFormalization.Manuscript.sourceOriginalCovarianceView_sample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceOriginalCovarianceView_preLaw.{u_1, u_2, u_3} {O : Type u_1} {Env : Type u_2}
+  {Seed : Type u_3} [MeasurableSpace O] [MeasurableSpace Env] [MeasurableSpace Seed] {N d : ℕ} (nu : Measure O)
+  [IsProbabilityMeasure nu] (mu0 : Measure Seed) [IsProbabilityMeasure mu0] (environment : O → Env)
+  (initial : Fin N → O → Seed) (henv : Measurable environment) (hinit : ∀ (i : Fin N), Measurable (initial i))
+  (hiid : iIndepFun initial nu) (hind : environment ⟂ᵢ[nu] fun w i => initial i w)
+  (hlaw : ∀ (i : Fin N), Measure.map (initial i) nu = mu0) (Phi : Env → Seed → EuclideanSpace ℝ (Fin d))
+  (hPhi : Measurable fun z => Phi z.1 z.2) (alpha scale : ℝ) (halpha : 0 < alpha) (hscale : 0 < scale) (w : O) :
+  have view :=
+    sourceOriginalCovarianceView nu mu0 environment initial henv hinit hiid hind hlaw Phi hPhi alpha scale halpha
+      hscale;
+  view.κ (view.observation w).1 = Measure.map (Phi (environment w)) mu0
+'PaperFormalization.Manuscript.sourceOriginalCovarianceView_preLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceHistoryInit.{u_1} {W : Type u_1} {n : ℕ} (h : Fin (n + 1) → W) : Fin n → W
+'PaperFormalization.Manuscript.sourceHistoryInit' does not depend on any axioms
+PaperFormalization.Manuscript.sourceReferencePost.{u_1, u_2} {W : Type u_1} {E : Type u_2} (tau : ℕ → ℝ)
+  (flow : (n : ℕ) → (Fin n → W) → ℝ → E → E) (jump : (n : ℕ) → (Fin n → W) → W → E → E) (n : ℕ) : (Fin n → W) → E → E
+'PaperFormalization.Manuscript.sourceReferencePost' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceReferenceBranch.{u_1, u_2} {W : Type u_1} {E : Type u_2} (tau : ℕ → ℝ)
+  (flow : (n : ℕ) → (Fin n → W) → ℝ → E → E) (jump : (n : ℕ) → (Fin n → W) → W → E → E) (n : ℕ) (h : Fin n → W) (u : E)
+  (t : ℝ) : E
+'PaperFormalization.Manuscript.sourceReferenceBranch' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceReferencePre.{u_1, u_2} {W : Type u_1} {E : Type u_2} (tau : ℕ → ℝ)
+  (flow : (n : ℕ) → (Fin n → W) → ℝ → E → E) (jump : (n : ℕ) → (Fin n → W) → W → E → E) (n : ℕ) (h : Fin n → W)
+  (u : E) : E
+'PaperFormalization.Manuscript.sourceReferencePre' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceReferencePost_succ.{u_1, u_2} {W : Type u_1} {E : Type u_2} (tau : ℕ → ℝ)
+  (flow : (n : ℕ) → (Fin n → W) → ℝ → E → E) (jump : (n : ℕ) → (Fin n → W) → W → E → E) (n : ℕ) (h : Fin (n + 1) → W)
+  (u : E) :
+  sourceReferencePost tau flow jump (n + 1) h u =
+    jump n (sourceHistoryInit h) (h (Fin.last n)) (sourceReferencePre tau flow jump n (sourceHistoryInit h) u)
+'PaperFormalization.Manuscript.sourceReferencePost_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceReferenceBranch_start.{u_1, u_2} {W : Type u_1} {E : Type u_2} (tau : ℕ → ℝ)
+  (flow : (n : ℕ) → (Fin n → W) → ℝ → E → E) (jump : (n : ℕ) → (Fin n → W) → W → E → E)
+  (hstart : ∀ (n : ℕ) (h : Fin n → W) (x : E), flow n h (tau n) x = x) (n : ℕ) (h : Fin n → W) (u : E) :
+  sourceReferenceBranch tau flow jump n h u (tau n) = sourceReferencePost tau flow jump n h u
+'PaperFormalization.Manuscript.sourceReferenceBranch_start' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceHistoryInit_measurable.{u_1} {W : Type u_1} [MeasurableSpace W] (n : ℕ) :
+  Measurable sourceHistoryInit
+'PaperFormalization.Manuscript.sourceHistoryInit_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceReferencePost_measurable.{u_1, u_2} {W : Type u_1} {E : Type u_2}
+  [MeasurableSpace W] [MeasurableSpace E] (tau : ℕ → ℝ) (flow : (n : ℕ) → (Fin n → W) → ℝ → E → E)
+  (jump : (n : ℕ) → (Fin n → W) → W → E → E) (hflow : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flow n z.1 t z.2)
+  (hjump : ∀ (n : ℕ), Measurable fun z => jump n z.1.1 z.1.2 z.2) (n : ℕ) :
+  Measurable fun z => sourceReferencePost tau flow jump n z.1 z.2
+'PaperFormalization.Manuscript.sourceReferencePost_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceReferenceBranch_measurable.{u_1, u_2} {W : Type u_1} {E : Type u_2}
+  [MeasurableSpace W] [MeasurableSpace E] (tau : ℕ → ℝ) (flow : (n : ℕ) → (Fin n → W) → ℝ → E → E)
+  (jump : (n : ℕ) → (Fin n → W) → W → E → E) (hflow : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flow n z.1 t z.2)
+  (hjump : ∀ (n : ℕ), Measurable fun z => jump n z.1.1 z.1.2 z.2) (n : ℕ) (t : ℝ) :
+  Measurable fun z => sourceReferenceBranch tau flow jump n z.1 z.2 t
+'PaperFormalization.Manuscript.sourceReferenceBranch_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceFullHistoryPreLaw.{u_1, u_2, u_3} {W : Type u_1} {E : Type u_2} [MeasurableSpace W]
+  [MeasurableSpace E] {Aux : Type u_3} [MeasurableSpace Aux] (mu0 : Measure E) (tau : ℕ → ℝ)
+  (flow : (n : ℕ) → (Fin n → W) → ℝ → E → E) (jump : (n : ℕ) → (Fin n → W) → W → E → E) (n : ℕ) :
+  Kernel ((Fin n → W) × Aux) E
+'PaperFormalization.Manuscript.sourceFullHistoryPreLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceCausalPreLaw_identity.{u_1, u_2, u_3, u_4} {W : Type u_1} {E : Type u_2}
+  [MeasurableSpace W] [MeasurableSpace E] {Env : Type u_3} {Aux : Type u_4} [MeasurableSpace Env] [MeasurableSpace Aux]
+  (mu0 : Measure E) [IsProbabilityMeasure mu0] (tau : ℕ → ℝ) (flow : (n : ℕ) → (Fin n → W) → ℝ → E → E)
+  (jump : (n : ℕ) → (Fin n → W) → W → E → E) (hflow : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flow n z.1 t z.2)
+  (hjump : ∀ (n : ℕ), Measurable fun z => jump n z.1.1 z.1.2 z.2) (n : ℕ) (past : Env → Fin n → W)
+  (hpast : Measurable past) (e : Env) (aux : Aux) :
+  (characteristicKernel mu0 fun e u => sourceReferencePre tau flow jump n (past e) u) e =
+      (sourceFullHistoryPreLaw mu0 tau flow jump n) (past e, aux) ∧
+    (sourceFullHistoryPreLaw mu0 tau flow jump n) (past e, aux) =
+      Measure.map (fun u => sourceReferenceBranch tau flow jump n (past e) u (tau (n + 1))) mu0
+'PaperFormalization.Manuscript.sourceCausalPreLaw_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.single_characteristic_product_joint_law.{u_2, u_3, u_4} {Env : Type u_2} {Seed : Type u_3}
+  {Ref : Type u_4} [MeasurableSpace Env] [MeasurableSpace Seed] [MeasurableSpace Ref] (ρ : Measure Env)
+  [IsProbabilityMeasure ρ] (mu0 : Measure Seed) [IsProbabilityMeasure mu0] (Phi : Env → Seed → Ref)
+  (hPhi : Measurable fun z => Phi z.1 z.2) :
+  Measure.map (fun z => (z.1, Phi z.1 z.2)) (ρ.prod mu0) = ρ ⊗ₘ characteristicKernel mu0 Phi
+'PaperFormalization.Manuscript.single_characteristic_product_joint_law' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.independent_single_characteristic_joint_law.{u_1, u_2, u_3, u_4} {O : Type u_1}
+  {Env : Type u_2} {Seed : Type u_3} {Ref : Type u_4} [MeasurableSpace O] [MeasurableSpace Env] [MeasurableSpace Seed]
+  [MeasurableSpace Ref] (nu : Measure O) [IsProbabilityMeasure nu] (mu0 : Measure Seed) [IsProbabilityMeasure mu0]
+  (environment : O → Env) (initial : O → Seed) (henv : Measurable environment) (hinit : Measurable initial)
+  (hind : environment ⟂ᵢ[nu] initial) (hlaw : Measure.map initial nu = mu0) (Phi : Env → Seed → Ref)
+  (hPhi : Measurable fun z => Phi z.1 z.2) :
+  Measure.map (fun w => (environment w, Phi (environment w) (initial w))) nu =
+    Measure.map environment nu ⊗ₘ characteristicKernel mu0 Phi
+'PaperFormalization.Manuscript.independent_single_characteristic_joint_law' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.original_environment_independent_initial_coordinate.{u_1, u_2, u_3, u_6} {O : Type u_1}
+  {Env : Type u_2} {Seed : Type u_3} [MeasurableSpace O] [MeasurableSpace Env] [MeasurableSpace Seed] {I : Type u_6}
+  (nu : Measure O) (environment : O → Env) (initial : I → O → Seed) (hind : environment ⟂ᵢ[nu] fun w i => initial i w)
+  (i : I) : environment ⟂ᵢ[nu] initial i
+'PaperFormalization.Manuscript.original_environment_independent_initial_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.original_reference_path_law_identified.{u_1, u_2, u_3, u_4, u_5} {O : Type u_1}
+  {Env : Type u_2} {Seed : Type u_3} {Ref : Type u_4} {Pair : Type u_5} [MeasurableSpace O] [MeasurableSpace Env]
+  [MeasurableSpace Seed] [MeasurableSpace Ref] [MeasurableSpace Pair] [StandardBorelSpace Ref] [Nonempty Ref]
+  [StandardBorelSpace Pair] [Nonempty Pair] (nu : Measure O) [IsProbabilityMeasure nu] (mu0 : Measure Seed)
+  [IsProbabilityMeasure mu0] (environment : O → Env) (initial : O → Seed) (henv : Measurable environment)
+  (hinit : Measurable initial) (hind : environment ⟂ᵢ[nu] initial) (hlaw : Measure.map initial nu = mu0)
+  (paths : O → Pair) (hpaths : Measurable paths) (reference : Pair → Ref) (href : Measurable reference)
+  (Phi : Env → Seed → Ref) (hPhi : Measurable fun z => Phi z.1 z.2)
+  (hreference : (fun w => reference (paths w)) =ᵐ[nu] fun w => Phi (environment w) (initial w)) :
+  ⇑((originalConditionalPathLaw nu environment paths).map reference) =ᵐ[Measure.map environment nu]
+    ⇑(characteristicKernel mu0 Phi)
+'PaperFormalization.Manuscript.original_reference_path_law_identified' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.original_reference_all_evaluation_laws.{u_1, u_2, u_3, u_4, u_5, u_6, u_7} {O : Type u_1}
+  {Env : Type u_2} {Seed : Type u_3} {Ref : Type u_4} {Pair : Type u_5} [MeasurableSpace O] [MeasurableSpace Env]
+  [MeasurableSpace Seed] [MeasurableSpace Ref] [MeasurableSpace Pair] {I : Type u_6} {E : Type u_7} [MeasurableSpace E]
+  [StandardBorelSpace Ref] [Nonempty Ref] [StandardBorelSpace Pair] [Nonempty Pair] (nu : Measure O)
+  [IsProbabilityMeasure nu] (mu0 : Measure Seed) [IsProbabilityMeasure mu0] (environment : O → Env) (initial : O → Seed)
+  (henv : Measurable environment) (hinit : Measurable initial) (hind : environment ⟂ᵢ[nu] initial)
+  (hlaw : Measure.map initial nu = mu0) (paths : O → Pair) (hpaths : Measurable paths) (reference : Pair → Ref)
+  (href : Measurable reference) (Phi : Env → Seed → Ref) (hPhi : Measurable fun z => Phi z.1 z.2)
+  (hreference : (fun w => reference (paths w)) =ᵐ[nu] fun w => Phi (environment w) (initial w))
+  (eval : I → Env → Ref → E) (heval : ∀ (i : I) (e : Env), Measurable (eval i e)) :
+  ∀ᵐ (e : Env) ∂Measure.map environment nu,
+    ∀ (i : I),
+      Measure.map (fun p => eval i e (reference p)) ((originalConditionalPathLaw nu environment paths) e) =
+        Measure.map (fun u => eval i e (Phi e u)) mu0
+'PaperFormalization.Manuscript.original_reference_all_evaluation_laws' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.SourceReferencePathSpace (J d : ℕ) (a b : Fin (J + 1) → ℝ) : Type
+'PaperFormalization.Manuscript.SourceReferencePathSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceReferencePathEval {J d : ℕ} {a b : Fin (J + 1) → ℝ}
+  (path : SourceReferencePathSpace J d a b) (j : Fin (J + 1)) (t : ℝ) : EuclideanSpace ℝ (Fin d)
+'PaperFormalization.Manuscript.sourceReferencePathEval' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceReferencePathEval_measurable {J d : ℕ} {a b : Fin (J + 1) → ℝ} (j : Fin (J + 1))
+  (t : ℝ) : Measurable fun path => sourceReferencePathEval path j t
+'PaperFormalization.Manuscript.sourceReferencePathEval_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceReferencePathLipschitz {J d : ℕ} {a b : Fin (J + 1) → ℝ} (B : ℝ≥0) :
+  Set (SourceReferencePathSpace J d a b)
+'PaperFormalization.Manuscript.sourceReferencePathLipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceReferencePathLipschitz_isClosed {J d : ℕ} {a b : Fin (J + 1) → ℝ} (B : ℝ≥0) :
+  IsClosed (sourceReferencePathLipschitz B)
+'PaperFormalization.Manuscript.sourceReferencePathLipschitz_isClosed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceReferencePathLipschitz_iff {J d : ℕ} {a b : Fin (J + 1) → ℝ} (B : ℝ≥0)
+  (path : SourceReferencePathSpace J d a b) :
+  path ∈ sourceReferencePathLipschitz B ↔
+    ∀ (j : Fin (J + 1)), LipschitzOnWith B (fun t => sourceReferencePathEval path j t) (Icc (a j) (b j))
+'PaperFormalization.Manuscript.sourceReferencePathLipschitz_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_reference_randomPath_eq_of_label_agreement.{u_1, u_2, u_3} {O : Type u_1}
+  {Env : Type u_2} {Seed : Type u_3} [MeasurableSpace O] (nu : Measure O) {J d : ℕ} {a b : Fin (J + 1) → ℝ}
+  (paths : O → SourcePopulationPathSpace J d a b) (environment : O → Env) (initial : O → Seed)
+  (Phi : Env → Seed → SourceReferencePathSpace J d a b) (raw : Env → Seed → Fin (J + 1) → ℝ → EuclideanSpace ℝ (Fin d))
+  (hversion :
+    ∀ᵐ (w : O) ∂nu,
+      ∀ (j : Fin (J + 1)),
+        ∀ t ∈ Icc (a j) (b j), sourcePopulationPathEval (paths w) 1 j t = raw (environment w) (initial w) j t)
+  (hPhi :
+    ∀ᵐ (w : O) ∂nu,
+      ∀ (j : Fin (J + 1)),
+        ∀ t ∈ Icc (a j) (b j),
+          sourceReferencePathEval (Phi (environment w) (initial w)) j t = raw (environment w) (initial w) j t) :
+  (fun w => paths w 1) =ᵐ[nu] fun w => Phi (environment w) (initial w)
+'PaperFormalization.Manuscript.source_reference_randomPath_eq_of_label_agreement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCausalReferencePath.{u_1, u_2} {Env : Type u_1} {W : Type u_2} {J d : ℕ}
+  (a b : Fin (J + 1) → ℝ) (tau : ℕ → ℝ)
+  (flow : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (jump : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (past : (j : Fin (J + 1)) → Env → Fin ↑j → W)
+  (hcont :
+    ∀ (e : Env) (u : EuclideanSpace ℝ (Fin d)) (j : Fin (J + 1)),
+      ContinuousOn (sourceReferenceBranch tau flow jump (↑j) (past j e) u) (Icc (a j) (b j)))
+  (e : Env) (u : EuclideanSpace ℝ (Fin d)) : SourceReferencePathSpace J d a b
+'PaperFormalization.Manuscript.sourceCausalReferencePath' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceCausalReferencePath_measurable.{u_1, u_2} {Env : Type u_1} {W : Type u_2}
+  [MeasurableSpace Env] [MeasurableSpace W] {J d : ℕ} (a b : Fin (J + 1) → ℝ) (hab : ∀ (j : Fin (J + 1)), a j ≤ b j)
+  (tau : ℕ → ℝ) (flow : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (jump : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hflow : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flow n z.1 t z.2)
+  (hjump : ∀ (n : ℕ), Measurable fun z => jump n z.1.1 z.1.2 z.2) (past : (j : Fin (J + 1)) → Env → Fin ↑j → W)
+  (hpast : ∀ (j : Fin (J + 1)), Measurable (past j))
+  (hcont :
+    ∀ (e : Env) (u : EuclideanSpace ℝ (Fin d)) (j : Fin (J + 1)),
+      ContinuousOn (sourceReferenceBranch tau flow jump (↑j) (past j e) u) (Icc (a j) (b j))) :
+  Measurable fun z => sourceCausalReferencePath a b tau flow jump past hcont z.1 z.2
+'PaperFormalization.Manuscript.sourceCausalReferencePath_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceCausalReferencePath_eval.{u_1, u_2} {Env : Type u_1} {W : Type u_2} {J d : ℕ}
+  (a b : Fin (J + 1) → ℝ) (tau : ℕ → ℝ)
+  (flow : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (jump : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (past : (j : Fin (J + 1)) → Env → Fin ↑j → W)
+  (hcont :
+    ∀ (e : Env) (u : EuclideanSpace ℝ (Fin d)) (j : Fin (J + 1)),
+      ContinuousOn (sourceReferenceBranch tau flow jump (↑j) (past j e) u) (Icc (a j) (b j)))
+  (e : Env) (u : EuclideanSpace ℝ (Fin d)) (j : Fin (J + 1)) (t : ℝ) (ht : t ∈ Icc (a j) (b j)) :
+  sourceReferencePathEval (sourceCausalReferencePath a b tau flow jump past hcont e u) j t =
+    sourceReferenceBranch tau flow jump (↑j) (past j e) u t
+'PaperFormalization.Manuscript.sourceCausalReferencePath_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.exists_source_causal_reference_path_version.{u_1, u_2} {Env : Type u_1} {W : Type u_2}
+  [MeasurableSpace Env] [MeasurableSpace W] {J d : ℕ} (ρ : Measure Env) (mu0 : Measure (EuclideanSpace ℝ (Fin d)))
+  (a b : Fin (J + 1) → ℝ) (hab : ∀ (j : Fin (J + 1)), a j ≤ b j) (B : ℝ≥0) (tau : ℕ → ℝ)
+  (flow : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (jump : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hflow : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flow n z.1 t z.2)
+  (hjump : ∀ (n : ℕ), Measurable fun z => jump n z.1.1 z.1.2 z.2) (past : (j : Fin (J + 1)) → Env → Fin ↑j → W)
+  (hpast : ∀ (j : Fin (J + 1)), Measurable (past j))
+  (hLip :
+    ∀ᵐ (z : Env × EuclideanSpace ℝ (Fin d)) ∂ρ.prod mu0,
+      ∀ (j : Fin (J + 1)),
+        LipschitzOnWith B (sourceReferenceBranch tau flow jump (↑j) (past j z.1) z.2) (Icc (a j) (b j))) :
+  ∃ Phi,
+    (Measurable fun z => Phi z.1 z.2) ∧
+      ∀ᵐ (z : Env × EuclideanSpace ℝ (Fin d)) ∂ρ.prod mu0,
+        ∀ (j : Fin (J + 1)),
+          ∀ t ∈ Icc (a j) (b j),
+            sourceReferencePathEval (Phi z.1 z.2) j t = sourceReferenceBranch tau flow jump (↑j) (past j z.1) z.2 t
+'PaperFormalization.Manuscript.exists_source_causal_reference_path_version' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_independent_seed_path_agreement.{u_1, u_3, u_4, u_5} {Env : Type u_1}
+  [MeasurableSpace Env] {O : Type u_3} {Seed : Type u_4} [MeasurableSpace O] [MeasurableSpace Seed] {I : Type u_5}
+  [Countable I] (nu : Measure O) [IsProbabilityMeasure nu] (mu0 : Measure Seed) [IsProbabilityMeasure mu0]
+  (environment : O → Env) (initial : I → O → Seed) (henv : Measurable environment)
+  (hinit : ∀ (i : I), Measurable (initial i)) (hind : environment ⟂ᵢ[nu] fun w i => initial i w)
+  (hlaw : ∀ (i : I), Measure.map (initial i) nu = mu0) (Property : Env → Seed → Prop)
+  (hProperty : ∀ᵐ (z : Env × Seed) ∂(Measure.map environment nu).prod mu0, Property z.1 z.2) :
+  ∀ᵐ (w : O) ∂nu, ∀ (i : I), Property (environment w) (initial i w)
+'PaperFormalization.Manuscript.source_independent_seed_path_agreement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_reference_version_all_marginal_laws.{u_1, u_3, u_4, u_5} {Env : Type u_1}
+  [MeasurableSpace Env] {Seed : Type u_3} {E : Type u_4} {I : Type u_5} [MeasurableSpace Seed] [MeasurableSpace E]
+  (ρ : Measure Env) [IsProbabilityMeasure ρ] (mu0 : Measure Seed) [IsProbabilityMeasure mu0]
+  (represented raw : Env → Seed → I → E)
+  (hAgreement : ∀ᵐ (z : Env × Seed) ∂ρ.prod mu0, ∀ (i : I), represented z.1 z.2 i = raw z.1 z.2 i) :
+  ∀ᵐ (e : Env) ∂ρ, ∀ (i : I), Measure.map (fun u => represented e u i) mu0 = Measure.map (fun u => raw e u i) mu0
+'PaperFormalization.Manuscript.source_reference_version_all_marginal_laws' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceTrackingPathsOfClosedBranches.{u_1, u_2} {O : Type u_1} [MeasurableSpace O]
+  {N d : ℕ} {H : ℕ → Type u_2} [(n : ℕ) → NormedAddCommGroup (H n)] [(n : ℕ) → InnerProductSpace ℝ (H n)]
+  [∀ (n : ℕ), CompleteSpace (H n)] (mu : Measure O) (J : ℕ) (tau : ℕ → ℝ) (T : ℝ) (B : ℝ≥0) (c p K D alpha A_sp : ℝ)
+  (phi : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n) (G : ↥(lp H 2) → ℝ) (htau0 : tau 0 = 0)
+  (htime : ∀ k < J, tau k < tau (k + 1)) (hT : tau J ≤ T) (ZB : ℕ → O → ℝ → EuclideanSpace ℝ (Fin d))
+  (XB YB : ℕ → ℝ → PiLp 2 fun x => EuclideanSpace ℝ (Fin d))
+  (hclass :
+    ∀ k ≤ J,
+      ∀ t ∈ uIcc (tau k) (if k < J then tau (k + 1) else T),
+        Measure.map (fun w => ZB k w t) mu ∈ sourceMomentClass alpha K)
+  (hZlip : ∀ k ≤ J, ∀ᵐ (w : O) ∂mu, LipschitzOnWith B (ZB k w) (uIcc (tau k) (if k < J then tau (k + 1) else T)))
+  (hXlip :
+    ∀ k ≤ J,
+      ∀ (i : Fin N), LipschitzOnWith B (fun t => (XB k t).ofLp i) (uIcc (tau k) (if k < J then tau (k + 1) else T)))
+  (hYlip :
+    ∀ k ≤ J,
+      ∀ (i : Fin N), LipschitzOnWith B (fun t => (YB k t).ofLp i) (uIcc (tau k) (if k < J then tau (k + 1) else T)))
+  (hXpreLocal : ∀ k < J, ∀ (i : Fin N), ‖(XB k (tau (k + 1))).ofLp i‖ ≤ D)
+  (hYlocal : ∀ k ≤ J, ∀ (i : Fin N), ∀ t ∈ uIcc (tau k) (if k < J then tau (k + 1) else T), ‖(YB k t).ofLp i‖ ≤ D)
+  (hinit : XB 0 0 = YB 0 0)
+  (hode :
+    ∀ k ≤ J,
+      ∀ᵐ (t : ℝ) ∂ℙ.restrict (Ioo (tau k) (if k < J then tau (k + 1) else T)),
+        (∀ (i : Fin N), ‖(XB k t).ofLp i‖ ≤ D) ∧
+          (∀ (i : Fin N), ‖(YB k t).ofLp i‖ ≤ D) ∧
+            (↑N)⁻¹ * ∑ i, ‖(XB k t - YB k t).ofLp i‖ ^ 3 ≤ A_sp * (‖XB k t - YB k t‖ / √↑N) ^ 3 ∧
+              HasDerivAt (XB k)
+                  (empiricalConfigurationField (sourceWeightedFeatureMap c p phi)
+                    (momentGradientField (fderiv ℝ (sourceWeightedFeatureMap c p phi)) (gradient G)) (XB k t))
+                  t ∧
+                HasDerivAt (YB k)
+                  (frozenMomentConfigurationField
+                    (momentGradientField (fderiv ℝ (sourceWeightedFeatureMap c p phi)) (gradient G))
+                    (∫ (z : EuclideanSpace ℝ (Fin d)),
+                      sourceWeightedFeatureMap c p phi z ∂Measure.map (fun w => ZB k w t) mu)
+                    (YB k t))
+                  t) :
+  SourceTrackingPaths mu J tau T B c p K D alpha A_sp phi G
+'PaperFormalization.Manuscript.sourceTrackingPathsOfClosedBranches' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceParticleUnflatten {N d : ℕ} (v : EuclideanSpace ℝ (Fin N × Fin d)) :
+  PiLp 2 fun x => EuclideanSpace ℝ (Fin d)
+'PaperFormalization.Manuscript.sourceParticleUnflatten' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.particleFlatten_sourceParticleUnflatten {N d : ℕ} (v : EuclideanSpace ℝ (Fin N × Fin d)) :
+  particleFlatten (sourceParticleUnflatten v) = v
+'PaperFormalization.Manuscript.particleFlatten_sourceParticleUnflatten' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceParticleUnflatten_particleFlatten {N d : ℕ}
+  (X : PiLp 2 fun x => EuclideanSpace ℝ (Fin d)) : sourceParticleUnflatten (particleFlatten X) = X
+'PaperFormalization.Manuscript.sourceParticleUnflatten_particleFlatten' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceParticleFlattenIsometry {N d : ℕ} :
+  (PiLp 2 fun x => EuclideanSpace ℝ (Fin d)) ≃ₗᵢ[ℝ] EuclideanSpace ℝ (Fin N × Fin d)
+'PaperFormalization.Manuscript.sourceParticleFlattenIsometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.sourceParticleFlatten_measurable {N d : ℕ} : Measurable particleFlatten
+'PaperFormalization.Manuscript.sourceParticleFlatten_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceParticleUnflatten_measurable {N d : ℕ} : Measurable sourceParticleUnflatten
+'PaperFormalization.Manuscript.sourceParticleUnflatten_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_matrixEuclideanOperator_eq_toEuclideanCLM.{u_1} {I : Type u_1} [Fintype I]
+  [DecidableEq I] (M : Matrix I I ℝ) : matrixEuclideanOperator M = Matrix.toEuclideanCLM M
+'PaperFormalization.Manuscript.source_matrixEuclideanOperator_eq_toEuclideanCLM' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_alignedCovarianceFactor_congr.{u_1} {I : Type u_1} [Fintype I] [DecidableEq I]
+  {M M' C C' : Matrix I I ℝ} (hM : M.IsHermitian) (hM' : M'.IsHermitian) (hm : M = M') (hc : C = C') :
+  alignedCovarianceFactor hM C = alignedCovarianceFactor hM' C'
+'PaperFormalization.Manuscript.source_alignedCovarianceFactor_congr' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceJumpViewMatrixMeasurable {N d : ℕ} :
+  MeasurableSpace (Matrix (Fin N × Fin d) (Fin N × Fin d) ℝ)
+'PaperFormalization.Manuscript.sourceJumpViewMatrixMeasurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceJumpViewMatrixBorel {N d : ℕ} :
+  BorelSpace (Matrix (Fin N × Fin d) (Fin N × Fin d) ℝ)
+'PaperFormalization.Manuscript.sourceJumpViewMatrixBorel' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.Manuscript.exists_source_original_jump_view.{u_1, u_2, u_3} {O : Type u_1} {S : Type u_2}
+  [MeasurableSpace O] [MeasurableSpace S] {N d : ℕ} {H : ℕ → Type u_3} [(n : ℕ) → NormedAddCommGroup (H n)]
+  [(n : ℕ) → InnerProductSpace ℝ (H n)] [∀ (n : ℕ), CompleteSpace (H n)] (c p K D alpha : ℝ)
+  (phi : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n) (G : ↥(lp H 2) → ℝ) (U : Set ↥(lp H 2)) (hU : IsOpen U)
+  (hSU : measureMomentRegion (sourceWeightedFeatureMap c p phi) (sourceMomentClass alpha K) D ⊆ U)
+  (hG : ContDiffOn ℝ 2 G U) (hN : 0 < N) (nu : Measure O) [IsProbabilityMeasure nu] (history : O → S)
+  (population : O → EuclideanSpace ℝ (Fin N × Fin d)) (hhistory : Measurable history)
+  (hpopulation : Measurable population) (popLaw : Kernel S (EuclideanSpace ℝ (Fin d))) [IsMarkovKernel popLaw]
+  (PopGood : Set S) (hPopGood : MeasurableSet PopGood)
+  (hclass : ∀ᵐ (h : S) ∂Measure.map history nu, h ∈ PopGood → popLaw h ∈ sourceMomentClass alpha K)
+  (X Y : S → PiLp 2 fun x => EuclideanSpace ℝ (Fin d)) (hX : Measurable X) (hY : Measurable Y) (eta : ℝ)
+  (heta : 0 ≤ eta) (hMX : Measurable fun h => sourceEmpiricalKernelFactor c p phi G (X h))
+  (hMY : Measurable fun h => sourceEmpiricalKernelFactor c p phi G (Y h))
+  (hCov :
+    Measurable fun h =>
+      populationGramCovariance (popLaw h) fun z =>
+        stackedKernelMatrix fun i =>
+          actualMomentKernelMatrix (sourceWeightedFeatureMap c p phi) G
+            (∫ (x : EuclideanSpace ℝ (Fin d)), sourceWeightedFeatureMap c p phi x ∂popLaw h) ((Y h).ofLp i) z)
+  (hSym : ∀ᵐ (h : S) ∂Measure.map history nu, (sourceEmpiricalKernelFactor c p phi G (Y h)).IsHermitian)
+  (hPos :
+    ∀ᵐ (h : S) ∂Measure.map history nu,
+      (populationGramCovariance (popLaw h) fun z =>
+          stackedKernelMatrix fun i =>
+            actualMomentKernelMatrix (sourceWeightedFeatureMap c p phi) G
+              (∫ (x : EuclideanSpace ℝ (Fin d)), sourceWeightedFeatureMap c p phi x ∂popLaw h) ((Y h).ofLp i)
+              z).PosSemidef)
+  (hGaussian :
+    ∀ᵐ (h : S) ∂Measure.map history nu,
+      (condDistrib population history nu) h =
+        multivariateGaussian 0
+          (populationGramCovariance (popLaw h) fun z =>
+            stackedKernelMatrix fun i =>
+              actualMomentKernelMatrix (sourceWeightedFeatureMap c p phi) G
+                (∫ (x : EuclideanSpace ℝ (Fin d)), sourceWeightedFeatureMap c p phi x ∂popLaw h) ((Y h).ofLp i) z)) :
+  have normal := stdGaussian (EuclideanSpace ℝ (Fin N × Fin d));
+  ∃ view,
+    view.κ = popLaw ∧
+      view.PopGood = PopGood ∧
+        view.X = X ∧
+          view.Y = Y ∧
+            view.eta = eta ∧
+              (view.observation = fun z => (history z.1, population z.1, z.2)) ∧
+                (Measurable fun z => view.seed z.1 z.2) ∧
+                  (∀ᵐ (h : S) ∂Measure.map history nu, Measure.map (view.seed h) (view.k h) = normal) ∧
+                    (∀ (h : S) (z : EuclideanSpace ℝ (Fin N × Fin d) × EuclideanSpace ℝ (Fin N × Fin d)),
+                        particleFlatten (view.Ypost h z) = particleFlatten (Y h) + eta • z.1) ∧
+                      (∀ (h : S) (z : EuclideanSpace ℝ (Fin N × Fin d) × EuclideanSpace ℝ (Fin N × Fin d)),
+                          particleFlatten (view.Xpost h z) =
+                            particleFlatten (X h) +
+                              eta •
+                                (matrixEuclideanOperator (sourceEmpiricalKernelFactor c p phi G (X h)))
+                                  (view.seed h z)) ∧
+                        Measure.map (fun z => (history z.1, view.seed (view.observation z).1 (view.observation z).2))
+                            (nu.prod normal) =
+                          (Measure.map history nu).prod normal
+'PaperFormalization.Manuscript.exists_source_original_jump_view' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.exists_source_original_reference_gamma_event.{u_1, u_2, u_3, u_4} {O : Type u_1}
+  {Env : Type u_2} {Seed : Type u_3} [MeasurableSpace O] [MeasurableSpace Env] [MeasurableSpace Seed] {H : ℕ → Type u_4}
+  [(n : ℕ) → NormedAddCommGroup (H n)] [(n : ℕ) → InnerProductSpace ℝ (H n)] [∀ (n : ℕ), CompleteSpace (H n)]
+  (L N d : ℕ) (nu : Measure O) [IsProbabilityMeasure nu] (mu0 : Measure Seed) [IsProbabilityMeasure mu0]
+  (environment : O → Env) (initial : Fin N → O → Seed) (henv : Measurable environment)
+  (hinit : ∀ (i : Fin N), Measurable (initial i)) (hiid : iIndepFun initial nu)
+  (hind : environment ⟂ᵢ[nu] fun w i => initial i w) (hlaw : ∀ (i : Fin N), Measure.map (initial i) nu = mu0)
+  (hN : 0 < N) (a b : Fin (L + 1) → ℝ) (hab : ∀ (j : Fin (L + 1)), a j ≤ b j) (T : ℝ)
+  (hlen : ∀ (j : Fin (L + 1)), b j - a j ≤ T) (B : ℝ≥0) (Phi : Env → Seed → SourceReferencePathSpace L d a b)
+  (hPhi : Measurable fun z => Phi z.1 z.2) (PopGood : Set Env) (hPopGood : MeasurableSet PopGood) (Model : O → Prop)
+  (hModel : ∀ᵐ (w : O) ∂nu, Model w) (c pDecay : ℝ) (Lfield : ℝ≥0) (hc : 0 < c) (hpDecay : 1 < pDecay)
+  (C g q alpha K D c0 K0 M : ℝ) (hq : q < pDecay) (hC : 0 ≤ C) (hK : 0 < K) (hD : 1 ≤ D) (hc0 : 0 ≤ c0) (hK0 : 0 < K0)
+  (halpha : 0 ≤ alpha) (phi : (n : ℕ) → EuclideanSpace ℝ (Fin d) → H n) (hphi : ∀ (n : ℕ), ContDiff ℝ 1 (phi n))
+  (hvalue : ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)), ‖phi n z‖ ≤ featureGrowth C g q n * (1 + ‖z‖ ^ (n + 1)))
+  (hderiv : ∀ (n : ℕ) (z : EuclideanSpace ℝ (Fin d)), ‖fderiv ℝ (phi n) z‖ ≤ featureGrowth C g q n * (1 + ‖z‖ ^ n))
+  (hpop :
+    ∀ᵐ (h : Env) ∂Measure.map environment nu,
+      h ∈ PopGood →
+        (∀ᵐ (v : SourceReferencePathSpace L d a b) ∂(characteristicKernel mu0 Phi) h,
+            v ∈ sourceReferencePathLipschitz B) ∧
+          ∀ (j : Fin (L + 1)),
+            ∀ t ∈ Icc (a j) (b j),
+              Measure.map (fun v => sourceReferencePathEval v j t) ((characteristicKernel mu0 Phi) h) ∈
+                  sourceMomentClass alpha K ∧
+                Integrable (fun z => Real.exp (c0 * (‖z‖ / K0) ^ alpha))
+                    (Measure.map (fun v => sourceReferencePathEval v j t) ((characteristicKernel mu0 Phi) h)) ∧
+                  ∫ (z : EuclideanSpace ℝ (Fin d)),
+                      Real.exp
+                        (c0 *
+                          (‖z‖ / K0) ^
+                            alpha) ∂Measure.map (fun v => sourceReferencePathEval v j t)
+                        ((characteristicKernel mu0 Phi) h) ≤
+                    M)
+  (p : ℝ) (hp : 0 < p) (hp1 : p < 1) :
+  have A := 2 * ∑' (n : ℕ), ↑(featureResidualWeight c pDecay Lfield n) * (featureGrowth C g q n * (1 + D ^ (n + 1)));
+  have Lambda := ∑' (n : ℕ), ↑(featureResidualWeight c pDecay Lfield n) * (featureGrowth C g q n * (1 + 2 * D ^ n));
+  have S := ∑' (n : ℕ), ↑(featureResidualWeight c pDecay Lfield n) * sourceCoordinateL2Envelope C g q alpha K n;
+  have beta := 2 * S * √M * Real.exp (-(c0 * (D / K0) ^ alpha) / 2);
+  have Q := ↑(L + 1) * ↑(N + 1);
+  ∃ Good,
+    MeasurableSet Good ∧
+      nu.real Goodᶜ ≤ p ∧
+        ∀ w ∈ Good,
+          Model w ∧
+            (environment w ∈ PopGood →
+              (∀ (j : Fin (L + 1)),
+                  ∀ t ∈ Icc (a j) (b j),
+                    ∀ (i : Fin N), ‖sourceReferencePathEval (Phi (environment w) (initial i w)) j t‖ ≤ D) →
+                ∀ (j : Fin (L + 1)),
+                  ∀ t ∈ Icc (a j) (b j),
+                    (∀ (n : ℕ), Integrable (fun u => phi n (sourceReferencePathEval (Phi (environment w) u) j t)) mu0) ∧
+                      (weightedSampleResidual (featureResidualWeight c pDecay Lfield) phi
+                          (fun n => ∫ (u : Seed), phi n (sourceReferencePathEval (Phi (environment w) u) j t) ∂mu0)
+                          fun i => sourceReferencePathEval (Phi (environment w) (initial i w)) j t) ≤
+                        beta + A / √↑N + A * √(Real.log (Q / p) / (2 * ↑N)) + 2 * ↑B * T * Lambda / ↑N)
+'PaperFormalization.Manuscript.exists_source_original_reference_gamma_event' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_scheduled_covariance_identifications.{u_1, u_2, u_3, u_4} {O : Type u_1}
+  {Env : Type u_2} {W : Type u_3} {Aux : Type u_4} [MeasurableSpace O] [MeasurableSpace Env] [MeasurableSpace W]
+  [MeasurableSpace Aux] {N d : ℕ} (nu : Measure O) [IsProbabilityMeasure nu] (mu0 : Measure (EuclideanSpace ℝ (Fin d)))
+  [IsProbabilityMeasure mu0] (environment : O → Env) (initial : Fin N → O → EuclideanSpace ℝ (Fin d))
+  (henv : Measurable environment) (hinit : ∀ (i : Fin N), Measurable (initial i)) (hiid : iIndepFun initial nu)
+  (hind : environment ⟂ᵢ[nu] fun w i => initial i w) (hlaw : ∀ (i : Fin N), Measure.map (initial i) nu = mu0)
+  (tau : ℕ → ℝ) (flow : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (jump : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hflow : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flow n z.1 t z.2)
+  (hjump : ∀ (n : ℕ), Measurable fun z => jump n z.1.1 z.1.2 z.2) (n : ℕ) (past : Env → Fin n → W)
+  (hpast : Measurable past) (alpha scale : ℝ) (halpha : 0 < alpha) (hscale : 0 < scale) :
+  ∃ view,
+    ∀ (w : O) (aux : Aux),
+      (view.X (view.observation w) = fun i =>
+          sourceReferenceBranch tau flow jump n (past (environment w)) (initial i w) (tau (n + 1))) ∧
+        view.κ (view.observation w).1 = (sourceFullHistoryPreLaw mu0 tau flow jump n) (past (environment w), aux) ∧
+          view.κ (view.observation w).1 =
+              Measure.map (fun u => sourceReferenceBranch tau flow jump n (past (environment w)) u (tau (n + 1))) mu0 ∧
+            ((view.observation w).1 ∈ view.PopGood ↔
+              (past (environment w), aux) ∈
+                populationExponentialEligibility (sourceFullHistoryPreLaw mu0 tau flow jump n) alpha scale)
+'PaperFormalization.Manuscript.source_scheduled_covariance_identifications' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.sourceFullHistoryPreLaw_properties.{u_3, u_4} {W : Type u_3} {Aux : Type u_4}
+  [MeasurableSpace W] [MeasurableSpace Aux] {d : ℕ} (mu0 : Measure (EuclideanSpace ℝ (Fin d)))
+  [IsProbabilityMeasure mu0] (tau : ℕ → ℝ)
+  (flow : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (jump : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hflow : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flow n z.1 t z.2)
+  (hjump : ∀ (n : ℕ), Measurable fun z => jump n z.1.1 z.1.2 z.2) (n : ℕ) :
+  IsMarkovKernel (sourceFullHistoryPreLaw mu0 tau flow jump n) ∧
+    ∀ (h : (Fin n → W) × Aux),
+      (sourceFullHistoryPreLaw mu0 tau flow jump n) h = Measure.map (sourceReferencePre tau flow jump n h.1) mu0
+'PaperFormalization.Manuscript.sourceFullHistoryPreLaw_properties' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.Manuscript.source_causal_population_event_implies_eligibility.{u_1, u_2, u_3, u_4} {O : Type u_1}
+  {Env : Type u_2} {W : Type u_3} {Aux : Type u_4} [MeasurableSpace O] [MeasurableSpace Env] [MeasurableSpace W]
+  [MeasurableSpace Aux] {d : ℕ} (mu0 : Measure (EuclideanSpace ℝ (Fin d))) [IsProbabilityMeasure mu0] (tau : ℕ → ℝ)
+  (flow : (n : ℕ) → (Fin n → W) → ℝ → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (jump : (n : ℕ) → (Fin n → W) → W → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d))
+  (hflow : ∀ (n : ℕ) (t : ℝ), Measurable fun z => flow n z.1 t z.2)
+  (hjump : ∀ (n : ℕ), Measurable fun z => jump n z.1.1 z.1.2 z.2) (n : ℕ) (environment : O → Env)
+  (past : Env → Fin n → W) (extra : O → Aux) (alpha scale : ℝ) (Good : Set O)
+  (hmoment :
+    ∀ w ∈ Good,
+      ∫⁻ (x : EuclideanSpace ℝ (Fin d)),
+          ENNReal.ofReal
+            (Real.exp
+              ((‖x‖ / scale) ^ alpha)) ∂Measure.map (sourceReferencePre tau flow jump n (past (environment w))) mu0 ≤
+        2)
+  (w : O) :
+  w ∈ Good →
+    (past (environment w), extra w) ∈
+      populationExponentialEligibility (sourceFullHistoryPreLaw mu0 tau flow jump n) alpha scale
+'PaperFormalization.Manuscript.source_causal_population_event_implies_eligibility' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

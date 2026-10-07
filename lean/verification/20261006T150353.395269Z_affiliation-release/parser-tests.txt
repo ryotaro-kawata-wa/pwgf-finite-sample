@@ -1,0 +1,8 @@
+test_duplicate_records_cannot_hide_dependencies (test_verify.AxiomAuditRegressionTests) ... ok
+test_missing_extra_and_forbidden_records (test_verify.AxiomAuditRegressionTests) ... ok
+test_valid_records_and_multiline_axioms (test_verify.AxiomAuditRegressionTests) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

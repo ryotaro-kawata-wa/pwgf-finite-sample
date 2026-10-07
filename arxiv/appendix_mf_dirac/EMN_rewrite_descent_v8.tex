@@ -1,0 +1,827 @@
+
+\subsection{Descent direction to escape the saddle point on the antisymmetric branch}
+\label{subsec:descent-direction-to-escape}
+
+This subsection uses the transverse teacher imbalance (\cref{assumption:quantitative-unweighted-two-sided-transverse-imbalance}) to construct a
+same-density perturbation that escapes from the antipodal saddle.
+
+The imbalance assumption says that the teacher has a coherent first-order
+transverse bias across two-sided latitude slices around the antipodal axis. Here we show that this bias is visible to the active odd Hermite features, and
+therefore produces a same-density tangent direction that decreases the fitting
+loss to second order at the antipodal Dirac point.
+
+\begin{remark}[Comparison with the zero-output saddle argument of \citet{yamamoto2025hessianguided}]
+    The algebraic mechanism is the same as the known zero-output saddle calculation in
+the matrix-decomposition example (Proposition G.1 in \citet{yamamoto2025hessianguided}): when the
+student output vanishes, a perturbation that creates a first-order feature
+\(g\) changes the product output only at order \(h^2\), producing the quadratic
+cross term
+\[
+    -\E_z[(h^o(z)^\top g(z))^2].
+\]
+However, the affine mixture curve used there does not preserve our product
+spherical ansatz.  We therefore rebuild the argument
+with a Dirac-supported spherical tangent perturbation at the antipodal pair.
+The transverse imbalance assumption is precisely the condition ensuring that one such tangent feature is visible to the teacher.
+\end{remark}
+
+The first step turns the sliced transverse imbalance assumption into a nonzero active-weighted transverse teacher moment.
+
+\begin{lemma}[Quantitative control of the active-weighted transverse moment]
+\label{lem:quantitative-control-weighted-transverse-moment}
+\textbf{Assumptions used.}
+\cref{def:two-sided-transverse-teacher-moment-measure} and 
+\cref{assumption:quantitative-unweighted-two-sided-transverse-imbalance}.
+
+Set \(a=a_\star\), the anchor in that imbalance assumption.  Define
+\[
+    \kappa_{\mathcal O}(r)
+    \coloneq
+    \frac12
+    \sum_{n\in\mathcal O}
+    n\|a_n\|_2^2 r^{n-1},
+    \qquad r\in[0,1].
+\]
+Assume at least one active coefficient \(\|a_n\|_2\) is nonzero.  Since every
+\(n\in\mathcal O\) is odd,
+\[
+    \kappa_{\mathcal O}(r)>0
+    \qquad
+    \forall r\in(0,1].
+\]
+Let
+\[
+    b_a^o
+    \coloneq
+    \int_{\Sphere^{d_w-1}}
+    \kappa_{\mathcal O}(|a^\top w|)
+    \Pi_{a^\perp}w
+    \,\dd\nu^o(w)
+    \in a^\perp .
+\]
+Equivalently,
+\[
+    b_a^o
+    =
+    \int_{[0,1]}
+    \kappa_{\mathcal O}(r)\,\dd\mathfrak m_a^o(r).
+\]
+Define
+\[
+    \kappa_{\min}(r_{\mathrm{vis}})
+    \coloneq
+    \inf_{r\in[r_{\mathrm{vis}},1]}
+    \kappa_{\mathcal O}(r).
+\]
+Then
+\[
+    \kappa_{\min}(r_{\mathrm{vis}})>0
+\]
+and
+\[
+    \|b_a^o\|
+    \ge
+    \langle e_\star,b_a^o\rangle
+    \ge
+    \kappa_{\min}(r_{\mathrm{vis}})\gamma_\perp.
+\]
+In particular,
+\[
+    b_a^o\neq0.
+\]
+\end{lemma}
+
+\begin{proof}
+We first rewrite the weighted transverse moment using the latitude
+disintegration.  By
+\cref{def:two-sided-transverse-teacher-moment-measure}, for every bounded
+Borel function \(\psi:[0,1]\to\mathbb R\),
+\[
+    \int_{\Sphere^{d_w-1}}
+    \psi(r_a(w))\Pi_{a^\perp}w\,\dd\nu^o(w)
+    =
+    \int_{[0,1]}
+    \psi(r)\,\dd\mathfrak m_a^o(r).
+\]
+Taking
+\[
+    \psi(r)=\kappa_{\mathcal O}(r)
+\]
+gives
+\[
+    b_a^o
+    =
+    \int_{[0,1]}
+    \kappa_{\mathcal O}(r)\,\dd\mathfrak m_a^o(r).
+\]
+Therefore,
+\[
+    \langle e_\star,b_a^o\rangle
+    =
+    \int_{[0,1]}
+    \kappa_{\mathcal O}(r)\,
+    \dd\mathfrak m_{a,e_\star}^o(r).
+\]
+
+Next, since every \(n\in\mathcal O\) is odd, \(n-1\) is even.  Hence
+\[
+    r^{n-1}>0
+    \qquad
+    \forall r\in(0,1]
+\]
+for every active degree \(n\).  Because at least one active coefficient is
+nonzero,
+\[
+    \kappa_{\mathcal O}(r)>0
+    \qquad
+    \forall r\in(0,1].
+\]
+Since \(r_{\mathrm{vis}}\in(0,1)\) and \(\kappa_{\mathcal O}\) is continuous,
+\[
+    \kappa_{\min}(r_{\mathrm{vis}})
+    =
+    \inf_{r\in[r_{\mathrm{vis}},1]}
+    \kappa_{\mathcal O}(r)
+    >0.
+\]
+
+By
+\cref{assumption:quantitative-unweighted-two-sided-transverse-imbalance},
+\(\mathfrak m_{a,e_\star}^o\) is a positive finite measure on \([0,1]\).
+Thus
+\[
+    \langle e_\star,b_a^o\rangle
+    =
+    \int_{[0,1]}
+    \kappa_{\mathcal O}(r)\,
+    \dd\mathfrak m_{a,e_\star}^o(r)
+    \ge
+    \int_{[r_{\mathrm{vis}},1]}
+    \kappa_{\mathcal O}(r)\,
+    \dd\mathfrak m_{a,e_\star}^o(r).
+\]
+Using the definition of \(\kappa_{\min}(r_{\mathrm{vis}})\), we obtain
+\[
+    \int_{[r_{\mathrm{vis}},1]}
+    \kappa_{\mathcal O}(r)\,
+    \dd\mathfrak m_{a,e_\star}^o(r)
+    \ge
+    \kappa_{\min}(r_{\mathrm{vis}})
+    \mathfrak m_{a,e_\star}^o([r_{\mathrm{vis}},1]).
+\]
+The quantitative strict imbalance gives
+\[
+    \mathfrak m_{a,e_\star}^o([r_{\mathrm{vis}},1])
+    \ge
+    \gamma_\perp.
+\]
+Consequently,
+\[
+    \langle e_\star,b_a^o\rangle
+    \ge
+    \kappa_{\min}(r_{\mathrm{vis}})\gamma_\perp.
+\]
+Finally, since \(\|e_\star\|=1\),
+\[
+    \|b_a^o\|
+    \ge
+    \langle e_\star,b_a^o\rangle.
+\]
+This proves the claim.
+\end{proof}
+
+We next encode how a tangent displacement of the antipodal atoms is seen by the
+teacher feature.
+
+\begin{definition}[Tangential visibility matrix at an antipodal Dirac pair]
+\label{def:tangential-visibility-matrix-dirac-pair}
+Let
+\[
+    \nu_a^\pm
+    \coloneq
+    \frac12\delta_a+\frac12\delta_{-a}.
+\]
+For \(s\in a^\perp\), define the Dirac-supported active differential
+\[
+    \mathcal U_a(s)_n
+    \coloneq
+    \frac n2
+    \sym{a^{\otimes(n-1)}\otimes s},
+    \qquad n\in\mathcal O.
+\]
+Let \(g_{a,s}\) be the corresponding first-order student feature,
+\begin{equation}
+\label{eq:mf-visibility-first-order-feature}
+ g_{a,s}(z):=\sum_{n\in\mathcal O}a_n
+       \langle\Hertensor_n(z),\mathcal U_a(s)_n\rangle_{\rm HS}.
+\end{equation}
+This uses the finite expansion in \eqref{eq:activation-moment-expansion}.
+Recall the teacher from \cref{assumption:odd-symmetric-teacher}:
+\[
+ h^o(z)=h_{\nu^o}(z)
+ =\sum_{n\in\mathcal O}a_n\langle\Hertensor_n(z),T_n^o\rangle_{\rm HS},
+ \qquad T_n^o=\int w^{\otimes n}\,d\nu^o(w).
+\]
+Equivalently, define the linear map
+\[
+    J_a(z):a^\perp\to\mathbb R^{d_h},
+    \qquad
+    J_a(z)s=g_{a,s}(z).
+\]
+For the teacher feature \(h^o\), define the positive semidefinite operator
+on \(a^\perp\)
+\[
+    \mathsf B_a^o
+    \coloneq
+    \E_z
+    \left[
+        J_a(z)^\top h^o(z)h^o(z)^\top J_a(z)
+    \right].
+\]
+We say that the teacher is tangentially visible at the antipodal pair
+\(\{\pm a\}\) if
+\[
+    \lambda_{\max}(\mathsf B_a^o)>0.
+\]
+\end{definition}
+
+The nonzero transverse teacher moment implies that some tangent direction has
+nonzero correlation with the teacher output.
+
+\begin{lemma}[Active-weighted transverse moment implies tangential visibility]
+\label{lem:active-weighted-transverse-moment-implies-visibility}
+\textbf{Assumptions used.}
+\cref{assumption:on-sphere,assumption:odd-symmetric-teacher},
+together with
+\cref{def:tangential-visibility-matrix-dirac-pair}.
+
+Let
+\[
+    b_a^o
+    \coloneq
+    \int_{\Sphere^{d_w-1}}
+    \kappa_{\mathcal O}(|a^\top w|)
+    \Pi_{a^\perp}w
+    \,\dd\nu^o(w).
+\]
+Then
+\[
+    \mathsf B_a^o
+    \succeq
+    b_a^o(b_a^o)^\top.
+\]
+Consequently,
+\[
+    \lambda_{\max}(\mathsf B_a^o)
+    \ge
+    \|b_a^o\|^2.
+\]
+In particular, if \(b_a^o\neq0\), then the teacher is tangentially visible at
+\(\{\pm a\}\).
+\end{lemma}
+
+\begin{proof}
+For \(s\in a^\perp\), Hermite orthogonality gives
+\[
+    \E_z\bigl[g_{a,s}(z)^\top h^o(z)\bigr]
+    =
+    \sum_{n\in\mathcal O}
+    \|a_n\|_2^2
+    \left\langle
+        \mathcal U_a(s)_n,T_n^o
+    \right\rangle_{\HS}.
+\]
+By the definition of \(\mathcal U_a(s)\),
+\[
+    \left\langle
+        \mathcal U_a(s)_n,T_n^o
+    \right\rangle_{\HS}
+    =
+    \frac n2
+    \left\langle
+        \sym{a^{\otimes(n-1)}\otimes s},
+        T_n^o
+    \right\rangle_{\HS}.
+\]
+Since \(T_n^o\) is symmetric,
+\[
+    \left\langle
+        \sym{a^{\otimes(n-1)}\otimes s},
+        T_n^o
+    \right\rangle_{\HS}
+    =
+    \left\langle
+        s,
+        T_n^o\contr{n-1}a^{\otimes(n-1)}
+    \right\rangle.
+\]
+Using
+\[
+    T_n^o
+    =
+    \int_{\Sphere^{d_w-1}} w^{\otimes n}\,\dd\nu^o(w),
+\]
+and \(s\in a^\perp\), we obtain
+\[
+    \left\langle
+        s,
+        T_n^o\contr{n-1}a^{\otimes(n-1)}
+    \right\rangle
+    =
+    \int_{\Sphere^{d_w-1}}
+    (a^\top w)^{n-1}
+    \langle s,\Pi_{a^\perp}w\rangle
+    \,\dd\nu^o(w).
+\]
+Since \(n\) is odd, \(n-1\) is even, hence
+\[
+    (a^\top w)^{n-1}
+    =
+    |a^\top w|^{n-1}.
+\]
+Therefore
+\[
+    \E_z\bigl[g_{a,s}(z)^\top h^o(z)\bigr]
+    =
+    \left\langle s,b_a^o\right\rangle.
+\]
+
+Set
+\[
+    X(z)\coloneq J_a(z)^\top h^o(z)\in a^\perp.
+\]
+Then
+\[
+    \mathsf B_a^o=\E_z[X(z)X(z)^\top],
+    \qquad
+    \E_z[X(z)]=b_a^o.
+\]
+By Jensen's inequality in the Loewner order,
+\[
+    \mathsf B_a^o
+    =
+    \E_z[X(z)X(z)^\top]
+    \succeq
+    \E_z[X(z)]\E_z[X(z)]^\top
+    =
+    b_a^o(b_a^o)^\top.
+\]
+Thus
+\[
+    \lambda_{\max}(\mathsf B_a^o)\ge\|b_a^o\|^2.
+\]
+\end{proof}
+
+Finally, the visible tangent direction yields a same-density perturbation with negative second-order fitting curvature at the antipodal saddle.
+The proposition is an existence statement for a negative-curvature direction.
+It does not by itself prove that the Hessian-guided perturbation selects this
+particular same-density direction; that selection issue belongs to the
+perturbation analysis rather than to the geometric verification.
+
+\begin{proposition}[Dirac-supported transverse descent from unweighted transverse imbalance]
+\label{lemma:descent-direction-antipodal-dirac-from-unweighted-imbalance}
+\textbf{Assumptions used.}
+\cref{assumption:on-sphere,assumption:odd-symmetric-teacher,assumption:quantitative-unweighted-two-sided-transverse-imbalance}.
+
+Assume \(\mathcal O\ne\varnothing\).  Set \(a=a_\star\), so that the
+perturbed Dirac pair is the fixed regularizer target.  Let
+\[
+    \nu_a^\pm
+    \coloneq
+    \frac12\delta_a+\frac12\delta_{-a},
+    \qquad
+    \mu^\dagger
+    \coloneq
+    \nu_a^\pm\otimes\nu_a^\pm.
+\]
+By                                                                      
+\cref{lem:quantitative-control-weighted-transverse-moment},
+\cref{lem:active-weighted-transverse-moment-implies-visibility},
+\[
+    \gamma_{\mathrm{esc}}
+    \coloneq
+    \lambda_{\max}(\mathsf B_a^o)
+    \ge
+    \kappa_{\min}(r_{\rm vis})^2\gamma_{\perp}^2
+    >0.
+\]
+Let \(s_\star\in a^\perp\) be a unit eigenvector associated with
+\(\gamma_{\mathrm{esc}}\).
+Then there exists a same-density spherical
+pushforward perturbation
+\[
+    \mu_h=\mu_{1,h}\otimes\mu_{2,h},
+    \qquad
+    \mu_{1,h}=\mu_{2,h},
+    \qquad
+    \mu_{i,0}=\nu_a^\pm,
+\]
+such that
+\[
+    \frac{\dd}{\dd h}\Big|_{h=0}F(\mu_h)=0
+\]
+and
+\[
+    F(\mu_h)
+    =
+    F(\mu^\dagger)
+    -
+    h^2\gamma_{\mathrm{esc}}
+    +
+    o(h^2).
+\]
+In particular,
+\[
+    \frac{\dd^2}{\dd h^2}\Big|_{h=0}F(\mu_h)
+    =
+    -2\gamma_{\mathrm{esc}}<0.
+\]
+Moreover, for the metric regularizer
+\[
+    F_{\mathrm{reg}}(\mu_1,\mu_2)
+    =
+    \frac{\lambdaReg}{p_W}
+    Z_\pm(\mu_1,\mu_2)^{p_W/2},
+    \qquad
+    p_W=2+\delta_W,
+\]
+one has
+\[
+    F_{\mathrm{reg}}(\mu_h)=O(|h|^{2+\delta_W})=o(h^2).
+\]
+Thus the metric regularizer does not affect the quadratic descent term at
+the antipodal Dirac saddle.
+\end{proposition}
+
+\begin{proof}
+\noindent\textbf{Step 1: compute the moments at the antipodal pair.}
+We first compute the active odd moments at the antipodal Dirac pair.  For
+every odd \(n\in\mathcal O\),
+\[
+    T_n(\nu_a^\pm)
+    =
+    \frac12 a^{\otimes n}
+    +
+    \frac12(-a)^{\otimes n}
+    =
+    0.
+\]
+Therefore
+\[
+    \Theta(\mu^\dagger)=(0,0).
+\]
+
+
+\par\noindent\textbf{Step 2: construct the visible spherical perturbation.}
+
+Recall that
+\[
+ a^\perp
+ =\{s\in\mathbb R^{d_w}:\langle s,a\rangle_{\mathbb R^{d_w}}=0\}
+ =T_a\Sphere^{d_w-1}=T_{-a}\Sphere^{d_w-1},
+ \qquad
+ \Pi_{a^\perp}=I-aa^\top,
+\]
+where the projection is the one used in
+\cref{def:two-sided-transverse-teacher-moment-measure}.  Thus the visible
+unit vector \(s_\star\in a^\perp\) from the statement is a common tangent
+direction at both poles.  Set
+\begin{equation}
+\label{eq:mf-visible-tangent-field}
+ v(w):=\frac12(I-ww^\top)s_\star,\qquad
+ u_+:=v(a)=\frac{s_\star}{2},\qquad
+ u_-:=v(-a)=\frac{s_\star}{2}.
+\end{equation}
+Indeed, \(w^\top v(w)=0\), so \(v(w)\in T_w\Sphere^{d_w-1}\).
+Moreover, substituting \(w=a\) and \(w=-a\) and using
+\(a^\top s_\star=0\) gives
+\[
+ v(a)=\tfrac12(I-aa^\top)s_\star=\tfrac12s_\star,
+ \qquad
+ v(-a)=\tfrac12(I-aa^\top)s_\star=\tfrac12s_\star.
+\]
+Hence the two atoms move in the same ambient transverse direction and
+\(u_++u_-=s_\star\).  The factor \(1/2\) in \(v\) compensates for the
+two atom masses \(1/2\), so that their summed first-order moment change is
+exactly the differential \(\mathcal U_a(s_\star)\) defined in
+\cref{def:tangential-visibility-matrix-dirac-pair}.
+Use it in both marginals and define
+\(\mu_{1,h}=\mu_{2,h}:=(R_h)_\#\nu_a^\pm\), where, for
+\(w\in\{\pm a\}\),
+\[
+    R_h(w)=\frac{w+h v(w)}{\|w+h v(w)\|}.
+\]
+Since \(v(w)\in T_w\Sphere^{d_w-1}\), we have \(w^\top v(w)=0\), and hence
+\[
+    \frac{\dd}{\dd h}\Big|_{h=0}R_h(w)=v(w).
+\]
+Thus
+\[
+    \frac{\dd}{\dd h}\Big|_{h=0}R_h(w)^{\otimes n}
+    =
+    n\,\sym{w^{\otimes(n-1)}\otimes v(w)}.
+\]
+Consequently,
+\begin{align}
+    \dot T_n[v]
+    &\coloneq
+    \frac{\dd}{\dd h}\Big|_{h=0}T_n((R_h)_\#\nu_a^\pm)
+    \\
+    &=
+    \frac n2
+    \sym{a^{\otimes(n-1)}\otimes u_+}
+    +
+    \frac n2
+    \sym{(-a)^{\otimes(n-1)}\otimes u_-}.
+\end{align}
+Because \(n\) is odd, \(n-1\) is even, and therefore
+\[
+    (-a)^{\otimes(n-1)}=a^{\otimes(n-1)}.
+\]
+Hence
+\[
+    \dot T_n[v]
+    =
+    \frac n2
+    \sym{a^{\otimes(n-1)}\otimes(u_++u_-)}
+    =
+    \frac n2
+    \sym{a^{\otimes(n-1)}\otimes s_\star}
+    =
+    \mathcal U_a(s_\star)_n.
+\]
+Since \(\mu_{1,h}=\mu_{2,h}\), we have
+\[
+    \dot{\mathbf S}[v]
+    =
+    \frac{\dot{\mathbf T}_1[v]+\dot{\mathbf T}_2[v]}{2}
+    =
+    \mathcal U_a(s_\star),
+    \qquad
+    \dot{\mathbf A}[v]
+    =
+    \frac{\dot{\mathbf T}_1[v]-\dot{\mathbf T}_2[v]}{2}
+    =
+    0.
+\]
+Thus this path leaves the active origin in the symmetric coordinate
+\(\mathbf S\) with velocity \(\mathcal U_a(s_\star)\), while its
+anti-symmetric coordinate \(\mathbf A\) remains zero.
+
+
+\par\noindent\textbf{Step 3: expand the fitting term.}
+Now we compute the model block.  By the active Hermite product formula,
+\[
+    \widetilde{\mathcal M}_p(\mathbf S,\mathbf A)
+    =
+    \sum_{\substack{
+        n,m\in\mathcal O\\
+        0\le r\le \min(n,m)\\
+        p=n+m-2r
+    }}
+    c_{n,m,r}(a_na_m^\top)
+    \otimes
+    \sym{
+        (S_n+A_n)\contr{r}(S_m-A_m)
+    }.
+\]
+Along the same-density perturbation above,
+\[
+    \mathbf A(h)=0
+\]
+for every \(h\). The normalized atom maps constructed from the field in
+\cref{eq:mf-visible-tangent-field} are smooth near $h=0$, so their finitely
+many tensor moments are $C^2$ in $h$. Step 1 gives
+$\mathbf S(0)=0$, and the derivative calculation in Step 2 gives
+$\dot{\mathbf S}(0)=\mathcal U_a(s_\star)$. Taylor's formula therefore gives
+\[
+    \mathbf S(h)
+    =
+    h\,\mathcal U_a(s_\star)+O(h^2).
+\]
+Therefore
+\begin{align}
+    \widetilde{\mathcal M}_p(\Theta(\mu_h))
+    &=
+    \widetilde{\mathcal M}_p(\mathbf S(h),0)
+    \\
+    &=
+    \sum_{\substack{
+        n,m\in\mathcal O\\
+        0\le r\le \min(n,m)\\
+        p=n+m-2r
+    }}
+    c_{n,m,r}(a_na_m^\top)
+    \otimes
+    \sym{S_n(h)\contr{r}S_m(h)}
+    \\
+    &=
+    h^2
+    \underbrace{\sum_{\substack{
+        n,m\in\mathcal O\\
+        0\le r\le \min(n,m)\\
+        p=n+m-2r
+    }}
+    c_{n,m,r}(a_na_m^\top)
+    \otimes
+    \sym{
+        \mathcal U_a(s_\star)_n
+        \contr{r}
+        \mathcal U_a(s_\star)_m
+    }}_{\eqqcolon  \mathcal Q_{p,+}(\mathcal U_a(s_\star))}
+    +
+    o(h^2).
+\end{align}
+
+We now expand the fitting term.  Recall that
+\[
+    F_{\mathrm{fit}}(\mu_h)
+    =
+    \frac12
+    \sum_{p\ge0}
+    \left\|
+        \widetilde{\mathcal M}_p(\Theta(\mu_h))
+        -
+        \mathcal M_p^o
+    \right\|_{\HS}^2.
+\]
+Using
+\[
+    \widetilde{\mathcal M}_p(\Theta(\mu_h))
+    =
+    h^2\mathcal Q_{p,+}(\mathcal U_a(s_\star))
+    +
+    o(h^2),
+\]
+we get
+\begin{align}
+    \frac12
+    \left\|
+        \widetilde{\mathcal M}_p(\Theta(\mu_h))
+        -
+        \mathcal M_p^o
+    \right\|_{\HS}^2
+    &=
+    \frac12
+    \left\|
+        -\mathcal M_p^o
+        +
+        h^2\mathcal Q_{p,+}(\mathcal U_a(s_\star))
+        +
+        o(h^2)
+    \right\|_{\HS}^2
+    \\
+    &=
+    \frac12\|\mathcal M_p^o\|_{\HS}^2
+    -
+    h^2
+    \left\langle
+        \mathcal Q_{p,+}(\mathcal U_a(s_\star)),
+        \mathcal M_p^o
+    \right\rangle_{\HS}
+    +
+    o(h^2).
+\end{align}
+Summing over \(p\ge0\) proves
+\[
+    F_{\mathrm{fit}}(\mu_h)
+    =
+    F_{\mathrm{fit}}(\mu^\dagger)
+    -
+    h^2
+    \sum_{p\ge0}
+    \left\langle
+        \mathcal Q_{p,+}(\mathcal U_a(s_\star)),
+        \mathcal M_p^o
+    \right\rangle_{\HS}
+    +
+    o(h^2).
+\]
+
+
+\par\noindent\textbf{Step 4: identify the visibility coefficient.}
+It remains to identify the escape coefficient with the visibility matrix.
+Use the first-order student feature $g_{a,s}(z)$ defined by the finite
+Hermite sum in \eqref{eq:mf-visibility-first-order-feature}.
+By the definition of the Hermite active blocks,
+\[
+    g_{a,s}(z)g_{a,s}(z)^\top
+\]
+has \(p\)-th active Hermite block
+\[
+    \mathcal Q_{p,+}(\mathcal U_a(s)).
+\]
+Similarly,
+\[
+    h^o(z)h^o(z)^\top
+\]
+has \(p\)-th active Hermite block \(\mathcal M_p^o\).  Therefore, by
+orthogonality of the Hermite blocks,
+\begin{align}
+    \sum_{p\ge0}
+    \left\langle
+        \mathcal Q_{p,+}(\mathcal U_a(s)),
+        \mathcal M_p^o
+    \right\rangle_{\HS}
+    &=
+    \mathbb E_z
+    \left[
+        \left\langle
+            g_{a,s}(z)g_{a,s}(z)^\top,
+            h^o(z)h^o(z)^\top
+        \right\rangle_{\mathrm F}
+    \right]
+    \\
+    &=
+    \mathbb E_z
+    \left[
+        \bigl(h^o(z)^\top g_{a,s}(z)\bigr)^2
+    \right].
+\end{align}
+Now write \(g_{a,s}(z)=J_a(z)s\).  Then
+\begin{align}
+    \mathbb E_z
+    \left[
+        \bigl(h^o(z)^\top g_{a,s}(z)\bigr)^2
+    \right]
+    &=
+    \mathbb E_z
+    \left[
+        s^\top J_a(z)^\top h^o(z)h^o(z)^\top J_a(z)s
+    \right]
+    \\
+    &=
+    s^\top
+    \mathbb E_z
+    \left[
+        J_a(z)^\top h^o(z)h^o(z)^\top J_a(z)
+    \right]
+    s
+    \\
+    &=
+    s^\top\mathsf B_a^o s.
+\end{align}
+Taking \(s=s_\star\) gives
+\[
+    \sum_{p\ge0}
+    \left\langle
+        \mathcal Q_{p,+}(\mathcal U_a(s_\star)),
+        \mathcal M_p^o
+    \right\rangle_{\HS}
+    =
+    s_\star^\top\mathsf B_a^o s_\star
+    =
+    \gamma_{\mathrm{esc}}.
+\]
+Hence
+\[
+    F_{\mathrm{fit}}(\mu_h)
+    =
+    F_{\mathrm{fit}}(\mu^\dagger)
+    -
+    h^2\gamma_{\mathrm{esc}}
+    +
+    o(h^2).
+\]
+
+
+\par\noindent\textbf{Step 5: compute the regularizer contribution.}
+
+Recall that \(s_\star\) is the chosen unit transverse direction,
+\(s_\star^\top a_\star=0\), and \(u_\pm=s_\star/2\). At the assigned
+pole \(y=\pm a_\star\), the normalized perturbation satisfies
+\[
+ R_h(y)=\frac{y+(h/2)s_\star}{\sqrt{1+h^2/4}},\qquad
+ y^\top R_h(y)=\frac1{\sqrt{1+h^2/4}}.
+\]
+The angle lies in \([0,\pi/2)\). Because
+\(\cos(\arctan x)=1/\sqrt{1+x^2}\) for \(x\ge0\),
+\[
+ d_\Sphere(R_h(y),y)
+ =\arccos\frac1{\sqrt{1+h^2/4}}=\arctan(|h|/2).
+\]
+For sufficiently small \(|h|\) both atoms retain their cap assignments.
+Each marginal has two atoms of mass \(1/2\), and there are two marginals;
+therefore \cref{eq:fixed-assignment-W2-square-formula} gives
+\begin{equation}
+\label{eq:mf-visible-path-metric-distance}
+ Z_\pm(\mu_h)
+ =\sum_{i=1}^2\sum_{\varepsilon\in\{-1,1\}}\frac12\arctan^2(|h|/2)
+ =2\arctan^2(h/2)=O(h^2).
+\end{equation}
+For \(h\ne0\), the regularizer has the explicit factorization
+\[
+ F_{\mathrm{reg}}(\mu_h)=\frac{\lambdaReg}{p_W}|h|^{p_W}
+      \left(\frac{2\arctan^2(h/2)}{h^2}\right)^{p_W/2}.
+\]
+The factor in parentheses extends to a smooth positive function at zero,
+with value \(1/2\), because \(\arctan(h/2)=h/2+O(h^3)\).
+The derivative calculation following \cref{eq:mf-zero-distance-retraction}
+then gives \(F_{\mathrm{reg}}'(h)=O(|h|^{p_W-1})\) and
+\(F_{\mathrm{reg}}''(h)=O(|h|^{p_W-2})\).
+Since \(p_W=2+\delta_W>2\), the regularizer is \(C^2\) at zero, both
+derivatives there are zero, and \(F_{\mathrm{reg}}(\mu_h)=o(h^2)\).
+Thus the ordinary second derivative of the full objective exists and equals
+\(-2\gamma_{\mathrm{esc}}\), as well as satisfying the displayed expansion.
+Combining the fitting expansion and the regularizer estimate proves the claim.
+\end{proof}

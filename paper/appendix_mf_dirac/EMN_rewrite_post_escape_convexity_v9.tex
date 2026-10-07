@@ -1,0 +1,338 @@
+
+\subsection{Ambient positive curvature near the same-density teacher}
+\label{subsec:post-escape-convexity-on-the-same-density}
+
+This subsection proves positive spherical product pushforward second variation
+at, and near, the exact-fit same-density teacher.  It does not assert that an
+escaping gradient-flow trajectory reaches this neighborhood, or that the
+teacher is stationary for the regularized objective.
+
+The descent direction in \cref{lemma:descent-direction-antipodal-dirac-from-unweighted-imbalance} creates a same-sign odd mode. This motivates the same-density branch
+\begin{equation}
+    \mathcal M_+
+    \coloneq
+    \left\{
+        \mu_1\otimes \mu_2
+        \mid
+        \mu_1=\mu_2
+    \right\}.
+\end{equation}
+On $\mathcal M_+$ we have $A_n=0$ for every $n\in \mathcal O$ and $S_n=T_{1,n}=T_{2,n}$. By \cref{prop:reference-fit-minimum-on-Mplus}, the reference zero-fit point of the data term lies on this branch.
+
+\subsubsection{Invariance of the same-density branch}
+
+We first check that the same-density branch is dynamically consistent with the product WGF.
+\begin{proposition}[Invariance of $\mathcal M_+$ under the antipodal metric objective]
+\label{lem:invariance-same-density-branch}
+\textbf{Assumptions used.} \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}, together with the exchange symmetry of $F$ in $(\mu_1,\mu_2)$.
+
+If \(\mu_0=\mu_{1,0}\otimes \mu_{2,0}\in \mathcal M_+\) and \(\mu_t\) is the
+unique corresponding product WGF solution on an interval \([0,T)\) in the
+fixed-assignment cap class \(\mu_{i,t}\in\mathcal P_\pm(r_{\mathrm{cap}})\), \(i=1,2\), then
+\begin{equation}
+    \mu_t\in \mathcal M_+
+    \qquad
+    \forall t\in[0,T).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\noindent\textbf{Step 1: exchange the two factors in the objective.}
+If $\mu_1=\mu_2$, then $T_{1,n}=T_{2,n}$ for every $n\in \mathcal O$. 
+
+The fitting part is invariant under interchanging the two factors because $\mu_1^o=\mu_2^o$. 
+
+The metric regularizer is exchange-invariant because it depends on the two factors only through
+\[
+    Z_\pm(\mu_1,\mu_2)
+    =
+    W_2^2(\mu_1,\nu_\star^\pm)+W_2^2(\mu_2,\nu_\star^\pm).
+\]
+
+\par\noindent\textbf{Step 2: transform the characteristics and apply uniqueness.}
+In particular, exchange symmetry gives
+\[
+ F(\mu_1,\mu_2)=F(\mu_2,\mu_1),\qquad
+ g_1(\mu_1,\mu_2;w)=g_2(\mu_2,\mu_1;w),
+\]
+where \(g_i=\nabla_\Sphere(\delta F/\delta\mu_i)\), as in
+\cref{eq:mf-branch-radial-notation}. For the swapped pair
+\(\widetilde\mu_{1,t}=\mu_{2,t}\), \(\widetilde\mu_{2,t}=\mu_{1,t}\),
+its first continuity equation is
+\[
+ \partial_t\widetilde\mu_{1,t}
+ -\nabla_\Sphere\cdot
+  (g_1(\widetilde\mu_{1,t},\widetilde\mu_{2,t};\cdot)\widetilde\mu_{1,t})
+ =\partial_t\mu_{2,t}
+ -\nabla_\Sphere\cdot(g_2(\mu_{1,t},\mu_{2,t};\cdot)\mu_{2,t})=0.
+\]
+The other equation follows by exchanging indices. Since
+\(\mu_{1,0}=\mu_{2,0}\), the swapped pair has the same initial state.
+Uniqueness on the stated interval gives
+\(\widetilde\mu_{i,t}=\mu_{i,t}\), hence \(\mu_{1,t}=\mu_{2,t}\).
+\end{proof}
+
+\subsubsection{Positive curvature at and near the same-density teacher}
+
+Let
+\begin{equation}
+ \nu^o:=\mu_1^o=\mu_2^o,
+ \qquad
+ \mu_+^o:=\nu^o\otimes\nu^o\in\mathcal M_+.
+\end{equation}
+At this state the student output equals the teacher output, so the fitting
+residual vanishes. The next proposition combines the resulting nonnegative
+fitting curvature with the strict metric curvature and shows that the margin
+persists locally.
+
+\begin{proposition}[Ambient positive curvature near a same-density teacher]
+\label{prop:Mplus-teacher-local-positive-curvature}
+\textbf{Assumptions used.}
+\cref{assumption:on-sphere,assumption:odd-symmetric-teacher}.
+Suppose
+\[
+ \nu^o\in\mathcal P_\pm(r_{\mathrm{cap}}),
+ \qquad
+ Z_o:=Z_\pm(\mu_+^o)
+ =2W_{2,\Sphere}^2(\nu^o,\nu_\star^\pm)>0.
+\]
+Then there exist \(\rho_o>0\) and \(c_o>0\), depending only on the fixed
+model parameters and the teacher, such that the following holds. For every
+\(\mu=\mu_1\otimes\mu_2\in\mathcal X_\pm(r_{\mathrm{cap}})\) satisfying
+\[
+ W_{2,\Sphere}^2(\mu_1,\nu^o)
+ +W_{2,\Sphere}^2(\mu_2,\nu^o)<\rho_o^2,
+\]
+and every smooth product tangent field \(v=(v_1,v_2)\) whose perturbation
+paths preserve the fixed-assignment caps for small parameter values,
+\begin{equation}
+\label{eq:mf-teacher-local-positive-curvature}
+ D_{W_2}^2F(\mu)[v,v]
+ \ge c_o\|v\|_{L^2(\mu;\mathbb R^{d_w})}^2.
+\end{equation}
+No density assumption on \(\nu^o\) is required.
+\end{proposition}
+
+\begin{proof}
+\noindent\textbf{Step 1: positive curvature at the exact-fit teacher.}
+For smooth tangent fields \(v_i\) on the two factors, let
+\[
+ R_{i,h}(w):=\frac{w+hv_i(w)}{\|w+hv_i(w)\|_{\mathbb R^{d_w}}},
+ \qquad
+ \nu_{i,h}:=(R_{i,h})_\#\nu^o,
+ \qquad
+ \mu_h:=\nu_{1,h}\otimes\nu_{2,h}.
+\]
+The normalized retraction has the same second jet as the spherical EXP path
+by \cref{eq:mf-retraction-second-jet}, so its second derivative computes
+\(D_{W_2}^2F(\mu_+^o)[v,v]\). Set
+\[
+ Q(h,z):=h_{\nu_{1,h}}(z)h_{\nu_{2,h}}(z)^\top,
+ \qquad
+ B(z):=h_{\nu^o}(z)h_{\nu^o}(z)^\top.
+\]
+Exact fitting means \(Q(0,z)=B(z)\). Therefore, differentiating the squared
+residual twice gives
+\begin{align}
+ D_{W_2}^2F_{\mathrm{fit}}(\mu_+^o)[v,v]
+ &=\left.\frac{\dd^2}{\dd h^2}\right|_{h=0}
+   \frac12\|Q(h)-B\|_{L^2_z(\mathrm F)}^2\notag\\
+ &=\|\dot Q(0)\|_{L^2_z(\mathrm F)}^2\notag\\
+ &=\sum_{p\ge0}\left\|
+   \left.\frac{\dd}{\dd h}\right|_{h=0}
+   \widetilde{\mathcal M}_p(\Theta(\mu_h))
+   \right\|_{\mathrm{HS}}^2\ge0.
+ \label{eq:mf-teacher-fitting-square}
+\end{align}
+The last equality is the finite active Hermite expansion from
+\cref{lemma:EMN-expansion-F,eq:ambient-active-fit-functional}.
+
+By \cref{lem:W2-power-regularizer-Hessian-on-fixed-caps}, the metric term at
+the same state satisfies
+\[
+ D_{W_2}^2F_{\mathrm{reg}}(\mu_+^o)[v,v]
+ \ge\lambdaReg\kappa_{\mathrm{cap}}Z_o^{(p_W-2)/2}
+      \|v\|_{L^2(\mu_+^o;\mathbb R^{d_w})}^2.
+\]
+The coefficient is positive because \(Z_o>0\). Adding this inequality to
+\cref{eq:mf-teacher-fitting-square} proves strict ambient curvature at the
+teacher itself.
+
+\par\noindent\textbf{Step 2: a lower bound at a nearby cap-supported state.}
+Fix \(\mu=\mu_1\otimes\mu_2\in\mathcal X_\pm(r_{\mathrm{cap}})\), and use the
+same normalized retractions based at each \(\mu_i\). Write
+\[
+ h_i(h,z):=\int\sigma(R_{i,h}(w)^\top z)\,\dd\mu_i(w),
+ \qquad
+ V_i:=\|v_i\|_{L^2(\mu_i;\mathbb R^{d_w})}.
+\]
+Dots below denote derivatives at \(h=0\). From
+\cref{eq:mf-retraction-second-jet},
+\(\dot R_{i,0}=v_i\) and
+\(\ddot R_{i,0}=-\|v_i\|_{\mathbb R^{d_w}}^2w\), so differentiation under
+the integral gives
+\begin{equation}
+\label{eq:mf-teacher-output-derivatives}
+\begin{aligned}
+ \dot h_i(z)
+ &=\int\sigma'(w^\top z)(v_i(w)^\top z)\,\dd\mu_i(w),\\
+ \ddot h_i(z)
+ &=\int\left[
+   \sigma''(w^\top z)(v_i(w)^\top z)^2
+   -\|v_i(w)\|_{\mathbb R^{d_w}}^2
+      \sigma'(w^\top z)(w^\top z)
+   \right]\dd\mu_i(w).
+\end{aligned}
+\end{equation}
+When \(v_i(w)\ne0\), the vectors
+\(w\) and \(v_i(w)/\|v_i(w)\|_{\mathbb R^{d_w}}\) are orthogonal unit
+vectors because \(v_i(w)\in T_w\Sphere^{d_w-1}\). Hence their projections
+of \(z\sim N(0,I_{d_w})\) are independent standard Gaussians. Substitution
+into the definitions of \(M_4,K_1,K_2\) in
+\cref{eq:mf-gaussian-derivative-constants}, followed by Minkowski and
+Cauchy--Schwarz, yields
+\begin{equation}
+\label{eq:mf-teacher-output-derivative-bounds}
+ \|h_i(0)\|_{L^4_z}\le M_4,
+ \qquad
+ \|\dot h_i\|_{L^4_z}\le K_1V_i,
+ \qquad
+ \|\ddot h_i\|_{L^4_z}\le K_2V_i^2.
+\end{equation}
+At \(v_i(w)=0\), the corresponding integrands in
+\cref{eq:mf-teacher-output-derivatives} vanish, so the same bounds hold
+without division by zero. The finite polynomial activation and compact
+sphere justify the differentiations and Gaussian integration.
+
+For
+\(Q(h,z):=h_1(h,z)h_2(h,z)^\top\), the product rule gives
+\[
+ \dot Q=\dot h_1h_2^\top+h_1\dot h_2^\top,
+ \qquad
+ \ddot Q=\ddot h_1h_2^\top+2\dot h_1\dot h_2^\top+h_1\ddot h_2^\top.
+\]
+Since \(\|xy^\top\|_{\mathrm F}=\|x\|_2\|y\|_2\), H\"older and
+\cref{eq:mf-teacher-output-derivative-bounds} give, term by term,
+\[
+\begin{aligned}
+ \|\ddot h_1h_2^\top\|_{L^2_z(\mathrm F)}&\le M_4K_2V_1^2,\\
+ \|2\dot h_1\dot h_2^\top\|_{L^2_z(\mathrm F)}&\le2K_1^2V_1V_2,\\
+ \|h_1\ddot h_2^\top\|_{L^2_z(\mathrm F)}&\le M_4K_2V_2^2.
+\end{aligned}
+\]
+Using \(2V_1V_2\le V_1^2+V_2^2\), we obtain
+\begin{equation}
+\label{eq:mf-teacher-second-output-bound}
+ \|\ddot Q\|_{L^2_z(\mathrm F)}
+ \le (M_4K_2+K_1^2)
+       \|v\|_{L^2(\mu;\mathbb R^{d_w})}^2.
+\end{equation}
+
+Recall \(B(z)=h_{\nu^o}(z)h_{\nu^o}(z)^\top\), and set
+\[
+ E(\mu):=\|h_{\mu_1}h_{\mu_2}^\top-B\|_{L^2_z(\mathrm F)},
+ \qquad C:=M_4K_2+K_1^2.
+\]
+The constant \(C\) is proof-local and depends only on the fixed activation.
+Differentiating
+\(F_{\mathrm{fit}}(\mu_h)=\frac12\|Q(h)-B\|_{L^2_z(\mathrm F)}^2\),
+dropping the nonnegative \(\|\dot Q\|_{L^2_z(\mathrm F)}^2\) term, and using
+\cref{eq:mf-teacher-second-output-bound} gives
+\begin{align*}
+ D_{W_2}^2F_{\mathrm{fit}}(\mu)[v,v]
+ &=\|\dot Q\|_{L^2_z(\mathrm F)}^2
+   +\langle Q(0)-B,\ddot Q\rangle_{L^2_z(\mathrm F)}\\
+ &\ge-CE(\mu)\|v\|_{L^2(\mu;\mathbb R^{d_w})}^2.
+\end{align*}
+Adding the regularizer estimate in
+\cref{eq:W2-power-Hessian-lower-bound-fixed-caps} yields the key nearby
+bound
+\begin{equation}
+\label{eq:mf-teacher-nearby-curvature-bound}
+ D_{W_2}^2F(\mu)[v,v]
+ \ge\left[
+   \lambdaReg\kappa_{\mathrm{cap}}Z_\pm(\mu)^{(p_W-2)/2}
+   -CE(\mu)
+ \right]\|v\|_{L^2(\mu;\mathbb R^{d_w})}^2.
+\end{equation}
+
+\par\noindent\textbf{Step 3: keep the coefficient positive in a teacher neighborhood.}
+Let
+\[
+ d:=\left[
+ W_{2,\Sphere}^2(\mu_1,\nu^o)+
+ W_{2,\Sphere}^2(\mu_2,\nu^o)
+ \right]^{1/2}.
+\]
+For sphere points \(w,y\), let \(c:[0,1]\to\Sphere^{d_w-1}\) be a shortest
+constant-speed arc from \(y\) to \(w\). Then
+\(\|c'(s)\|_{\mathbb R^{d_w}}=d_\Sphere(w,y)\) and
+\(c(s)^\top c'(s)=0\). Thus, when the speed is nonzero,
+\(c(s)\) and \(c'(s)/\|c'(s)\|_{\mathbb R^{d_w}}\) are orthogonal unit
+vectors. The same Gaussian calculation used in
+\cref{eq:mf-teacher-output-derivative-bounds} gives
+\[
+ \|\sigma'(c(s)^\top z)(c'(s)^\top z)\|_{L^4_z}
+ =K_1\|c'(s)\|_{\mathbb R^{d_w}}.
+\]
+The identity is immediate when the speed is zero. Integrating along the arc
+and applying Minkowski gives
+\[
+ \|\sigma(w^\top z)-\sigma(y^\top z)\|_{L^4_z}
+ \le K_1d_\Sphere(w,y).
+\]
+For an optimal coupling \(\pi_i\) of \(\mu_i\) and \(\nu^o\), another use
+of Minkowski and Cauchy--Schwarz therefore yields
+\[
+\begin{aligned}
+ \|h_{\mu_i}-h_{\nu^o}\|_{L^4_z}
+ &\le K_1\int d_\Sphere(w,y)\,\dd\pi_i(w,y)\\
+ &\le K_1W_{2,\Sphere}(\mu_i,\nu^o).
+\end{aligned}
+\]
+Subtracting the two product outputs,
+\[
+ h_{\mu_1}h_{\mu_2}^\top-B
+ =(h_{\mu_1}-h_{\nu^o})h_{\mu_2}^\top
+ +h_{\nu^o}(h_{\mu_2}-h_{\nu^o})^\top.
+\]
+Since \(\|h_{\mu_i}\|_{L^4_z},\|h_{\nu^o}\|_{L^4_z}\le M_4\) by
+\cref{eq:mf-output-fourth-moment-bound}, H\"older and the preceding feature
+bound give \(E(\mu)\le\sqrt2M_4K_1d\). Moreover,
+\[
+ d=W_{2,\mathcal M}(\mu,\mu_+^o),\qquad
+ \sqrt{Z_\pm(\mu)}=W_{2,\mathcal M}(\mu,\mu^\dagger),\qquad
+ \sqrt{Z_o}=W_{2,\mathcal M}(\mu_+^o,\mu^\dagger),
+\]
+by the product metric in \cref{eq:product-Wasserstein-metric} and the
+definition of $Z_\pm$ in \cref{eq:fixed-assignment-W2-square-formula},
+together with the definition of $Z_o$ in the proposition statement.
+Therefore the reverse triangle inequality gives
+\(\left|\sqrt{Z_\pm(\mu)}-\sqrt{Z_o}\right|\le d\). Combining the two
+estimates yields
+\begin{equation}
+\label{eq:mf-teacher-neighborhood-continuity}
+ E(\mu)\le\sqrt2M_4K_1d,
+ \qquad
+ \left|\sqrt{Z_\pm(\mu)}-\sqrt{Z_o}\right|\le d.
+\end{equation}
+
+As \(d\to0\), \cref{eq:mf-teacher-neighborhood-continuity} shows that
+\(E(\mu)\to0\) and \(Z_\pm(\mu)\to Z_o\). Hence the bracket in
+\cref{eq:mf-teacher-nearby-curvature-bound} converges to the positive number
+\(\lambdaReg\kappa_{\mathrm{cap}}Z_o^{(p_W-2)/2}\). Choose
+\(\rho_o>0\) so that, whenever \(d<\rho_o\), the regularizer coefficient is
+at least three quarters of this limit and \(CE(\mu)\) is at most one quarter
+of it. Then \cref{eq:mf-teacher-nearby-curvature-bound} gives
+\cref{eq:mf-teacher-local-positive-curvature} with
+\[
+ c_o:=\frac12\lambdaReg\kappa_{\mathrm{cap}}Z_o^{(p_W-2)/2}>0.
+\]
+The neighborhood is relative to \(\mathcal X_\pm(r_{\mathrm{cap}})\): small
+Wasserstein distance alone does not force the entire support to remain in the
+fixed-assignment caps. None of the estimates uses a teacher density.
+\end{proof}
+
+If \(Z_o=0\), the proposition does not apply. In that case the metric
+regularizer is Hessian-flat at the antipodal Dirac target by
+\cref{eq:mf-center-EXP-regularizer}.

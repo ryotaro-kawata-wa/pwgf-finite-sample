@@ -1,0 +1,605 @@
+
+\subsection{Curvature away from the saddle on the antisymmetric branch}
+\label{subsec:curvature-away-from-saddle-on-antisymmetric}
+This subsection bounds the spherical product pushforward second variation at
+anti-symmetric branch points away from the antipodal target.  On a fixed
+metric annulus, sufficiently strong regularization dominates the fitting curvature.
+
+We first note that the antipodal Dirac target lies exactly at the active
+odd-moment origin by \cref{prop:intersection-zero-output-fiber}:
+\[
+    \mathbf S(\mu_\star^\pm)=0,
+    \qquad
+    \mathbf A(\mu_\star^\pm)=0.
+\]
+
+The fitting term may have negative curvature, but on bounded anti-symmetric
+active sets this negative part is uniformly controlled; no metric annulus is
+needed for the following fitting estimate.
+
+\begin{lemma}[Fitting-curvature lower bound on anti-symmetric active balls]
+\label{lem:fitting-curvature-lower-bound-Mminus-smoothness}
+\textbf{Assumptions used.}
+\cref{assumption:on-sphere,assumption:odd-symmetric-teacher},
+together with the finite active odd-block representation of the fitting term.
+
+Fix \(R_{\mathrm{act}}<\infty\).  Consider anti-symmetric branch points
+\[
+    \mu=\mu_1\otimes\mu_2\in\submanifoldforsaddlepoint,
+    \qquad
+    \Theta(\mu)=(0,\mathbf A),
+    \qquad
+    \|\mathbf A\|_{\mathcal H_{\mathcal O}}\le R_{\mathrm{act}}.
+\]
+This active-radius condition can always be met by taking
+\(R_{\mathrm{act}}=\sqrt{|\mathcal O|}\).  Indeed,
+\(\|T_{i,n}\|_{\mathrm{HS}}\le
+\int\|w^{\otimes n}\|_{\mathrm{HS}}\,\dd\mu_i(w)=1\), so
+\[
+ \|A_n\|_{\mathrm{HS}}
+ \le\frac{\|T_{1,n}\|_{\mathrm{HS}}+\|T_{2,n}\|_{\mathrm{HS}}}{2}\le1,
+ \qquad
+ \|\mathbf A\|_{\mathcal H_{\mathcal O}}^2
+ =\sum_{n\in\mathcal O}\|A_n\|_{\mathrm{HS}}^2\le|\mathcal O|.
+\]
+Let \(v=(v_1,v_2)\) be arbitrary smooth spherical tangent perturbations,
+\[
+    v_i(w)\in T_w\Sphere^{d_w-1},
+    \qquad
+    w\cdot v_i(w)=0.
+\]
+The base point is on the anti-symmetric branch, but \(v\) is an arbitrary
+ambient product tangent field and need not be tangent to that branch.
+Let
+\[
+    R_{i,h}(w)
+    \coloneq
+    \frac{w+h v_i(w)}{\|w+h v_i(w)\|},
+    \qquad
+    \mu_{i,h}\coloneq (R_{i,h})_\#\mu_i,
+    \qquad
+    \mu_h\coloneq \mu_{1,h}\otimes\mu_{2,h}.
+\]
+Then there exists a constant
+\[
+    C_{\mathrm{fit}}^{-}(R_{\mathrm{act}})<\infty
+\]
+depending only on \(R_{\mathrm{act}}\), the finite active block \(\mathcal O\), the Hermite coefficients, and the teacher block, such that
+\begin{equation}
+\label{eq:fitting-curvature-lower-bound-Mminus-derived}
+    \frac{\dd^2}{\dd h^2}\Big|_{h=0}
+    F_{\mathrm{fit}}(\mu_h)
+    \ge
+    -C_{\mathrm{fit}}^{-}(R_{\mathrm{act}})
+    \|v\|_{L^2(\mu)}^2,
+\end{equation}
+where
+\[
+    \|v\|_{L^2(\mu)}^2
+    \coloneq
+    \|v_1\|_{L^2(\mu_1)}^2
+    +
+    \|v_2\|_{L^2(\mu_2)}^2.
+\]
+Consequently, the abstract lower bound
+\[
+    \frac{\dd^2}{\dd h^2}\Big|_{h=0}
+    F_{\mathrm{fit}}\bigl((R_{1,h})_\#\mu_1\otimes(R_{2,h})_\#\mu_2\bigr)
+    \ge
+    -C_{\mathrm{fit}}\|v\|_{L^2(\mu;\mathbb R^{d_w})}^2
+\]
+holds on the anti-symmetric active ball
+\(\|\mathbf A\|_{\mathcal H_{\mathcal O}}\le R_{\mathrm{act}}\), with
+\[
+    C_{\mathrm{fit}}
+    =
+    C_{\mathrm{fit}}^{-}(R_{\mathrm{act}}).
+\]
+\end{lemma}
+
+\begin{proof}
+\noindent\textbf{Step 1: write the finite-moment second-derivative formula.}
+The proof reduces the second variation to a finite-dimensional chain rule in
+\(\Theta=(\mathbf S,\mathbf A)\).  Recall the finite active moment map from
+\cref{eq:mf-finite-active-moment-map} and the ambient fitting polynomial from
+\cref{eq:ambient-active-fit-functional}.
+Since the fitting term is represented by the finite active odd block, we have
+\[
+    F_{\mathrm{fit}}(\mu_h)
+    =
+    \widetilde{\mathcal J}_{\mathrm{fit}}\bigl(\Theta(\mu_h)\bigr),
+\]
+where
+\[
+    \Theta(\mu_h)
+    =
+    \bigl(\mathbf S(h),\mathbf A(h)\bigr)
+    \in
+    \mathcal H_{\mathcal O}\times\mathcal H_{\mathcal O}.
+\]
+At \(h=0\), since \(\mu\in\submanifoldforsaddlepoint\),
+\[
+    \Theta(\mu)=(0,\mathbf A).
+\]
+For \(h\ne0\), an ambient perturbation may leave the branch, so both
+components \(\mathbf S(h)\) and \(\mathbf A(h)\) are retained.
+Set
+\[
+    \dot\Theta[v]
+    \coloneq
+    \frac{\dd}{\dd h}\Big|_{h=0}\Theta(\mu_h),
+    \qquad
+    \ddot\Theta[v]
+    \coloneq
+    \frac{\dd^2}{\dd h^2}\Big|_{h=0}\Theta(\mu_h).
+\]
+The ordinary chain rule gives
+\begin{align}
+\label{eq:fit-second-variation-chain-Mminus}
+    \frac{\dd^2}{\dd h^2}\Big|_{h=0}
+    F_{\mathrm{fit}}(\mu_h)
+    =
+    &\,
+    D^2\widetilde{\mathcal J}_{\mathrm{fit}}(0,\mathbf A)
+    [\dot\Theta[v],\dot\Theta[v]]
+    \\
+    &+
+    \innerProd{
+        \nabla\widetilde{\mathcal J}_{\mathrm{fit}}(0,\mathbf A)
+    }{
+        \ddot\Theta[v]
+    }_{\mathcal H_{\mathcal O}\times\mathcal H_{\mathcal O}}.
+\end{align}
+The second term is required because the moment-coordinate path
+\(h\mapsto\Theta(\mu_h)\) generally has the nonzero acceleration
+\(\ddot\Theta[v]\).
+
+
+\par\noindent\textbf{Step 2: bound the first and second moment derivatives.}
+The fields use the norms of \(L^2(\mu_i;\mathbb R^{d_w})\); moment tensors
+use their Hilbert--Schmidt norms; and \(\dot\Theta,\ddot\Theta\), and the
+fitting gradient use the product norm of
+\(\mathcal H_{\mathcal O}\times\mathcal H_{\mathcal O}\).
+For each \(n\in\mathcal O\),
+\[
+    T_{i,n}(h)
+    =
+    \int R_{i,h}(w)^{\otimes n}\,\dd\mu_i(w).
+\]
+Tangency \(w^\top v_i(w)=0\) gives
+\(\|w+hv_i(w)\|^2=1+h^2\|v_i(w)\|^2\). Expanding its inverse square
+root in the normalized retraction yields
+\begin{equation}
+\label{eq:mf-retraction-second-jet}
+\begin{aligned}
+ R_{i,h}(w)&=\frac{w+hv_i(w)}{\sqrt{1+h^2\|v_i(w)\|^2}}
+ =w+hv_i(w)-\tfrac12h^2\|v_i(w)\|^2w+O(h^3),\\
+ \dot R_{i,0}(w)&=v_i(w),\qquad
+ \ddot R_{i,0}(w)=-\|v_i(w)\|^2w,\qquad
+ (I-ww^\top)\ddot R_{i,0}(w)=0.
+\end{aligned}
+\end{equation}
+These derivatives agree with those of \(h\mapsto\EXP_w(hv_i(w))\)
+from \cref{eq:mf-spherical-EXP}; the two curves need not agree beyond
+second order. Applying the product rule to \(R_{i,h}(w)^{\otimes n}\),
+we obtain
+\begin{align}
+    \dot T_{i,n}[v_i]
+    &=
+    n\int
+    \sym{w^{\otimes(n-1)}\otimes v_i(w)}
+    \,\dd\mu_i(w),
+    \\
+    \ddot T_{i,n}[v_i]
+    &=
+    n(n-1)\int
+    \sym{w^{\otimes(n-2)}
+        \otimes v_i(w)\otimes v_i(w)}
+    \,\dd\mu_i(w)
+    \\
+    &\qquad
+    -
+    n\int
+    \|v_i(w)\|^2 w^{\otimes n}
+    \,\dd\mu_i(w).
+\end{align}
+The term containing \(n(n-1)\) is omitted when \(n=1\).
+Because \(\|w\|=1\), Cauchy--Schwarz yields
+\begin{equation}
+\label{eq:dot-T-bound-fit-smoothness}
+    \|\dot T_{i,n}[v_i]\|_{\HS}
+    \le
+    n\|v_i\|_{L^2(\mu_i)},
+\end{equation}
+and
+\begin{equation}
+\label{eq:ddot-T-bound-fit-smoothness}
+    \|\ddot T_{i,n}[v_i]\|_{\HS}
+    \le
+    n^2\|v_i\|_{L^2(\mu_i)}^2.
+\end{equation}
+Recall the active coordinates \(\Theta=(\mathbf S,\mathbf A)\), where
+\(S_n=(T_{1,n}+T_{2,n})/2\) and \(A_n=(T_{1,n}-T_{2,n})/2\).
+The parallelogram identity gives
+\[
+ \|\dot\Theta\|^2=\frac12\sum_{n\in\mathcal O}
+       (\|\dot T_{1,n}\|_{\HS}^2+\|\dot T_{2,n}\|_{\HS}^2),
+ \qquad
+ \|\ddot\Theta\|^2=\frac12\sum_{n\in\mathcal O}
+       (\|\ddot T_{1,n}\|_{\HS}^2+\|\ddot T_{2,n}\|_{\HS}^2).
+\]
+Here both norms on \(\Theta\) are in
+\(\mathcal H_{\mathcal O}\times\mathcal H_{\mathcal O}\).
+Using \cref{eq:dot-T-bound-fit-smoothness,eq:ddot-T-bound-fit-smoothness}
+and \(a^2+b^2\le(a+b)^2\) for nonnegative \(a,b\), we obtain
+\begin{equation}
+\label{eq:dot-Theta-bound-fit-smoothness}
+ \|\dot\Theta[v]\|\le
+ \left(\sum_{n\in\mathcal O}n^2\right)^{1/2}\|v\|_{L^2(\mu)},
+\end{equation}
+\begin{equation}
+\label{eq:ddot-Theta-bound-fit-smoothness}
+ \|\ddot\Theta[v]\|\le
+ \left(\sum_{n\in\mathcal O}n^4\right)^{1/2}\|v\|_{L^2(\mu)}^2.
+\end{equation}
+For example, the square of the second left-hand side is at most
+\(\tfrac12\sum_n n^4(\|v_1\|_{L^2(\mu_1)}^4+
+\|v_2\|_{L^2(\mu_2)}^4)\), which is at most
+\(\sum_n n^4\|v\|_{L^2(\mu)}^4\).
+
+
+\par\noindent\textbf{Step 3: choose the curvature bound and apply the chain rule.}
+The set \(\mathcal O\) is finite and each tensor block is finite-dimensional.
+Hence
+\(\{(0,\mathbf A):\|\mathbf A\|_{\mathcal H_{\mathcal O}}
+\le R_{\mathrm{act}}\}\) is compact.  The fitting functional
+\(\widetilde{\mathcal J}_{\mathrm{fit}}\) is a polynomial, so its first two
+derivatives are continuous and have finite suprema on this set.
+Define the fitting curvature constant directly by
+\begin{equation}
+\label{eq:def-Cfit-Mminus-derived}
+\begin{aligned}
+ C_{\mathrm{fit}}^-(R_{\mathrm{act}}):={}&
+ \left(\sum_{n\in\mathcal O}n^2\right)
+ \sup_{\|\mathbf A\|\le R_{\mathrm{act}}}
+       \|D^2\widetilde{\mathcal J}_{\mathrm{fit}}(0,\mathbf A)\|_{\mathrm{op}}\\
+ &+\left(\sum_{n\in\mathcal O}n^4\right)^{1/2}
+ \sup_{\|\mathbf A\|\le R_{\mathrm{act}}}
+       \|\nabla\widetilde{\mathcal J}_{\mathrm{fit}}(0,\mathbf A)\|.
+\end{aligned}
+\end{equation}
+The gradient norm is the product \(\mathcal H_{\mathcal O}\) norm.
+The Hessian norm in \cref{eq:def-Cfit-Mminus-derived} is the operator norm of
+\[
+ D^2\widetilde{\mathcal J}_{\mathrm{fit}}(0,\mathbf A):
+ \mathcal H_{\mathcal O}\times\mathcal H_{\mathcal O}
+ \longrightarrow
+ \mathcal H_{\mathcal O}\times\mathcal H_{\mathcal O}.
+\]
+The chain rule \cref{eq:fit-second-variation-chain-Mminus} and
+Cauchy--Schwarz now give
+\[
+\begin{aligned}
+ \left.\frac{\dd^2}{\dd h^2}F_{\mathrm{fit}}(\mu_h)\right|_0
+ &\ge-\|D^2\widetilde{\mathcal J}_{\mathrm{fit}}(0,\mathbf A)\|_{\mathrm{op}}
+                   \|\dot\Theta\|^2
+       -\|\nabla\widetilde{\mathcal J}_{\mathrm{fit}}(0,\mathbf A)\|
+                   \|\ddot\Theta\|\\
+ &\ge-C_{\mathrm{fit}}^-(R_{\mathrm{act}})\|v\|_{L^2(\mu)}^2.
+\end{aligned}
+\]
+This proves \cref{eq:fitting-curvature-lower-bound-Mminus-derived} with
+the constant defined in \cref{eq:def-Cfit-Mminus-derived}.
+\end{proof}
+
+The metric regularizer relies on the positive Hessian of squared spherical distance inside each fixed cap.
+\begin{lemma}[Spherical Hessian of the fixed squared-distance cost]
+\label{lem:spherical-squared-distance-Hessian-on-caps}
+\textbf{Assumptions used.} \cref{assumption:on-sphere}.
+
+Let
+\[
+    c_y(w)=\frac12d_\Sphere(w,y)^2,
+    \qquad
+    y\in\Sphere^{d_w-1}.
+\]
+On the geodesic ball \(d_\Sphere(w,y)\le r_{\mathrm{cap}}<\pi/2\), the spherical Hessian satisfies
+\begin{equation}
+\label{eq:spherical-distance-Hessian-lower-bound}
+    \nabla_\Sphere^2c_y(w)[v,v]
+    \ge
+    \kappa_{\mathrm{cap}}\|v\|^2,
+    \qquad
+    \kappa_{\mathrm{cap}}
+    \coloneq
+    r_{\mathrm{cap}}\cot r_{\mathrm{cap}}>0.
+\end{equation}
+Consequently, for \(c_\star(w)=\frac12d_\Sphere(w,\pi_\star(w))^2\),
+\begin{equation}
+\label{eq:cstar-Hessian-lower-bound}
+    \nabla_\Sphere^2c_\star(w)[v,v]
+    \ge
+    \kappa_{\mathrm{cap}}
+    \|v\|^2
+\end{equation}
+for every \(w\in K_+(r_{\mathrm{cap}})\cup K_-(r_{\mathrm{cap}})\) and every
+\(v\in T_w\Sphere^{d_w-1}\).
+\end{lemma}
+
+\begin{proof}
+For \(0<r=d_\Sphere(w,y)<\pi/2\), define
+\(e=(y-\cos r\,w)/\sin r\).  Since \(w^\top y=\cos r\),
+\[
+ w^\top e=\frac{w^\top y-\cos r}{\sin r}=0,
+ \qquad
+ \|e\|_{\mathbb R^{d_w}}^2
+ =\frac{1-2\cos r\,y^\top w+\cos^2r}{\sin^2r}=1.
+\]
+Thus \(e\in T_w\Sphere^{d_w-1}\) is the unit tangent pointing from \(w\)
+toward \(y\).
+Put \(x(t)=y^\top\EXP_w(tv)\) and \(f(x)=\tfrac12(\arccos x)^2\).
+By \cref{eq:mf-spherical-EXP},
+\[
+ x(0)=\cos r,\quad x'(0)=y^\top v=\sin r\,\langle e,v\rangle,
+ \quad x''(0)=-\|v\|^2\cos r,
+\]
+and direct differentiation gives
+\[
+ f'(x)=-\frac{\arccos x}{\sqrt{1-x^2}},\qquad
+ f''(x)=\frac1{1-x^2}
+        -\frac{x\arccos x}{(1-x^2)^{3/2}}.
+\]
+Substituting \(x=\cos r\) yields
+\[
+ f'(\cos r)=-\frac r{\sin r},\qquad
+ f''(\cos r)=\frac{\sin r-r\cos r}{\sin^3r}.
+\]
+For sufficiently small \(|t|\), the EXP path does not reach the antipode of
+\(y\), so the principal \(\arccos\) gives the spherical distance.  Hence
+\[
+ c_y(\EXP_w(tv))
+ =\frac12d_\Sphere(\EXP_w(tv),y)^2
+ =\frac12[\arccos(y^\top\EXP_w(tv))]^2
+ =f(x(t)).
+\]
+The one-variable chain rule now gives
+\begin{equation}
+\label{eq:mf-spherical-cost-Hessian-formula}
+\begin{aligned}
+ \nabla_\Sphere^2c_y(w)[v,v]
+ &=f''(\cos r)(x'(0))^2+f'(\cos r)x''(0)\\
+ &=r\cot r\,\|v\|^2+(1-r\cot r)\langle v,e\rangle^2.
+\end{aligned}
+\end{equation}
+To display the eigendirections, set
+\(v_\parallel=\langle v,e\rangle e\) and
+\(v_\perp=v-v_\parallel\).  Since
+\(\|v\|_{\mathbb R^{d_w}}^2=\|v_\parallel\|_{\mathbb R^{d_w}}^2+
+\|v_\perp\|_{\mathbb R^{d_w}}^2\),
+\[
+ \nabla_\Sphere^2c_y(w)[v,v]
+ =\|v_\parallel\|_{\mathbb R^{d_w}}^2
+  +r\cot r\,\|v_\perp\|_{\mathbb R^{d_w}}^2.
+\]
+The radial eigenvalue is therefore \(1\), and the orthogonal eigenvalue is
+\(r\cot r\). Moreover,
+\[
+ (r\cot r)'=\frac{\sin r\cos r-r}{\sin^2r}\le0,\qquad
+ r-\sin r\cos r=\int_0^r2\sin^2s\,\dd s\ge0,
+ \qquad \lim_{r\to0}r\cot r=1.
+\]
+The integral identity shows that \((r\cot r)'\le0\).  Therefore
+\(1\ge r\cot r\ge r_{\mathrm{cap}}\cot r_{\mathrm{cap}}>0\) for
+\(0<r\le r_{\mathrm{cap}}\), so both eigenvalues are at least
+\(\kappa_{\mathrm{cap}}\).
+At \(w=y\), the identity
+\(c_y(\EXP_y(tv))=t^2\|v\|_{\mathbb R^{d_w}}^2/2\) for small \(t\)
+gives Hessian \(\|v\|_{\mathbb R^{d_w}}^2\) without introducing \(e\).
+On each cap, \(\pi_\star(w)\) is the fixed point \(a_\star\) or
+\(-a_\star\), so the calculation does not differentiate across a cap
+boundary.  Substituting
+\(y=a_\star\) or \(y=-a_\star\) gives the claim for the fixed-assignment
+cost \(c_\star(w)=d_\Sphere(w,\pi_\star(w))^2/2\)
+from \cref{eq:mf-fixed-assignment-cost,eq:mf-cap-class}.
+\end{proof}
+
+Combining fixed assignment with the spherical distance Hessian gives a positive spherical product pushforward second variation for the metric regularizer.
+\begin{lemma}[Metric-power regularizer Hessian on fixed-assignment caps]
+\label{lem:W2-power-regularizer-Hessian-on-fixed-caps}
+\textbf{Assumptions used.} \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}, together with \cref{lemma-fixed-assignment,lem:spherical-squared-distance-Hessian-on-caps}.
+
+Let \(\mu_i\in\mathcal P_\pm(r_{\mathrm{cap}})\), and let \(v=(v_1,v_2)\) be smooth tangent perturbations whose spherical retractions preserve the fixed-assignment caps for sufficiently small \(|h|\).  Then
+\begin{align}
+\label{eq:W2-power-Hessian-lower-bound-fixed-caps}
+    D^2_{W_2}F_{\mathrm{reg}}(\mu_1,
+    \mu_2)[v,v]
+    \ge
+    \lambdaReg\,
+    \kappa_{\mathrm{cap}}
+    Z_\pm(\mu_1,
+    \mu_2)^{\delta_W/2}
+    \|v\|_{L^2(\mu)}^2.
+\end{align}
+In particular, if \(Z_\pm(\mu_1,
+\mu_2)\ge\zeta_{\min}^2\), then
+\begin{equation}
+\label{eq:W2-power-Hessian-lower-bound-annulus}
+    D^2_{W_2}F_{\mathrm{reg}}(
+    \mu_1,
+    \mu_2)[v,v]
+    \ge
+    \lambdaReg\,
+    \kappa_{\mathrm{cap}}
+    \zeta_{\min}^{\delta_W}
+    \|v\|_{L^2(\mu)}^2.
+\end{equation}
+At \(Z_\pm=0\), the regularizer has zero quadratic variation because \(p_W=2+\delta_W>2\).
+\end{lemma}
+
+\begin{proof}
+\noindent\textbf{Step 1: bound the positive-distance second derivative.}
+By \cref{eq:mf-retraction-second-jet}, the normalized retraction used here
+and the spherical EXP path have the same first and second derivatives at
+\(h=0\).  Since the regularizer is smooth when \(Z_\pm>0\), its second
+derivative along the retraction is therefore the one computed for the EXP
+path in \cref{eq:second-variation-W2-dirac-metric-regularizer}.  In that
+formula, the second term is nonnegative because
+\(p_W-2=\delta_W>0\).  Substituting the pointwise Hessian bound
+\cref{eq:cstar-Hessian-lower-bound} into the first term gives
+\begin{align*}
+ D^2_{W_2}F_{\mathrm{reg}}(\mu_1,\mu_2)[v,v]
+ &\ge
+ \lambdaReg\kappa_{\mathrm{cap}}Z_\pm^{p_W/2-1}
+ \sum_{i=1}^2\int
+ \|v_i(w)\|_{\mathbb R^{d_w}}^2\,\dd\mu_i(w)\\
+ &=
+ \lambdaReg\kappa_{\mathrm{cap}}Z_\pm^{\delta_W/2}
+ \|v\|_{L^2(\mu;\mathbb R^{d_w})}^2,
+\end{align*}
+which is \cref{eq:W2-power-Hessian-lower-bound-fixed-caps} for
+\(Z_\pm>0\).  If \(Z_\pm\ge\zeta_{\min}^2\), then \(\delta_W>0\) implies
+\[
+ Z_\pm^{\delta_W/2}
+ \ge (\zeta_{\min}^2)^{\delta_W/2}
+ =\zeta_{\min}^{\delta_W},
+\]
+and \cref{eq:W2-power-Hessian-lower-bound-annulus} follows.
+
+\par\noindent\textbf{Step 2: compute the ordinary second derivative at the target.}
+For \(Z_\pm=0\), both marginals equal
+\(\nu_\star^\pm=(\delta_{a_\star}+\delta_{-a_\star})/2\).
+At a pole \(y=\varepsilon a_\star\), tangency gives
+\(y^\top R_{i,h}(y)=(1+h^2\|v_i(y)\|^2)^{-1/2}\), so its distance
+from the pole is \(\arctan(|h|\|v_i(y)\|)\). The fixed-assignment
+formula \cref{eq:fixed-assignment-W2-square-formula} consequently gives
+\begin{equation}
+\label{eq:mf-zero-distance-retraction}
+ Z_\pm(\mu_h)=\frac12\sum_{i=1}^2\sum_{\varepsilon\in\{-1,1\}}
+ \arctan^2(h\|v_i(\varepsilon a_\star)\|)
+ =h^2\|v\|_{L^2(\mu)}^2+O(h^4).
+\end{equation}
+If \(\|v\|_{L^2(\mu)}=0\), all four atoms stay fixed. Otherwise
+\(a(h):=Z_\pm(\mu_h)/h^2\) extends to a smooth positive function at
+zero with \(a(0)=\|v\|_{L^2(\mu)}^2\). Set
+\(b(h):=(\lambdaReg/p_W)a(h)^{p_W/2}\), so the regularizer is
+\(|h|^{p_W}b(h)\). For \(h\ne0\), differentiating twice gives
+\[
+\begin{aligned}
+ F_{\mathrm{reg}}'(h)
+ &=p_W\operatorname{sgn}(h)|h|^{p_W-1}b(h)+|h|^{p_W}b'(h),\\
+ F_{\mathrm{reg}}''(h)
+ &=p_W(p_W-1)|h|^{p_W-2}b(h)
+ +2p_W\operatorname{sgn}(h)|h|^{p_W-1}b'(h)+|h|^{p_W}b''(h).
+\end{aligned}
+\]
+The difference quotients at zero and these formulas show that the
+regularizer is \(C^2\), with both derivatives zero there, because
+\(p_W>2\). This proves the bound at the target as well.
+\end{proof}
+
+The next proposition is an abstract combination statement: at a fixed state,
+it adds any available fitting lower bound to the metric lower bound.  On an
+anti-symmetric active ball, the fitting input has already been verified in
+\cref{lem:fitting-curvature-lower-bound-Mminus-smoothness}; the subsequent
+corollary makes that substitution.
+
+\begin{proposition}[Ambient second-variation bound on fixed metric annuli]
+\label{prop:sqchi2-away-from-origin-Wasserstein-convexity}
+\textbf{Assumptions used.} \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}, together with \cref{lem:W2-power-regularizer-Hessian-on-fixed-caps}.
+
+Fix \(0<\zeta_{\min}<\infty\), and consider a state in a fixed-assignment
+cap region satisfying
+\[
+    \mu_i\in\mathcal P_\pm(r_{\mathrm{cap}}),
+    \qquad
+    Z_\pm(\mu_1,
+    \mu_2)
+    \ge
+    \zeta_{\min}^2.
+\]
+Suppose that, on the region under consideration, the fitting lower bound
+\begin{equation}
+\label{eq:fit-curvature-lower-bound-abstract}
+    \frac{\dd^2}{\dd h^2}\Big|_{h=0}
+    F_{\mathrm{fit}}\bigl((R_{1,h})_\#\mu_1\otimes(R_{2,h})_\#\mu_2\bigr)
+    \ge
+    -C_{\mathrm{fit}}\|v\|_{L^2(\mu)}^2
+\end{equation}
+is available for every smooth tangent perturbation \(v=(v_1,v_2)\) whose
+retractions stay in the fixed-assignment caps for small \(|h|\).  Then the
+full objective satisfies the following pointwise bound at that state:
+\begin{equation}
+\label{eq:sqchi2-away-from-origin-W2-convexity-bound}
+    \innerProd{v}{\mathcal H_{\Sphere,\mu}v}_{L^2(\mu;\mathbb R^{d_w})}
+    \ge
+    \left(
+        \lambdaReg\kappa_{\mathrm{cap}}\zeta_{\min}^{\delta_W}
+        -C_{\mathrm{fit}}
+    \right)
+    \|v\|_{L^2(\mu;\mathbb R^{d_w})}^2.
+\end{equation}
+In particular, if
+\[
+    \lambdaReg>
+    \frac{C_{\mathrm{fit}}}{\kappa_{\mathrm{cap}}\zeta_{\min}^{\delta_W}},
+\]
+then the spherical product pushforward second variation is strictly positive in
+every nonzero admissible tangent direction at each point of the region.
+\end{proposition}
+
+\begin{proof}
+By \cref{lem:mf-full-spherical-Hessian}, the spherical product pushforward
+second variation is
+\[
+ D_{W_2}^2F(\mu)[v,v]
+ =\innerProd{v}{\mathcal H_{\Sphere,\mu}v}_{L^2(\mu;\mathbb R^{d_w})}.
+\]
+The two inputs give
+\begin{align*}
+ D_{W_2}^2F_{\mathrm{fit}}(\mu)[v,v]
+ &\ge -C_{\mathrm{fit}}\|v\|_{L^2(\mu;\mathbb R^{d_w})}^2,
+ &&\text{by \cref{eq:fit-curvature-lower-bound-abstract},}\\
+ D_{W_2}^2F_{\mathrm{reg}}(\mu)[v,v]
+ &\ge \lambdaReg\kappa_{\mathrm{cap}}\zeta_{\min}^{\delta_W}
+        \|v\|_{L^2(\mu;\mathbb R^{d_w})}^2,
+ &&\text{by \cref{eq:W2-power-Hessian-lower-bound-annulus}.}
+\end{align*}
+Adding these inequalities proves
+\cref{eq:sqchi2-away-from-origin-W2-convexity-bound}.
+\end{proof}
+
+\begin{remark}[Pointwise scope]
+The annulus need not be geodesically convex.  A strong-convexity inequality
+between two distinct states follows only along a comparison geodesic that
+remains in a region where
+\cref{eq:sqchi2-away-from-origin-W2-convexity-bound} holds at every point.
+\end{remark}
+
+Specializing this bound to the anti-symmetric branch gives positive ambient
+curvature at the prescribed fixed-assignment annular states.
+
+\begin{corollary}[Ambient curvature at anti-symmetric annular states]
+\label{cor:branchwise-positivity-Wasserstein-Mminus}
+\textbf{Assumptions used.}
+\cref{assumption:on-sphere,assumption:odd-symmetric-teacher}, together with
+\cref{prop:sqchi2-away-from-origin-Wasserstein-convexity}.
+
+Fix \(R_{\mathrm{act}}<\infty\).  Let \(\mu_-\in\submanifoldforsaddlepoint\)
+satisfy \(\|\mathbf A(\mu_-)\|_{\mathcal H_{\mathcal O}}\le R_{\mathrm{act}}\) and
+\[
+    \mu_{-,i}\in\mathcal P_\pm(r_{\mathrm{cap}}),
+    \qquad
+    Z_\pm(\mu_{-,1},\mu_{-,2})
+    \ge
+    \zeta_{\min}^2.
+\]
+Then \cref{eq:sqchi2-away-from-origin-W2-convexity-bound} holds with
+\(C_{\mathrm{fit}}=C_{\mathrm{fit}}^{-}(R_{\mathrm{act}})\) from
+\cref{eq:fitting-curvature-lower-bound-Mminus-derived,eq:def-Cfit-Mminus-derived}.
+In particular, every nonzero
+admissible product tangent field has positive spherical product pushforward
+second variation when
+\(\lambdaReg\kappa_{\mathrm{cap}}\zeta_{\min}^{\delta_W}>
+C_{\mathrm{fit}}^{-}(R_{\mathrm{act}})\).  The field need not be tangent
+to \(\submanifoldforsaddlepoint\).
+\end{corollary}

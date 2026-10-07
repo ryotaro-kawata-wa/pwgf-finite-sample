@@ -1,0 +1,199 @@
+
+
+\subsection{Tensor notation and Hermite tensors}
+\label{subsection:tensor-preliminaries}
+
+We collect the tensor conventions used below.  They are standard; see, for example,
+\citet{Hackbusch2012} for tensor spaces.
+For Hermite polynomials, Gaussian chaos, and the Wiener chaos product formula, see \citet[Chapter~1-7]  {peccati2011wiener}.
+
+\paragraph{Tensor notation.}
+For an integer $r\ge0$, write $(\R^d)^{\otimes r}$ for order-$r$ tensors, with
+$(\R^d)^{\otimes0}=\R$.  For vectors $u^{(1)},\dots,u^{(r)}\in\R^d$,
+\[
+\bigl(u^{(1)}\otimes\cdots\otimes u^{(r)}\bigr)_{i_1\dots i_r}
+:=\prod_{s=1}^r u^{(s)}_{i_s},
+\qquad
+x^{\otimes r}:=x\otimes\cdots\otimes x.
+\]
+For $A,B\in(\R^d)^{\otimes r}$, the Frobenius inner product and norm are
+\[
+\innerProd{A}{B}_{\HS}
+:=\sum_{i_1,\dots,i_r=1}^d A_{i_1\dots i_r}B_{i_1\dots i_r},
+\qquad
+\norm{A}_{\HS}:=\sqrt{\innerProd{A}{A}}.
+\]
+If $A\in(\R^d)^{\otimes p}$, $B\in(\R^d)^{\otimes q}$, and
+$0\le a\le\min(p,q)$, we write $A\contr{a}B\in(\R^d)^{\otimes(p+q-2a)}$ for contraction over
+$a$ matched indices:
+\[
+\bigl(A\contr{a}B\bigr)_{i_1\dots i_{p-a}j_1\dots j_{q-a}}
+:=
+\sum_{\ell_1,\dots,\ell_a=1}^d
+A_{i_1\dots i_{p-a}\ell_1\dots\ell_a}
+B_{\ell_1\dots\ell_a j_1\dots j_{q-a}} .
+\]
+The case $a=0$ is the tensor product $A\otimes B$, and a full contraction gives the Frobenius
+inner product.  When $A$ and $B$ are symmetric, the particular choice of contracted modes is
+immaterial after symmetrization.
+
+\paragraph{Symmetrization.}
+For $T\in(\R^d)^{\otimes r}$, define
+\[
+\Sym(T):=\frac1{r!}\sum_{\pi\in\Sg_r}T^\pi,
+\qquad
+(T^\pi)_{i_1\dots i_r}:=T_{i_{\pi(1)}\dots i_{\pi(r)}}.
+\]
+The symmetric subspace is
+\[
+\Sym^r(\R^d):=
+\{T\in(\R^d)^{\otimes r}:T^\pi=T\ \text{for all }\pi\in\Sg_r\}.
+\]
+The map $\Sym$ is the orthogonal projection onto $\Sym^r(\R^d)$ under the Frobenius inner product.
+Since $x^{\otimes r}$ is symmetric,
+\[
+\innerProd{T}{x^{\otimes r}}=
+\innerProd{\Sym(T)}{x^{\otimes r}}.
+\]
+
+\paragraph{Normalized Hermite basis and moment tensors.}
+Let $\mathrm{He}_n$ be the probabilists' Hermite polynomial and set
+\[
+    \psi_n(t):=\frac{\mathrm{He}_n(t)}{\sqrt{n!}},
+    \qquad n\ge0.
+\]
+For $\sigma\in L^2(\mathcal N(0,1);\R^{d_h})$, we use the normalized Hermite expansion
+\[
+    \sigma(t)=\sum_{n\ge0}a_n\psi_n(t),
+    \qquad
+    a_n:=\E_{g\sim\mathcal N(0,1)}[\sigma(g)\psi_n(g)]\in\R^{d_h}.
+\]
+When the weights are supported on the unit sphere, define
+\[
+    T_{i,n}:=\int w^{\otimes n}\,\dd\mu_i(w)
+    \in\Sym^n(\R^{d_w}),
+    \qquad
+    T_{i,n}^o:=\int w^{\otimes n}\,\dd\mu_i^o(w),
+    \qquad i=1,2.
+\]
+The unit-norm convention is important: $w^\top z$ is standard normal only when
+$z\sim\mathcal N(0,I_{d_w})$ and $\norm{w}=1$.
+
+\paragraph{Hermite tensors.}
+Let $\gamma_d(x):=(2\pi)^{-d/2}\exp(-\norm{x}^2/2)$ be the standard Gaussian density on $\R^d$.
+We use the normalized order-$r$ Hermite tensor
+\[
+\Hertensor_r(x)
+:=
+\frac1{\sqrt{r!}}
+(-1)^r\frac{\nabla^{\otimes r}\gamma_d(x)}{\gamma_d(x)}
+=
+\frac1{\sqrt{r!}}
+\exp(\norm{x}^2/2)(-\nabla)^{\otimes r}\exp(-\norm{x}^2/2)
+\in\Sym^r(\R^d).
+\]
+Thus
+\[
+\Hertensor_0(x)=1,
+\qquad
+\Hertensor_1(x)=x,
+\qquad
+\Hertensor_2(x)=\frac{x^{\otimes2}-I_d}{\sqrt2}.
+\]
+For $u\ne0$,
+\begin{equation}
+\label{eq:directional-hermite-tensor-normalized}
+    \innerProd{\Hertensor_r(x)}{u^{\otimes r}}
+    =
+    \norm{u}^r\psi_r\!\left(\frac{u^\top x}{\norm{u}}\right)
+    =
+    \frac{\norm{u}^r}{\sqrt{r!}}
+    \mathrm{He}_r\!\left(\frac{u^\top x}{\norm{u}}\right).
+\end{equation}
+In particular, if $\norm{u}=1$, then
+\[
+    \innerProd{\Hertensor_r(x)}{u^{\otimes r}}=\psi_r(u^\top x).
+\]
+Thus, under the unit-sphere convention,
+\begin{equation}
+\label{eq:activation-moment-expansion}
+    \int \sigma(w^\top z)\,\dd\mu_i(w)
+    =
+    \sum_{n\ge0}a_n\innerProd{\Hertensor_n(z)}{T_{i,n}}.
+\end{equation}
+If the weights are not constrained to the sphere, write $w=\rho\bar w$ with $\rho=\norm{w}$ and
+$\norm{\bar w}=1$.  Then
+\[
+    \sigma(w^\top z)
+    =
+    \sum_{n\ge0}a_n(\rho)\innerProd{\Hertensor_n(z)}{\bar w^{\otimes n}},
+    \qquad
+    a_n(\rho):=
+    \E_{g\sim\mathcal N(0,1)}[\sigma(\rho g)\psi_n(g)].
+\]
+Equivalently, using $w^{\otimes n}$ directly introduces the factor $\rho^{-n}a_n(\rho)$.
+
+If $G\sim\mathcal N(0,I_d)$, then for $A\in(\R^d)^{\otimes r}$ and
+$B\in(\R^d)^{\otimes s}$,
+\begin{equation}
+\label{eq:normalized-hermite-tensor-orthogonality}
+\E\bigl[
+\innerProd{A}{\Hertensor_r(G)}
+\innerProd{B}{\Hertensor_s(G)}
+\bigr]
+=
+\mathbf{1}_{\{r=s\}}
+\innerProd{\Sym(A)}{\Sym(B)}.
+\end{equation}
+In particular, for symmetric $A\in\Sym^r(\R^d)$ and $B\in\Sym^s(\R^d)$, the right-hand side is
+$\mathbf{1}_{\{r=s\}}\innerProd{A}{B}$.
+
+\paragraph{Wiener chaos product formula.}
+For symmetric tensors $A\in\Sym^n(\R^{d_w})$ and $B\in\Sym^m(\R^{d_w})$,
+\begin{equation}
+\label{eq:normalized-hermite-tensor-product-formula}
+    \innerProd{\Hertensor_n(z)}{A}
+    \innerProd{\Hertensor_m(z)}{B}
+    =
+    \sum_{r=0}^{\min(n,m)}
+    c_{n,m,r}
+    \innerProd{
+        \Hertensor_{n+m-2r}(z)
+    }{
+        \sym{A\contr{r}B}
+    },
+\end{equation}
+where
+\begin{equation}
+\label{eq:normalized-wiener-chaos-product-coefficient}
+    c_{n,m,r}
+    :=
+    r!\binom nr\binom mr
+    \sqrt{\frac{(n+m-2r)!}{n!\,m!}} .
+\end{equation}
+The square-root factor in \cref{eq:normalized-wiener-chaos-product-coefficient} is exactly the
+conversion from the unnormalized Hermite tensors to the normalized ones.  If
+$\widetilde{\Hertensor}_q:=\sqrt{q!}\,\Hertensor_q$ is used for every order $q$, then the coefficient
+is $r!\binom nr\binom mr$.
+
+Gaussian integration by parts gives the normalized tensor Stein identity
+\[
+\E\bigl[f(G)\Hertensor_r(G)\bigr]
+=
+\frac1{\sqrt{r!}}\E\bigl[\nabla^{\otimes r}f(G)\bigr],
+\]
+whenever the expectations are finite.  Equivalently, the degree-$r$ normalized Hermite coefficient
+tensor of $f\in L^2(\gamma_d)$ is
+\[
+\widehat f_r:=\E\bigl[f(G)\Hertensor_r(G)\bigr]
+\in\Sym^r(\R^d).
+\]
+A useful special case for a one-dimensional activation $\sigma$ is
+\[
+\E\bigl[\sigma(w^\top G)\Hertensor_r(G)\bigr]
+=
+\frac1{\sqrt{r!}}\E\bigl[\sigma^{(r)}(w^\top G)\bigr]w^{\otimes r},
+\qquad
+w\in\R^d,
+\]
+under the same integrability assumptions.

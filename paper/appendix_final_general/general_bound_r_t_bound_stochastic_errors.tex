@@ -1,0 +1,58 @@
+\subsection{Concentration of the stochastic residuals \(\Gamma_t^N\) and \(\widetilde\Gamma_t^N\)}
+\label{subsec:general-argument-bound-stochastic-gamma-and-tilde-gamma}
+
+We first record a bounded-difference inequality used to turn sensitivity bounds
+for empirical functionals into high-probability estimates.
+
+\subsubsection{Preliminary}
+
+McDiarmid's inequality will be applied conditionally on the population-level
+randomness, with the reference particles treated as independent inputs.
+
+\begin{lemma}[McDiarmid's inequality (textbook: \citet{BLM2013})]
+\label{lemma:mcdiarmid}
+Let \(X_1,\dots,X_N\) be independent random variables taking values in measurable
+spaces \(\mathcal X_1,\dots,\mathcal X_N\), and let
+\(
+F:\mathcal X_1\times\cdots\times\mathcal X_N\to\R
+\)
+be measurable.
+Assume that there exist constants \(c_1,\dots,c_N\ge0\) such that for every
+\(i\in\{1,\dots,N\}\),
+\[
+|F(x_1,\dots,x_N)-F(x_1,\dots,x_i',\dots,x_N)|
+\le c_i
+\]
+for all \(x_j,x_i'\) for which the two arguments differ only in the \(i\)-th
+coordinate.
+If $\sum_i c_i^2>0$, then, for every \(r>0\),
+\[
+\mathbb P\!\left(
+F(X_1,\dots,X_N)-\mathbb E[F(X_1,\dots,X_N)] \ge r
+\right)
+\le
+\exp\!\left(
+-\frac{2r^2}{\sum_{i=1}^N c_i^2}
+\right).
+\]
+In particular,
+\[
+\mathbb P\!\left(
+|F(X_1,\dots,X_N)-\mathbb E[F(X_1,\dots,X_N)]| \ge r
+\right)
+\le
+2\exp\!\left(
+-\frac{2r^2}{\sum_{i=1}^N c_i^2}
+\right).
+\]
+If every $c_i=0$, changing coordinates one at a time gives
+$|F(x)-F(y)|\le\sum_i c_i=0$ for any two inputs. Thus $F$ is constant
+and both displayed tail probabilities are zero for $r>0$.
+The parallel statement holds for the conditionally independent variables.
+\end{lemma}
+
+The jump covariance residual is controlled by a Hilbert--Schmidt second-moment estimate and McDiarmid's inequality; see \cref{lem:tilde-gamma-weighted-covariance-input}.
+
+\input{appendix_final_general/general_bound_r_t_bound_stochastic_errors_gamma}
+
+\input{appendix_final_general/general_bound_r_t_tilde-gamma_rebuilt}

@@ -1,0 +1,14 @@
+checks/MF44Checks.lean:23:8: warning: This simp argument is unused:
+  normalizedHermiteTensor_power_one
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵n̵o̵r̵m̵a̵l̵i̵z̵e̵d̵H̵e̵r̵m̵i̵t̵e̵T̵e̵n̵s̵o̵r̵_̵p̵o̵w̵e̵r̵_̵o̵n̵e̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+checks/MF44Checks.lean:27:8: warning: This simp argument is unused:
+  normalizedHermiteTensor_power_two
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵n̵o̵r̵m̵a̵l̵i̵z̵e̵d̵H̵e̵r̵m̵i̵t̵e̵T̵e̵n̵s̵o̵r̵_̵p̵o̵w̵e̵r̵_̵t̵w̵o̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

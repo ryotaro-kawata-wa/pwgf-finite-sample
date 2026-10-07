@@ -1,0 +1,161 @@
+\subsection{Functional-value comparison}
+\label{subsec:functional-gap}
+
+This subsection converts the particle tracking estimate into a functional-value
+estimate.  The key point is that no new stochastic residual is needed.
+
+We now turn the $r_t$-comparison into the final estimate for
+\[
+\bigl|F(\rho_{\bs X_t})-F(\mu_t)\bigr|.
+\]
+
+The comparison uses $\Gamma_t^N$ for the empirical moment fluctuation of $\rho_{\mathbf Y_t}$ and $r_t$ for the discrepancy between the two particle systems.
+
+No additional error term is introduced.
+
+The next lemma is the deterministic conversion step: the functional gap is
+controlled by the pathwise particle discrepancy and the same moment residual
+\(\Gamma_t^N\).
+\begin{lemma}[Fixed-time functional discrepancy]
+\label{lem:functional-gap-fixed-time-v15}
+In this subsection we use the convention
+\[
+\gamma_m(D)=\mathrm L_Da_m\quad\text{from \cref{eq:common-local-moment-weights}}.
+\]
+Fix the population scale and work on $E_{\rm pop}$ as in the tracking theorem. Then, on the localization event $E_{T,\supXY}$, for every $t\in[0,T]$,
+\begin{equation}
+\label{eq:functional-gap-fixed-time-v15}
+\bigl|F(\rho_{\bs X_t})-F(\mu_t)\bigr|
+\le
+\Lambda(\supXY)\,r_t+\Gamma_t^N,
+\end{equation}
+where
+\[
+\Lambda(\supXY)
+\coloneq
+\sum_{m\ge1}\gamma_m(\supXY)L_m(1+2\supXY^{m-1}).
+\]
+\end{lemma}
+
+\begin{proof}
+\noindent\textbf{Step 1: split the functional error through the reference sample.}
+By the value bound in
+\cref{lemma-localized-moment-smoothness-consequences,eq:local-value-gradient-moment-bound},
+\[
+\bigl|F(\rho_{\bs X_t})-F(\mu_t)\bigr|
+\le
+\sum_{m\ge1}\gamma_m(\supXY)\,
+\|M_m(\rho_{\bs X_t})-M_m(\mu_t)\|_{\mathsf H_m}.
+\]
+Split the difference as
+\[
+M_m(\rho_{\bs X_t})-M_m(\mu_t)
+=
+\bigl(M_m(\rho_{\bs X_t})-M_m(\rho_{\bs Y_t})\bigr)
++
+\bigl(M_m(\rho_{\bs Y_t})-M_m(\mu_t)\bigr).
+\]
+
+\par\noindent\textbf{Step 2: bound the paired empirical moments and recall the residual.}
+On $E_{T,\supXY}$, both configurations lie in the ball of radius
+$D=\supXY$. Set $s=1$ in the empirical-moment calculation
+\cref{eq:paired-empirical-moment-displacement} in the proof of
+\cref{lemma-directional-measure-slot-error}. Since
+$\mathbf Z_t^{(1)}=\mathbf X_t$, it gives
+\[
+ \|M_m(\rho_{\bs X_t})-M_m(\rho_{\bs Y_t})\|_{\mathsf H_m}
+ \le L_m(1+2D^{m-1})r_t.
+\]
+For the population-to-reference difference, recall
+\cref{lemma-directional-measure-slot-error,eq:common-moment-residual-and-lipschitz-sum}:
+\[
+ \sum_m\gamma_m(D)\|M_m(\rho_{\mathbf Y_t})-M_m(\mu_t)\|_{\mathsf H_m}
+ =\Gamma_t^N.
+\]
+Summing the two comparisons with weights $\gamma_m(D)$ yields
+\[
+\bigl|F(\rho_{\bs X_t})-F(\mu_t)\bigr|
+\le
+\Lambda(\supXY)r_t+\Gamma_t^N.
+\]
+This is \eqref{eq:functional-gap-fixed-time-v15}.
+\end{proof}
+
+Combining this deterministic conversion with the fixed-schedule tracking theorem
+gives the final uniform functional-value comparison.
+
+\begin{theorem}[Uniform functional comparison on the tracking event]
+\label{thm:functional-gap-fixed-schedule-v15}
+Under Theorem~\ref{thm:fixed-schedule-high-prob-r-v15}, on the same event
+$\Omega_p\cap E_{T,\rm sp}(A_{\rm sp})\cap\mathcal S_{N,T,p}$,
+\[
+|F(\rho_{\mathbf X_t})-F(\mu_t)|
+\le2\Lambda(D)J_{N,T,p}\mathfrak B_{N,T,p}(t)+\delta_{N,T,p},\qquad t\le T.
+\]
+Under all the assumptions of
+\cref{cor:fixed-schedule-high-prob-r-rate-v15}, for sufficiently large $N$
+the following rate holds on
+$\Omega_p\cap E_{T,\rm sp}(A_{\rm sp})\cap\mathcal R_N$, where
+\(\mathcal R_N\) is the controlled-curvature path condition in
+\cref{eq:reference-response-event}. The curvature-response factors are those of
+\cref{thm:fixed-schedule-high-prob-r-v15}. On this event,
+\begin{equation}
+\label{eq:functional-rate-simplified}
+|F(\rho_{\mathbf X_t})-F(\mu_t)|
+\le C_\varepsilon\Xi^\varepsilon
+\left[(N^{-1/2}+T/N)(1+\mathfrak C_t^Y)
++(N^{-1/4}+\sqrt{T/N})\mathfrak J_t^Y\right].
+\end{equation}
+More precisely, with the same $\Omega_p$ and no additional event,
+\[
+ \mathbb P\left(E_{T,\rm sp}(A_{\rm sp})\cap\mathcal R_N
+       \cap\{\eqref{eq:functional-rate-simplified}
+                         \text{ fails for some }t\le T\}\right)\le p.
+\]
+This is a joint failure bound within the indicated sets, not a
+conditional probability bound given those sets.
+\end{theorem}
+\begin{proof}
+\noindent\textbf{Step 1: apply the deterministic value comparison.}
+On the event in the first assertion,
+\cref{thm:fixed-schedule-high-prob-r-v15,eq:high-prob-r-bound-v15}
+gives $r_t\le e^{1/4}J_{N,T,p}\mathfrak B_{N,T,p}(t)
+\le2J_{N,T,p}\mathfrak B_{N,T,p}(t)$.
+Also $\Gamma_t^N\le\delta_{N,T,p}$ by the construction of $\Omega_p$
+in that theorem. Substituting these two bounds into
+\cref{lem:functional-gap-fixed-time-v15,eq:functional-gap-fixed-time-v15} gives
+\[
+ |F(\rho_{\mathbf X_t})-F(\mu_t)|
+ \le\Lambda(D)r_t+\Gamma_t^N
+ \le2\Lambda(D)J_{N,T,p}\mathfrak B_{N,T,p}(t)+\delta_{N,T,p}.
+\]
+\par\noindent\textbf{Step 2: substitute the envelopes for the sufficient-horizon rate.}
+Fix $\varepsilon>0$. Use exponent $\varepsilon/2$ in the coefficient
+bound \cref{lem:comparison-coefficients-v15,eq:Ccmp-localized-v15} and the
+envelope bound \cref{cor:fixed-schedule-high-prob-r-rate-v15,eq:main-rate-internal-envelopes}:
+\[
+ \Lambda(D)\le C_\varepsilon\Xi^{\varepsilon/2},\qquad
+ \delta_{N,T,p}\le C_\varepsilon\Xi^{\varepsilon/2}(N^{-1/2}+T/N).
+\]
+Apply the tracking rate in
+\cref{cor:fixed-schedule-high-prob-r-rate-v15,eq:r-rate-simplified-v15}
+with exponent $\varepsilon/2$ as well. Multiplying that rate by
+$\Lambda(D)$ and adding $\delta_{N,T,p}$ yields
+\[
+\begin{aligned}
+ \Lambda(D)r_t+\delta_{N,T,p}
+ &\le C_\varepsilon\Xi^{\varepsilon/2}\Xi^{\varepsilon/2}
+ \left[(N^{-1/2}+T/N)\mathfrak C_t^Y
+ +(N^{-1/4}+\sqrt{T/N})\mathfrak J_t^Y\right]\\
+ &\quad+C_\varepsilon\Xi^{\varepsilon/2}(N^{-1/2}+T/N)\\
+ &\le C_\varepsilon\Xi^\varepsilon
+ \left[(N^{-1/2}+T/N)(1+\mathfrak C_t^Y)
+ +(N^{-1/4}+\sqrt{T/N})\mathfrak J_t^Y\right],
+\end{aligned}
+\]
+where $C_\varepsilon$ is enlarged as needed. The last step uses
+$\Xi^{\varepsilon/2}\Xi^{\varepsilon/2}=\Xi^\varepsilon$ and $\Xi\ge1$.
+Together with \cref{lem:functional-gap-fixed-time-v15,eq:functional-gap-fixed-time-v15}
+and $\Gamma_t^N\le\delta_{N,T,p}$ on the same $\Omega_p$, this proves
+\eqref{eq:functional-rate-simplified}.
+\end{proof}

@@ -1,0 +1,641 @@
+
+\subsection{Ambient first-order formulas}
+\label{subsec:useful-first-order-formulas}
+
+This subsection records the first-order ambient formulas used to analyze branch invariance, descent directions, and spherical Wasserstein gradients.
+
+We first differentiate the tensorized fitting loss with respect to the active
+moment tensors.
+\begin{lemma}[Moment derivatives of the fitting part and first variation of $F$]
+\label{lemma:EMN-moment-gradients}
+\textbf{Assumptions used.} \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}.
+
+Let $\Delta\mathcal M_p$ be as in \cref{lemma:EMN-expansion-F}.
+The output contraction in
+\eqref{eq:mf-matrix-tensor-partial-pairings} is the spatial tensor
+\[
+ \langle\Delta\mathcal M_p,a_na_m^\top\rangle_{\rm F}
+ =\sum_{\alpha,\beta=1}^{d_h}
+        (a_n)_\alpha(a_m)_\beta(\Delta\mathcal M_p)_{\alpha\beta}.
+\]
+Define the active fitting coefficients
+\begin{equation}
+    G_{1,n}^{\mathrm{fit}} \coloneq \frac{\partial F_{\mathrm{fit}}}{\partial T_{1,n}},
+    \qquad
+    G_{2,m}^{\mathrm{fit}} \coloneq \frac{\partial F_{\mathrm{fit}}}{\partial T_{2,m}},
+\end{equation}
+where
+\begin{equation}
+    F_{\mathrm{fit}}
+    \coloneq
+    \frac12\sum_{p\ge0}\|\Delta\mathcal M_p\|_{\HS}^2.
+\end{equation}
+Then
+\begin{align}
+    G_{1,n}^{\mathrm{fit}}
+    &=
+    \sum_{m\ge 0}\sum_{r\le \min(n,m)}
+    c_{n,m,r}
+    \sym{\langle \Delta\mathcal M_{n+m-2r}, a_n a_m^\top\rangle_{\mathrm{F}} \contr{m-r} T_{2,m}},
+    \\
+    G_{2,m}^{\mathrm{fit}}
+    &=
+    \sum_{n\ge 0}\sum_{r\le \min(n,m)}
+    c_{n,m,r}
+    \sym{\langle \Delta\mathcal M_{n+m-2r}, a_n a_m^\top\rangle_{\mathrm{F}} \contr{n-r} T_{1,n}}.
+\end{align}
+
+The first variations of the fitting terms are
+\begin{equation}
+\label{eq:first-variation-squared-chi2-objective}
+    \fv{F_\mathrm{fit}}{\mu_1}(w)
+    =
+    \sum_{n\ge0}\langle G_{1,n}^{\mathrm{fit}},w^{\otimes n}\rangle,
+\end{equation}
+\begin{equation}
+    \fv{F_\mathrm{fit}}{\mu_2}(w)
+    =
+    \sum_{m\ge0}\langle G_{2,m}^{\mathrm{fit}},w^{\otimes m}\rangle.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\noindent\textbf{Step 1: differentiate the tensor residuals.}
+For the data-fit term,
+\begin{equation}
+    F_{\mathrm{fit}} \coloneq \frac12\sum_{p\ge 0}\|\Delta\mathcal M_p\|_{\mathrm{HS}}^2,
+\end{equation}
+we have
+\begin{equation}
+    \delta F_{\mathrm{fit}}
+    = \sum_{p\ge 0}\langle \Delta\mathcal M_p, \delta\mathcal M_p\rangle_{\mathrm{HS}}.
+\end{equation}
+If only $T_{1,n}$ is varied, then
+\begin{equation}
+    \delta\mathcal M_p
+    =
+    \sum_{\substack{m\ge 0\\ r\le \min(n,m)\\ p=n+m-2r}}
+    c_{n,m,r}(a_n a_m^\top)\otimes \sym{\delta T_{1,n}\contr{r} T_{2,m}}.
+\end{equation}
+Therefore
+\begin{align}
+    \delta F_{\mathrm{fit}}
+    &=
+    \sum_{\substack{p,m,r\\ p=n+m-2r}}
+    c_{n,m,r}
+    \Big\langle
+        \Delta\mathcal M_p,
+        (a_n a_m^\top)\otimes \sym{\delta T_{1,n}\contr{r} T_{2,m}}
+    \Big\rangle_{\mathrm{HS}}
+    \\
+    &=
+    \sum_{\substack{p,m,r\\ p=n+m-2r}}
+    c_{n,m,r}
+    \Big\langle
+        \langle \Delta\mathcal M_p,a_n a_m^\top\rangle_{\mathrm F},
+        \sym{\delta T_{1,n}\contr{r} T_{2,m}}
+    \Big\rangle_{\mathrm{HS}}.
+\end{align}
+\par\noindent\textbf{Step 2: contract the output and moment indices.}
+Set
+\begin{equation}
+    B_{p,n,m,r}
+    \coloneq
+    \langle \Delta\mathcal M_p,a_n a_m^\top\rangle_{\mathrm F}
+    \in \Sym^{n+m-2r}(\R^{d_w}).
+\end{equation}
+Then, componentwise,
+\begin{align}
+    \Big\langle B_{p,n,m,r}, \delta T_{1,n}\contr{r} T_{2,m}\Big\rangle_{\mathrm{HS}}
+    &=
+    \sum_{I,J,K}
+    (B_{p,n,m,r})_{I,J}
+    (\delta T_{1,n})_{I,K}
+    (T_{2,m})_{K,J}
+    \\
+    &=
+    \Big\langle B_{p,n,m,r}\contr{m-r}T_{2,m},\delta T_{1,n}\Big\rangle_{\mathrm{HS}},
+\end{align}
+where $I$ has length $n-r$, $J$ has length $m-r$, and $K$ has length $r$. Since $\delta T_{1,n}$ is symmetric, pairing against it only depends on the symmetric part of the tensor in the first slot, so
+\begin{equation}
+    \Big\langle B_{p,n,m,r}, \sym{\delta T_{1,n}\contr{r} T_{2,m}}\Big\rangle_{\mathrm{HS}}
+    =
+    \Big\langle \sym{B_{p,n,m,r}\contr{m-r}T_{2,m}}, \delta T_{1,n}\Big\rangle_{\mathrm{HS}}.
+\end{equation}
+Substituting this into the previous display yields
+\begin{equation}
+    \delta F_{\mathrm{fit}}
+    =
+    \Bigg\langle
+        \sum_{m\ge 0}\sum_{r\le \min(n,m)}
+        c_{n,m,r}
+        \sym{\langle \Delta\mathcal M_{n+m-2r}, a_n a_m^\top\rangle_{\mathrm F}\contr{m-r}T_{2,m}},
+        \delta T_{1,n}
+    \Bigg\rangle_{\mathrm{HS}},
+\end{equation}
+which is exactly the stated formula for the fit part of $G_{1,n}^{\mathrm{fit}}$. The formula for \(G_{2,m}^{\mathrm{fit}}\) follows by the same argument with the two factors exchanged.
+
+\par\noindent\textbf{Step 3: recover the first measure variations.}
+For a signed marginal perturbation $\delta\mu_i$,
+$\delta T_{i,n}=\int w^{\otimes n}\,\delta\mu_i(dw)$, so
+\[
+ \delta F_{\mathrm{fit}}
+ =\sum_n\langle G_{i,n}^{\mathrm{fit}},\delta T_{i,n}\rangle
+ =\int\sum_n\langle G_{i,n}^{\mathrm{fit}},w^{\otimes n}\rangle
+                    \,\delta\mu_i(dw).
+\]
+This proves the stated first variations, up to constants that do not
+change the spherical gradients.
+\end{proof}
+
+The next corollary converts the moment derivatives into ambient and spherical
+particle-wise gradients.
+
+\begin{corollary}[Ambient and spherical gradients]
+\label{corollary:EMN-first-order-gradients}
+\textbf{Assumptions used.} \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}.
+
+Under the notation of \cref{lemma:EMN-moment-gradients}, the ambient gradients on the sphere are
+\begin{align}
+    \nabla_w\fv{F_\mathrm{fit}}{\mu_1}(w)
+    &=
+    \sum_{n\ge1} n\,G_{1,n}^{\mathrm{fit}}\contr{n-1}w^{\otimes(n-1)},
+    \\
+    \nabla_w\fv{F_\mathrm{fit}}{\mu_2}(w)
+    &=
+    \sum_{m\ge1} m\,G_{2,m}^{\mathrm{fit}}\contr{m-1}w^{\otimes(m-1)}.
+\end{align}
+Their spherical projections are
+\begin{align}
+\label{eq:spherical-gradient-factor1-squared-chi2}
+    \nabla_{\Sphere}\fv{F_\mathrm{fit}}{\mu_1}(w)
+    &=
+    \sum_{n\ge1} n\Big(
+        G_{1,n}^{\mathrm{fit}}\contr{n-1}w^{\otimes(n-1)}
+        -\big(G_{1,n}^{\mathrm{fit}}\contr{n}w^{\otimes n}\big)w
+    \Big)
+    \\
+\label{eq:spherical-gradient-factor2-squared-chi2}
+    \nabla_{\Sphere}\fv{F_\mathrm{fit}}{\mu_2}(w)
+    &=
+    \sum_{m\ge1} m\Big(
+        G_{2,m}^{\mathrm{fit}}\contr{m-1}w^{\otimes(m-1)}
+        -\big(G_{2,m}^{\mathrm{fit}}\contr{m}w^{\otimes m}\big)w
+    \Big).
+\end{align}
+\end{corollary}
+
+\begin{proof}
+For a symmetric tensor $G\in\Sym^n(\mathbb R^{d_w})$ and direction $u$,
+the product rule and symmetry give
+\[
+\begin{aligned}
+ D_w\langle G,w^{\otimes n}\rangle[u]
+ &=\sum_{j=1}^n
+ \langle G,w^{\otimes(j-1)}\otimes u\otimes w^{\otimes(n-j)}\rangle\\
+ &=n\langle G\contr{n-1}w^{\otimes(n-1)},u\rangle.
+\end{aligned}
+\]
+Moreover,
+$w^\top(G\contr{n-1}w^{\otimes(n-1)})=G\contr{n}w^{\otimes n}$.
+Apply these identities to each $G_{i,n}^{\mathrm{fit}}$ in
+\cref{lemma:EMN-moment-gradients}, and project the ambient gradient
+with $I-ww^\top$. This gives both displayed spherical formulas.
+The active sums are finite by \cref{assumption:odd-symmetric-teacher}.
+\end{proof}
+
+We then compute the first and second variations of the metric regularizer on the fixed-assignment cap class.
+
+\begin{lemma}[First and second variations of the fixed-assignment metric regularizer]
+\label{lem:first-variation-flat-antipodal-potential}
+\textbf{Assumptions used.} \cref{assumption:on-sphere}.
+
+Let
+\[
+    F_{\mathrm{reg}}(\mu_1,\mu_2)
+    =
+    \frac{\lambdaReg}{p_W}Z_\pm(\mu_1,\mu_2)^{p_W/2},
+    \qquad
+    p_W=2+\delta_W,
+\]
+where
+\[
+    Z_\pm(\mu_1,\mu_2)
+    =
+    W_2^2(\mu_1,\nu_\star^\pm)+W_2^2(\mu_2,\nu_\star^\pm).
+\]
+On the fixed-assignment class of \cref{lemma-fixed-assignment}, define
+\[
+    c_\star(w)=\frac12d_\Sphere(w,\pi_\star(w))^2,
+    \qquad
+    D_\pm(\mu_1,
+    \mu_2)
+    \coloneq
+    \sum_{i=1}^2\int c_\star(w)\,\dd\mu_i(w).
+\]
+Then
+\[
+    Z_\pm=2D_\pm.
+\]
+The first variation of \(F_{\mathrm{reg}}\), up to an irrelevant additive constant, is
+\begin{equation}
+\label{eq:first-variation-W2-dirac-metric-regularizer}
+    \frac{\delta F_{\mathrm{reg}}}{\delta\mu_i}(w)
+    =
+    \lambdaReg Z_\pm^{p_W/2-1}c_\star(w),
+    \qquad
+    i=1,2.
+\end{equation}
+Consequently, the Wasserstein gradient on the sphere is
+\begin{equation}
+\label{eq:W2-dirac-metric-gradient}
+    \nabla_\Sphere\frac{\delta F_{\mathrm{reg}}}{\delta\mu_i}(w)
+    =
+    \lambdaReg Z_\pm^{p_W/2-1}\nabla_\Sphere c_\star(w).
+\end{equation}
+
+The second variation formula below is the curvature contribution used in the
+pre-saddle and post-escape convexity arguments.
+For \(Z_\pm>0\) and a smooth spherical pushforward path generated by tangent
+fields \(v=(v_1,v_2)\), as long as the fixed assignment remains valid for small \(|h|\),
+\begin{align}
+\label{eq:second-variation-W2-dirac-metric-regularizer}
+    \frac{\dd^2}{\dd h^2}\Big|_{h=0}
+    F_{\mathrm{reg}}(\mu_{1,h},\mu_{2,h})
+    =&
+    \lambdaReg Z_\pm^{p_W/2-1}
+    \sum_{i=1}^2
+    \int
+        \nabla_\Sphere^2c_\star(w)[v_i(w),v_i(w)]
+    \,\dd\mu_i(w)
+    \\
+    &+
+    \lambdaReg(p_W-2)Z_\pm^{p_W/2-2}
+    \left(
+        \sum_{i=1}^2
+        \int
+            \langle\nabla_\Sphere c_\star(w),v_i(w)\rangle
+        \,\dd\mu_i(w)
+    \right)^2,
+\end{align}
+where $\mu_{i,h}=(\Phi_{i,h})_\#\mu_i,\;
+    \Phi_{i,h}(w)=\EXP_w(hv_i(w))$.
+The second term is nonnegative.  If \(Z_\pm=0\), i.e. at
+\(\mu_1=\mu_2=\nu_\star^\pm\), then its EXP-pushforward second derivative exists and equals zero;
+the exact central calculation is \eqref{eq:mf-center-EXP-regularizer}.
+\end{lemma}
+
+\begin{proof}
+\noindent\textbf{Step 1: differentiate the fixed-assignment cost.}
+For a signed perturbation of \(\mu_i\), the variation of \(Z_\pm\) is
+\[
+    \delta Z_\pm
+    =
+    2\int c_\star(w)\,\delta\mu_i(\dd w).
+\]
+Therefore
+\[
+    \frac{\delta F_{\mathrm{reg}}}{\delta\mu_i}(w)
+    =
+    \lambdaReg Z_\pm^{p_W/2-1}c_\star(w).
+\]
+Taking the spherical gradient in \(w\) gives
+\[
+    \nabla_\Sphere\frac{\delta F_{\mathrm{reg}}}{\delta\mu_i}(w)
+    =
+    \lambdaReg Z_\pm^{p_W/2-1}\nabla_\Sphere c_\star(w).
+\]
+
+\par\noindent\textbf{Step 2: compute the second derivative at positive distance.}
+Let
+\[
+    \mu_{i,h}=(\Phi_{i,h})_\#\mu_i,
+    \qquad
+    \Phi_{i,h}(w)=\EXP_w(hv_i(w)),
+\]
+where $v_i(w)\in T_w\Sphere^{d_w-1}$. By \eqref{eq:mf-spherical-EXP},
+\[
+ \Phi_{i,h}(w)=\cos(h\|v_i(w)\|)w+
+       \frac{\sin(h\|v_i(w)\|)}{\|v_i(w)\|}v_i(w).
+\]
+The quotient is interpreted by continuity at $v_i(w)=0$.
+Differentiating the sine and cosine gives
+\begin{equation}
+\label{eq:mf-EXP-second-jet}
+ \dot\Phi_{i,0}(w)=v_i(w),\qquad
+ \ddot\Phi_{i,0}(w)=-\|v_i(w)\|^2w,\qquad
+ \nabla_h\dot\Phi_{i,h}(w)|_{h=0}
+ =(I-ww^\top)\ddot\Phi_{i,0}(w)=0.
+\end{equation}
+Thus the covariant acceleration, namely the tangential part of the
+ambient acceleration, vanishes.
+
+Define
+\[
+    D_\pm(h)
+    \coloneq
+    \sum_{i=1}^2
+    \int c_\star(\Phi_{i,h}(w))\,\dd\mu_i(w),
+    \qquad
+    Z_\pm(h)=2D_\pm(h).
+\]
+By differentiating under the integral,
+\[
+    D_\pm'(0)
+    =
+    \sum_{i=1}^2
+    \int
+        \langle \nabla_\Sphere c_\star(w),v_i(w)\rangle
+    \,\dd\mu_i(w).
+\]
+Moreover, since the paths \(h\mapsto \Phi_{i,h}(w)\) are geodesics,
+\[
+    \frac{\dd^2}{\dd h^2}\Big|_{h=0}
+    c_\star(\Phi_{i,h}(w))
+    =
+    \nabla_\Sphere^2 c_\star(w)[v_i(w),v_i(w)].
+\]
+Thus
+\[
+    D_\pm''(0)
+    =
+    \sum_{i=1}^2
+    \int
+        \nabla_\Sphere^2 c_\star(w)[v_i(w),v_i(w)]
+    \,\dd\mu_i(w).
+\]
+Consequently, $Z_\pm'(0)=2D_\pm'(0),\;
+    Z_\pm''(0)=2D_\pm''(0).$
+For \(Z_\pm>0\), differentiate
+\[
+    h\longmapsto
+    F_{\mathrm{reg}}(\mu_{1,h},\mu_{2,h})
+    =
+    \frac{\lambdaReg}{p_W}Z_\pm(h)^{p_W/2}.
+\]
+The second derivative is
+\[
+\begin{aligned}
+    \frac{\dd^2}{\dd h^2}\Big|_{h=0}
+    F_{\mathrm{reg}}(\mu_{1,h},\mu_{2,h})
+    &=
+    \frac{\lambdaReg}{2}
+    Z_\pm^{p_W/2-1}Z_\pm''(0)
+    \\
+    &\quad+
+    \frac{\lambdaReg}{2}
+    \left(\frac{p_W}{2}-1\right)
+    Z_\pm^{p_W/2-2}
+    \bigl(Z_\pm'(0)\bigr)^2.
+\end{aligned}
+\]
+Substituting \(Z_\pm'(0)=2D_\pm'(0)\) and \(Z_\pm''(0)=2D_\pm''(0)\), we obtain
+\[
+\begin{aligned}
+    \frac{\dd^2}{\dd h^2}\Big|_{h=0}
+    F_{\mathrm{reg}}(\mu_{1,h},\mu_{2,h})
+    &=
+    \lambdaReg Z_\pm^{p_W/2-1}
+    D_\pm''(0)
+    \\
+    &\quad+
+    \lambdaReg(p_W-2)Z_\pm^{p_W/2-2}
+    \bigl(D_\pm'(0)\bigr)^2.
+\end{aligned}
+\]
+Using the formulas for \(D_\pm'(0)\) and \(D_\pm''(0)\), this is exactly
+\[
+\begin{aligned}
+    \frac{\dd^2}{\dd h^2}\Big|_{h=0}
+    F_{\mathrm{reg}}(\mu_{1,h},\mu_{2,h})
+    =&
+    \lambdaReg Z_\pm^{p_W/2-1}
+    \sum_{i=1}^2
+    \int
+        \nabla_\Sphere^2c_\star(w)[v_i(w),v_i(w)]
+    \,\dd\mu_i(w)
+    \\
+    &+
+    \lambdaReg(p_W-2)Z_\pm^{p_W/2-2}
+    \left(
+        \sum_{i=1}^2
+        \int
+            \langle\nabla_\Sphere c_\star(w),v_i(w)\rangle
+        \,\dd\mu_i(w)
+    \right)^2.
+\end{aligned}
+\]
+The second term is nonnegative because \(p_W=2+\delta_W>2\).
+
+\par\noindent\textbf{Step 3: differentiate directly at the antipodal target.}
+If $Z_\pm=0$, then $\mu_0=\nu_\star^\pm\otimes\nu_\star^\pm$.
+Each starting atom $y$ is its own assigned pole. For sufficiently small
+$|h|$, \cref{eq:mf-spherical-EXP,eq:fixed-assignment-W2-square-formula}
+give, including zero velocities,
+\[
+ d_\Sphere(\EXP_y(hv_i(y)),y)^2=h^2\|v_i(y)\|^2,
+ \qquad
+ Z_\pm(\mu_h)=h^2\sum_i\int\|v_i(y)\|^2\,d\mu_{0,i}(y).
+\]
+Thus, with the product norm
+$\|v\|_{L^2(\mu_0)}^2=\sum_i\int\|v_i\|^2\,d\mu_{0,i}$,
+\begin{equation}
+\label{eq:mf-center-EXP-regularizer}
+ F_{\mathrm{reg}}(\mu_h)
+ =\frac{\lambdaReg}{p_W}|h|^{p_W}\|v\|_{L^2(\mu_0)}^{p_W}.
+\end{equation}
+For $h\ne0$, direct differentiation yields
+\[
+\begin{aligned}
+ \frac d{dh}F_{\mathrm{reg}}(\mu_h)
+ &=\lambdaReg\operatorname{sgn}(h)|h|^{p_W-1}\|v\|_{L^2(\mu_0)}^{p_W},\\
+ \frac{d^2}{dh^2}F_{\mathrm{reg}}(\mu_h)
+ &=\lambdaReg(p_W-1)|h|^{p_W-2}\|v\|_{L^2(\mu_0)}^{p_W}.
+\end{aligned}
+\]
+At $h=0$, the value difference quotient tends to zero. Dividing the
+first derivative at $h\ne0$ by $h$ gives
+$\lambdaReg|h|^{p_W-2}\|v\|_{L^2(\mu_0)}^{p_W}\to0$.
+Therefore the second derivative exists at zero and equals zero, since
+$p_W>2$; the second derivative displayed above is also continuous there.
+\end{proof}
+
+\begin{lemma}[Full spherical product Hessian and spherical product pushforward second variation]
+\label{lem:mf-full-spherical-Hessian}
+Assume \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}.
+Let $\mu=\mu_1\otimes\mu_2\in\mathcal X_\pm(r_{\mathrm{cap}})$, and let
+$v=(v_1,v_2)$ be a smooth spherical product field. Use the product norm
+$\|v\|_{L^2(\mu)}^2=\sum_i\int\|v_i(w)\|^2\,d\mu_i(w)$.
+For sufficiently small $|h|$, require the paths
+\[
+ \Phi_{i,h}(w)=\EXP_w(hv_i(w)),\qquad
+ \mu_h=\bigotimes_{i=1}^2(\Phi_{i,h})_\#\mu_i
+\]
+to remain in the fixed-assignment caps of \eqref{eq:mf-product-cap-class}.
+The partial measure derivatives of $F_{\mathrm{fit}}$ are those of
+its finite polynomial in the moments. In terms of
+$G_{i,n}^{\mathrm{fit}}=\partial F_{\mathrm{fit}}/\partial T_{i,n}$
+from \cref{lemma:EMN-moment-gradients}, this means
+\begin{equation}
+\label{eq:mf-fitting-second-measure-variation}
+ \frac{\delta^2F_{\mathrm{fit}}}{\delta\mu_i\delta\mu_j}(\mu;w,u)
+ :=\sum_{n,m\in\mathcal O}
+ \left\langle
+ D_{T_{j,m}}G_{i,n}^{\mathrm{fit}}[u^{\otimes m}],
+ w^{\otimes n}\right\rangle_{\rm HS}.
+\end{equation}
+For $Z_\pm(\mu)>0$, define the full spherical product Hessian by
+\begin{equation}
+\label{eq:mf-full-spherical-product-Hessian}
+\begin{aligned}
+ (\mathcal H_{\Sphere,\mu}v)_i(w)
+ &=\nabla_\Sphere^2\frac{\delta F}{\delta\mu_i}(\mu;w)v_i(w)\\
+ &\quad+\sum_{j=1}^2\int
+ \nabla_{\Sphere,w}\nabla_{\Sphere,u}
+ \frac{\delta^2F}{\delta\mu_i\delta\mu_j}(\mu;w,u)
+                  v_j(u)\,d\mu_j(u).
+\end{aligned}
+\end{equation}
+The first term differentiates the location with the measures fixed.
+The integral term differentiates the measures; its mixed derivative maps
+$T_u\Sphere$ to $T_w\Sphere$. At $Z_\pm(\mu)=0$, the direct calculation
+\cref{eq:mf-center-EXP-regularizer} shows that the regularizer has zero
+pushforward second variation. Hence the full operator there is
+$\mathcal H_{\Sphere,\mu}=\mathcal H_{\Sphere,\mu}^{\mathrm{fit}}$, obtained
+from \cref{eq:mf-full-spherical-product-Hessian} by using
+$F_{\mathrm{fit}}$ in both terms.
+Then the spherical product pushforward second variation exists and satisfies
+\begin{equation}
+\label{eq:mf-full-Hessian-second-variation}
+\begin{aligned}
+ D^2_{W_2}F(\mu)[v,v]
+ &:=\left.\frac{d^2}{dh^2}\right|_0 F(\mu_h)\\
+ &=\sum_{i=1}^2\int
+       \langle v_i(w),(\mathcal H_{\Sphere,\mu}v)_i(w)\rangle\,d\mu_i(w)
+ =\langle v,\mathcal H_{\Sphere,\mu}v\rangle_{L^2(\mu)}.
+\end{aligned}
+\end{equation}
+This notation refers to the stated product pushforward; it does not
+require every such path to be an optimal Wasserstein geodesic. When the
+displayed pushforward path is a product Wasserstein geodesic, the same quantity
+is its usual geodesic second derivative. Thus the estimates below apply, in
+particular, along every admissible path of that form.
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: differentiate the fitting term in both its arguments.}
+The explicit EXP calculation \eqref{eq:mf-EXP-second-jet} gives
+$\dot\Phi_{i,0}=v_i$ and zero covariant acceleration.
+The product first-variation formula in \cref{app:product-measure-wgf} gives
+\[
+ \frac d{dh}F_{\mathrm{fit}}(\mu_h)
+ =\sum_i\int\left\langle
+   \nabla_\Sphere\frac{\delta F_{\mathrm{fit}}}{\delta\mu_i}
+                   (\mu_h;\Phi_{i,h}(w)),\dot\Phi_{i,h}(w)
+                 \right\rangle\,d\mu_i(w).
+\]
+The moment derivative along the path is the finite product rule
+\[
+ \left.\frac d{dh}\right|_0T_{j,m}(\mu_h)
+ =\int\sum_{\ell=1}^m
+ u^{\otimes(\ell-1)}\otimes v_j(u)\otimes u^{\otimes(m-\ell)}
+ \,d\mu_j(u).
+\]
+Equivalently, the integrand is
+\(D_u(u^{\otimes m})[v_j(u)]\).  Hence the coefficient derivative is
+the finite-dimensional chain rule
+\begin{equation}
+\label{eq:mf-moment-kernel-chain-rule}
+\begin{aligned}
+ \left.\frac d{dh}\right|_0G_{i,n}^{\mathrm{fit}}(\mu_h)
+ &=\sum_{j=1}^2\sum_{m\in\mathcal O}
+ D_{T_{j,m}}G_{i,n}^{\mathrm{fit}}
+       \left[\left.\frac d{dh}\right|_0T_{j,m}(\mu_h)\right]\\
+ &=\sum_{j=1}^2\sum_{m\in\mathcal O}\int
+ D_{T_{j,m}}G_{i,n}^{\mathrm{fit}}
+       \bigl[D_u(u^{\otimes m})[v_j(u)]\bigr],d\mu_j(u).
+\end{aligned}
+\end{equation}
+Insert this into the derivative of
+$\sum_n\langle G_{i,n}^{\mathrm{fit}},w^{\otimes n}\rangle$ from
+\cref{eq:first-variation-squared-chi2-objective}.  Pairing
+\cref{eq:mf-moment-kernel-chain-rule} with \(w^{\otimes n}\), summing over
+\(n\), and differentiating \(u^{\otimes m}\) in the direction
+\(v_j(u)\) is exactly the \(u\)-gradient of the kernel in
+\cref{eq:mf-fitting-second-measure-variation}.  Thus, for fixed \(w\),
+\[
+ \left.\frac d{dh}\right|_0
+       \frac{\delta F_{\mathrm{fit}}}{\delta\mu_i}(\mu_h;w)
+ =\sum_j\int\left\langle
+       \nabla_{\Sphere,u}
+       \frac{\delta^2F_{\mathrm{fit}}}{\delta\mu_i\delta\mu_j}(\mu;w,u),
+       v_j(u)\right\rangle\,d\mu_j(u).
+\]
+All sums are finite by \cref{assumption:odd-symmetric-teacher}, so the
+sum--integral interchange in \cref{eq:mf-moment-kernel-chain-rule} requires
+no limiting argument.  This is the finite polynomial chain rule for the
+moments in \cref{lemma:EMN-expansion-F,lemma:EMN-moment-gradients}.
+Taking its spherical gradient in $w$ gives the integral term of
+\eqref{eq:mf-full-spherical-product-Hessian} for $F_{\mathrm{fit}}$.
+Differentiating the evaluation point gives its spatial-Hessian term.
+The remaining derivative of $\dot\Phi_{i,h}$ contributes
+$\langle\nabla_\Sphere(\delta F_{\mathrm{fit}}/\delta\mu_i),
+        \nabla_h\dot\Phi_{i,h}\rangle=0$ at $h=0$.
+Thus differentiating the first display proves
+\eqref{eq:mf-full-Hessian-second-variation} for $F_{\mathrm{fit}}$.
+All differentiations under the integrals are valid for atomic as well
+as diffuse measures: the Hermite sums are finite and the supports are
+compact subsets of the smooth cap region.
+
+\par\noindent\textbf{Step 2: identify the regularizer contribution.}
+Recall
+$c_\star(w)=d_\Sphere(w,\pi_\star(w))^2/2$ from
+\eqref{eq:mf-fixed-assignment-cost}, and
+$Z_\pm=2\sum_i\int c_\star\,d\mu_i$ from
+\eqref{eq:fixed-assignment-W2-square-formula}.
+For $Z_\pm>0$, differentiating
+\eqref{eq:first-variation-W2-dirac-metric-regularizer} gives
+\[
+\begin{aligned}
+ \frac{\delta F_{\mathrm{reg}}}{\delta\mu_i}(\mu;w)
+ &=\lambdaReg Z_\pm^{(p_W-2)/2}c_\star(w),\\
+ \frac{\delta^2F_{\mathrm{reg}}}{\delta\mu_i\delta\mu_j}(\mu;w,u)
+ &=\lambdaReg(p_W-2)Z_\pm^{(p_W-4)/2}c_\star(w)c_\star(u).
+\end{aligned}
+\]
+The factor $p_W-2$ is $2\cdot(p_W-2)/2$, since a variation of
+$\mu_j$ changes $Z_\pm$ by $2\int c_\star\,d(\delta\mu_j)$.
+Their spatial derivatives in
+\eqref{eq:mf-full-spherical-product-Hessian}, paired with $v$, give
+\[
+\begin{aligned}
+ &\lambdaReg Z_\pm^{(p_W-2)/2}
+       \sum_i\int\nabla_\Sphere^2c_\star(w)[v_i(w),v_i(w)]\,d\mu_i(w)\\
+ &\quad+\lambdaReg(p_W-2)Z_\pm^{(p_W-4)/2}
+       \left(\sum_i\int\langle\nabla_\Sphere c_\star(w),v_i(w)\rangle
+                     \,d\mu_i(w)\right)^2.
+\end{aligned}
+\]
+This equals the directly computed second derivative
+\eqref{eq:second-variation-W2-dirac-metric-regularizer}.
+For $Z_\pm=0$, use \eqref{eq:mf-center-EXP-regularizer} and its
+difference-quotient calculation instead: the second derivative is zero.
+No second measure variation of $Z_\pm^{p_W/2}$ at zero is used.
+Adding this contribution to Step 1 proves the identity.
+\end{proof}
+
+\begin{remark}[Relation to the full Hessian and the auxiliary comparison]
+The identity \eqref{eq:mf-full-Hessian-second-variation} is the spherical
+product counterpart of the full Hessian in \cref{subsec:population-pwgf}.
+Stationarity alone does not remove its spatial term.
+The normalized retractions used below have the same first and second
+derivatives as EXP at zero by \eqref{eq:mf-retraction-second-jet};
+the finite-moment fitting chain rule therefore gives the same second
+variation. For the regularizer at the center, the corresponding direct
+calculation is \eqref{eq:mf-zero-distance-retraction}.
+This suggests a possible finite-sample curvature comparison of the kind
+studied in \cref{subsection:concentration-kappa}.
+Such a transfer theorem for this spherical product model remains open
+in the present work: the hypotheses of that auxiliary result are not
+verified here. The central calculation is a second-variation identity,
+not an application of the general $C^3$ theorem at the MF target.
+\end{remark}

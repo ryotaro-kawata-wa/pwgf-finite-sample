@@ -1,0 +1,381 @@
+\subsection{Finite-feature transfer of negative curvature at a fixed time}
+\label{subsection:concentration-kappa}
+
+This fixed-time supplement is not an input to the tracking theorem,
+objective comparison, or fixed-time gradient comparison.
+Its finite-feature conclusion does not control whole-path curvature-response
+factors or adaptive jump times.
+
+We give a sufficient sample size for a negative population Hessian
+direction to remain negative in the reference sample. The statement
+uses an exact finite-feature representation and a spatial-Hessian
+condition. We first fix a deterministic law; the conditional
+interpretation for a fixed time of PWGF follows after the proof.
+
+\paragraph{Finite features and the two Hessian terms.}
+Consider the finite-feature case of
+\cref{assumption-structured-moment-smoothness}: for admissible laws $\nu$,
+\begin{equation}
+ F(\nu)=G\left(\int\phi\,d\nu\right),\qquad
+ \phi:\mathbb R^d\longrightarrow\mathbb R^q,\qquad q\in\mathbb N.
+ \label{eq:finite-feature-objective}
+\end{equation}
+The dimension $q$ is fixed independently of $N$; no feature cutoff or
+approximation of $F$ is taken. At the law $\mu$ under consideration,
+define
+\begin{equation}
+ \Phi(x):=\fD\phi(x)\in\mathbb R^{q\times d},\qquad
+ A:=\fD^2G\left(\int\phi\,d\mu\right)=A^\top\in\mathbb R^{q\times q}.
+ \label{eq:finite-feature-derivatives}
+\end{equation}
+The moment chain rule in \cref{eq:weighted-integral-hessian-representation}
+reduces to the finite sum
+\[
+ \nabla_W^2F(\mu;x,y)
+ =\sum_{j,k=1}^q A_{jk}\nabla\phi_j(x)\nabla\phi_k(y)^\top
+ =\Phi(x)^\top A\Phi(y).
+\]
+Recall the integral and spatial Hessian operators from
+\cref{subsec:population-pwgf}. On $L^2(\mu;\mathbb R^d)$ they are
+\begin{equation}
+ \begin{split}
+ (H_\mu v)(x)&:=
+   \int\Phi(x)^\top A\Phi(y)v(y)\,\mu(dy),\\
+ (H'_\mu v)(x)&:=
+   \nabla_x\nabla_WF(\mu,x)v(x).
+ \end{split}
+ \label{eq:finite-feature-hessian-operators}
+\end{equation}
+Their sum is the full operator $\mathcal H_\mu=H_\mu+H'_\mu$.
+For independent $Y_1,\ldots,Y_N\sim\mu$, its sampled full Hessian is
+\begin{equation}
+ \begin{split}
+ \mathcal H^{Y,N}(i,j)
+ &:=\frac1N\Phi(Y_i)^\top A\Phi(Y_j)
+      +\delta_{ij}\nabla_x\nabla_WF(\mu,Y_i),\\
+ \kappa^{Y,N}&:=\lambda_{\min}(\mathcal H^{Y,N}).
+ \end{split}
+ \label{eq:finite-feature-sampled-hessian}
+\end{equation}
+The matrix acts on $(\mathbb R^d)^N$ with its Euclidean inner product.
+At $\mu=\mu_t$, this is precisely the reference-sample curvature
+$\kappa_t^{Y,N}$ of \eqref{eq:curvature-main}: derivatives are evaluated
+at $\mu_t$, not at the empirical measure.
+
+\Needspace{8\baselineskip}
+\begin{proposition}[Transfer of negative curvature to the reference sample]
+\label{prop:finite-feature-negative-curvature}
+Fix $\mu$ as above, and suppose that the following hold for deterministic
+constants $K\ge1$, $C_s\ge0$, $\varepsilon\ge0$, and $\gamma>0$.
+\begin{enumerate}
+ \item The coefficient and feature moments satisfy
+ \begin{equation}
+ \|A\|_{\mathbb R^q\to\mathbb R^q}\le K,\qquad
+ \mathbb E\|\Phi(Y_1)\|_F^4\le K^4.
+ \label{eq:finite-feature-common-bound}
+ \end{equation}
+ Here $\|\cdot\|_F$ is the Frobenius norm, the square root of the sum of
+ squared entries.
+ \item The spatial Hessian is controlled by the population gradient:
+ \begin{equation}
+ \mathop{\rm ess\,sup}_{x\sim\mu}
+ \|\nabla_x\nabla_WF(\mu,x)\|_{\mathbb R^d\to\mathbb R^d}
+ \le C_s\|\nabla_WF(\mu,\cdot)\|_{L^2(\mu;\mathbb R^d)}.
+ \label{eq:finite-feature-spatial-condition}
+ \end{equation}
+ \item Near-stationarity and negative full curvature hold separately:
+ \begin{equation}
+ \begin{split}
+ \|\nabla_WF(\mu,\cdot)\|_{L^2(\mu;\mathbb R^d)}&\le\varepsilon,
+       \qquad C_s\varepsilon\le\gamma/8,\\
+ \inf\operatorname{Spec}(H_\mu+H'_\mu)&\le-\gamma.
+ \end{split}
+ \label{eq:finite-feature-negative-gap}
+ \end{equation}
+\end{enumerate}
+Then, for every $\delta\in(0,1)$,
+\begin{equation}
+ N\ge\frac1\delta\max\left\{1,\frac{12^4K^{12}}{\gamma^4}\right\}
+ \quad\Longrightarrow\quad
+ \mathbb P(\kappa^{Y,N}\le-\gamma/2)\ge1-\delta.
+ \label{eq:finite-feature-negative-transfer}
+\end{equation}
+\end{proposition}
+
+Condition \eqref{eq:finite-feature-spatial-condition} has the form of
+Assumption~2, equation~(8), in \citet{yamamoto2025hessianguided}.
+That work imposes the condition for every law in its setting; here it is
+required only at the law in the proposition. It does not follow merely
+from finite features or from a small gradient.
+
+\begin{proof}
+\noindent\textbf{Step 1: a single covariance event.}
+Define the population and sample feature covariances
+\begin{equation}
+ \Sigma:=\mathbb E[\Phi(Y_1)\Phi(Y_1)^\top],\qquad
+ \widehat\Sigma:=\frac1N\sum_{i=1}^N\Phi(Y_i)\Phi(Y_i)^\top.
+ \label{eq:finite-feature-covariances}
+\end{equation}
+They are positive semidefinite $q\times q$ matrices. If $s_j$ are the
+singular values of a matrix $\Phi$, then
+\[
+ \|\Phi\Phi^\top\|_F^2=\sum_js_j^4
+ \le\left(\sum_js_j^2\right)^2=\|\Phi\|_F^4.
+\]
+The centered matrices
+$Z_i:=\Phi(Y_i)\Phi(Y_i)^\top-\Sigma$ are independent and have mean zero.
+Expanding the squared Frobenius norm gives
+\[
+ \mathbb E\|Z_i\|_F^2
+ =\mathbb E\|\Phi(Y_i)\Phi(Y_i)^\top\|_F^2-\|\Sigma\|_F^2
+ \le K^4.
+\]
+For $i\ne j$, independence gives
+$\mathbb E\langle Z_i,Z_j\rangle_F
+=\langle\mathbb EZ_i,\mathbb EZ_j\rangle_F=0$.
+Consequently
+\begin{align*}
+ \mathbb E\|\widehat\Sigma-\Sigma\|_F^2
+ &=\frac1{N^2}\sum_{i,j}\mathbb E\langle Z_i,Z_j\rangle_F\\
+ &=\frac1{N^2}\sum_i\mathbb E\|Z_i\|_F^2\le\frac{K^4}{N}.
+\end{align*}
+Markov's inequality, applied to this squared norm, yields
+\[
+ \mathbb P\left(\|\widehat\Sigma-\Sigma\|_F>
+                   \frac{K^2}{\sqrt{N\delta}}\right)
+ \le\frac{K^4/N}{K^4/(N\delta)}=\delta.
+\]
+Thus, with probability at least $1-\delta$,
+\begin{equation}
+\label{eq:finite-feature-covariance-success}
+ \|\widehat\Sigma-\Sigma\|_{\mathbb R^q\to\mathbb R^q}
+ \le\|\widehat\Sigma-\Sigma\|_F
+ \le\frac{K^2}{\sqrt{N\delta}}.
+\end{equation}
+All subsequent sample calculations use
+\eqref{eq:finite-feature-covariance-success}.
+Since $\|\Phi\Phi^\top\|_{\mathbb R^q\to\mathbb R^q}\le\|\Phi\|_F^2$,
+\[
+ \|\Sigma\|_{\mathbb R^q\to\mathbb R^q}\le\mathbb E\|\Phi(Y_1)\|_F^2
+ \le(\mathbb E\|\Phi(Y_1)\|_F^4)^{1/2}\le K^2.
+\]
+The sample-size condition gives $N\delta\ge1$, and hence, on
+\eqref{eq:finite-feature-covariance-success},
+\[
+ \|\widehat\Sigma\|_{\mathbb R^q\to\mathbb R^q}
+ \le\|\Sigma\|_{\mathbb R^q\to\mathbb R^q}+\|\widehat\Sigma-\Sigma\|_{\mathbb R^q\to\mathbb R^q}
+ \le K^2+\frac{K^2}{\sqrt{N\delta}}\le2K^2.
+\]
+
+\par\noindent\textbf{Step 2: compare the square roots and Hessian matrices.}
+Continue on the covariance bound \eqref{eq:finite-feature-covariance-success}.
+Take a unit eigenvector $v$ of the symmetric matrix
+$\widehat\Sigma^{1/2}-\Sigma^{1/2}$ with eigenvalue $\lambda$ such that
+$|\lambda|=\|\widehat\Sigma^{1/2}-\Sigma^{1/2}\|_{\mathbb R^q\to\mathbb R^q}$.
+Here each square root is the positive semidefinite square root.
+The identity
+\[
+ \widehat\Sigma-\Sigma
+ =\widehat\Sigma^{1/2}(\widehat\Sigma^{1/2}-\Sigma^{1/2})
+  +(\widehat\Sigma^{1/2}-\Sigma^{1/2})\Sigma^{1/2}
+\]
+holds even when the two matrices do not commute.
+Positive semidefiniteness gives
+\[
+ v^\top(\widehat\Sigma^{1/2}+\Sigma^{1/2})v
+ \ge|v^\top(\widehat\Sigma^{1/2}-\Sigma^{1/2})v|=|\lambda|.
+\]
+Multiplying the preceding identity by $v^\top$ and $v$, and using the
+eigenvector equation on its two sides, gives
+\begin{align*}
+ \|\widehat\Sigma-\Sigma\|_{\mathbb R^q\to\mathbb R^q}
+ &\ge|v^\top(\widehat\Sigma-\Sigma)v|\\
+ &=|\lambda|\,v^\top(\widehat\Sigma^{1/2}+\Sigma^{1/2})v\\
+ &\ge|\lambda|^2
+   =\|\widehat\Sigma^{1/2}-\Sigma^{1/2}\|_{\mathbb R^q\to\mathbb R^q}^2.
+\end{align*}
+Thus Step 1 implies
+$\|\widehat\Sigma^{1/2}-\Sigma^{1/2}\|_{\mathbb R^q\to\mathbb R^q}
+\le K(N\delta)^{-1/4}$.
+Define the symmetric matrices reused in the eigenvalue comparison by
+\[
+ \mathcal T:=\Sigma^{1/2}A\Sigma^{1/2},\qquad
+ \widehat{\mathcal T}:=\widehat\Sigma^{1/2}A\widehat\Sigma^{1/2}.
+\]
+Inserting and subtracting $\Sigma^{1/2}A\widehat\Sigma^{1/2}$ gives
+\begin{align*}
+ \widehat{\mathcal T}-\mathcal T
+ &=(\widehat\Sigma^{1/2}-\Sigma^{1/2})A\widehat\Sigma^{1/2}
+       +\Sigma^{1/2}A(\widehat\Sigma^{1/2}-\Sigma^{1/2}),\\
+ \|\widehat{\mathcal T}-\mathcal T\|_{\mathbb R^q\to\mathbb R^q}
+ &\le K(N\delta)^{-1/4}\,K\,(\sqrt2K+K)\\
+ &\le3K^3(N\delta)^{-1/4}\le\gamma/4.
+\end{align*}
+The last inequality follows directly from
+$(N\delta)^{1/4}\ge12K^3/\gamma$ in
+\eqref{eq:finite-feature-negative-transfer}.
+
+\par\noindent\textbf{Step 3: identify the negative eigenvalues.}
+Define the bounded feature operator and its adjoint by
+\[
+ \begin{aligned}
+ \mathcal B &:L^2(\mu;\mathbb R^d)\to\mathbb R^q,
+ &\mathcal Bv&=\int\Phi(x)v(x)\,\mu(dx),\\
+ \mathcal B^* &:\mathbb R^q\to L^2(\mu;\mathbb R^d),
+ &(\mathcal B^*u)(x)&=\Phi(x)^\top u.
+ \end{aligned}
+\]
+Indeed, Cauchy--Schwarz gives
+\begin{align*}
+ \|\mathcal Bv\|_{\mathbb R^q}
+ &\le\int\|\Phi(x)\|_F\|v(x)\|_{\mathbb R^d}\,\mu(dx)\\
+ &\le(\mathbb E\|\Phi(Y_1)\|_F^2)^{1/2}\|v\|_{L^2(\mu;\mathbb R^d)}
+ \le K\|v\|_{L^2(\mu;\mathbb R^d)}.
+\end{align*}
+Moreover
+$\langle\mathcal Bv,u\rangle_{\mathbb R^q}
+=\int\langle v(x),\Phi(x)^\top u\rangle_{\mathbb R^d}\,\mu(dx)$,
+which verifies the adjoint formula. By
+\cref{eq:finite-feature-covariances,eq:finite-feature-hessian-operators},
+for $u\in\mathbb R^q$ and $v\in L^2(\mu;\mathbb R^d)$, substitution gives
+\begin{align*}
+ \mathcal B\mathcal B^*u
+ &=\int\Phi(x)\Phi(x)^\top u\,\mu(dx)=\Sigma u,\\
+ (\mathcal B^*A\mathcal Bv)(x)
+ &=\Phi(x)^\top A\int\Phi(y)v(y)\,\mu(dy)=(H_\mu v)(x).
+\end{align*}
+Thus $\mathcal B\mathcal B^*=\Sigma$ and
+$H_\mu=\mathcal B^*A\mathcal B$.
+In particular $H_\mu$ is self-adjoint and has finite rank.
+
+We use the following elementary eigenvector calculation for products of
+two bounded maps $U,V$ between two spaces. For $\lambda\ne0$,
+\begin{align*}
+ UVx=\lambda x,\quad x\ne0
+ &\ \Longrightarrow\
+ Vx\ne0,\quad VU(Vx)=\lambda Vx,\\
+ VUy=\lambda y,\quad y\ne0
+ &\ \Longrightarrow\
+ Uy\ne0,\quad UV(Uy)=\lambda Uy.
+\end{align*}
+For the first implication, $Vx=0$ would give $\lambda x=UVx=0$,
+a contradiction; the second is proved in the same way.
+Apply these identities first with $U=\mathcal B^*$, $V=A\mathcal B$,
+then with $U=A\Sigma^{1/2}$, $V=\Sigma^{1/2}$:
+\[
+ \mathcal B^*A\mathcal B
+ \ \longleftrightarrow\ A\Sigma
+ \ \longleftrightarrow\ \Sigma^{1/2}A\Sigma^{1/2}=\mathcal T
+ \quad\hbox{for nonzero eigenvalues}.
+\]
+To check why only eigenvalues matter here, take
+$v\perp\operatorname{ran}H_\mu$. Self-adjointness implies, for every $w$,
+\[
+ \langle H_\mu v,w\rangle_{L^2(\mu;\mathbb R^d)}
+ =\langle v,H_\mu w\rangle_{L^2(\mu;\mathbb R^d)}=0,
+ \qquad\text{hence }H_\mu v=0.
+\]
+The range is finite-dimensional and thus closed, so
+\[
+ L^2(\mu;\mathbb R^d)
+ =\operatorname{ran}H_\mu\oplus(\operatorname{ran}H_\mu)^\perp,
+ \qquad
+ H_\mu=(H_\mu|_{\operatorname{ran}H_\mu})\oplus0.
+\]
+The first restriction is a finite-dimensional self-adjoint matrix.
+Consequently any negative spectral bottom is one of its eigenvalues.
+This justifies
+using the displayed eigenvector correspondence for its spectral bottom
+whenever that bottom is negative.
+
+For the sample, set
+$P=N^{-1/2}[\Phi(Y_1)\ \cdots\ \Phi(Y_N)]\in\mathbb R^{q\times dN}$.
+Matrix multiplication gives
+\[
+ PP^\top=\widehat\Sigma,\qquad
+ (P^\top AP)(i,j)=N^{-1}\Phi(Y_i)^\top A\Phi(Y_j).
+\]
+The same two product calculations, replacing $\mathcal B$ by $P$, show
+that the negative eigenvalues of $P^\top AP$ and
+$\widehat{\mathcal T}$ coincide. No assertion about the multiplicity
+of zero eigenvalues is needed.
+
+\par\noindent\textbf{Step 4: restore both spatial-Hessian terms.}
+By \cref{eq:finite-feature-spatial-condition,eq:finite-feature-negative-gap},
+\begin{gather*}
+ \|H'_\mu v\|_{L^2(\mu;\mathbb R^d)}^2
+ \le(C_s\varepsilon)^2\|v\|_{L^2(\mu;\mathbb R^d)}^2,\\
+ \|H'_\mu\|_{L^2(\mu;\mathbb R^d)\to L^2(\mu;\mathbb R^d)}\le C_s\varepsilon\le\gamma/8.
+\end{gather*}
+For every unit $v\in L^2(\mu;\mathbb R^d)$, subtracting the spatial term gives
+\begin{align*}
+ \langle v,H_\mu v\rangle_{L^2(\mu;\mathbb R^d)}
+ &=\langle v,(H_\mu+H'_\mu)v\rangle_{L^2(\mu;\mathbb R^d)}
+      -\langle v,H'_\mu v\rangle_{L^2(\mu;\mathbb R^d)}\\
+ &\le\langle v,(H_\mu+H'_\mu)v\rangle_{L^2(\mu;\mathbb R^d)}+\gamma/8.
+\end{align*}
+Taking infima of the Rayleigh quotients yields
+\[
+ \inf\operatorname{Spec}(H_\mu)
+ \le\inf\operatorname{Spec}(H_\mu+H'_\mu)+\gamma/8
+ \le-7\gamma/8.
+\]
+The negative spectral bottom of $H_\mu$ is an eigenvalue.
+Step 3 therefore gives $\lambda_{\min}(\mathcal T)\le-7\gamma/8$.
+For a unit minimum-eigenvalue vector $u$ of $\mathcal T$,
+\[
+ \lambda_{\min}(\widehat{\mathcal T})
+ \le u^\top\widehat{\mathcal T}u
+ \le u^\top\mathcal Tu+\|\widehat{\mathcal T}-\mathcal T\|_{\mathbb R^q\to\mathbb R^q}
+ \le-7\gamma/8+\gamma/4=-5\gamma/8.
+\]
+Its negative eigenvalue corresponds to one of $P^\top AP$ by Step 3.
+
+The essential bound in \eqref{eq:finite-feature-spatial-condition}
+holds at every $Y_i$ almost surely, since a finite union of $\mu$-null
+sets still has sampling probability zero. The block-diagonal spatial
+matrix has norm at most
+$\max_i\|\nabla_x\nabla_WF(\mu,Y_i)\|_{\mathbb R^d\to\mathbb R^d}\le\gamma/8$.
+Evaluating the sampled full Hessian on a minimum-eigenvalue vector of
+$P^\top AP$ now gives
+\[
+ \kappa^{Y,N}
+ \le\lambda_{\min}(P^\top AP)
+       +\max_i\|\nabla_x\nabla_WF(\mu,Y_i)\|_{\mathbb R^d\to\mathbb R^d}
+ \le-5\gamma/8+\gamma/8=-\gamma/2.
+\]
+The only event with nonzero failure probability is the failure of
+\eqref{eq:finite-feature-covariance-success}, with probability at most $\delta$.
+\end{proof}
+
+\paragraph{Fixed-time conditional interpretation.}
+At a deterministic time $t$, condition on the population fields
+$\mathcal G_{\rm pop}$ from \cref{lemma-gp-jump-implies-conditional-iid}
+and put $\mu=\mu_t$. Let $E\in\mathcal G_{\rm pop}$ be any event on
+which
+\cref{eq:finite-feature-common-bound,eq:finite-feature-spatial-condition,eq:finite-feature-negative-gap}
+hold with the same deterministic $q,K,C_s,\varepsilon,\gamma$.
+Here $\Phi=\fD\phi$ is measure-independent, while
+$A=\fD^2G(\int\phi\,d\mu_t)$ and all Hessian terms are evaluated at
+the population law $\mu_t$.
+For $N$ as in \eqref{eq:finite-feature-negative-transfer}, the
+conditional-i.i.d. property and the tower rule give
+\[
+ \mathbb P(E\cap\{\kappa_t^{Y,N}>-\gamma/2\})
+ =\mathbb E\!\left[\mathbf1_E
+    \mathbb P(\kappa_t^{Y,N}>-\gamma/2\mid\mathcal G_{\rm pop})\right]
+ \le\delta\,\mathbb P(E)\le\delta.
+\]
+This statement does not estimate $\mathbb P(E)$ or a whole-path curvature-response factor,
+and it concerns the reference sample $Y$, not the empirical dynamics $X$.
+
+\paragraph{A simple instance of the assumptions.}
+In \eqref{eq:canonical-objective}, take $a=0$ and a law of mean zero.
+The one-feature representation is $\phi(x)=x$ and
+$G(z)=\beta\cos(\pi z)$. Thus $\Phi=1$, $A=-\beta\pi^2$,
+$\nabla_WF(\mu,x)=0$, and $\nabla_x\nabla_WF(\mu,x)=0$.
+The constant unit function is an eigenvector of $H_\mu$ with
+eigenvalue $-\beta\pi^2$. Hence the conditions hold with
+$K=\max\{1,\beta\pi^2\}$, $C_s=\varepsilon=0$, and
+$\gamma=\beta\pi^2$. This observation does not impose the additional
+spatial-Hessian condition on the variance-plus-cosine example with general $a$.

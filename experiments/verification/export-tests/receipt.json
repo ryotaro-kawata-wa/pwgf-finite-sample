@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/source",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "output": "command-1.txt"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/report",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "output": "command-2.txt"
+    },
+    {
+      "command": [
+        "python",
+        "experiments/original/tools/verify.py"
+      ],
+      "returncode": 0,
+      "output": "command-3.txt"
+    },
+    {
+      "command": [
+        "python",
+        "experiments/original/tools/check_results.py"
+      ],
+      "returncode": 0,
+      "output": "command-4.txt"
+    }
+  ],
+  "scope": "Fourteen original unit tests, three reporter regression tests, preserved original file/figure hashes and fifteen original scalar conditions; no original missing NPZ files are certified."
+}

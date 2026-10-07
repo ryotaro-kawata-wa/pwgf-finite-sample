@@ -1,0 +1,27 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We quantified finite-particle tracking for Hessian-guided PWGF under prescribed
+common jump schedules. The coupling reduces Gaussian jump error to covariance
+comparison, while sampled curvature propagates residuals into tracking and
+objective bounds.
+
+\maintextheading{Limitations \& future directions.}
+Beyond the variance-plus-cosine example
+(\Cref{subsec:canonical-variance-cosine}), deriving the controlled-curvature
+path condition and non-spikiness from model primitives remains open,
+as does synchronizing adaptive jump times.
+
+\maintextheading{Formal verification and reproducibility.}
+The accompanying Lean~4 development formalizes the stated fixed-schedule
+and growing-horizon tracking results, the variance-plus-cosine example,
+and the four local-geometry items in \Cref{prop:mf-local-geometry},
+under their explicit hypotheses. The build and axiom audit
+cover 4,274 registered declarations in 661 modules, including definitions and instances.
+Claim-by-claim correspondence and solution-class boundaries are documented
+separately from kernel checking. The formalization does not establish
+unconditional WGF well-posedness, a deterministic characteristic representation
+of arbitrary weak PDE solutions, or the numerical experiments.
+Pinned environments, verification commands, source hashes, and experiment
+records are provided in the public reproducibility repository:
+\url{https://github.com/ryotaro-kawata-wa/pwgf-finite-sample}.

@@ -1,0 +1,19 @@
+test_asynchronous_frozen_covariance_and_unmatched_covariance (test_adaptive.AdaptiveTests.test_asynchronous_frozen_covariance_and_unmatched_covariance) ... ok
+test_controller_returns_prejump_candidate_and_waits (test_adaptive.AdaptiveTests.test_controller_returns_prejump_candidate_and_waits) ... ok
+test_future_noise_does_not_change_current_trigger_or_prestate (test_adaptive.AdaptiveTests.test_future_noise_does_not_change_current_trigger_or_prestate) ... ok
+test_invalid_configuration_and_nonfinite_diagnostics (test_adaptive.AdaptiveTests.test_invalid_configuration_and_nonfinite_diagnostics) ... ok
+test_population_and_each_n_do_not_depend_on_other_n (test_adaptive.AdaptiveTests.test_population_and_each_n_do_not_depend_on_other_n) ... ok
+test_stopping_does_not_rewind_executed_path (test_adaptive.AdaptiveTests.test_stopping_does_not_rewind_executed_path) ... ok
+test_threshold_and_incomplete_horizon_are_not_success (test_adaptive.AdaptiveTests.test_threshold_and_incomplete_horizon_are_not_success) ... ok
+test_dense_coupling_full_rank (test_verification.Verification.test_dense_coupling_full_rank) ... ok
+test_dense_coupling_singular_population_covariance (test_verification.Verification.test_dense_coupling_singular_population_covariance) ... ok
+test_mean_gradient_and_hessian (test_verification.Verification.test_mean_gradient_and_hessian) ... ok
+test_particle_gradient_normalization_and_full_hessian (test_verification.Verification.test_particle_gradient_normalization_and_full_hessian) ... ok
+test_population_covariance_against_direct_kernel_integration (test_verification.Verification.test_population_covariance_against_direct_kernel_integration) ... ok
+test_spikiness_boundary_cases (test_verification.Verification.test_spikiness_boundary_cases) ... ok
+test_symmetric_population_and_feasible_target (test_verification.Verification.test_symmetric_population_and_feasible_target) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.042s
+
+OK

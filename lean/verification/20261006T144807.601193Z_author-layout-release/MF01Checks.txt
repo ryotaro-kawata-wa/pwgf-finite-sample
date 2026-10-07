@@ -1,0 +1,508 @@
+PaperFormalization.MatrixFactorization.Weight (d : ℕ) : Type
+'PaperFormalization.MatrixFactorization.Weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.UnitSphere (d : ℕ) : Set (Weight d)
+'PaperFormalization.MatrixFactorization.UnitSphere' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.MomentTensor (d n : ℕ) : Type
+'PaperFormalization.MatrixFactorization.MomentTensor' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.unitSphereCompact (d : ℕ) : CompactSpace ↑(UnitSphere d)
+'PaperFormalization.MatrixFactorization.unitSphereCompact' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.reflect {d : ℕ} (w : ↑(UnitSphere d)) : ↑(UnitSphere d)
+'PaperFormalization.MatrixFactorization.reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.reflect_val {d : ℕ} (w : ↑(UnitSphere d)) : ↑(reflect w) = -↑w
+'PaperFormalization.MatrixFactorization.reflect_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.reflect_reflect {d : ℕ} (w : ↑(UnitSphere d)) : reflect (reflect w) = w
+'PaperFormalization.MatrixFactorization.reflect_reflect' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.reflect_continuous (d : ℕ) : Continuous reflect
+'PaperFormalization.MatrixFactorization.reflect_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.reflect_measurable (d : ℕ) : Measurable reflect
+'PaperFormalization.MatrixFactorization.reflect_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.reflectedMeasure {d : ℕ} (mu : Measure ↑(UnitSphere d)) : Measure ↑(UnitSphere d)
+'PaperFormalization.MatrixFactorization.reflectedMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.reflectedMeasure_probability {d : ℕ} (mu : Measure ↑(UnitSphere d))
+  [IsProbabilityMeasure mu] : IsProbabilityMeasure (reflectedMeasure mu)
+'PaperFormalization.MatrixFactorization.reflectedMeasure_probability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.reflectedMeasure_involutive {d : ℕ} (mu : Measure ↑(UnitSphere d)) :
+  reflectedMeasure (reflectedMeasure mu) = mu
+'PaperFormalization.MatrixFactorization.reflectedMeasure_involutive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.sphere_integrable.{u_1} {d : ℕ} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] (mu : Measure ↑(UnitSphere d)) [IsFiniteMeasure mu] (f : ↑(UnitSphere d) → E)
+  (hf : Continuous f) : Integrable f mu
+'PaperFormalization.MatrixFactorization.sphere_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.integral_reflectedMeasure.{u_1} {d : ℕ} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedSpace ℝ E] [CompleteSpace E] (mu : Measure ↑(UnitSphere d)) (f : ↑(UnitSphere d) → E) (hf : Continuous f) :
+  integral (reflectedMeasure mu) f = ∫ (w : ↑(UnitSphere d)), f (reflect w) ∂mu
+'PaperFormalization.MatrixFactorization.integral_reflectedMeasure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.antipodalMeasure {d : ℕ} (a : ↑(UnitSphere d)) : Measure ↑(UnitSphere d)
+'PaperFormalization.MatrixFactorization.antipodalMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.antipodalMeasure_probability {d : ℕ} (a : ↑(UnitSphere d)) :
+  IsProbabilityMeasure (antipodalMeasure a)
+'PaperFormalization.MatrixFactorization.antipodalMeasure_probability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.reflectedMeasure_antipodal {d : ℕ} (a : ↑(UnitSphere d)) :
+  reflectedMeasure (antipodalMeasure a) = antipodalMeasure a
+'PaperFormalization.MatrixFactorization.reflectedMeasure_antipodal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.tensorPower {d : ℕ} (n : ℕ) (w : Weight d) : MomentTensor d n
+'PaperFormalization.MatrixFactorization.tensorPower' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.tensorPower_apply {d n : ℕ} (w : Weight d) (I : Fin n → Fin d) :
+  (tensorPower n w).ofLp I = ∏ j, w.ofLp (I j)
+'PaperFormalization.MatrixFactorization.tensorPower_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.tensorPower_continuous (d n : ℕ) : Continuous (tensorPower n)
+'PaperFormalization.MatrixFactorization.tensorPower_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.tensorPower_neg {d : ℕ} (n : ℕ) (w : Weight d) :
+  tensorPower n (-w) = (-1) ^ n • tensorPower n w
+'PaperFormalization.MatrixFactorization.tensorPower_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.tensorPower_permutation {d n : ℕ} (w : Weight d) (I : Fin n → Fin d)
+  (e : Equiv.Perm (Fin n)) : (tensorPower n w).ofLp (I ∘ ⇑e) = (tensorPower n w).ofLp I
+'PaperFormalization.MatrixFactorization.tensorPower_permutation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.rawMoment {d : ℕ} (mu : Measure ↑(UnitSphere d)) (n : ℕ) : MomentTensor d n
+'PaperFormalization.MatrixFactorization.rawMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.rawMoment_integrable {d : ℕ} (mu : Measure ↑(UnitSphere d)) [IsFiniteMeasure mu]
+  (n : ℕ) : Integrable (fun w => tensorPower n ↑w) mu
+'PaperFormalization.MatrixFactorization.rawMoment_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.rawMoment_zero_apply {d : ℕ} (mu : Measure ↑(UnitSphere d))
+  [IsProbabilityMeasure mu] (I : Fin 0 → Fin d) : (rawMoment mu 0).ofLp I = 1
+'PaperFormalization.MatrixFactorization.rawMoment_zero_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.rawMoment_permutation {d n : ℕ} (mu : Measure ↑(UnitSphere d))
+  [IsFiniteMeasure mu] (I : Fin n → Fin d) (e : Equiv.Perm (Fin n)) :
+  (rawMoment mu n).ofLp (I ∘ ⇑e) = (rawMoment mu n).ofLp I
+'PaperFormalization.MatrixFactorization.rawMoment_permutation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.rawMoment_reflected {d : ℕ} (mu : Measure ↑(UnitSphere d)) [IsFiniteMeasure mu]
+  (n : ℕ) : rawMoment (reflectedMeasure mu) n = (-1) ^ n • rawMoment mu n
+'PaperFormalization.MatrixFactorization.rawMoment_reflected' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.rawMoment_reflected_odd {d : ℕ} (mu : Measure ↑(UnitSphere d))
+  [IsFiniteMeasure mu] (n : ℕ) (hn : Odd n) : rawMoment (reflectedMeasure mu) n = -rawMoment mu n
+'PaperFormalization.MatrixFactorization.rawMoment_reflected_odd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.rawMoment_antipodal_odd {d : ℕ} (a : ↑(UnitSphere d)) (n : ℕ) (hn : Odd n) :
+  rawMoment (antipodalMeasure a) n = 0
+'PaperFormalization.MatrixFactorization.rawMoment_antipodal_odd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.symmetricMoment {d : ℕ} (mu nu : Measure ↑(UnitSphere d)) (n : ℕ) :
+  MomentTensor d n
+'PaperFormalization.MatrixFactorization.symmetricMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.antisymmetricMoment {d : ℕ} (mu nu : Measure ↑(UnitSphere d)) (n : ℕ) :
+  MomentTensor d n
+'PaperFormalization.MatrixFactorization.antisymmetricMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.rawMoment_left_reconstruction {d : ℕ} (mu nu : Measure ↑(UnitSphere d)) (n : ℕ) :
+  symmetricMoment mu nu n + antisymmetricMoment mu nu n = rawMoment mu n
+'PaperFormalization.MatrixFactorization.rawMoment_left_reconstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.rawMoment_right_reconstruction {d : ℕ} (mu nu : Measure ↑(UnitSphere d))
+  (n : ℕ) : symmetricMoment mu nu n - antisymmetricMoment mu nu n = rawMoment nu n
+'PaperFormalization.MatrixFactorization.rawMoment_right_reconstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.reflected_branch_symmetric_zero {d : ℕ} (mu : Measure ↑(UnitSphere d))
+  [IsFiniteMeasure mu] (n : ℕ) (hn : Odd n) : symmetricMoment mu (reflectedMeasure mu) n = 0
+'PaperFormalization.MatrixFactorization.reflected_branch_symmetric_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.same_density_antisymmetric_zero {d : ℕ} (mu : Measure ↑(UnitSphere d)) (n : ℕ) :
+  antisymmetricMoment mu mu n = 0
+'PaperFormalization.MatrixFactorization.same_density_antisymmetric_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.antipodal_active_origin {d : ℕ} (a : ↑(UnitSphere d)) (O : Finset ℕ)
+  (hO : ∀ n ∈ O, Odd n) (n : ℕ) :
+  n ∈ O →
+    symmetricMoment (antipodalMeasure a) (antipodalMeasure a) n = 0 ∧
+      antisymmetricMoment (antipodalMeasure a) (antipodalMeasure a) n = 0
+'PaperFormalization.MatrixFactorization.antipodal_active_origin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.normalizedHermite (n : ℕ) (x : ℝ) : ℝ
+'PaperFormalization.MatrixFactorization.normalizedHermite' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.normalizedHermite_eval (n : ℕ) (x : ℝ) :
+  normalizedHermite n x = Polynomial.eval₂ (Int.castRingHom ℝ) x (Polynomial.hermite n) / √↑n.factorial
+'PaperFormalization.MatrixFactorization.normalizedHermite_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.normalizedHermite_zero (x : ℝ) : normalizedHermite 0 x = 1
+'PaperFormalization.MatrixFactorization.normalizedHermite_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.normalizedHermite_one (x : ℝ) : normalizedHermite 1 x = x
+'PaperFormalization.MatrixFactorization.normalizedHermite_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.hermite_normalizer_pos (n : ℕ) : 0 < √↑n.factorial
+'PaperFormalization.MatrixFactorization.hermite_normalizer_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.normalizedHermite_continuous (n : ℕ) : Continuous (normalizedHermite n)
+'PaperFormalization.MatrixFactorization.normalizedHermite_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.normalizedHermite_odd (n : ℕ) (hn : Odd n) (x : ℝ) :
+  normalizedHermite n (-x) = -normalizedHermite n x
+'PaperFormalization.MatrixFactorization.normalizedHermite_odd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.hermiteCoefficientMass (n : ℕ) : ℝ
+'PaperFormalization.MatrixFactorization.hermiteCoefficientMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.hermiteCoefficientMass_nonneg (n : ℕ) : 0 ≤ hermiteCoefficientMass n
+'PaperFormalization.MatrixFactorization.hermiteCoefficientMass_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.normalizedHermite_growth (n M : ℕ) (hn : n ≤ M) (x : ℝ) :
+  |normalizedHermite n x| ≤ hermiteCoefficientMass n * (1 + |x|) ^ M
+'PaperFormalization.MatrixFactorization.normalizedHermite_growth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.finiteHermiteActivation {h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h) (x : ℝ) :
+  Weight h
+'PaperFormalization.MatrixFactorization.finiteHermiteActivation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.activationMass {h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h) : ℝ
+'PaperFormalization.MatrixFactorization.activationMass' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.activationOrder (O : Finset ℕ) : ℕ
+'PaperFormalization.MatrixFactorization.activationOrder' depends on axioms: [propext, Quot.sound]
+PaperFormalization.MatrixFactorization.activationMass_nonneg {h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h) :
+  0 ≤ activationMass O a
+'PaperFormalization.MatrixFactorization.activationMass_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.finiteHermiteActivation_continuous {h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h) :
+  Continuous (finiteHermiteActivation O a)
+'PaperFormalization.MatrixFactorization.finiteHermiteActivation_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.finiteHermiteActivation_odd {h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (hO : ∀ n ∈ O, Odd n) (x : ℝ) : finiteHermiteActivation O a (-x) = -finiteHermiteActivation O a x
+'PaperFormalization.MatrixFactorization.finiteHermiteActivation_odd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.finiteHermiteActivation_growth {h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (x : ℝ) : ‖finiteHermiteActivation O a x‖ ≤ activationMass O a * (1 + |x|) ^ activationOrder O
+'PaperFormalization.MatrixFactorization.finiteHermiteActivation_growth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.meanFeature {d h : ℕ} (sigma : ℝ → Weight h) (mu : Measure ↑(UnitSphere d))
+  (z : Weight d) : Weight h
+'PaperFormalization.MatrixFactorization.meanFeature' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.meanFeature_weight_integrable {d h : ℕ} (sigma : ℝ → Weight h)
+  (hsigma : Continuous sigma) (mu : Measure ↑(UnitSphere d)) [IsFiniteMeasure mu] (z : Weight d) :
+  Integrable (fun w => sigma (inner ℝ (↑w) z)) mu
+'PaperFormalization.MatrixFactorization.meanFeature_weight_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.meanFeature_stronglyMeasurable {d h : ℕ} (sigma : ℝ → Weight h)
+  (hsigma : Continuous sigma) (mu : Measure ↑(UnitSphere d)) [IsFiniteMeasure mu] :
+  StronglyMeasurable (meanFeature sigma mu)
+'PaperFormalization.MatrixFactorization.meanFeature_stronglyMeasurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.meanFeature_reflected {d h : ℕ} (sigma : ℝ → Weight h)
+  (hsigma : Continuous sigma) (hodd : ∀ (x : ℝ), sigma (-x) = -sigma x) (mu : Measure ↑(UnitSphere d))
+  [IsFiniteMeasure mu] (z : Weight d) : meanFeature sigma (reflectedMeasure mu) z = -meanFeature sigma mu z
+'PaperFormalization.MatrixFactorization.meanFeature_reflected' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.meanFeature_antipodal {d h : ℕ} (sigma : ℝ → Weight h)
+  (hsigma : Continuous sigma) (hodd : ∀ (x : ℝ), sigma (-x) = -sigma x) (a : ↑(UnitSphere d)) (z : Weight d) :
+  meanFeature sigma (antipodalMeasure a) z = 0
+'PaperFormalization.MatrixFactorization.meanFeature_antipodal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.finiteHermite_mean_antipodal {d h : ℕ} (O : Finset ℕ) (coeff : ℕ → Weight h)
+  (hO : ∀ n ∈ O, Odd n) (a : ↑(UnitSphere d)) (z : Weight d) :
+  meanFeature (finiteHermiteActivation O coeff) (antipodalMeasure a) z = 0
+'PaperFormalization.MatrixFactorization.finiteHermite_mean_antipodal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.finiteHermite_mean_growth {d h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (mu : Measure ↑(UnitSphere d)) [IsProbabilityMeasure mu] (z : Weight d) :
+  ‖meanFeature (finiteHermiteActivation O a) mu z‖ ≤ activationMass O a * (1 + ‖z‖) ^ activationOrder O
+'PaperFormalization.MatrixFactorization.finiteHermite_mean_growth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.gaussian_one_add_norm_pow_integrable (d k : ℕ) :
+  Integrable (fun z => (1 + ‖z‖) ^ k) (stdGaussian (Weight d))
+'PaperFormalization.MatrixFactorization.gaussian_one_add_norm_pow_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.finiteHermite_mean_norm_pow_integrable {d h : ℕ} (O : Finset ℕ)
+  (a : ℕ → Weight h) (mu : Measure ↑(UnitSphere d)) [IsProbabilityMeasure mu] (k : ℕ) :
+  Integrable (fun z => ‖meanFeature (finiteHermiteActivation O a) mu z‖ ^ k) (stdGaussian (Weight d))
+'PaperFormalization.MatrixFactorization.finiteHermite_mean_norm_pow_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.finiteHermite_mean_fourth_integrable {d h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (mu : Measure ↑(UnitSphere d)) [IsProbabilityMeasure mu] :
+  Integrable (fun z => ‖meanFeature (finiteHermiteActivation O a) mu z‖ ^ 4) (stdGaussian (Weight d))
+'PaperFormalization.MatrixFactorization.finiteHermite_mean_fourth_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.Output (h : ℕ) : Type
+'PaperFormalization.MatrixFactorization.Output' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer {h : ℕ} (u v : Weight h) : Output h
+'PaperFormalization.MatrixFactorization.outer' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_apply {h : ℕ} (u v : Weight h) (i j : Fin h) :
+  (outer u v).ofLp (i, j) = u.ofLp i * v.ofLp j
+'PaperFormalization.MatrixFactorization.outer_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_zero_left {h : ℕ} (v : Weight h) : outer 0 v = 0
+'PaperFormalization.MatrixFactorization.outer_zero_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_zero_right {h : ℕ} (u : Weight h) : outer u 0 = 0
+'PaperFormalization.MatrixFactorization.outer_zero_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_neg_left {h : ℕ} (u v : Weight h) : outer (-u) v = -outer u v
+'PaperFormalization.MatrixFactorization.outer_neg_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_neg_right {h : ℕ} (u v : Weight h) : outer u (-v) = -outer u v
+'PaperFormalization.MatrixFactorization.outer_neg_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_smul_left {h : ℕ} (t : ℝ) (u v : Weight h) :
+  outer (t • u) v = t • outer u v
+'PaperFormalization.MatrixFactorization.outer_smul_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_smul_right {h : ℕ} (t : ℝ) (u v : Weight h) :
+  outer u (t • v) = t • outer u v
+'PaperFormalization.MatrixFactorization.outer_smul_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_scale_both {h : ℕ} (t : ℝ) (u v : Weight h) :
+  outer (t • u) (t • v) = t ^ 2 • outer u v
+'PaperFormalization.MatrixFactorization.outer_scale_both' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_continuous (h : ℕ) : Continuous fun p => outer p.1 p.2
+'PaperFormalization.MatrixFactorization.outer_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_inner {h : ℕ} (u v x y : Weight h) :
+  inner ℝ (outer u v) (outer x y) = inner ℝ u x * inner ℝ v y
+'PaperFormalization.MatrixFactorization.outer_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_norm_sq {h : ℕ} (u v : Weight h) : ‖outer u v‖ ^ 2 = ‖u‖ ^ 2 * ‖v‖ ^ 2
+'PaperFormalization.MatrixFactorization.outer_norm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_norm {h : ℕ} (u v : Weight h) : ‖outer u v‖ = ‖u‖ * ‖v‖
+'PaperFormalization.MatrixFactorization.outer_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_ray_loss_polynomial {h : ℕ} (H : Output h) (u v : Weight h) (t : ℝ) :
+  ‖outer (t • u) (t • v) - H‖ ^ 2 = ‖H‖ ^ 2 - 2 * t ^ 2 * inner ℝ H (outer u v) + t ^ 4 * ‖outer u v‖ ^ 2
+'PaperFormalization.MatrixFactorization.outer_ray_loss_polynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.antisymmetric_outer_loss {h : ℕ} (teacher u : Weight h) :
+  ‖outer u (-u) - outer teacher teacher‖ ^ 2 = ‖teacher‖ ^ 4 + 2 * inner ℝ teacher u ^ 2 + ‖u‖ ^ 4
+'PaperFormalization.MatrixFactorization.antisymmetric_outer_loss' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.symmetric_outer_loss {h : ℕ} (teacher u : Weight h) :
+  ‖outer u u - outer teacher teacher‖ ^ 2 = ‖teacher‖ ^ 4 - 2 * inner ℝ teacher u ^ 2 + ‖u‖ ^ 4
+'PaperFormalization.MatrixFactorization.symmetric_outer_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy.{u_1} {Omega : Type u_1} [MeasurableSpace Omega] {h : ℕ}
+  (P : Measure Omega) (H : Omega → Output h) (X Y : Omega → Weight h) : ℝ
+'PaperFormalization.MatrixFactorization.fittingEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.outer_stronglyMeasurable.{u_1} {Omega : Type u_1} [MeasurableSpace Omega] {h : ℕ}
+  (X Y : Omega → Weight h) (hX : StronglyMeasurable X) (hY : StronglyMeasurable Y) :
+  StronglyMeasurable fun z => outer (X z) (Y z)
+'PaperFormalization.MatrixFactorization.outer_stronglyMeasurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.outer_sq_integrable.{u_1} {Omega : Type u_1} [MeasurableSpace Omega] {h : ℕ}
+  (P : Measure Omega) (X Y : Omega → Weight h) (hX : StronglyMeasurable X) (hY : StronglyMeasurable Y)
+  (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P) (hY4 : Integrable (fun z => ‖Y z‖ ^ 4) P) :
+  Integrable (fun z => ‖outer (X z) (Y z)‖ ^ 2) P
+'PaperFormalization.MatrixFactorization.outer_sq_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.output_inner_integrable.{u_1} {Omega : Type u_1} [MeasurableSpace Omega] {h : ℕ}
+  (P : Measure Omega) (H K : Omega → Output h) (hH : StronglyMeasurable H) (hK : StronglyMeasurable K)
+  (hH2 : Integrable (fun z => ‖H z‖ ^ 2) P) (hK2 : Integrable (fun z => ‖K z‖ ^ 2) P) :
+  Integrable (fun z => inner ℝ (H z) (K z)) P
+'PaperFormalization.MatrixFactorization.output_inner_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_integrable.{u_1} {Omega : Type u_1} [MeasurableSpace Omega] {h : ℕ}
+  (P : Measure Omega) (H : Omega → Output h) (X Y : Omega → Weight h) (hH : StronglyMeasurable H)
+  (hX : StronglyMeasurable X) (hY : StronglyMeasurable Y) (hH2 : Integrable (fun z => ‖H z‖ ^ 2) P)
+  (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P) (hY4 : Integrable (fun z => ‖Y z‖ ^ 4) P) :
+  Integrable (fun z => ‖outer (X z) (Y z) - H z‖ ^ 2) P
+'PaperFormalization.MatrixFactorization.fittingEnergy_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_nonneg.{u_1} {Omega : Type u_1} [MeasurableSpace Omega] {h : ℕ}
+  (P : Measure Omega) (H : Omega → Output h) (X Y : Omega → Weight h) : 0 ≤ fittingEnergy P H X Y
+'PaperFormalization.MatrixFactorization.fittingEnergy_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_exact.{u_1} {Omega : Type u_1} [MeasurableSpace Omega] {h : ℕ}
+  (P : Measure Omega) (X Y : Omega → Weight h) : fittingEnergy P (fun z => outer (X z) (Y z)) X Y = 0
+'PaperFormalization.MatrixFactorization.fittingEnergy_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_origin.{u_1} {Omega : Type u_1} [MeasurableSpace Omega] {h : ℕ}
+  (P : Measure Omega) (H : Omega → Output h) :
+  (fittingEnergy P H (fun x => 0) fun x => 0) = 1 / 2 * ∫ (z : Omega), ‖H z‖ ^ 2 ∂P
+'PaperFormalization.MatrixFactorization.fittingEnergy_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_ray_polynomial.{u_1} {Omega : Type u_1} [MeasurableSpace Omega]
+  {h : ℕ} (P : Measure Omega) (H : Omega → Output h) (X Y : Omega → Weight h) (hH : StronglyMeasurable H)
+  (hX : StronglyMeasurable X) (hY : StronglyMeasurable Y) (hH2 : Integrable (fun z => ‖H z‖ ^ 2) P)
+  (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P) (hY4 : Integrable (fun z => ‖Y z‖ ^ 4) P) (t : ℝ) :
+  (fittingEnergy P H (fun z => t • X z) fun z => t • Y z) =
+    (fittingEnergy P H (fun x => 0) fun x => 0) - t ^ 2 * ∫ (z : Omega), inner ℝ (H z) (outer (X z) (Y z)) ∂P +
+      t ^ 4 / 2 * ∫ (z : Omega), ‖outer (X z) (Y z)‖ ^ 2 ∂P
+'PaperFormalization.MatrixFactorization.fittingEnergy_ray_polynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.feature_inner_sq_integrable.{u_1} {Omega : Type u_1} [MeasurableSpace Omega]
+  {h : ℕ} (P : Measure Omega) (X Y : Omega → Weight h) (hX : StronglyMeasurable X) (hY : StronglyMeasurable Y)
+  (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P) (hY4 : Integrable (fun z => ‖Y z‖ ^ 4) P) :
+  Integrable (fun z => inner ℝ (X z) (Y z) ^ 2) P
+'PaperFormalization.MatrixFactorization.feature_inner_sq_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_antisymmetric.{u_1} {Omega : Type u_1} [MeasurableSpace Omega]
+  {h : ℕ} (P : Measure Omega) (teacher X : Omega → Weight h) (ht : StronglyMeasurable teacher)
+  (hX : StronglyMeasurable X) (ht4 : Integrable (fun z => ‖teacher z‖ ^ 4) P)
+  (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P) :
+  (fittingEnergy P (fun z => outer (teacher z) (teacher z)) X fun z => -X z) =
+    1 / 2 * ∫ (z : Omega), ‖teacher z‖ ^ 4 ∂P + ∫ (z : Omega), inner ℝ (teacher z) (X z) ^ 2 ∂P +
+      1 / 2 * ∫ (z : Omega), ‖X z‖ ^ 4 ∂P
+'PaperFormalization.MatrixFactorization.fittingEnergy_antisymmetric' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_antisymmetric_lower.{u_1} {Omega : Type u_1}
+  [MeasurableSpace Omega] {h : ℕ} (P : Measure Omega) (teacher X : Omega → Weight h) (ht : StronglyMeasurable teacher)
+  (hX : StronglyMeasurable X) (ht4 : Integrable (fun z => ‖teacher z‖ ^ 4) P)
+  (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P) :
+  1 / 2 * ∫ (z : Omega), ‖teacher z‖ ^ 4 ∂P ≤ fittingEnergy P (fun z => outer (teacher z) (teacher z)) X fun z => -X z
+'PaperFormalization.MatrixFactorization.fittingEnergy_antisymmetric_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_ray_hasDerivAt.{u_1} {Omega : Type u_1} [MeasurableSpace Omega]
+  {h : ℕ} (P : Measure Omega) (H : Omega → Output h) (X Y : Omega → Weight h) (hH : StronglyMeasurable H)
+  (hX : StronglyMeasurable X) (hY : StronglyMeasurable Y) (hH2 : Integrable (fun z => ‖H z‖ ^ 2) P)
+  (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P) (hY4 : Integrable (fun z => ‖Y z‖ ^ 4) P) (t : ℝ) :
+  HasDerivAt (fun s => fittingEnergy P H (fun z => s • X z) fun z => s • Y z)
+    (-2 * t * ∫ (z : Omega), inner ℝ (H z) (outer (X z) (Y z)) ∂P +
+      2 * t ^ 3 * ∫ (z : Omega), ‖outer (X z) (Y z)‖ ^ 2 ∂P)
+    t
+'PaperFormalization.MatrixFactorization.fittingEnergy_ray_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_ray_second.{u_1} {Omega : Type u_1} [MeasurableSpace Omega] {h : ℕ}
+  (P : Measure Omega) (H : Omega → Output h) (X Y : Omega → Weight h) (hH : StronglyMeasurable H)
+  (hX : StronglyMeasurable X) (hY : StronglyMeasurable Y) (hH2 : Integrable (fun z => ‖H z‖ ^ 2) P)
+  (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P) (hY4 : Integrable (fun z => ‖Y z‖ ^ 4) P) (t : ℝ) :
+  HasDerivAt (deriv fun s => fittingEnergy P H (fun z => s • X z) fun z => s • Y z)
+    (-2 * ∫ (z : Omega), inner ℝ (H z) (outer (X z) (Y z)) ∂P + 6 * t ^ 2 * ∫ (z : Omega), ‖outer (X z) (Y z)‖ ^ 2 ∂P) t
+'PaperFormalization.MatrixFactorization.fittingEnergy_ray_second' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_origin_first.{u_1} {Omega : Type u_1} [MeasurableSpace Omega]
+  {h : ℕ} (P : Measure Omega) (H : Omega → Output h) (X Y : Omega → Weight h) (hH : StronglyMeasurable H)
+  (hX : StronglyMeasurable X) (hY : StronglyMeasurable Y) (hH2 : Integrable (fun z => ‖H z‖ ^ 2) P)
+  (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P) (hY4 : Integrable (fun z => ‖Y z‖ ^ 4) P) :
+  HasDerivAt (fun s => fittingEnergy P H (fun z => s • X z) fun z => s • Y z) 0 0
+'PaperFormalization.MatrixFactorization.fittingEnergy_origin_first' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_same_density_second.{u_1} {Omega : Type u_1}
+  [MeasurableSpace Omega] {h : ℕ} (P : Measure Omega) (teacher X : Omega → Weight h) (ht : StronglyMeasurable teacher)
+  (hX : StronglyMeasurable X) (ht4 : Integrable (fun z => ‖teacher z‖ ^ 4) P)
+  (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P) :
+  HasDerivAt
+    (deriv fun s => fittingEnergy P (fun z => outer (teacher z) (teacher z)) (fun z => s • X z) fun z => s • X z)
+    (-2 * ∫ (z : Omega), inner ℝ (teacher z) (X z) ^ 2 ∂P) 0
+'PaperFormalization.MatrixFactorization.fittingEnergy_same_density_second' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_opposite_second.{u_1} {Omega : Type u_1} [MeasurableSpace Omega]
+  {h : ℕ} (P : Measure Omega) (teacher X : Omega → Weight h) (ht : StronglyMeasurable teacher)
+  (hX : StronglyMeasurable X) (ht4 : Integrable (fun z => ‖teacher z‖ ^ 4) P)
+  (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P) :
+  HasDerivAt
+    (deriv fun s => fittingEnergy P (fun z => outer (teacher z) (teacher z)) (fun z => s • X z) fun z => s • -X z)
+    (2 * ∫ (z : Omega), inner ℝ (teacher z) (X z) ^ 2 ∂P) 0
+'PaperFormalization.MatrixFactorization.fittingEnergy_opposite_second' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.fittingEnergy_visible_ray_descent.{u_1} {Omega : Type u_1}
+  [MeasurableSpace Omega] {h : ℕ} (P : Measure Omega) (H : Omega → Output h) (X Y : Omega → Weight h)
+  (hH : StronglyMeasurable H) (hX : StronglyMeasurable X) (hY : StronglyMeasurable Y)
+  (hH2 : Integrable (fun z => ‖H z‖ ^ 2) P) (hX4 : Integrable (fun z => ‖X z‖ ^ 4) P)
+  (hY4 : Integrable (fun z => ‖Y z‖ ^ 4) P) (hVisible : 0 < ∫ (z : Omega), inner ℝ (H z) (outer (X z) (Y z)) ∂P) :
+  ∃ r,
+    0 < r ∧
+      ∀ (t : ℝ),
+        0 < |t| →
+          |t| < r → (fittingEnergy P H (fun z => t • X z) fun z => t • Y z) < fittingEnergy P H (fun x => 0) fun x => 0
+'PaperFormalization.MatrixFactorization.fittingEnergy_visible_ray_descent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.modelFitting {d h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (mu1 mu2 teacher1 teacher2 : Measure ↑(UnitSphere d)) : ℝ
+'PaperFormalization.MatrixFactorization.modelFitting' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.modelFitting_integrable {d h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (mu1 mu2 teacher1 teacher2 : Measure ↑(UnitSphere d)) [IsProbabilityMeasure mu1] [IsProbabilityMeasure mu2]
+  [IsProbabilityMeasure teacher1] [IsProbabilityMeasure teacher2] :
+  Integrable
+    (fun z =>
+      ‖outer (meanFeature (finiteHermiteActivation O a) mu1 z) (meanFeature (finiteHermiteActivation O a) mu2 z) -
+            outer (meanFeature (finiteHermiteActivation O a) teacher1 z)
+              (meanFeature (finiteHermiteActivation O a) teacher2 z)‖ ^
+        2)
+    (stdGaussian (Weight d))
+'PaperFormalization.MatrixFactorization.modelFitting_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.modelFitting_nonneg {d h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (mu1 mu2 teacher1 teacher2 : Measure ↑(UnitSphere d)) : 0 ≤ modelFitting O a mu1 mu2 teacher1 teacher2
+'PaperFormalization.MatrixFactorization.modelFitting_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.modelFitting_teacher {d h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (teacher1 teacher2 : Measure ↑(UnitSphere d)) : modelFitting O a teacher1 teacher2 teacher1 teacher2 = 0
+'PaperFormalization.MatrixFactorization.modelFitting_teacher' depends on axioms: [propext, Classical.choice, Quot.sound]
+PaperFormalization.MatrixFactorization.modelFitting_teacher_isLeast {d h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (teacher : ProbabilityMeasure ↑(UnitSphere d)) :
+  IsLeast (range fun p => modelFitting O a ↑p.1 ↑p.2 ↑teacher ↑teacher) 0
+'PaperFormalization.MatrixFactorization.modelFitting_teacher_isLeast' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.modelFitting_antipodal_origin {d h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (hO : ∀ n ∈ O, Odd n) (pole : ↑(UnitSphere d)) (teacher : Measure ↑(UnitSphere d)) [IsProbabilityMeasure teacher] :
+  modelFitting O a (antipodalMeasure pole) (antipodalMeasure pole) teacher teacher =
+    1 / 2 * ∫ (z : Weight d), ‖meanFeature (finiteHermiteActivation O a) teacher z‖ ^ 4 ∂stdGaussian (Weight d)
+'PaperFormalization.MatrixFactorization.modelFitting_antipodal_origin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.modelFitting_antibranch_decomposition {d h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (hO : ∀ n ∈ O, Odd n) (mu teacher : Measure ↑(UnitSphere d)) [IsProbabilityMeasure mu]
+  [IsProbabilityMeasure teacher] :
+  modelFitting O a mu (reflectedMeasure mu) teacher teacher =
+    1 / 2 * ∫ (z : Weight d), ‖meanFeature (finiteHermiteActivation O a) teacher z‖ ^ 4 ∂stdGaussian (Weight d) +
+        ∫ (z : Weight d),
+          inner ℝ (meanFeature (finiteHermiteActivation O a) teacher z)
+              (meanFeature (finiteHermiteActivation O a) mu z) ^
+            2 ∂stdGaussian (Weight d) +
+      1 / 2 * ∫ (z : Weight d), ‖meanFeature (finiteHermiteActivation O a) mu z‖ ^ 4 ∂stdGaussian (Weight d)
+'PaperFormalization.MatrixFactorization.modelFitting_antibranch_decomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.modelFitting_antibranch_lower_at_center {d h : ℕ} (O : Finset ℕ)
+  (a : ℕ → Weight h) (hO : ∀ n ∈ O, Odd n) (pole : ↑(UnitSphere d)) (mu teacher : Measure ↑(UnitSphere d))
+  [IsProbabilityMeasure mu] [IsProbabilityMeasure teacher] :
+  modelFitting O a (antipodalMeasure pole) (antipodalMeasure pole) teacher teacher ≤
+    modelFitting O a mu (reflectedMeasure mu) teacher teacher
+'PaperFormalization.MatrixFactorization.modelFitting_antibranch_lower_at_center' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PaperFormalization.MatrixFactorization.modelFitting_output_origin_first {d h : ℕ} (O : Finset ℕ) (a : ℕ → Weight h)
+  (mu1 mu2 teacher1 teacher2 : Measure ↑(UnitSphere d)) [IsProbabilityMeasure mu1] [IsProbabilityMeasure mu2]
+  [IsProbabilityMeasure teacher1] [IsProbabilityMeasure teacher2] :
+  HasDerivAt
+    (fun s =>
+      fittingEnergy (stdGaussian (Weight d))
+        (fun z =>
+          outer (meanFeature (finiteHermiteActivation O a) teacher1 z)
+            (meanFeature (finiteHermiteActivation O a) teacher2 z))
+        (fun z => s • meanFeature (finiteHermiteActivation O a) mu1 z) fun z =>
+        s • meanFeature (finiteHermiteActivation O a) mu2 z)
+    0 0
+'PaperFormalization.MatrixFactorization.modelFitting_output_origin_first' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

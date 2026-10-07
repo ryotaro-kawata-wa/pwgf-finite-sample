@@ -1,0 +1,727 @@
+\subsubsection{Weighted-factorization control of $\widetilde\Gamma_t^N$}
+\label{subsubsec:weighted-factorization-tilde-gamma}
+
+We bound the full jump covariance residual directly in a Hilbert space of
+weighted features. The proof has three steps: factor the Hessian kernel,
+concentrate the feature covariance in Hilbert--Schmidt norm, and convert
+that estimate to the nuclear norm of the finite jump covariance matrix.
+
+Throughout this subsection, fix a population realization in $E_{\rm pop}$
+from \cref{lem:population-moment-event}, and write
+\[
+ \mathbb E_{\mathcal G}[Z]:=\mathbb E[Z\mid\mathcal G_{\rm pop}],
+ \qquad
+ \mathbb P_{\mathcal G}(A):=\mathbb P(A\mid\mathcal G_{\rm pop}).
+\]
+The conditional product law in \cref{lemma-gp-jump-implies-conditional-iid}
+and the conditional moment bound \eqref{eq:population-uniform-conditional-moments}
+give, at every fixed time and its relevant trace,
+\begin{equation}
+\label{eq:weighted-feature-conditional-input}
+ \operatorname{Law}((Y_t^1,\ldots,Y_t^N)\mid\mathcal G_{\rm pop})
+ =\mu_t^{\otimes N},\qquad
+ (\mathbb E_{\mathcal G}\|Y_t^1\|_{\mathbb R^d}^r)^{1/r}
+ \le K_{\rm pop}r^{1/\alpha}\quad(r\ge1).
+\end{equation}
+Here $K_{\rm pop}$ is the deterministic envelope chosen for this population
+event; it may depend on the horizon and its probability budget. We never
+condition further on the sample localization event.
+
+For the fixed deterministic radius $D\ge1$, recall
+$\mathrm L_D=\mathrm L_{K_{\rm pop},D}$ from
+\cref{def:localized-envelope}. The population moment belongs to
+$\mathcal V_{K_{\rm pop},D}$ on $E_{\rm pop}$ by
+\cref{lemma-reachable-moment-tube}. Thus the moment-Hessian bound
+\eqref{eq:local-moment-derivative-bound} is available here without a bound
+on the realized sample positions. We retain $\mathrm L_D^2$ explicitly.
+
+\paragraph{Weighted features and the integral Hessian kernel.}
+Recall $a_m=e^{-c_am^{\kappa_{\rm dec}}}$ and
+$\|h\|_{\mathsf H_a}^2=\sum_ma_m^2\|h_m\|_{\mathsf H_m}^2$ from
+\cref{assumption-structured-moment-smoothness}. Also recall the feature map
+$J_0:\mathbb R^d\to\mathsf H_a$, $J_0(x)=(\phi_m(x))_{m\ge1}$, from
+\cref{lem:localized-weighted-feature-envelopes}, with
+$\mathrm D J_0(x)b=(\mathrm D\phi_m(x)b)_{m\ge1}$. Define
+\[
+ \mathsf E:=\bigoplus_{m\ge1}\mathsf H_m,\qquad
+ \mathsf U_a:\mathsf H_a\longrightarrow\mathsf E,
+ \quad(\mathsf U_a h)_m=a_mh_m.
+\]
+The direct sum has its unweighted Hilbert norm, so
+$\|\mathsf U_a h\|_{\mathsf E}=\|h\|_{\mathsf H_a}$, and
+$(\mathsf U_a^{-1}u)_m=a_m^{-1}u_m$ satisfies
+$\|\mathsf U_a^{-1}u\|_{\mathsf H_a}^2=\sum_m\|u_m\|_{\mathsf H_m}^2$.
+Thus $\mathsf U_a$ is an isometric isomorphism. Express the derivative
+of $J_0$ in these unweighted coordinates by defining
+\begin{equation}
+\label{eq:weighted-feature-j0-identification}
+\begin{aligned}
+ \Psi_\infty(x)&:=\mathsf U_a\circ\mathrm D J_0(x)
+       :\mathbb R^d\to\mathsf E,\\
+ \Psi_\infty(x)b&=\mathsf U_a((\mathrm D\phi_m(x)b)_m)
+       =(a_m\mathrm D\phi_m(x)b)_m.
+\end{aligned}
+\end{equation}
+This map is Hilbert--Schmidt:
+\begin{equation}
+\label{eq:full-weighted-feature-norm}
+ \|\Psi_\infty(x)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2
+ =\sum_{m\ge1}a_m^2\|\mathrm D\phi_m(x)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf H_m}^2
+ \le d\sum_{m\ge1}a_m^2L_m^2(1+\|x\|_{\mathbb R^d}^{m-1})^2<\infty.
+\end{equation}
+The factor $d$ follows by summing the squared operator bound over an
+orthonormal basis of $\mathbb R^d$. Finiteness follows by squaring \cref{lem:weighted-series-estimate},
+\eqref{eq:weighted-series-summand-bound}, with $K=1$ and
+$D=1+\|x\|_{\mathbb R^d}$, and summing.
+
+The following factorization uses the full feature space $\mathsf E$.
+
+\begin{lemma}[Weighted Hessian factorization]
+\label{lemma-structured-weighted-hessian-factorization}
+For $M(\mu)\in\mathcal V_{K_{\rm pop},D}$, there is a bounded self-adjoint
+operator $\overline A_\infty(\mu)$ on $\mathsf E$ such that
+\begin{align}
+ \langle u,\overline A_\infty(\mu)v\rangle
+ &=\mathrm D^2G(M(\mu))[\mathsf U_a^{-1}u,\mathsf U_a^{-1}v],
+ \label{eq:full-weighted-moment-hessian}\\
+ \nabla_W^2F(\mu;x,z)
+ &=\Psi_\infty(x)^*\overline A_\infty(\mu)\Psi_\infty(z),
+ \qquad \|\overline A_\infty(\mu)\|_{\mathsf E\to\mathsf E}\le\mathrm L_D.
+ \label{eq:full-weighted-hessian-factorization}
+\end{align}
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: represent the bounded moment bilinear form.}
+By the isometry $\mathsf U_a$ and \eqref{eq:local-moment-derivative-bound},
+\[
+ |\mathrm D^2G(M(\mu))[\mathsf U_a^{-1}u,\mathsf U_a^{-1}v]|
+ \le\mathrm L_D\|u\|_{\mathsf E}\|v\|_{\mathsf E}.
+\]
+For fixed $v\in\mathsf E$, the map
+$u\mapsto\mathrm D^2G(M(\mu))[\mathsf U_a^{-1}u,\mathsf U_a^{-1}v]$
+is a continuous linear functional of norm at most
+$\mathrm L_D\|v\|_{\mathsf E}$. Riesz representation gives its unique representing
+vector $\overline A_\infty(\mu)v$. Uniqueness and linearity in $v$
+make this a linear operator, with
+\[
+ \|\overline A_\infty(\mu)v\|_{\mathsf E}
+ =\sup_{\|u\|_{\mathsf E}=1}
+   |\mathrm D^2G(M(\mu))[\mathsf U_a^{-1}u,\mathsf U_a^{-1}v]|
+ \le\mathrm L_D\|v\|_{\mathsf E}.
+\]
+Symmetry of the second derivative gives
+$\langle u,\overline A_\infty(\mu)v\rangle
+=\langle\overline A_\infty(\mu)u,v\rangle$,
+so this bounded operator is self-adjoint.
+\par\noindent\textbf{Step 2: identify the spatial Hessian kernel.}
+For $b,c\in\mathbb R^d$, \cref{eq:weighted-feature-j0-identification}
+gives $\mathsf U_a^{-1}\Psi_\infty(x)b=\mathrm D J_0(x)b$ and the
+corresponding identity at $z$. Substituting these identities into
+\cref{eq:weighted-integral-hessian-representation} and using
+\cref{eq:full-weighted-moment-hessian} gives
+\[
+\begin{aligned}
+ \langle b,\nabla_W^2F(\mu;x,z)c\rangle_{\mathbb R^d}
+ &=\mathrm D^2G(M(\mu))[\mathrm D J_0(x)b,\mathrm D J_0(z)c]\\
+ &=\mathrm D^2G(M(\mu))[
+       \mathsf U_a^{-1}\Psi_\infty(x)b,\mathsf U_a^{-1}\Psi_\infty(z)c]\\
+ &=\langle\Psi_\infty(x)b,
+       \overline A_\infty(\mu)\Psi_\infty(z)c\rangle_{\mathsf E}.
+\end{aligned}
+\]
+Both argument sequences belong to $\mathsf H_a$ by
+\eqref{eq:full-weighted-feature-norm}; finite partial sums converge there,
+so the displayed equality also identifies the infinite coordinate series.
+\end{proof}
+
+\begin{lemma}[Weighted feature bounds with explicit conditional moment dependence]
+\label{lemma-weighted-feature-envelope-derived}
+Assume \eqref{eq:weighted-feature-conditional-input}. Recall
+$\chi(u)=[\log(e+u)]^{\kappa_{\rm dec}/(\kappa_{\rm dec}-1)}$ from
+\eqref{eq:weighted-series-growth-function}, and define the single fourth-moment envelope
+\begin{equation}
+\label{eq:conditional-weighted-fourth-envelope}
+ C_{\Phi,4}(K):=
+ \left[d\sum_{m\ge1}a_m^2L_m^2
+ \left\{1+K^{m-1}(4(m-1)\vee1)^{(m-1)/\alpha}\right\}^2\right]^2.
+\end{equation}
+All constants $C$ below depend only on the fixed feature parameters,
+$d$, and $\alpha$, not on $K_{\rm pop},N,t,D$ or any probability budget.
+The following assertions hold.
+\begin{enumerate}
+ \item The full feature map satisfies
+ \begin{equation}
+ \label{eq:derived-weighted-feature-growth}
+ \|\Psi_\infty(x)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2
+ \le C\exp\{C\chi(\|x\|_{\mathbb R^d})\}.
+ \end{equation}
+ The feature map is continuous in Hilbert--Schmidt norm and strongly
+ measurable.
+ \item Uniformly in $t$,
+ \begin{equation}
+ \label{eq:derived-weighted-fourth-moment}
+ \mathbb E_{\mathcal G}\|\Psi_\infty(Y_t^1)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^4
+ \le C_{\Phi,4}(K_{\rm pop})\le C e^{C\chi(K_{\rm pop})}.
+ \end{equation}
+ \item The Bochner integral
+ $\Sigma_t:=\mathbb E_{\mathcal G}[\Psi_\infty(Y_t^1)\Psi_\infty(Y_t^1)^*]$
+ is a positive trace-class operator, and
+ \begin{equation}
+ \label{eq:derived-weighted-covariance-bound}
+ \Sigma_t\preceq C_{\Phi,4}(K_{\rm pop})^{1/2}I_{\mathsf E}.
+ \end{equation}
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: continuity and the pointwise bound.}
+For $R\ge1$ and $\|x\|_{\mathbb R^d},\|y\|_{\mathbb R^d}\le R$, integrate $\mathrm D^2\phi_m$ on the line
+segment from $y$ to $x$. The derivative-growth assumption gives
+\[
+ \|\mathrm D\phi_m(x)-\mathrm D\phi_m(y)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf H_m}
+ \le\sqrt d\,L_m(1+R^{(m-2)_+})\|x-y\|_{\mathbb R^d}.
+\]
+After summing squares with weights $a_m^2$, this yields
+\[
+ \|\Psi_\infty(x)-\Psi_\infty(y)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2
+ \le d\|x-y\|_{\mathbb R^d}^2\sum_{m\ge1}a_m^2L_m^2(1+R^{(m-2)_+})^2.
+\]
+The coefficient is finite by squaring \eqref{eq:weighted-series-summand-bound}
+with $K=1$, $D=R$ and summing. This proves continuity on every ball. Its image
+lies in a separable closed subspace, since $\mathbb R^d$ is separable and
+the map is continuous. Strong measurability means being an almost-sure norm limit of measurable
+simple functions. A continuous map from the separable space $\mathbb R^d$
+has separable image, so this property holds for $\Psi_\infty(Y_t^1)$
+without assuming that the whole feature space is separable.
+For the pointwise bound, $1+\|x\|_{\mathbb R^d}^{m-1}\le2+(1+\|x\|_{\mathbb R^d})^m$.
+Apply \cref{lem:weighted-series-estimate},
+\eqref{eq:weighted-series-summand-bound}, with $K=1$ and $D=1+\|x\|_{\mathbb R^d}$:
+\begin{equation}
+\label{eq:weighted-feature-growth-series}
+ \|\Psi_\infty(x)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2
+ \le d\sum_m[a_mL_m\{2+(1+\|x\|_{\mathbb R^d})^m\}]^2
+ \le Ce^{C\chi(\|x\|_{\mathbb R^d})}\sum_m e^{-(c_a/2)m^{\kappa_{\rm dec}}}.
+\end{equation}
+Here \eqref{eq:weighted-series-scale-comparison} with $c=1$ absorbs
+$\chi(2+\|x\|_{\mathbb R^d})$. The finite sum proves
+\eqref{eq:derived-weighted-feature-growth}.
+
+\par\noindent\textbf{Step 2: the fourth moment.}
+For $m\ge2$, \eqref{eq:weighted-feature-conditional-input} with $r=4(m-1)$
+gives
+\[
+ \|1+\|Y_t^1\|_{\mathbb R^d}^{m-1}\|_{L^4(\mathbb P_{\mathcal G})}
+ \le1+(\mathbb E_{\mathcal G}\|Y_t^1\|_{\mathbb R^d}^{4(m-1)})^{1/4}
+ \le1+K_{\rm pop}^{m-1}(4(m-1))^{(m-1)/\alpha}.
+\]
+For $m=1$ the left side is $2$, matching the convention in
+\eqref{eq:conditional-weighted-fourth-envelope}. Minkowski's inequality
+for a finite sum in $L^2(\mathbb P_{\mathcal G})$ now gives
+\[
+\begin{aligned}
+ \left\|\sum_{m=1}^M a_m^2
+       \|\mathrm D\phi_m(Y_t^1)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf H_m}^2\right\|_{L^2(\mathbb P_{\mathcal G})}
+ &\le d\sum_{m\le M}a_m^2L_m^2
+       \|1+\|Y_t^1\|_{\mathbb R^d}^{m-1}\|_{L^4(\mathbb P_{\mathcal G})}^2\\
+ &\le d\sum_{m\le M}a_m^2L_m^2
+ \{1+K_{\rm pop}^{m-1}(4(m-1)\vee1)^{(m-1)/\alpha}\}^2.
+\end{aligned}
+\]
+Squaring and applying monotone convergence gives the explicit connection
+between the finite sums and the full fourth moment:
+\begin{equation}
+\label{eq:weighted-fourth-moment-limit}
+\begin{aligned}
+ \mathbb E_{\mathcal G}\|\Psi_\infty(Y_t^1)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^4
+ &=\lim_{M\to\infty}\mathbb E_{\mathcal G}
+ \left[\sum_{m=1}^M a_m^2
+          \|\mathrm D\phi_m(Y_t^1)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf H_m}^2\right]^2\\
+ &\le C_{\Phi,4}(K_{\rm pop}).
+\end{aligned}
+\end{equation}
+For every $m\ge1$, including $m=1$, the braces in
+\eqref{eq:conditional-weighted-fourth-envelope} satisfy
+\[
+ 1+K^{m-1}(4(m-1)\vee1)^{(m-1)/\alpha}
+ \le 1+\{4^{1/\alpha}(1+K)\}^m m^{m/\alpha}.
+\]
+Use \eqref{eq:weighted-series-summand-bound} with
+$K$ replaced by $4^{1/\alpha}(1+K_{\rm pop})$ and $D=1$.
+Squaring each summand, summing, and then squaring the sum in
+\eqref{eq:conditional-weighted-fourth-envelope} yields
+\[
+ C_{\Phi,4}(K_{\rm pop})
+ \le\left[Ce^{C\chi(K_{\rm pop})}
+           \sum_m e^{-(c_a/2)m^{\kappa_{\rm dec}}}\right]^2
+ \le Ce^{C\chi(K_{\rm pop})},
+\]
+where \eqref{eq:weighted-series-scale-comparison} absorbs the fixed
+rescaling. This proves \eqref{eq:derived-weighted-fourth-moment}.
+\par\noindent\textbf{Step 3: the covariance.}
+For Hilbert--Schmidt maps $A,B:\mathbb R^d\to\mathsf E$, its singular
+values $s_j$ give
+\[
+ \operatorname{tr}(AA^*)=\sum_js_j^2=\|A\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2,
+ \qquad
+ \|AA^*\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}=(\sum_js_j^4)^{1/2}\le\sum_js_j^2.
+\]
+Moreover, $AA^*-BB^*=(A-B)A^*+B(A-B)^*$ gives
+\[
+ \|AA^*-BB^*\|_{*;\,\mathsf E\to\mathsf E}
+ \le(\|A\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}+\|B\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E})\|A-B\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}.
+\]
+Thus $A\mapsto AA^*$ is continuous from Hilbert--Schmidt norm to trace
+norm, using \eqref{eq:nuclear-hilbert-schmidt-product}.
+Composition with the strongly measurable feature map from Step 1
+therefore gives strong measurability in trace norm. For integrability,
+positivity of $\Psi_\infty(Y_t^1)\Psi_\infty(Y_t^1)^*$ and
+Cauchy--Schwarz give
+\[
+\begin{aligned}
+ \mathbb E_{\mathcal G}
+   \|\Psi_\infty(Y_t^1)\Psi_\infty(Y_t^1)^*\|_{*;\,\mathsf E\to\mathsf E}
+ &=\mathbb E_{\mathcal G}\|\Psi_\infty(Y_t^1)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2\\
+ &\le\bigl(\mathbb E_{\mathcal G}
+                  \|\Psi_\infty(Y_t^1)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^4\bigr)^{1/2}
+ \le C_{\Phi,4}(K_{\rm pop})^{1/2}<\infty.
+\end{aligned}
+\]
+This establishes Bochner integrability in trace norm.
+For $u\in\mathsf E$, Cauchy--Schwarz gives
+\[
+ \langle u,\Sigma_tu\rangle
+ =\mathbb E_{\mathcal G}\|\Psi_\infty(Y_t^1)^*u\|_{\mathbb R^d}^2
+ \le\|u\|_{\mathsf E}^2\mathbb E_{\mathcal G}\|\Psi_\infty(Y_t^1)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2
+ \le C_{\Phi,4}(K_{\rm pop})^{1/2}\|u\|_{\mathsf E}^2.
+\]
+\end{proof}
+
+\paragraph{The full residual as a feature covariance error.}
+Recall the kernel covariance residual from \cref{lemma-kernel-mismatch-bound}:
+\begin{equation}
+\label{eq:tilde-gamma-full-definition-weighted}
+ U_t(z):=[\nabla_W^2F(\mu_t;Y_t^i,z)]_{i=1}^N,
+ \qquad
+ \widetilde\Gamma_t^N
+ =\frac1N\left\|\int U_t(z)U_t(z)^\top
+                          (\mu_t-\rho_{Y_t})(dz)\right\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}}.
+\end{equation}
+The matrix $U_t(z)$ has $N$ block rows and $d$ columns. Define
+\[
+ \Psi_t^{Y,N}(v_1,\ldots,v_N):=\sum_{i=1}^N\Psi_\infty(Y_t^i)v_i,
+ \qquad
+ \Psi_t^{Y,N}:\mathbb R^{dN}\longrightarrow\mathsf E,
+\]
+where the domain has the ordinary Euclidean inner product. Recall $\Sigma_t$
+from \cref{lemma-weighted-feature-envelope-derived} and define
+\[
+ \widehat\Sigma_t^N:=\frac1N\sum_{i=1}^N
+       \Psi_\infty(Y_t^i)\Psi_\infty(Y_t^i)^*
+       =\frac1N\Psi_t^{Y,N}(\Psi_t^{Y,N})^*.
+\]
+
+\begin{lemma}[Full covariance representation and nuclear-norm bound]
+\label{lem:tilde-gamma-weighted-representation}
+The full residual satisfies
+\begin{align}
+ \widetilde\Gamma_t^N
+ &=\frac1N\left\|(\Psi_t^{Y,N})^*\overline A_\infty(\mu_t)
+       (\Sigma_t-\widehat\Sigma_t^N)
+       \overline A_\infty(\mu_t)\Psi_t^{Y,N}\right\|_{*;\,\mathbb R^{dN}\to\mathbb R^{dN}},
+ \label{eq:tilde-gamma-weighted-matrix-identity}\\
+ \widetilde\Gamma_t^N
+ &\le\mathrm L_D^2\operatorname{tr}(\widehat\Sigma_t^N)
+                  \|\widehat\Sigma_t^N-\Sigma_t\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}.
+ \label{eq:tilde-gamma-deterministic-reduction}
+\end{align}
+Consequently,
+\begin{equation}
+\label{eq:tilde-gamma-full-expectation-bound}
+ \mathbb E_{\mathcal G}\widetilde\Gamma_t^N
+ \le\frac{\mathrm L_D^2 C_{\Phi,4}(K_{\rm pop})}{\sqrt N}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: factor and bound the covariance residual.}
+By \eqref{eq:full-weighted-hessian-factorization},
+\[
+ U_t(z)=(\Psi_t^{Y,N})^*\overline A_\infty(\mu_t)\Psi_\infty(z).
+\]
+Since $\overline A_\infty(\mu_t)$ is self-adjoint, the product is
+\[
+ U_t(z)U_t(z)^\top
+ =(\Psi_t^{Y,N})^*\overline A_\infty(\mu_t)
+ [\Psi_\infty(z)\Psi_\infty(z)^*]
+ \overline A_\infty(\mu_t)\Psi_t^{Y,N}.
+\]
+Only the bracketed factor depends on $z$. Integration of this factor
+$\Psi_\infty(z)\Psi_\infty(z)^*$ against $\mu_t$ gives $\Sigma_t$,
+and integration against $\rho_{Y_t}=N^{-1}\sum_i\delta_{Y_t^i}$ gives
+$\widehat\Sigma_t^N$. Subtracting proves
+\eqref{eq:tilde-gamma-weighted-matrix-identity}.
+Apply the Hilbert--Schmidt product bound
+\eqref{eq:nuclear-hilbert-schmidt-product} to the two factors
+$(\Psi_t^{Y,N})^*\overline A_\infty(\mu_t)$ and
+$(\Sigma_t-\widehat\Sigma_t^N)\overline A_\infty(\mu_t)\Psi_t^{Y,N}$.
+Then use submultiplicativity of the Hilbert--Schmidt norm with the
+operator norm, also after taking adjoints:
+\[
+\begin{aligned}
+ \widetilde\Gamma_t^N
+ &\le\frac1N\|(\Psi_t^{Y,N})^*\overline A_\infty(\mu_t)\|_{\mathrm{HS};\,\mathsf E\to\mathbb R^{dN}}
+ \|(\Sigma_t-\widehat\Sigma_t^N)\overline A_\infty(\mu_t)
+                              \Psi_t^{Y,N}\|_{\mathrm{HS};\,\mathbb R^{dN}\to\mathsf E}\\
+ &\le\frac1N\|\Psi_t^{Y,N}\|_{\mathrm{HS};\,\mathbb R^{dN}\to\mathsf E}^2
+       \|\overline A_\infty(\mu_t)\|_{\mathsf E\to\mathsf E}^2
+       \|\Sigma_t-\widehat\Sigma_t^N\|_{\mathsf E\to\mathsf E}\\
+ &\le\mathrm L_D^2\operatorname{tr}(\widehat\Sigma_t^N)
+       \|\Sigma_t-\widehat\Sigma_t^N\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}.
+\end{aligned}
+\]
+Here $N^{-1}\|\Psi_t^{Y,N}\|_{\mathrm{HS};\,\mathbb R^{dN}\to\mathsf E}^2
+=N^{-1}\sum_i\|\Psi_\infty(Y_t^i)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2
+=\operatorname{tr}(\widehat\Sigma_t^N)$.
+
+\par\noindent\textbf{Step 2: bound its conditional expectation.}
+For the expectation bound put
+$W_i=\Psi_\infty(Y_t^i)\Psi_\infty(Y_t^i)^*$ and
+$Z_i=\|\Psi_\infty(Y_t^i)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2$. Jensen's inequality gives
+\[
+ \mathbb E_{\mathcal G}\left(\operatorname{tr}\widehat\Sigma_t^N\right)^2
+ =\mathbb E_{\mathcal G}(N^{-1}\sum_iZ_i)^2
+ \le N^{-1}\sum_i\mathbb E_{\mathcal G}Z_i^2
+ \le C_{\Phi,4}(K_{\rm pop}).
+\]
+In the Hilbert space $\mathcal S_2(\mathsf E)$, conditional independence
+and $\mathbb E_{\mathcal G}(W_i-\Sigma_t)=0$ imply, for $i\ne j$,
+\[
+ \mathbb E_{\mathcal G}\langle W_i-\Sigma_t,W_j-\Sigma_t\rangle_{\mathrm{HS};\,\mathsf E\to\mathsf E}
+ =\langle\mathbb E_{\mathcal G}(W_i-\Sigma_t),
+          \mathbb E_{\mathcal G}(W_j-\Sigma_t)\rangle_{\mathrm{HS};\,\mathsf E\to\mathsf E}=0.
+\]
+In particular, the singular-value calculation in
+\cref{lemma-weighted-feature-envelope-derived} gives
+$\|W_1\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}^2\le(\operatorname{tr}W_1)^2=Z_1^2$,
+with an inequality rather than equality in general. Expanding gives
+\begin{equation}
+\label{eq:weighted-covariance-mean-square}
+\begin{aligned}
+ \mathbb E_{\mathcal G}\|\widehat\Sigma_t^N-\Sigma_t\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}^2
+ &=N^{-2}\sum_{i,j}\mathbb E_{\mathcal G}
+        \langle W_i-\Sigma_t,W_j-\Sigma_t\rangle_{\mathrm{HS};\,\mathsf E\to\mathsf E}\\
+ &=N^{-2}\sum_i\mathbb E_{\mathcal G}\|W_i-\Sigma_t\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}^2\\
+ &=N^{-1}(\mathbb E_{\mathcal G}\|W_1\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}^2-\|\Sigma_t\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}^2)\\
+ &\le N^{-1}\mathbb E_{\mathcal G}Z_1^2
+ \le C_{\Phi,4}(K_{\rm pop})/N.
+\end{aligned}
+\end{equation}
+Conditional Cauchy--Schwarz in \eqref{eq:tilde-gamma-deterministic-reduction}
+now gives
+\[
+\begin{aligned}
+ \mathbb E_{\mathcal G}\widetilde\Gamma_t^N
+ &\le\mathrm L_D^2
+ [\mathbb E_{\mathcal G}(\operatorname{tr}\widehat\Sigma_t^N)^2]^{1/2}
+ [\mathbb E_{\mathcal G}\|\widehat\Sigma_t^N-\Sigma_t\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}^2]^{1/2}\\
+ &\le\mathrm L_D^2 C_{\Phi,4}(K_{\rm pop})^{1/2}
+          [C_{\Phi,4}(K_{\rm pop})/N]^{1/2}.
+\end{aligned}
+\]
+The two factors use the same sample; their independence is not needed.
+\end{proof}
+
+\begin{lemma}[A deterministic envelope at the sampled particles]
+\label{lem:weighted-feature-max-event}
+Fix a time trace $t$, $N\ge2$, and $\delta\in(0,1)$. Define
+\[
+ R_{N,\delta}:=K_{\rm pop}
+   [e(\alpha\vee1)\{1+\log(8N/\delta)\}]^{1/\alpha},
+\]
+\begin{equation}
+\label{eq:weighted-feature-max-tau-N-delta}
+ \tau_{N,\delta}:=1\vee
+   \left[d\sum_{m\ge1}a_m^2L_m^2(1+R_{N,\delta}^{m-1})^2\right].
+\end{equation}
+Then
+\begin{equation}
+\label{eq:weighted-feature-max-event}
+ \mathbb P_{\mathcal G}\left(
+   \max_{i\le N}\|\Psi_\infty(Y_t^i)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2>\tau_{N,\delta}
+                         \right)\le\delta/8,
+\end{equation}
+and the individual-particle probability is at most $\delta/(8N)$.
+Moreover $\tau_{N,\delta}\le C\exp\{C\chi(R_{N,\delta})\}$.
+If $\Xi\ge N/\delta$ and $K_{\rm pop}\le C_K(\log\Xi)^{s_K}$ for fixed
+$C_K,s_K$, then, for every $\varepsilon>0$,
+\begin{equation}
+\label{eq:weighted-envelope-subpolynomial}
+ \tau_{N,\delta}^2\sqrt{\log(8/\delta)}
+       +C_{\Phi,4}(K_{\rm pop})\le C_\varepsilon \Xi^\varepsilon.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Use the Markov calculation of \cref{lemma-beta-tail-bound},
+\eqref{eq:moment-tail-markov-substitution}, with threshold $R_{N,\delta}$.
+In the moment input \eqref{eq:weighted-feature-conditional-input}, take
+$r=(\alpha\vee1)\{1+\log(8N/\delta)\}\ge1$. Then
+\[
+ \mathbb P_{\mathcal G}(\|Y_t^i\|_{\mathbb R^d}>R_{N,\delta})
+ \le\left(\frac{K_{\rm pop}r^{1/\alpha}}
+                   {K_{\rm pop}(er)^{1/\alpha}}\right)^r
+ =e^{-r/\alpha}\le\frac{\delta}{8N}.
+\]
+By \eqref{eq:full-weighted-feature-norm} and
+\eqref{eq:weighted-feature-max-tau-N-delta},
+\[
+ \{\|\Psi_\infty(Y_t^i)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2>\tau_{N,\delta}\}
+ \subseteq\{\|Y_t^i\|_{\mathbb R^d}>R_{N,\delta}\}.
+\]
+The union over $N$ particles costs $N\delta/(8N)=\delta/8$, proving
+\eqref{eq:weighted-feature-max-event}.
+The calculation \eqref{eq:weighted-feature-growth-series} in
+\cref{lemma-weighted-feature-envelope-derived}, with $\|x\|_{\mathbb R^d}$ replaced by
+$R_{N,\delta}$, proves the growth bound.
+Since $\Xi\ge N/\delta\ge2$,
+$\log(8N/\delta)\le\log8+\log\Xi\le4\log\Xi$. Hence
+\[
+ R_{N,\delta}\le C(\log\Xi)^{s_K+1/\alpha},\qquad
+ \log(e+R_{N,\delta})\le C+C\log\log\Xi.
+\]
+For the whole left-hand side of \eqref{eq:weighted-envelope-subpolynomial},
+these bounds and \eqref{eq:derived-weighted-fourth-moment} give
+\[
+\begin{aligned}
+ &\log\{\tau_{N,\delta}^2\sqrt{\log(8/\delta)}
+                      +C_{\Phi,4}(K_{\rm pop})\}\\
+ &\quad\le C+C[1+\log\log(e+\Xi)]^{\kappa_{\rm dec}/(\kappa_{\rm dec}-1)}
+ \le C_\varepsilon+\varepsilon\log\Xi.
+\end{aligned}
+\]
+The last inequality holds because any fixed power of $\log\log(e+\Xi)$
+is $o(\log\Xi)$; a fixed constant covers bounded $\Xi\ge2$.
+Exponentiation proves the claim. The constant may depend on $C_K,s_K$
+and $\varepsilon$, but not on $\Xi$.
+\end{proof}
+
+\begin{lemma}[Full weighted covariance concentration in Hilbert--Schmidt norm]
+\label{lem:tilde-gamma-weighted-covariance-input}
+Fix a time trace $t$, $N\ge2$, and $\delta\in(0,1)$. Use the threshold
+$\tau_{N,\delta}$ in \eqref{eq:weighted-feature-max-tau-N-delta}.
+There is an event of conditional probability at least $1-\delta$ on which
+\begin{align}
+ \max_{i\le N}\|\Psi_\infty(Y_t^i)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2&\le\tau_{N,\delta},
+ \label{eq:full-covariance-sample-envelope}\\
+ \|\widehat\Sigma_t^N-\Sigma_t\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}
+ &\le\frac{C_{\Phi,4}(K_{\rm pop})^{1/2}}{\sqrt N}
+          (1+\sqrt{\delta/8})
+       +\tau_{N,\delta}\sqrt{\frac{2\log(8/\delta)}N}.
+ \label{eq:tilde-gamma-covariance-good-event}
+\end{align}
+\end{lemma}
+\begin{proof}
+The repeated random objects needed in this proof are
+\[
+ W_i:=\Psi_\infty(Y_t^i)\Psi_\infty(Y_t^i)^*,\quad
+ Z_i:=\|\Psi_\infty(Y_t^i)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2,\quad
+ W_i^{(\tau)}:=W_i\mathbf1_{\{Z_i\le\tau_{N,\delta}\}}.
+\]
+The conditional mean of $W_i^{(\tau)}$ is
+$\Sigma_t^{(\tau)}:=\mathbb E_{\mathcal G}W_1^{(\tau)}$.
+The sample mean of $W_i^{(\tau)}$ is
+$\widehat\Sigma_t^{N,(\tau)}:=N^{-1}\sum_iW_i^{(\tau)}$.
+Conditional on $\mathcal G_{\rm pop}$, these clipped variables remain
+independent. We apply concentration before intersecting with
+$\{\max_iZ_i\le\tau_{N,\delta}\}$.
+
+\par\noindent\textbf{Step 1: mean square and bounded differences.}
+The singular-value inequality in
+\cref{lemma-weighted-feature-envelope-derived} gives
+$\|W_i^{(\tau)}\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}\le Z_i\mathbf1_{\{Z_i\le\tau_{N,\delta}\}}
+\le\tau_{N,\delta}$. These operators are conditionally i.i.d. and
+square integrable. Apply the centered-sum calculation
+\eqref{eq:weighted-covariance-mean-square} of
+\cref{lem:tilde-gamma-weighted-representation}, replacing
+$W_i,\Sigma_t$ by $W_i^{(\tau)},\Sigma_t^{(\tau)}$:
+\[
+ \mathbb E_{\mathcal G}
+ \|\widehat\Sigma_t^{N,(\tau)}-\Sigma_t^{(\tau)}\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}^2
+ \le N^{-1}\mathbb E_{\mathcal G}\|W_1^{(\tau)}\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}^2
+ \le N^{-1}\mathbb E_{\mathcal G}Z_1^2
+ \le C_{\Phi,4}(K_{\rm pop})/N.
+\]
+Cauchy--Schwarz therefore bounds the mean norm by
+$\sqrt{C_{\Phi,4}(K_{\rm pop})/N}$.
+If sample $i$ is replaced, denote the new sample mean by
+$\widehat\Sigma_t^{N,(\tau)\prime}$ and its changed summand by
+$W_i^{(\tau)\prime}$. The threshold and population mean are fixed, so
+\[
+\begin{aligned}
+ &\left|\|\widehat\Sigma_t^{N,(\tau)}-\Sigma_t^{(\tau)}\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}
+ -\|\widehat\Sigma_t^{N,(\tau)\prime}-\Sigma_t^{(\tau)}\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}\right|\\
+ &\quad\le\|\widehat\Sigma_t^{N,(\tau)}-
+                        \widehat\Sigma_t^{N,(\tau)\prime}\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}
+ =N^{-1}\|W_i^{(\tau)}-W_i^{(\tau)\prime}\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}
+ \le 2\tau_{N,\delta}/N.
+\end{aligned}
+\]
+In \cref{lemma:mcdiarmid}, the sum of squared differences is
+$N(2\tau_{N,\delta}/N)^2=4\tau_{N,\delta}^2/N$. Substituting
+$s=\tau_{N,\delta}\sqrt{2\log(8/\delta)/N}$ gives failure probability
+\[
+ \exp\left(-\frac{2s^2}{4\tau_{N,\delta}^2/N}\right)
+ =\exp(-\log(8/\delta))=\delta/8.
+\]
+Thus, except on that event,
+\[
+ \|\widehat\Sigma_t^{N,(\tau)}-\Sigma_t^{(\tau)}\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}
+ \le\sqrt{C_{\Phi,4}(K_{\rm pop})/N}
+       +\tau_{N,\delta}\sqrt{2\log(8/\delta)/N}.
+\]
+
+\par\noindent\textbf{Step 2: restore the conditional mean and the sample.}
+The mean difference is
+$\Sigma_t-\Sigma_t^{(\tau)}=\mathbb E_{\mathcal G}[W_1\mathbf1_{\{Z_1>\tau_{N,\delta}\}}]$.
+The individual tail bound in \cref{lem:weighted-feature-max-event}
+and Cauchy--Schwarz give
+\[
+\begin{aligned}
+ \|\Sigma_t-\Sigma_t^{(\tau)}\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}
+ &\le\mathbb E_{\mathcal G}
+       [\|W_1\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}\mathbf1_{\{Z_1>\tau_{N,\delta}\}}]\\
+ &\le(\mathbb E_{\mathcal G}Z_1^2)^{1/2}
+       \mathbb P_{\mathcal G}(Z_1>\tau_{N,\delta})^{1/2}
+ \le C_{\Phi,4}(K_{\rm pop})^{1/2}\sqrt{\delta/(8N)}.
+\end{aligned}
+\]
+The bound \eqref{eq:weighted-feature-max-event} in
+\cref{lem:weighted-feature-max-event} costs another $\delta/8$ to ensure
+$\max_iZ_i\le\tau_{N,\delta}$ and hence
+$\widehat\Sigma_t^N=\widehat\Sigma_t^{N,(\tau)}$. On the intersection,
+\[
+\begin{aligned}
+ \|\widehat\Sigma_t^N-\Sigma_t\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}
+ &\le\|\widehat\Sigma_t^{N,(\tau)}-\Sigma_t^{(\tau)}\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}
+          +\|\Sigma_t^{(\tau)}-\Sigma_t\|_{\mathrm{HS};\,\mathsf E\to\mathsf E}\\
+ &\le\frac{C_{\Phi,4}(K_{\rm pop})^{1/2}}{\sqrt N}(1+\sqrt{\delta/8})
+       +\tau_{N,\delta}\sqrt{\frac{2\log(8/\delta)}N}.
+\end{aligned}
+\]
+The population bias bound is deterministic after conditioning and costs
+no further probability. Thus the failure budget is
+$\delta/8+\delta/8\le\delta$, proving
+\eqref{eq:tilde-gamma-covariance-good-event}.
+\end{proof}
+
+\begin{corollary}[The full jump residual at a fixed time]
+\label{cor:tilde-gamma-full-weighted-bound}
+For every fixed time trace $t$, $N\ge2$, and $\delta\in(0,1)$, with
+conditional probability at least $1-\delta$,
+\begin{equation}
+\label{eq:tilde-gamma-full-high-prob-bound}
+ \widetilde\Gamma_t^N
+ \le\frac{\mathrm L_D^2\tau_{N,\delta}}{\sqrt N}
+       \left[2C_{\Phi,4}(K_{\rm pop})^{1/2}
+                 +\tau_{N,\delta}\sqrt{2\log(8/\delta)}\right].
+\end{equation}
+\end{corollary}
+\begin{proof}
+On the joint event of \cref{lem:tilde-gamma-weighted-covariance-input},
+\[
+ \operatorname{tr}(\widehat\Sigma_t^N)
+ =N^{-1}\sum_i\|\Psi_\infty(Y_t^i)\|_{\mathrm{HS};\,\mathbb R^d\to\mathsf E}^2\le\tau_{N,\delta}.
+\]
+Substitute this and \eqref{eq:tilde-gamma-covariance-good-event} into
+\cref{lem:tilde-gamma-weighted-representation},
+\eqref{eq:tilde-gamma-deterministic-reduction}:
+\[
+ \widetilde\Gamma_t^N\le\mathrm L_D^2\tau_{N,\delta}
+ \left[\frac{C_{\Phi,4}(K_{\rm pop})^{1/2}}{\sqrt N}(1+\sqrt{\delta/8})
+       +\tau_{N,\delta}\sqrt{\frac{2\log(8/\delta)}N}\right].
+\]
+Use $1+\sqrt{\delta/8}\le2$ to obtain
+\eqref{eq:tilde-gamma-full-high-prob-bound} on the same event.
+\end{proof}
+
+\begin{corollary}[Union bound over prescribed jump times]
+\label{cor:tilde-gamma-jump-time-union-bound}
+Let $0<t_1<\cdots<t_{\NofJ}\le T$ be deterministic, and set
+$q=p/(\NofJ+1)$ for $p\in(0,1)$. Define
+\begin{equation}
+\label{eq:phase1-HS-tilde-delta-envelope}
+ \widetilde\delta_{N,T,p}^{\rm HS}
+ :=\frac{\mathrm L_D^2\tau_{N,q}}{\sqrt N}
+       \left[2C_{\Phi,4}(K_{\rm pop})^{1/2}
+                    +\tau_{N,q}\sqrt{2\log(8/q)}\right].
+\end{equation}
+Then, with conditional probability at least $1-p$,
+\begin{equation}
+\label{eq:tilde-gamma-jump-time-union-bound}
+ \max_{1\le\ell\le\NofJ}\widetilde\Gamma_{t_\ell-}^N
+ \le\widetilde\delta_{N,T,p}^{\rm HS}.
+\end{equation}
+The maximum is zero when $\NofJ=0$. The parameters $K_{\rm pop}$ and
+$\mathrm L_D$ retain their horizon and population-confidence dependence.
+If $K_{\rm pop},D$ grow at most as fixed powers of $\log\Xi$,
+$\Xi\ge N(\NofJ+1)/p$, and the structural parameters are fixed, then
+for every $\varepsilon>0$,
+\begin{equation}
+\label{eq:tilde-gamma-jump-time-final-rate}
+ \widetilde\delta_{N,T,p}^{\rm HS}
+ \le C_\varepsilon N^{-1/2}\Xi^\varepsilon.
+\end{equation}
+In particular the residual has rate $N^{-1/2+o(1)}$ when $\Xi$ is polynomial
+in $N$; its square root in the jump comparison has rate $N^{-1/4+o(1)}$.
+\end{corollary}
+\begin{proof}
+\noindent\textbf{Step 1: combine the prescribed jump times.}
+Apply \cref{cor:tilde-gamma-full-weighted-bound} at each deterministic
+pre-jump trace with $\delta=q=p/(\NofJ+1)$ in
+\eqref{eq:tilde-gamma-full-high-prob-bound}. The union costs
+$\NofJ q=p\NofJ/(\NofJ+1)\le p$; different times need not be independent.
+
+\par\noindent\textbf{Step 2: simplify the deterministic coefficient.}
+For the rate, \eqref{eq:local-envelope-growth} bounds
+$\mathrm L_D\le Ce^{C\chi(K_{\rm pop}+D)}$.
+For polylogarithmic $K_{\rm pop},D$, this is at most
+$C_\eta \Xi^\eta$ for every $\eta>0$, by the logarithm calculation proving
+\eqref{eq:weighted-envelope-subpolynomial} in
+\cref{lem:weighted-feature-max-event}. Apply
+\eqref{eq:weighted-envelope-subpolynomial} with the same $\eta$.
+Since $\log(8/q)>1$, it implies
+\[
+ \tau_{N,q}\le C_\eta \Xi^{\eta/2},\quad
+ C_{\Phi,4}(K_{\rm pop})^{1/2}\le C_\eta \Xi^{\eta/2},\quad
+ \tau_{N,q}^2\sqrt{\log(8/q)}\le C_\eta \Xi^\eta.
+\]
+The bracket after multiplication by $\tau_{N,q}$ is therefore at most
+$C_\eta \Xi^\eta$. Together with $\mathrm L_D^2\le C_\eta \Xi^{2\eta}$,
+this gives \eqref{eq:tilde-gamma-jump-time-final-rate} by taking
+$\eta=\varepsilon/3$.
+
+\par\noindent\textbf{Step 3: average the conditional failure probability.}
+Finally, since $E_{\rm pop}\in\mathcal G_{\rm pop}$,
+\[
+\begin{aligned}
+ &\mathbb P\left(E_{\rm pop}\cap
+   \{\max_\ell\widetilde\Gamma_{t_\ell-}^N
+                  >\widetilde\delta_{N,T,p}^{\rm HS}\}\right)\\
+ &\quad=\mathbb E\left[\mathbf1_{E_{\rm pop}}
+       \mathbb P_{\mathcal G}\left(
+          \max_\ell\widetilde\Gamma_{t_\ell-}^N
+                     >\widetilde\delta_{N,T,p}^{\rm HS}\right)\right]
+ \le p.
+\end{aligned}
+\]
+Adding $\mathbb P(E_{\rm pop}^c)$ gives the unconditional failure budget
+when the population event is also required.
+\end{proof}
+
+\begin{remark}[Why no feature cutoff or nuclear-norm rank loss is needed]
+\label{remark:tilde-gamma-no-rank-loss}
+The finite $dN\times dN$ residual factors through the full Hilbert feature
+space $\mathsf E$. The independent random operators are clipped by their
+norm before scalar bounded differences is applied in $\mathcal S_2(\mathsf E)$.
+Neither argument uses the dimension of a feature space. The nuclear norm
+is bounded by the empirical feature trace times the Hilbert--Schmidt
+covariance error on one event. This proves the bound for
+$\widetilde\Gamma_t^N$ directly.
+\end{remark}

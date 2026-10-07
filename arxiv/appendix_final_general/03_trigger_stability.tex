@@ -1,0 +1,246 @@
+
+\subsection{A fixed-time comparison of squared gradients}
+\label{subsec:trigger-stability}
+
+We compare the squared-gradient statistics on paths already coupled under
+the prescribed common schedule of \cref{thm:fixed-schedule-high-prob-r-v15}.
+The observation time is deterministic and lies inside an ODE interval.
+Define
+\begin{equation}
+\begin{split}
+ \mathcal G_t&:=\int\|\nabla_WF(\mu_t,x)\|^2\,\mu_t(dx),\\
+ \mathcal G_t^N&:=\frac1N\sum_{i=1}^N
+       \|\nabla_WF(\rho_{\mathbf X_t},X_t^i)\|^2.
+\end{split}
+\label{eq:def-trigger-functional-squared}
+\end{equation}
+
+\paragraph{Recall of the comparison quantities.}
+Let $E_{\rm pop}\in\mathcal G_{\rm pop}$ and $K_{\rm pop}$ be the
+population moment event and its deterministic moment scale from
+\cref{lem:population-moment-event}. Conditional on the population fields
+$\mathcal G_{\rm pop}$, the variables $Y_t^i$ are i.i.d. with law $\mu_t$;
+see \cref{lemma-gp-jump-implies-conditional-iid}.
+For $D\ge1$, recall the sample localization event
+\[
+ E_{T,D}=\left\{\sup_{s\le T}\max_{i\le N}
+          (\|X_s^i\|\vee\|Y_s^i\|)\le D\right\}
+\]
+from \cref{eq:sample-localization-event}.
+The common local coefficients in
+\cref{eq:conditional-comparison-envelope,eq:common-local-moment-weights}
+and the drift comparison are
+\[
+ \mathrm L_D=\mathrm L_{K_{\rm pop},D},\qquad
+ \gamma_m(D)=\mathrm L_Da_m,\qquad
+ \Lambda(D)=\sum_{m\ge1}\gamma_m(D)L_m(1+2D^{m-1}).
+\]
+Here $a_m$ are the moment weights and $L_m$ are the feature derivative
+bounds in \cref{assumption-structured-moment-smoothness}. The existing
+discrepancy and moment residual are
+\[
+ r_t=\left(\frac1N\sum_i\|X_t^i-Y_t^i\|^2\right)^{1/2},\qquad
+ \Gamma_t^N=\sum_{m\ge1}\gamma_m(D)
+ \left\|\frac1N\sum_i\phi_m(Y_t^i)-\int\phi_m\,d\mu_t\right\|;
+\]
+see \cref{subsec:tracking-metric,lemma-directional-measure-slot-error}.
+Let $B$ be the deterministic ODE velocity bound in
+\cref{assumption-uniform-concentration-piecewise-lipschitz}.
+
+\begin{lemma}[Fixed-time discrepancy of the squared-gradient statistic]
+\label{lem:fixed-time-trigger-squared-gap}
+Assume
+\cref{assumption-structured-moment-smoothness,assumption-common-seed,assumption-moment-growth,assumption-uniform-concentration-piecewise-lipschitz},
+with the prescribed-schedule coupling in
+\cref{definition-ode-and-jump,lem:population-first-finite-coupling}.
+The reference conditional product law is
+$\operatorname{Law}((Y_t^i)_i\mid\mathcal G_{\rm pop})=\mu_t^{\otimes N}$
+by \cref{lemma-gp-jump-implies-conditional-iid}.
+Conditional moments are bounded on $E_{\rm pop}$ by
+\eqref{eq:population-uniform-conditional-moments};
+$E_{T,D}$ is the sample event \eqref{eq:sample-localization-event}.
+The existing $B$-Lipschitz ODE condition holds almost surely.
+Fix a deterministic
+$t\in(0,T)\setminus\{t_1,\ldots,t_{\NofJ}\}$ and $\delta\in(0,1)$.
+Except on an event whose intersection with $E_{\rm pop}\cap E_{T,D}$
+has probability at most $\delta$, one has
+\begin{equation}
+ |\mathcal G_t^N-\mathcal G_t|
+ \le2B\{(\Lambda(D)+\mathrm L_D)r_t+\Gamma_t^N\}
+       +B^2\sqrt{\frac{\log(2/\delta)}{2N}}.
+ \label{eq:fixed-time-trigger-squared-gap}
+\end{equation}
+Equivalently,
+\[
+ \mathbb P\!\left(
+ E_{\rm pop}\cap E_{T,D}\cap
+ \left\{|\mathcal G_t^N-\mathcal G_t|>
+ 2B\{(\Lambda(D)+\mathrm L_D)r_t+\Gamma_t^N\}
+ +B^2\sqrt{\frac{\log(2/\delta)}{2N}}\right\}\right)\le\delta.
+\]
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: the velocity bound controls the actual gradients.}
+We first work on $E_{\rm pop}$, without imposing $E_{T,D}$.
+Recall the ODE in \cref{definition-ode-and-jump} and the population
+moment continuity calculation in the proof of
+\cref{lemma-common-empirical-moment-residual-directional-rt}.
+For two nearby times $s,t$ in the same ODE interval, integrate
+$D\phi_m$ along the segment joining the two particle positions.
+The first-derivative and conditional moment bounds give
+\[
+ \sum_m a_m\|M_m(\mu_s)-M_m(\mu_t)\|
+ \le B|s-t|\sum_m a_mL_m
+       \{1+2(K_{\rm pop}m^{1/\alpha})^{m-1}\}
+ \longrightarrow0.
+\]
+The series is finite by the decay estimate
+\cref{lem:conditional-local-coefficient-growth}.
+Choose a finite $R\ge1$ containing the finitely many continuous particle
+paths in a neighborhood of $t$. On $E_{\rm pop}$,
+$\mu_s\in\mathcal P_{\alpha,K_{\rm pop}}$ and
+$\rho_{\mathbf X_s}\in\mathcal P_R$, so their moment vectors belong to
+$\mathcal V_{K_{\rm pop},R}$ by \cref{eq:localized-feasible-moment-region}.
+The local moment and spatial estimates
+\cref{eq:local-value-gradient-moment-bound,eq:local-gradient-spatial-bound}
+then imply
+\begin{align*}
+ &\|\nabla_WF(\mu_s,Y_s^i)-\nabla_WF(\mu_t,Y_t^i)\|\\
+ &\quad\le \mathrm L_{K_{\rm pop},R}
+ \left\{\sum_m a_m\|M_m(\mu_s)-M_m(\mu_t)\|
+                      +\|Y_s^i-Y_t^i\|\right\}\longrightarrow0.
+\end{align*}
+For the empirical moments the corresponding estimate is
+\[
+ \sum_m a_m\|M_m(\rho_{\mathbf X_s})-M_m(\rho_{\mathbf X_t})\|
+ \le B|s-t|\sum_m a_mL_m(1+2R^{m-1})\longrightarrow0.
+\]
+The same local estimates therefore give continuity of
+$\nabla_WF(\rho_{\mathbf X_s},X_s^i)$ at $t$.
+The radius $R$ is used only to establish this local continuity; it
+imposes no additional sample event.
+
+Using the integral form of the reference ODE, for $h\downarrow0$,
+\[
+ \frac{Y_{t+h}^i-Y_t^i}{h}
+ =-\frac1h\int_t^{t+h}\nabla_WF(\mu_s,Y_s^i)\,ds
+ \longrightarrow-\nabla_WF(\mu_t,Y_t^i).
+\]
+Every difference quotient has norm at most $B$, so its limit does too.
+Applying the identical argument to $X$ gives, on $E_{\rm pop}$,
+\[
+ \|\nabla_WF(\mu_t,Y_t^i)\|\le B,\qquad
+ \|\nabla_WF(\rho_{\mathbf X_t},X_t^i)\|\le B.
+\]
+The population bound extends to $\mu_t$-almost every point. Indeed,
+conditional-i.i.d. sampling and $E_{\rm pop}\in\mathcal G_{\rm pop}$ give
+\begin{align*}
+ 0
+ &=\mathbb E\!\left[\mathbf1_{E_{\rm pop}}
+   \mathbf1_{\{\|\nabla_WF(\mu_t,Y_t^1)\|>B\}}\right]\\
+ &=\mathbb E\!\left[\mathbf1_{E_{\rm pop}}
+   \int\mathbf1_{\{\|\nabla_WF(\mu_t,x)\|>B\}}\,\mu_t(dx)\right].
+\end{align*}
+The integrand is nonnegative. Its integral is therefore zero for almost
+every population realization in $E_{\rm pop}$, proving
+$\|\nabla_WF(\mu_t,x)\|\le B$ for $\mu_t$-almost every $x$.
+
+\par\noindent\textbf{Step 2: compare the gradients at paired particles.}
+On $E_{\rm pop}\cap E_{T,D}$, insert the reference empirical moments and use
+\cref{eq:local-value-gradient-moment-bound,eq:local-gradient-spatial-bound}:
+\begin{align*}
+ &\|\nabla_WF(\rho_{\mathbf X_t},X_t^i)
+                -\nabla_WF(\mu_t,Y_t^i)\|\\
+ &\le\sum_m\gamma_m(D)
+       \left\|\frac1N\sum_j\phi_m(X_t^j)-\int\phi_m\,d\mu_t\right\|
+        +\mathrm L_D\|X_t^i-Y_t^i\|\\
+ &\le\sum_m\gamma_m(D)\frac1N\sum_j
+         \|\phi_m(X_t^j)-\phi_m(Y_t^j)\|
+        +\Gamma_t^N+\mathrm L_D\|X_t^i-Y_t^i\|\\
+ &\le\Lambda(D)r_t+\Gamma_t^N+\mathrm L_D\|X_t^i-Y_t^i\|.
+\end{align*}
+For the last step, the line segment lies in the radius-$D$ ball, so
+the first-derivative bound gives
+\[
+ \begin{aligned}
+ \|\phi_m(X_t^j)-\phi_m(Y_t^j)\|
+ &\le\int_0^1
+ \|D\phi_m(Y_t^j+s(X_t^j-Y_t^j))\|\,\|X_t^j-Y_t^j\|\,ds
+ \\
+ &\le L_m(1+2D^{m-1})\|X_t^j-Y_t^j\|.
+ \end{aligned}
+\]
+Here $1+D^{m-1}\le1+2D^{m-1}$ allows reuse of $\Lambda(D)$.
+Cauchy--Schwarz gives
+\[
+ \frac1N\sum_j\|X_t^j-Y_t^j\|
+ \le\left(\frac1N\sum_j\|X_t^j-Y_t^j\|^2\right)^{1/2}=r_t.
+\]
+For two vectors of norm at most $B$,
+$|\|u\|^2-\|v\|^2|=|\langle u-v,u+v\rangle|\le2B\|u-v\|$.
+Apply this inequality to the two actual gradients bounded in Step 1
+and average the preceding estimate:
+\begin{equation}
+ \left|\mathcal G_t^N-\frac1N\sum_i
+          \|\nabla_WF(\mu_t,Y_t^i)\|^2\right|
+ \le2B\{(\Lambda(D)+\mathrm L_D)r_t+\Gamma_t^N\}.
+ \label{eq:trigger-paired-gradient-comparison}
+\end{equation}
+No bound on a gradient evaluated at an intermediate measure--point pair
+is needed.
+
+\par\noindent\textbf{Step 3: concentration of the reference average.}
+For almost every population realization in $E_{\rm pop}$, the scalars
+$\|\nabla_WF(\mu_t,Y_t^i)\|^2$ are conditionally i.i.d., lie in $[0,B^2]$,
+and have conditional mean
+\[
+ \mathbb E[\|\nabla_WF(\mu_t,Y_t^i)\|^2\mid\mathcal G_{\rm pop}]
+ =\int\|\nabla_WF(\mu_t,x)\|^2\,\mu_t(dx)=\mathcal G_t.
+\]
+For $B>0$, the bounded-differences inequality
+\cref{lemma:mcdiarmid} applied to their average has coordinate
+sensitivities $B^2/N$. Consequently
+\begin{align*}
+ &\mathbb P\!\left(
+ \left|\frac1N\sum_i\|\nabla_WF(\mu_t,Y_t^i)\|^2-\mathcal G_t\right|
+ >B^2\sqrt{\frac{\log(2/\delta)}{2N}}
+ \,\middle|\,\mathcal G_{\rm pop}\right)\\
+ &\quad\le
+ 2\exp\left\{-\frac{2N}{B^4}
+       \left(B^2\sqrt{\frac{\log(2/\delta)}{2N}}\right)^2\right\}
+ =\delta.
+\end{align*}
+For $B=0$, both statistics are zero on $E_{\rm pop}$ and the result
+holds directly. For $B>0$, the triangle inequality and
+\eqref{eq:trigger-paired-gradient-comparison} show that failure of
+\eqref{eq:fixed-time-trigger-squared-gap} inside $E_{\rm pop}\cap E_{T,D}$
+requires failure of the reference-average bound. Thus its probability
+is at most
+\[
+ \mathbb E\!\left[\mathbf1_{E_{\rm pop}}\,
+ \mathbb P\!\left(
+ \left|\frac1N\sum_i\|\nabla_WF(\mu_t,Y_t^i)\|^2-\mathcal G_t\right|
+ >B^2\sqrt{\frac{\log(2/\delta)}{2N}}
+ \,\middle|\,\mathcal G_{\rm pop}\right)\right]
+ \le\delta\,\mathbb P(E_{\rm pop})\le\delta.
+\]
+The conditioning throughout is on the population fields, not on
+$E_{T,D}$.
+\end{proof}
+
+\begin{remark}[A threshold decision at the same fixed time]
+Fix a deterministic threshold $\theta\ge0$. Suppose that
+\eqref{eq:fixed-time-trigger-squared-gap} holds and
+\begin{equation}
+ |\mathcal G_t-\theta|>
+ 2B\{(\Lambda(D)+\mathrm L_D)r_t+\Gamma_t^N\}
+       +B^2\sqrt{\frac{\log(2/\delta)}{2N}}.
+ \label{eq:trigger-margin-agreement}
+\end{equation}
+If $\mathcal G_t>\theta$, then
+$\mathcal G_t^N\ge\mathcal G_t-|\mathcal G_t^N-\mathcal G_t|>\theta$.
+If $\mathcal G_t<\theta$, then
+$\mathcal G_t^N\le\mathcal G_t+|\mathcal G_t^N-\mathcal G_t|<\theta$.
+The decisions agree at this prescribed observation time. This comparison
+does not identify or synchronize adaptive jump times.
+\end{remark}

@@ -1,0 +1,345 @@
+\begin{thebibliography}{37}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abbe et~al.(2023)Abbe, Boix-Adser{\`a}, and Misiakiewicz]{abbe23a}
+Emmanuel Abbe, Enric Boix-Adser{\`a}, and Theodor Misiakiewicz.
+\newblock Sgd learning on neural networks: leap complexity and saddle-to-saddle
+  dynamics.
+\newblock In Gergely Neu and Lorenzo Rosasco, editors, \emph{Proceedings of
+  Thirty Sixth Conference on Learning Theory}, volume 195 of \emph{Proceedings
+  of Machine Learning Research}, pages 2552--2623. PMLR, 12--15 Jul 2023.
+\newblock URL \url{https://proceedings.mlr.press/v195/abbe23a.html}.
+
+\bibitem[Ambrosio et~al.(2005)Ambrosio, Gigli, and
+  Savar{\'e}]{ambrosio2005gradient}
+Luigi Ambrosio, Nicola Gigli, and Giuseppe Savar{\'e}.
+\newblock \emph{Gradient flows: in metric spaces and in the space of
+  probability measures}.
+\newblock Birkh{\"a}user Basel, 2005.
+\newblock URL \url{https://link.springer.com/book/10.1007/b137080}.
+
+\bibitem[Anandkumar et~al.(2014)Anandkumar, Ge, Hsu, Kakade, and
+  Telgarsky]{anandkumar2014tensor}
+Animashree Anandkumar, Rong Ge, Daniel Hsu, Sham~M. Kakade, and Matus
+  Telgarsky.
+\newblock Tensor decompositions for learning latent variable models.
+\newblock \emph{Journal of Machine Learning Research}, 15\penalty0
+  (80):\penalty0 2773--2832, 2014.
+\newblock ISSN 1532-4435.
+\newblock URL \url{https://jmlr.org/papers/v15/anandkumar14b.html}.
+
+\bibitem[Arbel et~al.(2019)Arbel, Korba, SALIM, and Gretton]{arbel2019}
+Michael Arbel, Anna Korba, Adil SALIM, and Arthur Gretton.
+\newblock Maximum mean discrepancy gradient flow.
+\newblock In H.~Wallach, H.~Larochelle, A.~Beygelzimer, F.~d\textquotesingle
+  Alch\'{e}-Buc, E.~Fox, and R.~Garnett, editors, \emph{Advances in Neural
+  Information Processing Systems}, volume~32. Curran Associates, Inc., 2019.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2019/file/944a5ae3483ed5c1e10bbccb7942a279-Paper.pdf}.
+
+\bibitem[{Ben Arous} et~al.(2021){Ben Arous}, Gheissari, and
+  Jagannath]{arous2021online}
+Gerard {Ben Arous}, Reza Gheissari, and Aukosh Jagannath.
+\newblock Online stochastic gradient descent on non-convex losses from
+  high-dimensional inference.
+\newblock \emph{Journal of Machine Learning Research}, 22\penalty0
+  (106):\penalty0 1--51, 2021.
+\newblock URL \url{https://jmlr.org/papers/v22/20-1288.html}.
+
+\bibitem[Bhojanapalli et~al.(2016)Bhojanapalli, Neyshabur, and
+  Srebro]{BhojanapalliNeyshaburSrebro2016}
+Srinadh Bhojanapalli, Behnam Neyshabur, and Nathan Srebro.
+\newblock Global optimality of local search for low rank matrix recovery.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~29, pages 3880--3888, 2016.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper/2016/file/b139e104214a08ae3f2ebcce149cdf6e-Paper.pdf}.
+
+\bibitem[Bietti et~al.(2022)Bietti, Bruna, Sanford, and Song]{bietti2023}
+Alberto Bietti, Joan Bruna, Clayton Sanford, and Min~Jae Song.
+\newblock Learning single-index models with shallow neural networks.
+\newblock In S.~Koyejo, S.~Mohamed, A.~Agarwal, D.~Belgrave, K.~Cho, and A.~Oh,
+  editors, \emph{Advances in Neural Information Processing Systems}, volume~35,
+  pages 9768--9783. Curran Associates, Inc., 2022.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2022/file/3fb6c52aeb11e09053c16eabee74dd7b-Paper-Conference.pdf}.
+
+\bibitem[Boucheron et~al.(2013)Boucheron, Lugosi, and Massart]{BLM2013}
+St{\'e}phane Boucheron, G{\'a}bor Lugosi, and Pascal Massart.
+\newblock \emph{Concentration Inequalities: A Nonasymptotic Theory of
+  Independence}.
+\newblock Oxford University Press, Oxford, 2013.
+\newblock ISBN 978-0-19-953525-5.
+\newblock URL \url{https://academic.oup.com/book/26549}.
+
+\bibitem[Chen et~al.(2025)Chen, Ren, and Wang]{chen2025uniform}
+Fan Chen, Zhenjie Ren, and Songbo Wang.
+\newblock {Uniform-in-time propagation of chaos for mean field Langevin
+  dynamics}.
+\newblock \emph{{Annales de l'Institut Henri Poincar{\'e} (B) Probabilit{\'e}s
+  et Statistiques}}, 61\penalty0 (4):\penalty0 2357--2404, November 2025.
+\newblock \doi{10.1214/24-AIHP1499}.
+\newblock URL \url{https://hal.science/hal-05349896}.
+
+\bibitem[Chen et~al.(2016)Chen, Georgiou, and
+  Pavon]{chen2016wassersteinProduct}
+Yongxin Chen, Tryphon Georgiou, and Michele Pavon.
+\newblock Stochastic control, entropic interpolation and gradient flows on
+  wasserstein product spaces, 2016.
+\newblock URL \url{https://arxiv.org/abs/1601.04891}.
+
+\bibitem[Chizat and Bach(2018)]{chizat2018}
+L\'{e}na\"{\i}c Chizat and Francis Bach.
+\newblock On the global convergence of gradient descent for over-parameterized
+  models using optimal transport.
+\newblock In S.~Bengio, H.~Wallach, H.~Larochelle, K.~Grauman, N.~Cesa-Bianchi,
+  and R.~Garnett, editors, \emph{Advances in Neural Information Processing
+  Systems}, volume~31. Curran Associates, Inc., 2018.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2018/file/a1afc58c6ca9540d057299ec3016d726-Paper.pdf}.
+
+\bibitem[Chu et~al.(2019)Chu, Blanchet, and Glynn]{chu2019pfd}
+Casey Chu, Jose Blanchet, and Peter Glynn.
+\newblock Probability functional descent: A unifying perspective on {GAN}s,
+  variational inference, and reinforcement learning.
+\newblock In Kamalika Chaudhuri and Ruslan Salakhutdinov, editors,
+  \emph{Proceedings of the 36th International Conference on Machine Learning},
+  volume~97 of \emph{Proceedings of Machine Learning Research}, pages
+  1213--1222. PMLR, 09--15 Jun 2019.
+\newblock URL \url{https://proceedings.mlr.press/v97/chu19a.html}.
+
+\bibitem[Conger et~al.(2025)Conger, Hoffmann, Mazumdar, and
+  Ratliff]{conger2025coupled}
+Lauren Conger, Franca Hoffmann, Eric Mazumdar, and Lillian~J. Ratliff.
+\newblock Coupled wasserstein gradient flows for min-max and cooperative games,
+  2025.
+\newblock URL \url{https://arxiv.org/abs/2411.07403}.
+
+\bibitem[Daniely et~al.(2016)Daniely, Frostig, and Singer]{daniely2016toward}
+Amit Daniely, Roy Frostig, and Yoram Singer.
+\newblock Toward deeper understanding of neural networks: The power of
+  initialization and a dual view on expressivity.
+\newblock In D.~Lee, M.~Sugiyama, U.~Luxburg, I.~Guyon, and R.~Garnett,
+  editors, \emph{Advances in Neural Information Processing Systems}, volume~29.
+  Curran Associates, Inc., 2016.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2016/file/abea47ba24142ed16b7d8fbf2c740e0d-Paper.pdf}.
+
+\bibitem[Fournier and Guillin(2015)]{fournier2015rate}
+Nicolas Fournier and Arnaud Guillin.
+\newblock On the rate of convergence in wasserstein distance of the empirical
+  measure.
+\newblock \emph{Probability theory and related fields}, 162\penalty0
+  (3--4):\penalty0 707--738, 2015.
+\newblock URL
+  \url{https://link.springer.com/article/10.1007/s00440-014-0583-7}.
+
+\bibitem[Ge et~al.(2015)Ge, Huang, Jin, and Yuan]{GeHuangJinYuan2015}
+Rong Ge, Furong Huang, Chi Jin, and Yang Yuan.
+\newblock Escaping from saddle points---online stochastic gradient for tensor
+  decomposition.
+\newblock In \emph{Proceedings of the Conference on Learning Theory}, volume~40
+  of \emph{Proceedings of Machine Learning Research}, pages 797--842, 2015.
+\newblock URL \url{https://proceedings.mlr.press/v40/Ge15.html}.
+
+\bibitem[Ge et~al.(2017)Ge, Jin, and Zheng]{GeJinZheng2017}
+Rong Ge, Chi Jin, and Yi~Zheng.
+\newblock No spurious local minima in nonconvex low rank problems: A unified
+  geometric analysis.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning}, volume~70 of \emph{Proceedings of Machine Learning Research},
+  pages 1233--1242, 2017.
+\newblock URL \url{https://proceedings.mlr.press/v70/ge17a.html}.
+
+\bibitem[Giunta et~al.(2024)Giunta, Hillen, Lewis, and
+  Potts]{giunta2024weaklynonlinear}
+Valeria Giunta, Thomas Hillen, Mark~A. Lewis, and Jonathan~R. Potts.
+\newblock Weakly nonlinear analysis of a two-species non-local
+  advection–diffusion system.
+\newblock \emph{Nonlinear Analysis: Real World Applications}, 78:\penalty0
+  104086, 2024.
+\newblock ISSN 1468-1218.
+\newblock \doi{10.1016/j.nonrwa.2024.104086}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S1468121824000269}.
+
+\bibitem[Glasgow et~al.(2025)Glasgow, Wu, and Bruna]{glasgow2025meanfield}
+Margalit Glasgow, Denny Wu, and Joan Bruna.
+\newblock Mean-field analysis of polynomial-width two-layer neural network
+  beyond finite time horizon.
+\newblock In \emph{Proceedings of Thirty Eighth Conference on Learning Theory},
+  volume 291 of \emph{Proceedings of Machine Learning Research}, pages
+  2461--2539. PMLR, 2025.
+\newblock URL \url{https://proceedings.mlr.press/v291/glasgow25a.html}.
+
+\bibitem[Hackbusch(2012)]{Hackbusch2012}
+Wolfgang Hackbusch.
+\newblock \emph{Tensor Spaces and Numerical Tensor Calculus}.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2012.
+\newblock \doi{10.1007/978-3-642-28027-6}.
+\newblock URL \url{https://link.springer.com/book/10.1007/978-3-642-28027-6}.
+
+\bibitem[Jin et~al.(2018)Jin, Netrapalli, and Jordan]{pmlr-v75-jin18a}
+Chi Jin, Praneeth Netrapalli, and Michael~I. Jordan.
+\newblock Accelerated gradient descent escapes saddle points faster than
+  gradient descent.
+\newblock In Sébastien Bubeck, Vianney Perchet, and Philippe Rigollet,
+  editors, \emph{Proceedings of the 31st Conference On Learning Theory},
+  volume~75 of \emph{Proceedings of Machine Learning Research}, pages
+  1042--1085. PMLR, 06--09 Jul 2018.
+\newblock URL \url{https://proceedings.mlr.press/v75/jin18a.html}.
+
+\bibitem[Jordan et~al.(1998)Jordan, Kinderlehrer, and Otto]{jordan1998}
+Richard Jordan, David Kinderlehrer, and Felix Otto.
+\newblock The variational formulation of the fokker--planck equation.
+\newblock \emph{SIAM Journal on Mathematical Analysis}, 29\penalty0
+  (1):\penalty0 1--17, 1998.
+\newblock \doi{10.1137/S0036141096303359}.
+\newblock URL \url{https://doi.org/10.1137/S0036141096303359}.
+
+\bibitem[Kim and Suzuki(2024)]{kim2024nonlinear}
+Juno Kim and Taiji Suzuki.
+\newblock Transformers learn nonlinear features in context: Nonconvex
+  mean-field dynamics on the attention landscape.
+\newblock In Ruslan Salakhutdinov, Zico Kolter, Katherine Heller, Adrian
+  Weller, Nuria Oliver, Jonathan Scarlett, and Felix Berkenkamp, editors,
+  \emph{Proceedings of the 41st International Conference on Machine Learning},
+  volume 235 of \emph{Proceedings of Machine Learning Research}, pages
+  24527--24561. PMLR, 21--27 Jul 2024.
+\newblock URL \url{https://proceedings.mlr.press/v235/kim24af.html}.
+
+\bibitem[Kolda and Bader(2009)]{kolda2009tensor}
+Tamara~G. Kolda and Brett~W. Bader.
+\newblock Tensor decompositions and applications.
+\newblock \emph{SIAM Review}, 51\penalty0 (3):\penalty0 455--500, 2009.
+\newblock \doi{10.1137/07070111X}.
+\newblock URL \url{https://doi.org/10.1137/07070111X}.
+
+\bibitem[Liu and Wang(2016)]{liu2016}
+Qiang Liu and Dilin Wang.
+\newblock Stein variational gradient descent: A general purpose bayesian
+  inference algorithm.
+\newblock In D.~Lee, M.~Sugiyama, U.~Luxburg, I.~Guyon, and R.~Garnett,
+  editors, \emph{Advances in Neural Information Processing Systems}, volume~29.
+  Curran Associates, Inc., 2016.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2016/file/b3ba8f1bee1238a2f37603d90b58898d-Paper.pdf}.
+
+\bibitem[Masarotto et~al.(2019)Masarotto, Panaretos, and
+  Zemel]{masarotto2019procrustes}
+Valentina Masarotto, Victor~M. Panaretos, and Yoav Zemel.
+\newblock Procrustes metrics on covariance operators and optimal transportation
+  of {Gaussian} processes.
+\newblock \emph{Sankhya A}, 81\penalty0 (1):\penalty0 172--213, 2019.
+\newblock \doi{10.1007/s13171-018-0130-1}.
+\newblock URL \url{https://doi.org/10.1007/s13171-018-0130-1}.
+
+\bibitem[Mei et~al.(2018)Mei, Montanari, and Nguyen]{songmei2018}
+Song Mei, Andrea Montanari, and Phan-Minh Nguyen.
+\newblock A mean field view of the landscape of two-layer neural networks.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 115\penalty0
+  (33):\penalty0 E7665--E7671, 2018.
+\newblock \doi{10.1073/pnas.1806579115}.
+\newblock URL \url{https://www.pnas.org/doi/abs/10.1073/pnas.1806579115}.
+
+\bibitem[Murray et~al.(2023)Murray, Jin, Bowman, and
+  Montufar]{murray2023characterizing}
+Michael Murray, Hui Jin, Benjamin Bowman, and Guido Montufar.
+\newblock Characterizing the spectrum of the {NTK} via a power series
+  expansion.
+\newblock In \emph{The Eleventh International Conference on Learning
+  Representations}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2211.07844}.
+
+\bibitem[Nitanda et~al.(2022{\natexlab{a}})Nitanda, Wu, and
+  Suzuki]{nitanda2022convex}
+Atsushi Nitanda, Denny Wu, and Taiji Suzuki.
+\newblock Convex analysis of the mean field langevin dynamics.
+\newblock In Gustau Camps-Valls, Francisco J.~R. Ruiz, and Isabel Valera,
+  editors, \emph{Proceedings of The 25th International Conference on Artificial
+  Intelligence and Statistics}, volume 151 of \emph{Proceedings of Machine
+  Learning Research}, pages 9741--9757. PMLR, 28--30 Mar 2022{\natexlab{a}}.
+\newblock URL \url{https://proceedings.mlr.press/v151/nitanda22a.html}.
+
+\bibitem[Nitanda et~al.(2022{\natexlab{b}})Nitanda, Wu, and
+  Suzuki]{nitanda2022pda}
+Atsushi Nitanda, Denny Wu, and Taiji Suzuki.
+\newblock Particle dual averaging: optimization of mean field neural network
+  with global convergence rate analysis.
+\newblock \emph{Journal of Statistical Mechanics: Theory and Experiment},
+  2022\penalty0 (11):\penalty0 114010, nov 2022{\natexlab{b}}.
+\newblock \doi{10.1088/1742-5468/ac98a8}.
+\newblock URL \url{https://doi.org/10.1088/1742-5468/ac98a8}.
+
+\bibitem[Nitanda et~al.(2025)Nitanda, Lee, Kai, Sakaguchi, and
+  Suzuki]{nitanda2025propagationensemble}
+Atsushi Nitanda, Anzelle Lee, Damian Tan~Xing Kai, Mizuki Sakaguchi, and Taiji
+  Suzuki.
+\newblock Propagation of chaos for mean-field {L}angevin dynamics and its
+  application to model ensemble.
+\newblock In Aarti Singh, Maryam Fazel, Daniel Hsu, Simon Lacoste-Julien, Felix
+  Berkenkamp, Tegan Maharaj, Kiri Wagstaff, and Jerry Zhu, editors,
+  \emph{Proceedings of the 42nd International Conference on Machine Learning},
+  volume 267 of \emph{Proceedings of Machine Learning Research}, pages
+  46586--46610. PMLR, 13--19 Jul 2025.
+\newblock URL \url{https://proceedings.mlr.press/v267/nitanda25a.html}.
+
+\bibitem[Peccati and Taqqu(2011)]{peccati2011wiener}
+Giovanni Peccati and Murad~S Taqqu.
+\newblock \emph{Wiener Chaos: Moments, Cumulants and Diagrams: A survey with
+  computer implementation}, volume~1.
+\newblock Springer Science \& Business Media, 2011.
+\newblock URL \url{https://link.springer.com/book/10.1007/978-88-470-1679-8}.
+
+\bibitem[Powers and St{\o}rmer(1970)]{powers1970free}
+Robert~T. Powers and Erling St{\o}rmer.
+\newblock Free states of the canonical anticommutation relations.
+\newblock \emph{Communications in Mathematical Physics}, 16\penalty0
+  (1):\penalty0 1--33, 1970.
+\newblock \doi{10.1007/BF01645492}.
+\newblock URL \url{https://doi.org/10.1007/BF01645492}.
+
+\bibitem[Sidiropoulos et~al.(2017)Sidiropoulos, De~Lathauwer, Fu, Huang,
+  Papalexakis, and Faloutsos]{sidiropoulos2017tensor}
+Nicholas~D. Sidiropoulos, Lieven De~Lathauwer, Xiao Fu, Kejun Huang,
+  Evangelos~E. Papalexakis, and Christos Faloutsos.
+\newblock Tensor decomposition for signal processing and machine learning.
+\newblock \emph{IEEE Transactions on Signal Processing}, 65\penalty0
+  (13):\penalty0 3551–3582, July 2017.
+\newblock ISSN 1053-587X.
+\newblock \doi{10.1109/TSP.2017.2690524}.
+\newblock URL \url{https://doi.org/10.1109/TSP.2017.2690524}.
+
+\bibitem[Suzuki et~al.(2023)Suzuki, Nitanda, and Wu]{suzuki2023uniformintime}
+Taiji Suzuki, Atsushi Nitanda, and Denny Wu.
+\newblock Uniform-in-time propagation of chaos for the mean-field gradient
+  langevin dynamics.
+\newblock In \emph{The Eleventh International Conference on Learning
+  Representations}, 2023.
+\newblock URL \url{https://openreview.net/forum?id=_JScUk9TBUn}.
+
+\bibitem[Sznitman(1991)]{sznitman1991}
+Alain-Sol Sznitman.
+\newblock Topics in propagation of chaos.
+\newblock In Paul-Louis Hennequin, editor, \emph{Ecole d'Et{\'e} de
+  Probabilit{\'e}s de Saint-Flour XIX --- 1989}, pages 165--251, Berlin,
+  Heidelberg, 1991. Springer Berlin Heidelberg.
+\newblock ISBN 978-3-540-46319-1.
+\newblock URL \url{https://link.springer.com/chapter/10.1007/BFb0085169}.
+
+\bibitem[Yamamoto et~al.(2025)Yamamoto, Kim, and
+  Suzuki]{yamamoto2025hessianguided}
+Naoya Yamamoto, Juno Kim, and Taiji Suzuki.
+\newblock Hessian-guided perturbed wasserstein gradient flows for escaping
+  saddle points.
+\newblock In \emph{Advances in Neural Information Processing Systems}, volume
+  38, Main Conference, pages 43347--43398. Curran Associates, Inc., 2025.
+\newblock \doi{10.52202/085713-1442}.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2025/hash/3dca8a6a5422c2d5d22c6e9a26469d7e-Abstract-Conference.html}.
+
+\end{thebibliography}

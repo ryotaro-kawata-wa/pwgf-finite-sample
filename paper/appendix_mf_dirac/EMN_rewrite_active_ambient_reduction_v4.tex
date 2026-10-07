@@ -1,0 +1,264 @@
+
+\subsection{Symmetric and Antisymmetric Sub-Manifolds}
+\label{subsec:introduce-symmetric-antisymmetric-branches-and-saddle-point}
+This subsection introduces the symmetric and antisymmetric coordinates that separate the teacher branch from the antipodal saddle branch.
+
+We first collect the active odd moments into a single finite-dimensional tensor space.
+
+Define the active odd raw-moment space
+\begin{equation}
+    \mathcal H_{\mathcal O}
+    \coloneq
+    \mathcal H_{\mathcal O}^{\mathrm{raw}}
+    =
+    \bigoplus_{n\in\mathcal O}\Sym^n(\R^{d_w}),
+    \qquad
+    \|\mathbf X\|_{\mathcal H_{\mathcal O}}^2
+    \coloneq
+    \|\mathbf X\|_{\mathrm{raw}}^2
+    =
+    \sum_{n\in\mathcal O}\|X_n\|_{\HS}^2.
+\end{equation}
+
+The weighted norm records the size of active moments as seen through the
+activation coefficients:
+\begin{equation}
+\label{eq:def-weighted-active-norm}
+    \|\mathbf X\|_{a}^2
+    \coloneq
+    \sum_{n\in\mathcal O}\|a_n\|_2^2\|X_n\|_{\HS}^2.
+\end{equation}
+
+We now pass from the two raw moment sequences to symmetric and antisymmetric coordinates.
+
+\begin{definition}
+Introduce the two active student blocks and the teacher block
+\begin{equation}
+    \mathbf T_i
+    \coloneq
+    (T_{i,n})_{n\in \mathcal O}
+    \in \mathcal H_{\mathcal O},\quad i=1,2,
+    \quad 
+    \mathbf T^o
+    \coloneq
+    (T_n^o)_{n\in \mathcal O}
+    \in \mathcal H_{\mathcal O},
+\end{equation}
+where $T_{i,n}=\int w^{\otimes n}\,d\mu_i(w)$ and
+$T_n^o=\int w^{\otimes n}\,d\nu^o(w)$ as in
+\cref{assumption:odd-symmetric-teacher}. Recall the symmetric and
+antisymmetric blocks
+\begin{equation}
+\label{eq:mf-symmetric-antisymmetric-active-blocks}
+    \mathbf S
+    \coloneq
+    (S_n)_{n\in \mathcal O},
+    \qquad
+    \mathbf A
+    \coloneq
+    (A_n)_{n\in \mathcal O}.
+\end{equation}
+with $S_n=(T_{1,n}+T_{2,n})/2$ and
+$A_n=(T_{1,n}-T_{2,n})/2$. Thus
+\begin{equation}
+    T_{1,n}=S_n+A_n,
+    \qquad
+    T_{2,n}=S_n-A_n,
+    \qquad
+    n\in \mathcal O.
+\end{equation}
+
+The finite active moment map used in the branch geometry is
+\begin{equation}
+\label{eq:mf-finite-active-moment-map}
+    \Theta(\mu_1,\mu_2)
+    \coloneq
+    \bigl(\mathbf S(\mu_1,\mu_2),\mathbf A(\mu_1,\mu_2)\bigr).
+\end{equation}
+Only the moments with $n\in\mathcal O$ enter $\Theta$; it is not asserted
+to be an injective coordinate chart of probability measures.
+
+For each $p\ge 0$, we define the active ambient moment polynomial. In these coordinates, the active fitting residual becomes an ambient polynomial
+in \((\mathbf S,\mathbf A)\).
+\begin{equation}
+\label{eq:ambient-active-reduced-M}
+    \widetilde{\mathcal M}_p(\mathbf S,\mathbf A)
+    \coloneq
+    \sum_{\substack{n,m\in \mathcal O\\ 0\le r\le \min(n,m)\\ p=n+m-2r}}
+    c_{n,m,r}(a_n a_m^\top)\otimes
+    \sym{(S_n+A_n)\contr{r}(S_m-A_m)}.
+\end{equation}
+The corresponding ambient active fitting functional is
+\begin{equation}
+\label{eq:ambient-active-fit-functional}
+    \widetilde{\mathcal J}_{\mathrm{fit}}(\mathbf S,\mathbf A)
+    \coloneq
+    \frac12\sum_{p\ge 0}
+    \big\|
+        \widetilde{\mathcal M}_p(\mathbf S,\mathbf A)-\mathcal M_p^o
+    \big\|_{\HS}^2.
+\end{equation}
+\end{definition}
+
+Membership in either branch implies that its finite active moments lie
+on the corresponding coordinate axis.
+\begin{definition}
+For any measurable set $A$, let $-A \coloneq \{-w \mid w\in A\}$.
+Consider the following two branches:
+\begin{enumerate}
+\item \textbf{Antisymmetric branch}: The antisymmetric branch is the candidate path toward the antipodal saddle.
+\begin{equation}
+    \submanifoldforsaddlepoint
+    \coloneq
+    \left\{
+        \mu_1\otimes \mu_2
+        \mid
+        \mu_1(-A)=\mu_2(A)
+        \text{ for every measurable }A
+    \right\},
+\end{equation}
+which is equivalent to
+\begin{equation}
+    T_{1,n}=(-1)^nT_{2,n}
+    \qquad
+    (n\ge 0)
+\end{equation}
+and this implies $\mathbf S=0$.
+\item \textbf{Symmetric branch}: The symmetric branch contains the same-density teacher configuration.
+\begin{equation}
+    \mathcal M_+
+    \coloneq
+    \left\{
+        \mu_1\otimes \mu_2
+        \mid
+        \mu_1=\mu_2
+    \right\},
+\end{equation}
+which is equivalent to
+\begin{equation}
+    T_{1,n}=T_{2,n}
+    \qquad
+    (n\ge 0)
+\end{equation}
+and this implies $\mathbf A=0$.
+\end{enumerate}
+
+We write the fitting loss restricted to each branch as a one-coordinate functional.
+\begin{equation}
+\label{eq:branch-reduced-functional-Mplus-block-v3}
+    \mathcal J_+(\mathbf S)
+    \coloneq
+    \widetilde{\mathcal J}_{\mathrm{fit}}(\mathbf S,0),
+    \quad 
+    \mathcal J_-(\mathbf A)
+    \coloneq
+    \widetilde{\mathcal J}_{\mathrm{fit}}(0,\mathbf A).
+\end{equation}
+\end{definition}
+
+The equivalences above use all raw orders $n\ge0$, not only
+$n\in\mathcal O$. Here is the justification on the compact sphere.
+Equality of all tensor moments gives equality of every monomial integral
+and hence every polynomial integral. Restricted polynomials form an
+algebra containing constants and separating points of the sphere.
+By Stone--Weierstrass, for each continuous $f$ and $\epsilon>0$
+there is a polynomial $P$ with $\sup_\Sphere|f-P|<\epsilon$. Thus,
+for two measures with the same raw moments,
+\[
+ \left|\int f\,d\mu_1-\int f\,d\mu_2\right|
+ \le\int|f-P|\,d\mu_1+\int|f-P|\,d\mu_2<2\epsilon.
+\]
+Letting $\epsilon\downarrow0$ gives equality of the measures.
+For reflection $\mathsf R(w)=-w$, the identity
+\[
+ T_n(\mathsf R_\#\mu_1)
+ =\int(-w)^{\otimes n}\,d\mu_1(w)=(-1)^nT_n(\mu_1)
+\]
+gives the antisymmetric equivalence by the same argument.
+Consequently $\mu\in\mathcal M_-$ implies $\mathbf S=0$ and
+$\mu\in\mathcal M_+$ implies $\mathbf A=0$, but neither converse is
+inferred from the finite active blocks.
+
+The first proposition identifies the distinguished active-origin point where the two branches meet.
+\begin{proposition}[Active origin fiber and the distinguished Dirac saddle]
+\label{prop:intersection-zero-output-fiber}
+\textbf{Assumptions used.} \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}.
+
+Define the active-coordinate zero fiber
+\begin{equation}
+    \mathcal C_0
+    \coloneq
+    \left\{
+        \mu_1\otimes \mu_2
+        \mid
+        \Theta(\mu_1,\mu_2)=(0,0)
+    \right\}.
+\end{equation}
+Then
+\begin{equation}
+    \mu_{\dag}
+    \coloneq
+    \nu_\star^\pm \otimes \nu_\star^\pm
+    \in
+    \mathcal M_+\cap\submanifoldforsaddlepoint\cap\mathcal C_0.
+\end{equation}
+In addition, if
+\begin{equation}
+    \mu_1=\mu_2=\nu_\star^\pm,
+\end{equation}
+then the Wasserstein gradients vanish. In other words,
+$\mu_{\dag}=\nu_\star^\pm\otimes\nu_\star^\pm$ is a first-order stationary point.
+\end{proposition}
+
+\begin{proof}
+The proof only uses antipodal symmetry, oddness of the active moments, and the flatness of the metric regularizer at the antipodal target.
+
+$\mu_\dag$ is antipodally symmetric, equal in both factors, and has zero odd moments; hence it belongs to the displayed intersection.
+
+If $\mu\in\mathcal C_0$, then $T_{1,n}=T_{2,n}=0$ for all $n\in\mathcal O$. Therefore, on $\mathcal C_0$, the fitting first variation vanishes because of the definition of $G_{i,n}^{\mathrm{fit}}$.
+
+The full spherical gradient is only the regularization contribution
+\begin{equation}
+    \nabla_{\Sphere}\fv{F}{\mu_i}
+    =
+    \lambdaReg Z_{\pm}^{p_W/2-1} \nabla_{\Sphere} c_\star (w),
+    \qquad i=1,2.
+\end{equation}
+If $\mu_1$ and $\mu_2$ are $\nu_\star^{\pm}$, then $Z_{\pm}=0$ and the spherical gradient vanishes.
+\end{proof}
+
+The next proposition fixes the opposite endpoint of the cartoon: the exact-fit teacher lies on the same-density branch.
+\begin{proposition}[The reference exact-fit point lies on the same-density branch]
+\label{prop:reference-fit-minimum-on-Mplus}
+\textbf{Assumptions used.} \cref{assumption:on-sphere,assumption:odd-symmetric-teacher}.
+
+The fitting part satisfies
+\begin{equation}
+    \widetilde{\mathcal J}_{\mathrm{fit}}(\mathbf T^o,0)=0
+    =
+    \inf_{(\mathbf S,\mathbf A)\in \mathcal H_{\mathcal O}\times \mathcal H_{\mathcal O}}
+    \widetilde{\mathcal J}_{\mathrm{fit}}(\mathbf S,\mathbf A).
+\end{equation}
+Moreover, by the symmetric-teacher assumption, the reference teacher
+product measure belongs to the same-density branch:
+\begin{equation}
+    \mu^o=\mu_1^o\otimes\mu_2^o\in \mathcal M_+,
+    \qquad
+    \mathbf S(\mu^o)=\mathbf T^o,
+    \qquad
+    \mathbf A(\mu^o)=0.
+\end{equation}
+In particular, the distinguished zero-fit global minimum of the data term lies on $\mathcal M_+$.
+\end{proposition}
+
+\begin{proof}
+By \cref{assumption:odd-symmetric-teacher}, the teacher is symmetric across the two factors, so $\mu_1^o=\mu_2^o$ and therefore $\mu^o\in \mathcal M_+$. In the active coordinates this is exactly the identity $\mathbf S(\mu^o)=\mathbf T^o$ and $\mathbf A(\mu^o)=0$.
+
+Next, by the definition of $\mathcal M_p^o$ and of the ambient moment map,
+\begin{equation}
+    \widetilde{\mathcal M}_p(\mathbf T^o,0)=\mathcal M_p^o
+    \qquad
+    \forall p\ge 0.
+\end{equation}
+Hence $\widetilde{\mathcal J}_{\mathrm{fit}}(\mathbf T^o,0)=0$. Since $\widetilde{\mathcal J}_{\mathrm{fit}}$ is a sum of squared Hilbert norms, it is nonnegative everywhere.
+\end{proof}

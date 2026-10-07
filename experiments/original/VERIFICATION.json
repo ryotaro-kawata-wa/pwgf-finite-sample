@@ -1,0 +1,253 @@
+{
+  "checked_at": "2026-09-25T16:08:04.970903+00:00",
+  "scope": "Historical appendix and artifact checks plus the current anonymous code-package revision below; not a new production simulation or a mathematical proof certification.",
+  "original_local_input_hashes_checked": 59,
+  "original_figures_hashes_and_filenames_checked": 10,
+  "original_remote_state_files_rehashed": 9,
+  "original_remote_state_bytes": 2547767593,
+  "all_nine_saved_state_audits_rerun": true,
+  "audit_results": {
+    "main/trial_000": {
+      "controller_checks": 10,
+      "coupling_max_relative_error": 1.3372526467351685e-14,
+      "polar_max_relative_error": 3.657569105231315e-15,
+      "unmatched_attempts": 0,
+      "unique_initial_atoms_at_max_n": 20786,
+      "passed": true
+    },
+    "main/trial_001": {
+      "controller_checks": 10,
+      "coupling_max_relative_error": 1.4351971286640734e-14,
+      "polar_max_relative_error": 3.7676114425149495e-15,
+      "unmatched_attempts": 0,
+      "unique_initial_atoms_at_max_n": 20695,
+      "passed": true
+    },
+    "main/trial_002": {
+      "controller_checks": 11,
+      "coupling_max_relative_error": 1.448194594674215e-14,
+      "polar_max_relative_error": 3.3871290846855475e-15,
+      "unmatched_attempts": 1,
+      "unique_initial_atoms_at_max_n": 20776,
+      "passed": true
+    },
+    "integration_half/trial_000": {
+      "controller_checks": 10,
+      "coupling_max_relative_error": 1.3734489278449465e-14,
+      "polar_max_relative_error": 3.704527513612838e-15,
+      "unmatched_attempts": 0,
+      "unique_initial_atoms_at_max_n": 20786,
+      "passed": true
+    },
+    "integration_half/trial_001": {
+      "controller_checks": 10,
+      "coupling_max_relative_error": 1.381083045421724e-14,
+      "polar_max_relative_error": 3.5411733131946663e-15,
+      "unmatched_attempts": 0,
+      "unique_initial_atoms_at_max_n": 20695,
+      "passed": true
+    },
+    "integration_half/trial_002": {
+      "controller_checks": 11,
+      "coupling_max_relative_error": 1.499361841781639e-14,
+      "polar_max_relative_error": 3.3878460066236776e-15,
+      "unmatched_attempts": 1,
+      "unique_initial_atoms_at_max_n": 20776,
+      "passed": true
+    },
+    "trigger_half/trial_000": {
+      "controller_checks": 10,
+      "coupling_max_relative_error": 1.3745532729085198e-14,
+      "polar_max_relative_error": 3.5064939251838357e-15,
+      "unmatched_attempts": 0,
+      "unique_initial_atoms_at_max_n": 20786,
+      "passed": true
+    },
+    "trigger_half/trial_001": {
+      "controller_checks": 10,
+      "coupling_max_relative_error": 1.3751297464509062e-14,
+      "polar_max_relative_error": 3.5411733131946663e-15,
+      "unmatched_attempts": 0,
+      "unique_initial_atoms_at_max_n": 20695,
+      "passed": true
+    },
+    "trigger_half/trial_002": {
+      "controller_checks": 11,
+      "coupling_max_relative_error": 1.3963233157542315e-14,
+      "polar_max_relative_error": 3.3878460066236776e-15,
+      "unmatched_attempts": 1,
+      "unique_initial_atoms_at_max_n": 20776,
+      "passed": true
+    }
+  },
+  "original_integration_refinement_pass": true,
+  "original_and_anonymous_unit_tests_passed": 14,
+  "anonymous_CLI_smoke_test_passed": true,
+  "full_production_simulations_rerun_for_this_delivery": false,
+  "scalar_diagnostics_checked_against_raw_CSV": true,
+  "all_15_markdown_table_rows_checked": true,
+  "local_package_QA_environment": {
+    "python": "3.12.14",
+    "numpy": "1.26.4",
+    "matplotlib": "3.8.4",
+    "platform": "Darwin",
+    "architecture": "arm64"
+  },
+  "unpacked_package_redraw": [
+    {
+      "kind": "adaptive_K32768_time_tracking",
+      "format": "pdf",
+      "pages": 1,
+      "text_identical": true
+    },
+    {
+      "kind": "adaptive_K32768_time_tracking",
+      "format": "png",
+      "size": [
+        2399,
+        1719
+      ],
+      "identical_pixels": false,
+      "original_bytes_match": false
+    },
+    {
+      "kind": "adaptive_K32768_instantaneous_spikiness",
+      "format": "pdf",
+      "pages": 1,
+      "text_identical": true
+    },
+    {
+      "kind": "adaptive_K32768_instantaneous_spikiness",
+      "format": "png",
+      "size": [
+        2399,
+        665
+      ],
+      "identical_pixels": false,
+      "original_bytes_match": false
+    },
+    {
+      "kind": "adaptive_K32768_schedules",
+      "format": "pdf",
+      "pages": 1,
+      "text_identical": true
+    },
+    {
+      "kind": "adaptive_K32768_schedules",
+      "format": "png",
+      "size": [
+        2059,
+        1549
+      ],
+      "identical_pixels": false,
+      "original_bytes_match": false
+    },
+    {
+      "kind": "adaptive_K32768_objectives",
+      "format": "pdf",
+      "pages": 1,
+      "text_identical": true
+    },
+    {
+      "kind": "adaptive_K32768_objectives",
+      "format": "png",
+      "size": [
+        2399,
+        699
+      ],
+      "identical_pixels": false,
+      "original_bytes_match": false
+    },
+    {
+      "kind": "adaptive_K32768_returned_outputs",
+      "format": "pdf",
+      "pages": 1,
+      "text_identical": true
+    },
+    {
+      "kind": "adaptive_K32768_returned_outputs",
+      "format": "png",
+      "size": [
+        2229,
+        665
+      ],
+      "identical_pixels": false,
+      "original_bytes_match": false
+    }
+  ],
+  "visual_check": [
+    "redrawn time_tracking PNG",
+    "redrawn returned_outputs PNG"
+  ],
+  "redraw_note": "All ten files regenerated successfully from the unpacked lightweight package. PDF page text and PNG dimensions agree with originals. PNG pixels are not identical across these environments. A local font-cache warning did not prevent figure generation.",
+  "negative_packaging_checks": {
+    "parent_traversal": "rejected",
+    "absolute_path": "rejected",
+    "symlink": "rejected",
+    "changed_data": "rejected",
+    "unlisted_files": "excluded",
+    "missing_full_states": "rejected"
+  },
+  "anonymity_checks": [
+    "Known private user/host strings absent from distributed file bytes",
+    "No home-directory paths, email addresses, or nonempty hostname metadata in text files",
+    "Original PDF metadata has no Author entry; regenerated PDF text/metadata and PNG metadata checked",
+    "ZIP contains only manifest-listed files, normalized timestamps, and no Git directory"
+  ],
+  "limits": [
+    "Optional full-state ZIP mode was checked for missing-input rejection, but a 2.55 GB full ZIP was not built.",
+    "A clean reconstruction of the original Linux/MKL environment was not tested.",
+    "Pattern-based anonymity checks do not guarantee anonymity under every inference."
+  ],
+  "simulation_code_AST_difference": "Compared with the original execution snapshot: deletion of the hostname metadata entry and exclusion of protocol notes from source_hashes(); remaining AST is identical.",
+  "English_only_revision": {
+    "checked_at": "2026-09-25T16:24:25.934967+00:00",
+    "guard_checks": {
+      "private_tokens_case_and_width_variants": "rejected",
+      "CJK_text": "rejected",
+      "JSON_escaped_CJK": "rejected",
+      "JSON_escaped_private_token": "rejected",
+      "private_filename": "rejected",
+      "chunk_boundary_private_token": "rejected"
+    },
+    "private_tokens_configured": 2,
+    "original_figures_checked": 10,
+    "decompressed_PDF_text_and_metadata_checked": 5,
+    "PNG_metadata_checked": 5,
+    "numerical_and_plotting_AST_identical": true,
+    "English_report_outputs_checked": [
+      "REPORT.md",
+      "adaptive_report.html"
+    ],
+    "HTML_figures": 5,
+    "HTML_data_rows": 15,
+    "private_list_git_ignored": true
+  },
+  "code_submission_revision": {
+    "checked_at": "2026-09-26T10:04:10.469868+00:00",
+    "excluded_local_documents": [
+      "APPENDIX.md",
+      "source/ADAPTIVE.md"
+    ],
+    "local_documents_preserved": true,
+    "renderer_change": "Removed one HTML paper-citation sentence; numerical analysis, audits, and figure generation are unchanged.",
+    "checks": {
+      "archive_excludes_both_documents": true,
+      "unit_tests_passed": 14,
+      "scalar_conditions_checked": 15,
+      "CLI_without_protocol_notes_passed": true,
+      "figures_regenerated": 10,
+      "metadata_PDF_files_checked": 10,
+      "metadata_PNG_files_checked": 10,
+      "English_report_figures": 5,
+      "English_report_data_rows": 15,
+      "readable_text_has_no_detected_author_names_or_paper_references": true,
+      "excluded_document_reintroduction_rejected": true,
+      "original_simulation_AST_unchanged_except_metadata_and_hash_list": true,
+      "original_analysis_and_plotting_AST_unchanged": true,
+      "original_figures_unchanged": 10
+    },
+    "scope": "Checks ran against a freshly exported and extracted lightweight ZIP. All existing numerical records and original figures remain unchanged. No full production simulation or state audit was repeated in this revision.",
+    "privacy_scope": "Configured private strings, readable author names and paper-reference patterns, decoded JSON strings, PDF text/metadata, and PNG metadata checked. Short names were checked as whole words in readable text to avoid accidental matches in compressed image bytes."
+  }
+}

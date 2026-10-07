@@ -1,0 +1,109 @@
+\section{Introduction}
+\label{sec:introduction}
+
+We study finite-particle approximation for nonconvex optimization over probability measures,
+\begin{equation}
+    \min_{\mu\in\operatorname{dom}F\subseteq\Ptwo(\R^d)} F(\mu),
+    \label{eq:measure-optimization}
+\end{equation}
+where \(\Ptwo(\R^d)\) denotes the set of Borel probability measures with finite second moment;
+the domain \(\operatorname{dom}F\) for our moment models is specified in \Cref{def:moment-objective}.
+The canonical first-order dynamics is the Wasserstein gradient flow
+\begin{equation}
+    \partial_t \mu_t + \nabla\cdot(v_t\mu_t)=0,
+    \qquad
+    v_t(x)=-\dW F(\mu_t,x),
+    \label{eq:intro-wgf}
+\end{equation}
+which is gradient descent in the \(2\)-Wasserstein geometry.
+In mean-field models, \eqref{eq:intro-wgf} is the population equation used to
+describe interacting-particle dynamics in the infinite-particle limit.
+This viewpoint underlies generative modeling~\citep{arbel2019,chu2019pfd}, particle variational inference and sampling~\citep{jordan1998,liu2016}, and mean-field neural-network training~\citep{chizat2018,songmei2018,nitanda2022convex}.
+In several convex, displacement-convex, and entropy-regularized settings,
+WGF and its particle approximations admit strong convergence and propagation-of-chaos
+\citep{sznitman1991} guarantees~\citep{chen2025uniform,
+suzuki2023uniformintime,nitanda2025propagationensemble,nitanda2022pda}.
+
+For nonconvex objectives, however, first-order stationarity does not rule out
+saddle points. Such second-order landscape structure already appears in
+mean-field models, including the attention model studied by
+\citet{kim2024nonlinear}.
+Inspired by perturbed gradient descent~\citep{GeHuangJinYuan2015,pmlr-v75-jin18a},
+\citet{yamamoto2025hessianguided} introduce Hessian-guided perturbed Wasserstein
+gradient flow (PWGF), which perturbs the population measure along
+Hessian-guided Gaussian vector fields to escape saddles. Their guarantees
+concern the population measure flow. A finite implementation replaces both the
+drift and the Hessian-guided jump covariance by empirical quantities,
+introducing errors along the flow and at each perturbation.
+The interacting particles are generally dependent, so standard sampling bounds
+for independent samples do not apply directly.
+\Needspace{4\baselineskip}
+We therefore ask:
+\begin{center}
+\emph{When can a finite system of interacting particles accurately approximate population PWGF?}
+\end{center}
+
+We answer this finite-sample question through the following contributions.
+
+\Needspace{5\baselineskip}
+\noindent\textbf{Contributions.}
+\begin{enumerate}[leftmargin=1.35em,label=\arabic*.,itemsep=0.01em,topsep=0.05pt,parsep=5pt]
+    \item \textbf{Tracking and objective values.}
+    When the reference path satisfies a controlled-curvature path condition,
+    we obtain particle and objective-value tracking bounds throughout \([0,T]\)
+    under regularity assumptions and a prescribed deterministic common jump schedule
+    (\Cref{theorem-main-r_t}).
+    The bounds retain their \(T\)-dependence and weight ODE residuals and jump
+    mismatches by separate curvature-response factors. By retaining the
+    accumulated curvature, they capture how later positive curvature damps
+    earlier errors. For fixed horizons, the ODE and jump prefactors are
+    \(N^{-1/2}\) and \(N^{-1/4}\), respectively, up to arbitrarily small powers of \(N\).
+    A variance-plus-cosine example gives a growing-horizon tracking guarantee
+    (\Cref{ex:variance-cosine-curvature-recovery}).
+
+    \item \textbf{A population-first coupling for Gaussian jumps.}
+    At each jump, we construct a finite-dimensional standard Gaussian vector that
+    reproduces the population-field evaluations and drives the empirical update.
+    This preserves the correct marginal dynamics and the reference particles'
+    conditional i.i.d. law given the population fields, while reducing the jump
+    comparison to a covariance-factor mismatch
+    (\Cref{subsec:auxiliary-particles,subsec:proof-sketch-after-assumptions}).
+
+    \item \textbf{Local geometry of matrix factorization.}
+    Matrix factorization provides a product model for the nonlinear-moment
+    geometry arising in matrix and tensor decompositions. In a regularized
+    product-measure model, we establish attraction along an anti-symmetric
+    branch, descent transverse to that branch, and positive second variation
+    in two regions under spherical product pushforward perturbations
+    (\Cref{sec:matrix-factorization}). These local results motivate the
+    positive--negative--positive curvature scenario.
+\end{enumerate}
+
+\noindent\textbf{Relation to prior work.}
+\citet{yamamoto2025hessianguided} analyze population PWGF escape and convergence,
+but do not bound its population-to-empirical approximation error.
+\citet{glasgow2025meanfield} track continuous projected neural-network dynamics
+using local particle curvature, without Hessian-induced Gaussian jumps.
+Reference-particle couplings and Gaussian covariance-factor alignment have
+precedents~\citep{sznitman1991,masarotto2019procrustes}. Here the coupling must
+preserve the prescribed population fields, because the conditional
+reference-particle law given those fields is the input to concentration.
+We establish this compatibility and control the resulting jump covariance
+residual through weighted features, then propagate continuous and jump errors
+through the sampled curvature.
+
+\noindent\textbf{Scope.}
+The population PWGF proposed by \citet{yamamoto2025hessianguided}
+selects perturbation times adaptively.
+Prescribed schedules provide a reference point for studying how adaptive
+timing affects finite-particle approximation.
+Our results quantify finite-particle approximation errors under a common
+prescribed schedule while retaining state-dependent drift and jump covariance.
+The tracking bound applies along reference paths satisfying
+the controlled-curvature path condition in \Cref{theorem-main-r_t},
+which bounds error propagation along those paths.
+The variance-plus-cosine example verifies this condition with high probability
+and gives a growing-horizon tracking guarantee with a single prescribed
+jump (\Cref{ex:variance-cosine-curvature-recovery}).
+Extending this verification to broader models and synchronizing adaptive
+jump times remain open directions.

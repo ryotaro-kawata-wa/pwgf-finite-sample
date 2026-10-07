@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-07T12:25:15.825430+00:00",
+  "source_commit": "0fb969641e7dd5e62afc031f8f464d58df011e2b",
+  "source_branch": "codex/arxiv-submission",
+  "export_script_sha256": "e8fcfd2502d20f50cdac8cbc06cd15eddef65aa2a9ffb3694fdac1605ae02621",
+  "paper_entry": "paper/main_arxiv.tex",
+  "project_module_count": 661,
+  "state_assets_separate": true,
+  "git_history_included": false,
+  "publication_action_performed": false,
+  "publication_export_note": "The approved public source tree adds .gitattributes to preserve audited bytes across platforms and treat PDF/image assets as binary."
+}

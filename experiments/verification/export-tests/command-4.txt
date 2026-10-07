@@ -1,0 +1,5 @@
+{
+  "conditions_checked": 15,
+  "scalar_records_match": true,
+  "scope": "scalar records and archived refinement summaries; no NPZ recomputation"
+}

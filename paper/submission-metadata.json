@@ -1,0 +1,70 @@
+{
+  "title": "Finite-Sample Approximation of Hessian-Guided Perturbed Wasserstein Gradient Flows",
+  "authors": [
+    "Ryotaro Kawata",
+    "Atsushi Nitanda",
+    "Taiji Suzuki"
+  ],
+  "affiliations": [
+    {
+      "id": 1,
+      "name": "The University of Tokyo"
+    },
+    {
+      "id": 2,
+      "name": "Agency for Science, Technology and Research (A*STAR)"
+    },
+    {
+      "id": 3,
+      "name": "Nanyang Technological University"
+    },
+    {
+      "id": 4,
+      "name": "RIKEN Center for Advanced Intelligence Project"
+    }
+  ],
+  "abstract": "Wasserstein gradient flow extends gradient descent to probability measures. Its Hessian-guided perturbed variant (PWGF) adds Gaussian perturbations to escape saddle points in nonconvex problems. We investigate when its approximation by finitely many interacting particles remains accurate over growing time horizons. Our analysis retains the curvature accumulated along the population-driven reference path: negative curvature can amplify approximation errors, while subsequent positive curvature can damp their influence. This captures favorable scenarios in which temporary instability is compatible with accurate tracking over growing horizons. Under regularity assumptions and a prescribed common perturbation schedule, we prove particle and objective-value tracking bounds on a high-probability event for reference paths satisfying explicit conditions on accumulated curvature. To handle state-dependent Gaussian jumps, we construct a population-first coupling that preserves the reference particles' conditional independence and reduces jump errors to covariance comparison. We verify the conditions in a variance-plus-cosine model, where curvature recovery yields a growing-horizon tracking guarantee. We also establish local attraction, transverse descent, and positive second variation in two regions of a regularized matrix-factorization model, motivating a positive–negative–positive curvature pattern.",
+  "comments_draft": "147 pages, including all appendices. Lean formalization and numerical reproducibility materials: https://github.com/ryotaro-kawata-wa/pwgf-finite-sample.",
+  "primary_category": null,
+  "cross_list_categories": [],
+  "license": null,
+  "journal_reference": null,
+  "doi": null,
+  "arxiv_identifier": null,
+  "submission_status": "prepared, not submitted",
+  "note": "Please choose the manuscript distribution license and category in the submission form. MIT covers project code only. The public repository is separate from the private development repository. No arXiv identifier or DOI has been assigned.",
+  "author_details": [
+    {
+      "name": "Ryotaro Kawata",
+      "given_names": "Ryotaro",
+      "family_names": "Kawata",
+      "affiliation_ids": [
+        1
+      ],
+      "email": "kawata-ryotaro725@g.ecc.u-tokyo.ac.jp",
+      "corresponding": true
+    },
+    {
+      "name": "Atsushi Nitanda",
+      "given_names": "Atsushi",
+      "family_names": "Nitanda",
+      "affiliation_ids": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "Taiji Suzuki",
+      "given_names": "Taiji",
+      "family_names": "Suzuki",
+      "affiliation_ids": [
+        1,
+        4
+      ]
+    }
+  ],
+  "acknowledgments": "RK was partially supported by JSPS KAKENHI (24K02905) and JST BOOST (JPMJBS2418). TS was partially supported by JST CREST (JPMJCR2115) and JSPS KAKENHI (25H01107). This work was partially supported by JST ERATO Grant Number JPMJER2601. This research is supported by the National Research Foundation, Singapore and the Ministry of Digital Development and Information under the AI Visiting Professorship Programme (award number AIVP-2024-004). Any opinions, findings and conclusions or recommendations expressed in this material are those of the author(s) and do not reflect the views of National Research Foundation, Singapore and the Ministry of Digital Development and Information.",
+  "repository_url": "https://github.com/ryotaro-kawata-wa/pwgf-finite-sample",
+  "reproducibility_version": "2026.10.07",
+  "reproducibility_release_url": "https://github.com/ryotaro-kawata-wa/pwgf-finite-sample/releases/tag/v2026.10.07"
+}

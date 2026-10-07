@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "checked_utc": "2026-10-07T12:32:25.433569+00:00",
+  "scope": "Final local checks before publishing the approved independent repository and release. GitHub readback is recorded separately after upload.",
+  "repository_url": "https://github.com/ryotaro-kawata-wa/pwgf-finite-sample",
+  "version": "2026.10.07",
+  "approved_preparation_zip_sha256": "9a57748719a36618278b63a66031f66dc12a95506dff45c86e39517af78dcc71",
+  "unchanged_lean_sources_and_verifiers": true,
+  "lean": {
+    "registered_declarations": 4274,
+    "modules": 661,
+    "diagnostic_files": 57,
+    "receipt": "lean/verification/20261007T122617.324516Z_public-launch-20261007-release/release-receipt.json",
+    "receipt_sha256": "dbbb482cf216093241b1b5d914fbdb2003a93adb448332722327bb8274192974",
+    "project_build_cache_reused": true,
+    "dependency_cache_reused": true
+  },
+  "numerics": {
+    "prior_nine_job_run_and_saved_state_audit_reused": true,
+    "unchanged_distributed_files": 180,
+    "changed_documentation": [
+      "experiments/README.md"
+    ],
+    "regression_tests_reexecuted": {
+      "experiment_tests": 14,
+      "reporting_tests": 3,
+      "passed": true
+    },
+    "original_platform_exact_match": false,
+    "main_grid_conditions_with_one_inspection_step_difference": 1
+  },
+  "paper": {
+    "pages": 147,
+    "source_zip_independently_compiled": true,
+    "all_page_text_and_render_match": true,
+    "changed_page_visually_reviewed": 11,
+    "other_146_pages_render_unchanged": true,
+    "pdf_sha256": "7fdf7f1fc3975d7c115028f29d6888c2b5fc668480fc3a70723ec5cf736bb356",
+    "arxiv_server_build_executed": false
+  },
+  "raw_state_archives": 9,
+  "raw_state_archive_bytes": 2549701399,
+  "raw_state_archive_hashes_rechecked": true,
+  "arxiv_submitted": false
+}
